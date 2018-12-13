@@ -1316,7 +1316,7 @@
 	}
 	
 	function touchstart(e){
-	var data = e.target.id;
+		var data = e.target.id;
 		console.log(data);
 		begin();		
 		
@@ -1671,10 +1671,13 @@
 			count1[0].style.MozanimationDelay = "0s";
 			count1[0].style.animationDelay = "0s";
 			
+			shootBox5.style.AnimationPlayState="running";
+			shootBox5.style.MozAnimationPlayState="running";
+			shootBox5.style.WebkitAnimationPlayState="running";
 			
-			
-			
-			
+			shoot5.style.AnimationPlayState="running";
+			shoot5.style.MozAnimationPlayState="running";
+			shoot5.style.WebkitAnimationPlayState="running";
 			
 			reward4.style.display="block";
 			
