@@ -8840,6 +8840,410 @@
 	 }
 }
 	
+#shootBox6{
+	position: absolute;
+    overflow: hidden;
+    height: 0%;
+	width: 0%;
+    top: 59%;
+    left: 53%;
+    z-index: 96;
+    transform: rotate(15deg);
+	opacity:1;
+	
+	animation-name: shootBox6;
+	animation-duration: 1.5s;
+	animation-delay:0s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	-moz-animation-name:shootBox6;
+	-moz-animation-duration:1.5s;	
+	-moz-animation-delay:0s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-webkit-animation-name: shootBox6;
+	-webkit-animation-duration: 1.5s;
+	-webkit-animation-delay:0s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+}	
+
+@keyframes shootBox6{
+	0%{
+		height: 0%;
+		width: 0%;
+		opacity:0;
+		z-index: 96;
+	}
+	1%{
+		height: 46%;
+		width: 5%;
+		opacity:1;
+		z-index: 96;
+	}
+	99%{
+		height: 46%;
+		width: 5%;
+		opacity:1;
+		z-index: 96;
+	}
+	100%{
+		height: 46%;
+		width: 5%;
+		opacity:1;
+		z-index: -30;
+	}
+}	
+@-moz-keyframes shootBox6{
+	0%{
+		height: 0%;
+		width: 0%;
+		opacity:0;
+		z-index: 96;
+	}
+	1%{
+		height: 46%;
+		width: 5%;
+		opacity:1;
+		z-index: 96;
+	}
+	99%{
+		height: 46%;
+		width: 5%;
+		opacity:1;
+		z-index: 96;
+	}
+	100%{
+		height: 46%;
+		width: 5%;
+		opacity:1;
+		z-index: -30;
+	}
+}	
+@-webkit-keyframes shootBox6{
+	0%{
+		height: 0%;
+		width: 0%;
+		opacity:0;
+		z-index: 96;
+	}
+	1%{
+		height: 46%;
+		width: 5%;
+		opacity:1;
+		z-index: 96;
+	}
+	99%{
+		height: 46%;
+		width: 5%;
+		opacity:1;
+		z-index: 96;
+	}
+	100%{
+		height: 46%;
+		width: 5%;
+		opacity:1;
+		z-index: -30;
+	}
+}	
+	
+#shoot6{
+	position: absolute;
+    height: 35%;
+    width: 74%;
+	top: 85%;
+    left: 10%;
+    transform: rotate(-18deg);
+    background-size: 100% 100%;
+    background-Repeat: no-repeat;
+    z-index: 96;
+    opacity: 1;
+	
+	animation-name: shoot6;
+	animation-duration: 1s;
+	animation-delay:0s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	-moz-animation-name:shoot6;
+	-moz-animation-duration:1s;	
+	-moz-animation-delay:0s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-webkit-animation-name: shoot6;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay:0s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+}
+	
+@keyframes shoot6{
+	0%{
+		top: 85%;
+	}
+	30%{
+		top: -30%;
+	}
+	100%{
+		top: -30%;
+	}
+}	
+@-moz-keyframes shoot6{
+	0%{
+		top: 85%;
+	}
+	30%{
+		top: -30%;
+	}
+	100%{
+		top: -30%;
+	}
+}	
+@-webkit-keyframes shoot6{
+	0%{
+		top: 85%;
+	}
+	30%{
+		top: -30%;
+	}
+	100%{
+		top: -30%;
+	}
+}		
+	
+ #reward5{	
+    height: 7%;
+    width: 4%;
+    left: 57%;
+    top: 53%;
+	
+	position: absolute;
+	background-size: 100% 100%;
+	background-Repeat: no-repeat;
+	z-index:2;
+	display:none;
+	animation-name: reward5;
+	animation-duration: 1s;
+	animation-delay:0s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	-moz-animation-name:reward5;
+	-moz-animation-duration:1s;	
+	-moz-animation-delay:0s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-webkit-animation-name: reward5;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay:0s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+	
+}	
+
+@keyframes reward5{
+	0%{
+		height: 7%;
+		width: 4%;
+		left: 57%;
+		top: 53%;
+	}
+	5%{
+		height: 7%;
+		width: 4%;
+		left: 56%;
+		top: 45%;
+	}
+	10%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 44%;
+	}
+	15%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 46%;
+	}
+	20%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 53%;
+	}	
+	25%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 60%;
+	}	
+	30%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+	35%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 65%;
+	}
+	40%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 66%;
+	}
+	45%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+	100%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+}	
+@-moz-keyframes reward5{
+	0%{
+		height: 7%;
+		width: 4%;
+		left: 57%;
+		top: 53%;
+	}
+	5%{
+		height: 7%;
+		width: 4%;
+		left: 56%;
+		top: 45%;
+	}
+	10%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 44%;
+	}
+	15%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 46%;
+	}
+	20%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 53%;
+	}	
+	25%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 60%;
+	}	
+	30%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+	35%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 65%;
+	}
+	40%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 66%;
+	}
+	45%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+	100%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+}	
+@-webkit-keyframes reward5{
+		0%{
+		height: 7%;
+		width: 4%;
+		left: 57%;
+		top: 53%;
+	}
+	5%{
+		height: 7%;
+		width: 4%;
+		left: 56%;
+		top: 45%;
+	}
+	10%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 44%;
+	}
+	15%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 46%;
+	}
+	20%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 53%;
+	}	
+	25%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 60%;
+	}	
+	30%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+	35%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 65%;
+	}
+	40%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 66%;
+	}
+	45%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+	100%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+}
+
 #hiddenBox7{
 
 	position: absolute;
@@ -9029,4 +9433,295 @@
 	-webkit-animation-play-state: paused;
 	
  }	
+ 
+#shootBox7{
+	position: absolute;
+    overflow: hidden;
+    height: 0%;
+	width: 0%;
+    top: 55%;
+    left: 46%;
+    z-index: 96;
+    transform: rotate(-41deg);
+	opacity:1;
 
+	animation-name: shootBox5;
+	animation-duration: 1.5s;
+	animation-delay:0s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	-moz-animation-name:shootBox5;
+	-moz-animation-duration:1.5s;	
+	-moz-animation-delay:0s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-webkit-animation-name: shootBox5;
+	-webkit-animation-duration: 1.5s;
+	-webkit-animation-delay:0s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+}	
+
+#shoot7{
+	position: absolute;
+    height: 35%;
+    width: 74%;
+	top: 100%;
+    left: 4%;
+    transform: rotate(-12deg);
+    background-size: 100% 100%;
+    background-Repeat: no-repeat;
+    z-index: 96;
+    opacity: 1;
+	
+	animation-name: shoot5;
+	animation-duration: 1s;
+	animation-delay:0s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	-moz-animation-name:shoot5;
+	-moz-animation-duration:1s;	
+	-moz-animation-delay:0s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-webkit-animation-name: shoot5;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay:0s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+}
+	
+ #reward6{	
+    height: 10%;
+    width: 6%;
+    left: 36%;
+    top: 57%;
+	
+	position: absolute;
+	background-size: 100% 100%;
+	background-Repeat: no-repeat;
+	z-index:1;
+	display:none;
+	animation-name: reward6;
+	animation-duration: 1s;
+	animation-delay:0s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	-moz-animation-name:reward6;
+	-moz-animation-duration:1s;	
+	-moz-animation-delay:0s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-webkit-animation-name: reward6;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay:0s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+	
+}	
+	
+@keyframes reward6{
+	0%{
+		height: 10%;
+		width: 6%;
+		left: 36%;
+		top: 57%;
+	}
+	5%{
+		height: 10%;
+		width: 6%;
+		left: 38%;
+		top: 54%;
+	}
+	10%{
+		height: 10%;
+		width: 6%;
+		left: 39%;
+		top: 52%;
+	}
+	15%{
+		height: 10%;
+		width: 6%;
+		left: 40%;
+		top: 53%;
+	}
+	20%{
+		height: 10%;
+		width: 6%;
+		left: 40%;
+		top: 60%;
+	}	
+	25%{
+		height: 10%;
+		width: 6%;
+		left: 40%;
+		top: 67%;
+	}	
+	30%{
+		height: 10%;
+		width: 6%;
+		left: 40%;
+		top: 73%;
+	}
+	35%{
+		height: 10%;
+		width: 6%;
+		left: 40%;
+		top: 71%;
+	}
+	40%{
+		height: 10%;
+		width: 6%;
+		left: 40%;
+		top: 72%;
+	}
+	45%{
+		height: 10%;
+		width: 6%;
+		left: 40%;
+		top: 73%;
+	}
+	100%{
+		height: 10%;
+		width: 6%;
+		left: 40%;
+		top: 73%;
+	}
+}	
+@-moz-keyframes reward6{
+	0%{
+		height: 7%;
+		width: 4%;
+		left: 57%;
+		top: 53%;
+	}
+	5%{
+		height: 7%;
+		width: 4%;
+		left: 56%;
+		top: 45%;
+	}
+	10%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 44%;
+	}
+	15%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 46%;
+	}
+	20%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 53%;
+	}	
+	25%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 60%;
+	}	
+	30%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+	35%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 65%;
+	}
+	40%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 66%;
+	}
+	45%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+	100%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+}	
+@-webkit-keyframes reward6{
+		0%{
+		height: 7%;
+		width: 4%;
+		left: 57%;
+		top: 53%;
+	}
+	5%{
+		height: 7%;
+		width: 4%;
+		left: 56%;
+		top: 45%;
+	}
+	10%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 44%;
+	}
+	15%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 46%;
+	}
+	20%{
+		height: 7%;
+		width: 4%;
+		left: 55.5%;
+		top: 53%;
+	}	
+	25%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 60%;
+	}	
+	30%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+	35%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 65%;
+	}
+	40%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 66%;
+	}
+	45%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+	100%{
+		height: 7%;
+		width: 4%;
+		left: 55%;
+		top: 67%;
+	}
+}
+	
