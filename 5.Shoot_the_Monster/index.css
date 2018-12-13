@@ -376,7 +376,7 @@
 		background-Repeat:no-repeat;
 		overflow:hidden;
 		background-Size : 100% 100%; 
-		z-index:-10;
+		z-index:-9;
 		
 		animation-name: bgZoom;
 		animation-duration: 1.5s;
@@ -677,11 +677,10 @@
 		}
 	}
 
-	
 	#redLayer{
 		position: absolute;
 		height: 100%;
-		width: 100%;	
+		width: 102%;	
 		background: radial-gradient(transparent 55%, #771D22);
 		z-index:-30;
 		
@@ -3500,7 +3499,7 @@
     width: 9%;
     left: 28%;
     background-image: url(t4.png);
-    z-index: -3;
+    z-index: -4;
 }
 
 #t5{
@@ -3537,8 +3536,8 @@
 
 #t9{
 	height: 72%;
-    width: 10%;
-    left: 52%;
+    width: 9%;
+    left: 52.3%;
     background-image: url(t9.png);
     z-index: 1;
 }
@@ -7281,7 +7280,7 @@
     width: 20%;
     top: 36%;
     left: 29.5%;
-    z-index: -4;
+    z-index: -5;
 	opacity:1;
 	/* border: solid 1px red; */
 	
@@ -7306,36 +7305,36 @@
  @keyframes hiddenBox5{
 	0%{
 		width: 0%;
-		left: 29%;
+		left: 29.5%;
 		opacity:0;
 	 }
 	 100%{
 		width: 14%;
-		left: 29%;
+		left: 29.5%;
 		opacity: 1;
 	 }
  }
  @-moz-keyframes hiddenBox5{
 	0%{
 		width: 0%;
-		left: 29%;
+		left: 29.5%;
 		opacity:0;
 	 }
 	 100%{
 		width: 14%;
-		left: 29%;
+		left: 29.5%;
 		opacity: 1;
 	 }
  }
  @-webkit-keyframes hiddenBox5{
 	0%{
 		width: 0%;
-		left: 29%;
+		left: 29.5%;
 		opacity:0;
 	 }
 	 100%{
 		width: 14%;
-		left: 29%;
+		left: 29.5%;
 		opacity: 1;
 	 }
  }
@@ -8256,3 +8255,778 @@
 	}
 }		
 	
+	
+#hiddenBox6{
+
+	position: absolute;
+    overflow: hidden;
+	height: 27%;
+    width: 20%;
+	top: 44%;
+    left: 62%;
+    z-index: -4;
+	opacity:1;
+	
+	animation-name: hiddenBox6;
+	animation-duration: 0.5s;
+	animation-delay:0s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	-moz-animation-name:hiddenBox6;
+	-moz-animation-duration:0.5s;	
+	-moz-animation-delay:0s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-webkit-animation-name: hiddenBox6;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-delay:0s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+	
+ }	
+ 
+ @keyframes hiddenBox6{
+	0%{
+		width: 0%;
+		left: 62%;
+		opacity:0;
+	 }
+	 100%{
+		width: 6%;
+		left: 56.5%;
+		opacity: 1;
+	 }
+ }
+ @-moz-keyframes hiddenBox6{
+	0%{
+		width: 0%;
+		left: 62%;
+		opacity:0;
+	 }
+	 100%{
+		width: 6%;
+		left: 56.5%;
+		opacity: 1;
+	 }
+}
+ @-webkit-keyframes hiddenBox6{
+	0%{
+		width: 0%;
+		left: 62%;
+		opacity:0;
+	 }
+	 100%{
+		width: 6%;
+		left: 56.5%;
+		opacity: 1;
+	 }
+}
+ 
+#apes4{
+	 
+	position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    left: 36%;
+    background-size: 100% 100%;
+    background-Repeat: no-repeat;
+    opacity: 1;
+	filter: brightness(0);
+	
+	animation-name: apes4;
+	animation-duration: 1s;
+	animation-delay:0s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	-moz-animation-name:apes4;
+	-moz-animation-duration:1s;	
+	-moz-animation-delay:0s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-webkit-animation-name: apes4;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay:0s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;	
+	}
+	
+@keyframes apes4{
+	0%{
+		left: 36%;
+		filter: brightness(0);
+	 }
+	 100%{
+		left: 0%;
+		filter: brightness(1);
+	 }
+}
+@-moz-keyframes apes4{
+	0%{
+		left: -61%;
+		filter: brightness(0);
+	 }
+	 100%{
+		left: 0%;
+		filter: brightness(1);
+	 }
+}
+@-webkit-keyframes apes4{
+	0%{
+		left: -61%;
+		filter: brightness(0);
+	 }
+	 100%{
+		left: 0%;
+		filter: brightness(1);
+	 }
+}
+	
+@keyframes killApes4{
+	0%{
+		left: 0%;
+		opacity:1;
+		filter: brightness(1);
+	}
+	1%{
+		top: 2%;
+		left: 0%;
+		opacity:1;
+		filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
+	}
+	11%{
+		top: 0%;
+	}
+	22%{
+		top: 2%;
+	}
+	33%{
+		top: 0%;
+	}
+	44%{
+		top: 2%;
+		opacity:1;
+	}
+	100%{
+		left: 0%;
+		opacity:0;
+		filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
+	}
+}
+@-moz-keyframes killApes4{
+	0%{
+		left: 19%;
+		opacity:1;
+		filter: brightness(1);
+	}
+	1%{
+		top: 2%;
+		left: 19%;
+		opacity:1;
+		filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
+	}
+	11%{
+		top: 0%;
+	}
+	22%{
+		top: 2%;
+	}
+	33%{
+		top: 0%;
+	}
+	44%{
+		top: 2%;
+		opacity:1;
+	}
+	100%{
+		left: 19%;
+		opacity:0;
+		filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
+	}
+}
+@-webkit-keyframes killApes4{
+	0%{
+		left: 19%;
+		opacity:1;
+		filter: brightness(1);
+	}
+	1%{
+		top: 2%;
+		left: 19%;
+		opacity:1;
+		filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
+	}
+	11%{
+		top: 0%;
+	}
+	22%{
+		top: 2%;
+	}
+	33%{
+		top: 0%;
+	}
+	44%{
+		top: 2%;
+		opacity:1;
+	}
+	100%{
+		left: 19%;
+		opacity:0;
+		filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
+	}
+}	
+	
+#light6{
+	
+	position: absolute;
+    height: 0%;
+    width: 0%;
+	top: 30%;
+    left: 12%;
+	transform: rotate(65deg);
+    background-size: 100% 100%;
+    background-Repeat: no-repeat;
+    z-index: 95;
+    opacity: 1;
+	
+	animation-name: light6;
+	animation-duration: 2s;
+	animation-delay:1s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	animation-iteration-count:3;
+	-moz-animation-name:light6;
+	-moz-animation-duration:2s;	
+	-moz-animation-delay:1s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-moz-animation-iteration-count:3;
+	-webkit-animation-name: light6;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-delay:1s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+	-webkit-animation-iteration-count:3;
+	
+}	
+	
+@keyframes light6{
+	0%{
+		height: 0%;
+		width: 0%;
+		top: 30%;
+		left: 12%;
+	}
+	1%{
+		height: 10%;
+		width: 10%;
+		top: 29%;
+		left: 11%;
+	}
+	5%{
+		height: 20%;
+		width: 100%;
+		top: 22%;
+		left: -32%;
+		filter: brightness(1.5);
+	}
+	10%{
+		height: 10%;
+		width: 10%;
+		top: 29%;
+		left: 11%;
+	}
+	11%{
+		height: 0%;
+		width: 0%;
+		top: 29%;
+		left: 11%;
+	}
+	100%{
+		height: 0%;
+		width: 0%;
+		top: 30%;
+		left: 12%;
+	}
+}
+@-moz-keyframes light6{
+	0%{
+		height: 0%;
+		width: 0%;
+		top: 30%;
+		left: 12%;
+	}
+	1%{
+		height: 10%;
+		width: 10%;
+		top: 29%;
+		left: 11%;
+	}
+	5%{
+		height: 20%;
+		width: 100%;
+		top: 22%;
+		left: -32%;
+		filter: brightness(1.5);
+	}
+	10%{
+		height: 10%;
+		width: 10%;
+		top: 29%;
+		left: 11%;
+	}
+	11%{
+		height: 0%;
+		width: 0%;
+		top: 29%;
+		left: 11%;
+	}
+	100%{
+		height: 0%;
+		width: 0%;
+		top: 30%;
+		left: 12%;
+	}
+}
+@-webkit-keyframes light6{
+	0%{
+		height: 0%;
+		width: 0%;
+		top: 30%;
+		left: 12%;
+	}
+	1%{
+		height: 10%;
+		width: 10%;
+		top: 29%;
+		left: 11%;
+	}
+	5%{
+		height: 20%;
+		width: 100%;
+		top: 22%;
+		left: -32%;
+		filter: brightness(1.5);
+	}
+	10%{
+		height: 10%;
+		width: 10%;
+		top: 29%;
+		left: 11%;
+	}
+	11%{
+		height: 0%;
+		width: 0%;
+		top: 29%;
+		left: 11%;
+	}
+	100%{
+		height: 0%;
+		width: 0%;
+		top: 30%;
+		left: 12%;
+	}
+}
+	
+#fire6{
+	position: absolute;
+	height: 13%;
+    width: 10%;
+	top: 60%;
+	left: 52%;
+    background-size: 100% 100%;
+    background-Repeat: no-repeat;
+    transform: rotate(-25deg);
+    z-index: 3;
+    opacity: 0;
+	
+	animation-name: fire6;
+	animation-duration: 2s;
+	animation-delay:1.5s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	animation-iteration-count:3;
+	-moz-animation-name:fire6;
+	-moz-animation-duration:2s;	
+	-moz-animation-delay:1.5s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-moz-animation-iteration-count:3;
+	-webkit-animation-name: fire6;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-delay:1.5s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+	-webkit-animation-iteration-count:3;
+}
+
+@keyframes fire6{
+	0%{
+		height: 13%;
+		width: 10%;
+		top: 60%;
+		left: 52%;
+		opacity: 0;
+	}
+	1%{
+		height: 13%;
+		width: 10%;
+		top: 60%;
+		left: 52%;
+		opacity: 1;
+	}
+	8%{
+		height: 23%;
+		width: 13%;
+		top: 105%;
+		left: 52%;
+		opacity: 1;
+	}
+	9%{		
+		height: 23%;
+		width: 13%;
+		top: 105%;
+		left: 52%;
+		opacity: 0;
+	}
+	100%{
+		height: 23%;
+		width: 13%;
+		top: 105%;
+		left: 52%;
+		opacity: 0;
+	}
+}
+@-moz-keyframes fire6{
+	0%{
+		height: 13%;
+		width: 10%;
+		top: 60%;
+		left: 52%;
+		opacity: 0;
+	}
+	1%{
+		height: 13%;
+		width: 10%;
+		top: 60%;
+		left: 52%;
+		opacity: 1;
+	}
+	8%{
+		height: 23%;
+		width: 13%;
+		top: 105%;
+		left: 52%;
+		opacity: 1;
+	}
+	9%{		
+		height: 23%;
+		width: 13%;
+		top: 105%;
+		left: 52%;
+		opacity: 0;
+	}
+	100%{
+		height: 23%;
+		width: 13%;
+		top: 105%;
+		left: 52%;
+		opacity: 0;
+	}
+}
+@-webkit-keyframes fire6{
+	0%{
+		height: 13%;
+		width: 10%;
+		top: 60%;
+		left: 52%;
+		opacity: 0;
+	}
+	1%{
+		height: 13%;
+		width: 10%;
+		top: 60%;
+		left: 52%;
+		opacity: 1;
+	}
+	8%{
+		height: 23%;
+		width: 13%;
+		top: 105%;
+		left: 52%;
+		opacity: 1;
+	}
+	9%{		
+		height: 23%;
+		width: 13%;
+		top: 105%;
+		left: 52%;
+		opacity: 0;
+	}
+	100%{
+		height: 23%;
+		width: 13%;
+		top: 105%;
+		left: 52%;
+		opacity: 0;
+	}
+}
+
+#attackBox6{
+
+	position: absolute;
+    height: 26%;
+    width: 0%;
+	top: 46%;
+    left: 60%;
+    z-index: 101;
+	opacity: 1;
+	
+	animation-name: attackBox6;
+	animation-duration: 0.5s;
+	animation-delay:0s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	-moz-animation-name:attackBox6;
+	-moz-animation-duration:1s;	
+	-moz-animation-delay:0s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-webkit-animation-name: attackBox6;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-delay:0s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+	
+ }	
+ 
+@keyframes attackBox6{
+	0%{
+		width: 0%;
+		left: 60%;
+		opacity:0;
+	 }
+	 
+	 100%{
+		width: 3%;
+	    left: 57%;
+		opacity:1;
+	 }
+}
+@-moz-keyframes attackBox6{
+	0%{
+		width: 0%;
+		left: 60%;
+		opacity:0;
+	 }
+	 
+	 100%{
+		width: 3%;
+	    left: 57%;
+		opacity:1;
+	 }
+}
+@-webkit-keyframes attackBox6{
+	0%{
+		width: 0%;
+		left: 60%;
+		opacity:0;
+	 }
+	 
+	 100%{
+		width: 3%;
+	    left: 57%;
+		opacity:1;
+	 }
+}
+	
+#hiddenBox7{
+
+	position: absolute;
+    overflow: hidden;
+	height: 44%;
+    width: 0%;
+    top: 36%;
+    left: 29.5%;
+    z-index: -5;
+	opacity:1;
+	
+	animation-name: hiddenBox7;
+	animation-duration: 0.5s;
+	animation-delay:0.5s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	-moz-animation-name:hiddenBox7;
+	-moz-animation-duration:0.5s;	
+	-moz-animation-delay:0.5s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-webkit-animation-name: hiddenBox7;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-delay:0.5s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+	
+ }	
+ 
+ @keyframes hiddenBox7{
+	0%{
+		width: 0%;
+		left: 29.5%;
+		opacity:0;
+	 }
+	 100%{
+		width: 14%;
+		left: 29.5%;
+		opacity: 1;
+	 }
+ }
+ @-moz-keyframes hiddenBox7{
+	0%{
+		width: 0%;
+		left: 29.5%;
+		opacity:0;
+	 }
+	 100%{
+		width: 14%;
+		left: 29.5%;
+		opacity: 1;
+	 }
+ }
+ @-webkit-keyframes hiddenBox7{
+	0%{
+		width: 0%;
+		left: 29.5%;
+		opacity:0;
+	 }
+	 100%{
+		width: 14%;
+		left: 29.5%;
+		opacity: 1;
+	 }
+ }
+ 
+#apes5{
+	 
+	position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    left: -61%;
+    background-size: 100% 100%;
+    background-Repeat: no-repeat;
+    opacity: 1;
+	filter: brightness(0);
+	transform: scale(-1, 1);
+	
+	animation-name: apes3;
+	animation-duration: 1s;
+	animation-delay:0.5s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	-moz-animation-name:apes3;
+	-moz-animation-duration:1s;	
+	-moz-animation-delay:0.5s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-webkit-animation-name: apes3;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay:0.5s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;	
+	}
+	
+#light7{
+	
+	position: absolute;
+    height: 0%;
+    width: 0%;
+	top: 32%;
+    left: 91%;
+	transform: rotate(65deg);
+    background-size: 100% 100%;
+    background-Repeat: no-repeat;
+    z-index: 95;
+    opacity: 1;
+	
+	animation-name: light5;
+	animation-duration: 2s;
+	animation-delay:1.5s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	animation-iteration-count:3;
+	-moz-animation-name:light5;
+	-moz-animation-duration:2s;	
+	-moz-animation-delay:1.5s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-moz-animation-iteration-count:3;
+	-webkit-animation-name: light5;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-delay:1.5s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+	-webkit-animation-iteration-count:3;
+	
+}	
+	
+#fire7{
+	position: absolute;
+	height: 13%;
+    width: 10%;
+    top: 55%;
+    left: 40%;
+    background-size: 100% 100%;
+    background-Repeat: no-repeat;
+    transform: rotate(-100deg);
+    z-index: 3;
+    opacity: 0;
+	
+	animation-name: fire5;
+	animation-duration: 2s;
+	animation-delay:2s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	animation-iteration-count:3;
+	-moz-animation-name:fire5;
+	-moz-animation-duration:2s;	
+	-moz-animation-delay:2s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-moz-animation-iteration-count:3;
+	-webkit-animation-name: fire5;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-delay:2s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+	-webkit-animation-iteration-count:3;
+}
+
+#attackBox7{
+
+	position: absolute;
+    height: 34%;
+    width: 0%;
+	top: 46%;
+    left: 35%;
+    z-index: 101;
+	opacity: 1;
+	
+	animation-name: attackBox5;
+	animation-duration: 0.5s;
+	animation-delay:0.5s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+	-moz-animation-name:attackBox5;
+	-moz-animation-duration:1s;	
+	-moz-animation-delay:0.5s;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-play-state: paused;
+	-webkit-animation-name: attackBox5;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-delay:0.5s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+	
+ }	
+

@@ -113,17 +113,28 @@
 	var shootBox4 = document.getElementById("shootBox4");
 	var shoot4 = document.getElementById("shoot4");
 	var reward3 =  document.getElementById("reward3");
-	var shootBox5 = document.getElementById("shootBox5");
-	var shoot5 = document.getElementById("shoot5");
+	
 	var hiddenBox5 = document.getElementById("hiddenBox5");
 	var apes3 = document.getElementById("apes3");
 	var light5 = document.getElementById("light5");
 	var fire5 = document.getElementById("fire5");
 	var attackBox5 = document.getElementById("attackBox5");
-	
-	
+	var shootBox5 = document.getElementById("shootBox5");
+	var shoot5 = document.getElementById("shoot5");
 	var reward4 =  document.getElementById("reward4");
 
+	var hiddenBox6 = document.getElementById("hiddenBox6");
+	var apes4 = document.getElementById("apes4");
+	var light6 = document.getElementById("light6");
+	var fire6 = document.getElementById("fire6");
+	var attackBox6 = document.getElementById("attackBox6");
+	
+	var hiddenBox7 = document.getElementById("hiddenBox7");
+	var apes5= document.getElementById("apes5");
+	var light7 = document.getElementById("light7");
+	var fire7 = document.getElementById("fire7");
+	var attackBox7= document.getElementById("attackBox7");
+	
 	var loseLayer =  document.getElementById("loseLayer");
 	var loseLayerBG =  document.getElementById("loseLayerBG");
 		
@@ -216,6 +227,8 @@
 		apes1.style.backgroundImage = apesArray[0];
 		apes2.style.backgroundImage = apesArray[0];
 		apes3.style.backgroundImage = apesArray[0];
+		apes4.style.backgroundImage = apesArray[0];
+		apes5.style.backgroundImage = apesArray[0];
 		
 		var orcArray = ["url('orc.png')"];
 		orc1.style.backgroundImage = orcArray[0];
@@ -234,12 +247,16 @@
 		light3.style.backgroundImage = lightArray[0];
 		light4.style.backgroundImage = lightArray[0];
 		light5.style.backgroundImage = lightArray[0];
+		light6.style.backgroundImage = lightArray[0];
+		light7.style.backgroundImage = lightArray[0];
 				
 		var fireArray = ["url('fire.png')"];	
 		fire2.style.backgroundImage = fireArray[0];
 		fire3.style.backgroundImage = fireArray[0];
 		fire4.style.backgroundImage = fireArray[0];
 		fire5.style.backgroundImage = fireArray[0];
+		fire6.style.backgroundImage = fireArray[0];
+		fire7.style.backgroundImage = fireArray[0];
 		
 		var rewardArray = ["url('reward.png')"];
 		reward1.style.backgroundImage = rewardArray[0];
@@ -655,23 +672,6 @@
 	}
 	
 	function getHurt3(){
-		
-			// gameContainerBg.style.webkitAnimationName = "getHurt";
-			// gameContainerBg.style.mozAnimationName = "getHurt";
-			// gameContainerBg.style.animationName = "getHurt";
-			
-			// gameContainerBg.style.height ="100%";
-			// gameContainerBg.style.width ="103%";
-			// gameContainerBg.style.margin = "0% 0%";
-			// gameContainerBg.style.filter ="brightness(100%)";
-			
-			// gameContainerBg.style.webkitAnimationDuration = "2s";
-			// gameContainerBg.style.mozAnimationDuration = "2s";
-			// gameContainerBg.style.animationDuration= "2s";
-			
-			// gameContainerBg.style.webkitAnimationDelay = "2s";
-			// gameContainerBg.style.mozAnimationDelay =  "2s";
-			// gameContainerBg.style.animationDelay = "2s";
 			
 			redLayer.style.display = "block";
 			
@@ -690,6 +690,36 @@
 			redLayer.style.webkitAnimationName = "redLayer";
 			redLayer.style.mozAnimationName = "redLayer";
 			redLayer.style.animationName = "redLayer";
+			
+			redLayer.style.webkitAnimationDuration = "2s";
+			redLayer.style.mozAnimationDuration = "2s";
+			redLayer.style.animationDuration= "2s";
+			
+			redLayer.style.webkitAnimationDelay = "1.7s";
+			redLayer.style.mozAnimationDelay = "1.7s";
+			redLayer.style.animationDelay = "1.7s";
+			
+	}
+	
+	function getHurt4(){
+			
+			redLayer.style.display = "block";
+			
+			innerContainer.style.webkitAnimationName = "innerContainer2";
+			innerContainer.style.mozAnimationName = "innerContainer2";
+			innerContainer.style.animationName = "innerContainer2";
+			
+			innerContainer.style.webkitAnimationDuration = "2s";
+			innerContainer.style.mozAnimationDuration = "2s";
+			innerContainer.style.animationDuration= "2s";
+			
+			innerContainer.style.webkitAnimationDelay = "1.7s";
+			innerContainer.style.mozAnimationDelay = "1.7s";
+			innerContainer.style.animationDelay = "1.7s";
+			
+			redLayer.style.webkitAnimationName = "redLayer2";
+			redLayer.style.mozAnimationName = "redLayer2";
+			redLayer.style.animationName = "redLayer2";
 			
 			redLayer.style.webkitAnimationDuration = "2s";
 			redLayer.style.mozAnimationDuration = "2s";
@@ -832,6 +862,8 @@
 			
 			attackBox2.style.zIndex = "-30";
 			attackBox3.style.zIndex = "-30";
+			attackBox4.style.zIndex = "-30";
+			attackBox5.style.zIndex = "-30";
 		}
 		
 	}	
@@ -921,9 +953,7 @@
 			attackBox4.style.zIndex = "-30";
 		}
 		
-		if(live === 0){
-			
-			attackBox4.style.zIndex = "-30";
+		if(live === 0){	
 			
 			fire4.style.zIndex = "-30";
 			fire4.style.display = "none";
@@ -938,6 +968,11 @@
 			light4.style.AnimationPlayState="paused";
 			light4.style.MozAnimationPlayState="paused";
 			light4.style.WebkitAnimationPlayState="paused";
+			
+			attackBox2.style.zIndex = "-30";
+			attackBox3.style.zIndex = "-30";
+			attackBox4.style.zIndex = "-30";
+			attackBox5.style.zIndex = "-30";
 			
 		}
 		
@@ -1262,11 +1297,28 @@
 			attackBox5.style.MozAnimationPlayState="running";
 			attackBox5.style.WebkitAnimationPlayState="running";
 			
+			getHurt4();
+			
+			if (live === 3){
+				countTime = 0;
+			}
+			if (live === 2){
+				countTime = 116;
+			}
+			if (live === 1){
+				countTime = 232;
+			}
+			
+			lifeDetect2 = requestAnimationFrame(lifeCount2);
 		}
 		if (data === "attackBox5"){
 			
+			cancelAnimationFrame(lifeDetect2);
+			
+			stopHurt();
+			
 			sparkBox.style.display = "block";
-			sparkBox.style.left = "27%";
+			sparkBox.style.left = "23%";
 			sparkBox.style.top = "42%";
 			
 			sparkAnimation();
@@ -1312,7 +1364,115 @@
 			reward4.style.AnimationPlayState="running";
 			reward4.style.MozAnimationPlayState="running";
 			reward4.style.WebkitAnimationPlayState="running";
+			
+			hiddenBox6.style.AnimationPlayState="running";
+			hiddenBox6.style.MozAnimationPlayState="running";
+			hiddenBox6.style.WebkitAnimationPlayState="running";
+			
+			apes4.style.AnimationPlayState="running";
+			apes4.style.MozAnimationPlayState="running";
+			apes4.style.WebkitAnimationPlayState="running";
+			
+			light6.style.AnimationPlayState="running";
+			light6.style.MozAnimationPlayState="running";
+			light6.style.WebkitAnimationPlayState="running";
+			
+			fire6.style.AnimationPlayState="running";
+			fire6.style.MozAnimationPlayState="running";
+			fire6.style.WebkitAnimationPlayState="running";
+			
+			attackBox6.style.AnimationPlayState="running";
+			attackBox6.style.MozAnimationPlayState="running";
+			attackBox6.style.WebkitAnimationPlayState="running";
+			
+			hiddenBox7.style.AnimationPlayState="running";
+			hiddenBox7.style.MozAnimationPlayState="running";
+			hiddenBox7.style.WebkitAnimationPlayState="running";
+			
+			apes5.style.AnimationPlayState="running";
+			apes5.style.MozAnimationPlayState="running";
+			apes5.style.WebkitAnimationPlayState="running";
+			
+			light7.style.AnimationPlayState="running";
+			light7.style.MozAnimationPlayState="running";
+			light7.style.WebkitAnimationPlayState="running";
+			
+			fire7.style.AnimationPlayState="running";
+			fire7.style.MozAnimationPlayState="running";
+			fire7.style.WebkitAnimationPlayState="running";
+			
+			attackBox7.style.AnimationPlayState="running";
+			attackBox7.style.MozAnimationPlayState="running";
+			attackBox7.style.WebkitAnimationPlayState="running";
 		}
+		
+		if (data === "attackBox6"){
+			
+			sparkBox.style.display = "block";
+			sparkBox.style.height = "30%";
+			sparkBox.style.width = "20%";
+			sparkBox.style.left = "48%";
+			sparkBox.style.top = "46%";
+			
+			sparkAnimation();
+			
+			attackBox6.style.zIndex = "-30";
+			
+			fire6.style.zIndex = "-30";
+			fire6.style.display = "none";
+			
+			fire6.style.AnimationPlayState="paused";
+			fire6.style.MozAnimationPlayState="paused";
+			fire6.style.WebkitAnimationPlayState="paused";
+			
+			light6.style.zIndex = "-30";
+			light6.style.display = "none";
+			
+			light6.style.AnimationPlayState="paused";
+			light6.style.MozAnimationPlayState="paused";
+			light6.style.WebkitAnimationPlayState="paused";
+			
+			apes4.style.WebkitAnimationName = "killApes3";
+			apes4.style.MozAnimationName = "killApes3";
+			apes4.style.animationName = "killApes3";
+			
+		}
+		if (data === "attackBox7"){
+			
+			sparkBox.style.display = "block";
+			sparkBox.style.height = "40%";
+			sparkBox.style.width = "26%";
+			sparkBox.style.left = "23%";
+			sparkBox.style.top = "42%";
+			
+			sparkAnimation();
+			
+			attackBox7.style.zIndex = "-30";
+			
+			fire7.style.zIndex = "-30";
+			fire7.style.display = "none";
+			
+			fire7.style.AnimationPlayState="paused";
+			fire7.style.MozAnimationPlayState="paused";
+			fire7.style.WebkitAnimationPlayState="paused";
+			
+			light7.style.zIndex = "-30";
+			light7.style.display = "none";
+			
+			light7.style.AnimationPlayState="paused";
+			light7.style.MozAnimationPlayState="paused";
+			light7.style.WebkitAnimationPlayState="paused";
+			
+			apes5.style.WebkitAnimationName = "killApes3";
+			apes5.style.MozAnimationName = "killApes3";
+			apes5.style.animationName = "killApes3";
+			
+			apes5.style.WebkitAnimationDelay= "0s";
+			apes5.style.MozAnimationNameDelay = "0s";
+			apes5.style.animationNameDelay = "0s";
+			
+		}
+		
 	}
 	
 	function touchstart(e){
@@ -1634,11 +1794,28 @@
 			attackBox5.style.MozAnimationPlayState="running";
 			attackBox5.style.WebkitAnimationPlayState="running";
 			
+			getHurt4();
+			
+			if (live === 3){
+				countTime = 0;
+			}
+			if (live === 2){
+				countTime = 116;
+			}
+			if (live === 1){
+				countTime = 232;
+			}
+			
+			lifeDetect2 = requestAnimationFrame(lifeCount2);
 		}
 		if (data === "attackBox5"){
 			
+			cancelAnimationFrame(lifeDetect2);
+			
+			stopHurt();
+			
 			sparkBox.style.display = "block";
-			sparkBox.style.left = "27%";
+			sparkBox.style.left = "23%";
 			sparkBox.style.top = "42%";
 			
 			sparkAnimation();
@@ -1684,6 +1861,113 @@
 			reward4.style.AnimationPlayState="running";
 			reward4.style.MozAnimationPlayState="running";
 			reward4.style.WebkitAnimationPlayState="running";
+			
+			hiddenBox6.style.AnimationPlayState="running";
+			hiddenBox6.style.MozAnimationPlayState="running";
+			hiddenBox6.style.WebkitAnimationPlayState="running";
+			
+			apes4.style.AnimationPlayState="running";
+			apes4.style.MozAnimationPlayState="running";
+			apes4.style.WebkitAnimationPlayState="running";
+			
+			light6.style.AnimationPlayState="running";
+			light6.style.MozAnimationPlayState="running";
+			light6.style.WebkitAnimationPlayState="running";
+			
+			fire6.style.AnimationPlayState="running";
+			fire6.style.MozAnimationPlayState="running";
+			fire6.style.WebkitAnimationPlayState="running";
+			
+			attackBox6.style.AnimationPlayState="running";
+			attackBox6.style.MozAnimationPlayState="running";
+			attackBox6.style.WebkitAnimationPlayState="running";
+			
+			hiddenBox7.style.AnimationPlayState="running";
+			hiddenBox7.style.MozAnimationPlayState="running";
+			hiddenBox7.style.WebkitAnimationPlayState="running";
+			
+			apes5.style.AnimationPlayState="running";
+			apes5.style.MozAnimationPlayState="running";
+			apes5.style.WebkitAnimationPlayState="running";
+			
+			light7.style.AnimationPlayState="running";
+			light7.style.MozAnimationPlayState="running";
+			light7.style.WebkitAnimationPlayState="running";
+			
+			fire7.style.AnimationPlayState="running";
+			fire7.style.MozAnimationPlayState="running";
+			fire7.style.WebkitAnimationPlayState="running";
+			
+			attackBox7.style.AnimationPlayState="running";
+			attackBox7.style.MozAnimationPlayState="running";
+			attackBox7.style.WebkitAnimationPlayState="running";
+		}
+		
+		if (data === "attackBox6"){
+			
+			sparkBox.style.display = "block";
+			sparkBox.style.height = "30%";
+			sparkBox.style.width = "20%";
+			sparkBox.style.left = "48%";
+			sparkBox.style.top = "46%";
+			
+			sparkAnimation();
+			
+			attackBox6.style.zIndex = "-30";
+			
+			fire6.style.zIndex = "-30";
+			fire6.style.display = "none";
+			
+			fire6.style.AnimationPlayState="paused";
+			fire6.style.MozAnimationPlayState="paused";
+			fire6.style.WebkitAnimationPlayState="paused";
+			
+			light6.style.zIndex = "-30";
+			light6.style.display = "none";
+			
+			light6.style.AnimationPlayState="paused";
+			light6.style.MozAnimationPlayState="paused";
+			light6.style.WebkitAnimationPlayState="paused";
+			
+			apes4.style.WebkitAnimationName = "killApes3";
+			apes4.style.MozAnimationName = "killApes3";
+			apes4.style.animationName = "killApes3";
+			
+		}
+		if (data === "attackBox7"){
+			
+			sparkBox.style.display = "block";
+			sparkBox.style.height = "40%";
+			sparkBox.style.width = "26%";
+			sparkBox.style.left = "23%";
+			sparkBox.style.top = "42%";
+			
+			sparkAnimation();
+			
+			attackBox7.style.zIndex = "-30";
+			
+			fire7.style.zIndex = "-30";
+			fire7.style.display = "none";
+			
+			fire7.style.AnimationPlayState="paused";
+			fire7.style.MozAnimationPlayState="paused";
+			fire7.style.WebkitAnimationPlayState="paused";
+			
+			light7.style.zIndex = "-30";
+			light7.style.display = "none";
+			
+			light7.style.AnimationPlayState="paused";
+			light7.style.MozAnimationPlayState="paused";
+			light7.style.WebkitAnimationPlayState="paused";
+			
+			apes5.style.WebkitAnimationName = "killApes3";
+			apes5.style.MozAnimationName = "killApes3";
+			apes5.style.animationName = "killApes3";
+			
+			apes5.style.WebkitAnimationDelay= "0s";
+			apes5.style.MozAnimationNameDelay = "0s";
+			apes5.style.animationNameDelay = "0s";
+			
 		}
 	}
 
