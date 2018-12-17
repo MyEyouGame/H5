@@ -75,7 +75,6 @@
 	
 	var grayscaleElf = document.getElementById("grayscaleElf");
 	var dGUFont = document.getElementById("DontGiveUpFont");
-	var againFont = document.getElementById("againFont");
 	
 	var guide = document.getElementById("guide");
 	var hand = document.getElementById("hand");
@@ -206,33 +205,6 @@
 		countImage[3].style.margin = "3% 64%";
 		count0[0].style.margin = "0% 55%";
 
-		
-			// grayscaleElf.style.animationPlayState="running";
-			// grayscaleElf.style.mozAnimationPlayState="running";
-			// grayscaleElf.style.webkitAnimationPlayState="running";
-			
-			// inkBox.style.animationPlayState="running";
-			// inkBox.style.mozAnimationPlayState="running";
-			// inkBox.style.webkitAnimationPlayState="running";
-			
-			// inkBox.style.animationPlayState="running";
-			// inkBox.style.mozAnimationPlayState="running";
-			// inkBox.style.webkitAnimationPlayState="running";
-			
-			// dguDetect = requestAnimationFrame(dguCount);
-			
-			// loseLayer.style.animationPlayState="running";
-			// loseLayer.style.mozAnimationPlayState="running";
-			// loseLayer.style.webkitAnimationPlayState="running";
-			
-			// loseLayerBG.style.animationPlayState="running";
-			// loseLayerBG.style.mozAnimationPlayState="running";
-			// loseLayerBG.style.webkitAnimationPlayState="running";
-			
-			// againFontBG.style.animationPlayState="running";
-			// againFontBG.style.mozAnimationPlayState="running";
-			// againFontBG.style.webkitAnimationPlayState="running";
-		
 	}
 	
 	function createImage(){
@@ -424,44 +396,6 @@
 				dGUFont.appendChild(dontGiveUpFontImage);
 			}
 		}
-		
-		var againFontArray =[
-							'againFont1.png',
-							'againFont2.png',
-							'againFont3.png',
-							'againFont4.png',
-							'againFont5.png',
-							'againFont6.png',
-							'againFont7.png',
-							'againFont8.png',
-							'againFont9.png',
-							'againFont10.png',
-							'againFont11.png',
-							'againFont12.png',
-							'againFont13.png',
-							'againFont14.png',
-							'againFont15.png',
-							'againFont16.png',
-							'againFont17.png',
-							'againFont18.png',
-							'againFont19.png',
-							'againFont20.png',
-							'againFont21.png',
-							'againFont22.png',
-							'againFont23.png'
-						];	
-
-			for(i=0; i<23; i++)
-		{	 
-			if(i < 23)
-			{
-				var againFontImage = document.createElement("IMG");
-				againFontImage.setAttribute("src", againFontArray[i]);	
-				againFontImage.setAttribute("class","againFont");
-				againFont.appendChild(againFontImage);
-			}
-		}
-		
 		
 		var starArray =[
 							'S1.png',
@@ -656,7 +590,7 @@
 		font.style.MozanimationDuration = "1s";
 		font.style.animationDuration = "1s";
 		
-		arrow.style.display = "none"	
+		arrow.style.display = "none";	
 		
 		countDisplay.style.AnimationPlayState="running";
 		countDisplay.style.MozAnimationPlayState="running";
@@ -779,8 +713,8 @@
 		winLayer.style.zIndex = "100";
 			
 		winLayer.style.animationPlayState="running";
-		winLayerGlow.style.animationPlayState="running";
-		winLayerGlowBox.style.animationPlayState="running";
+		// winLayerGlow.style.animationPlayState="running";
+		// winLayerGlowBox.style.animationPlayState="running";
 		winLayerBG.style.animationPlayState="running";
 		
 		coin1.style.animationPlayState="running";
@@ -794,8 +728,8 @@
 		coin8.style.animationPlayState="running";
 		
 		winLayer.style.mozAnimationPlayState="running";
-		winLayerGlow.style.mozAnimationPlayState="running";
-		winLayerGlowBox.style.mozAnimationPlayState="running";
+		// winLayerGlow.style.mozAnimationPlayState="running";
+		// winLayerGlowBox.style.mozAnimationPlayState="running";
 		winLayerBG.style.mozAnimationPlayState="running";
 		
 		coin1.style.mozAnimationPlayState="running";
@@ -809,8 +743,8 @@
 		coin8.style.mozAnimationPlayState="running";
 		
 		winLayer.style.webkitAnimationPlayState="running";
-		winLayerGlow.style.webkitAnimationPlayState="running";
-		winLayerGlowBox.style.webkitAnimationPlayState="running";
+		// winLayerGlow.style.webkitAnimationPlayState="running";
+		// winLayerGlowBox.style.webkitAnimationPlayState="running";
 		winLayerBG.style.webkitAnimationPlayState="running";
 		
 		coin1.style.webkitAnimationPlayState="running";
@@ -962,6 +896,39 @@
 		starDetect = requestAnimationFrame(starCount);
 	}
 	
+	function loseInterface(){
+		grayscaleElf.style.animationPlayState="running";
+		grayscaleElf.style.mozAnimationPlayState="running";
+		grayscaleElf.style.webkitAnimationPlayState="running";
+		
+		inkBox.style.animationPlayState="running";
+		inkBox.style.mozAnimationPlayState="running";
+		inkBox.style.webkitAnimationPlayState="running";
+		
+		inkBox.style.animationPlayState="running";
+		inkBox.style.mozAnimationPlayState="running";
+		inkBox.style.webkitAnimationPlayState="running";
+		
+		dguDetect = requestAnimationFrame(dguCount);
+		
+		loseLayer.style.animationPlayState="running";
+		loseLayer.style.mozAnimationPlayState="running";
+		loseLayer.style.webkitAnimationPlayState="running";
+		
+		loseLayerBG.style.animationPlayState="running";
+		loseLayerBG.style.mozAnimationPlayState="running";
+		loseLayerBG.style.webkitAnimationPlayState="running";
+		
+		againFontBG.style.animationPlayState="running";
+		againFontBG.style.mozAnimationPlayState="running";
+		againFontBG.style.webkitAnimationPlayState="running";
+		
+		arrow.style.display = "block";	
+		arrow.style.zIndex="110";
+		arrow.style.webkitAnimationName="arrow2";
+		arrow.style.webkitAnimationDelay="6s";
+	}
+	
 	function getHurt(){
 			gameContainerBg.style.WebkitAnimationName = "getHurt";
 			gameContainerBg.style.MozAnimationName = "getHurt";
@@ -1070,31 +1037,7 @@
 			
 			cancelAnimationFrame(lifeDetect);
 			
-			grayscaleElf.style.animationPlayState="running";
-			grayscaleElf.style.mozAnimationPlayState="running";
-			grayscaleElf.style.webkitAnimationPlayState="running";
-			
-			inkBox.style.animationPlayState="running";
-			inkBox.style.mozAnimationPlayState="running";
-			inkBox.style.webkitAnimationPlayState="running";
-			
-			inkBox.style.animationPlayState="running";
-			inkBox.style.mozAnimationPlayState="running";
-			inkBox.style.webkitAnimationPlayState="running";
-			
-			dguDetect = requestAnimationFrame(dguCount);
-			
-			loseLayer.style.animationPlayState="running";
-			loseLayer.style.mozAnimationPlayState="running";
-			loseLayer.style.webkitAnimationPlayState="running";
-			
-			loseLayerBG.style.animationPlayState="running";
-			loseLayerBG.style.mozAnimationPlayState="running";
-			loseLayerBG.style.webkitAnimationPlayState="running";
-			
-			againFontBG.style.animationPlayState="running";
-			againFontBG.style.mozAnimationPlayState="running";
-			againFontBG.style.webkitAnimationPlayState="running";
+			loseInterface();
 		
 			attackBox2.style.zIndex = "-30";
 		}

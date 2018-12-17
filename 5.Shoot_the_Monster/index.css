@@ -1358,17 +1358,17 @@
 		
 		animation-name: againFontBG;
 		animation-duration: 1s;
-		animation-delay: 4s;
+		animation-delay: 5s;
 		animation-fill-mode: forwards;
 		animation-play-state: paused;
 		-moz-animation-name:againFontBG;
 		-moz-animation-duration:1s;	
-		-moz-animation-delay: 4s;
+		-moz-animation-delay: 5s;
 		-moz-animation-fill-mode: forwards;
 		-moz-animation-play-state: paused;
 		-webkit-animation-name: againFontBG;
 		-webkit-animation-duration: 1s;
-		-webkit-animation-delay: 4s;
+		-webkit-animation-delay: 5s;
 		-webkit-animation-fill-mode: forwards;
 		-webkit-animation-play-state: paused;
 	}
@@ -1381,27 +1381,79 @@
 			bottom: -23%;
 			left: 50%;
 			transform: scale(3.5);
-			filter: brightness(2)
+			filter: brightness(2);
 		}
 		10%{
-				opacity:1;
-			    position: absolute;
-				height: 71%;
-				width: 35%;
-				bottom: -18%;
-				left: 63%;
-				transform: scale(1);
-				filter: brightness(1.5);
+			opacity:1;
+			height: 71%;
+			width: 35%;
+			bottom: -18%;
+			left: 63%;
+			transform: scale(1);
+			filter: brightness(1.5);
+		}
+		20%{
+			opacity:1;
+			height: 71%;
+			width: 35%;
+			bottom: -18%;
+			left: 63%;
+			transform: scale(1);
+			filter: brightness(1);
+		}
+		30%{
+			height: 81%;
+			width: 42%;
+			bottom: -22%;
+			left: 59%;
+			transform: scale(1);
+			filter: brightness(2);
+			opacity: 1;
+		}
+		40%{
+			height: 81%;
+			width: 42%;
+			bottom: -22%;
+			left: 59%;
+			transform: scale(1);
+			filter: brightness(1);
+			opacity: 1;
+		}
+		50%{
+			height: 81%;
+			width: 42%;
+			bottom: -22%;
+			left: 59%;
+			transform: scale(1);
+			filter: brightness(1);
+			opacity: 1;
+		}
+		60%{
+			height: 85%;
+			width: 45%;
+			bottom: -24%;
+			left: 57%;
+			transform: scale(1);
+			filter: brightness(2);
+			opacity: 1;
+		}
+		70%{
+			height: 81%;
+			width: 42%;
+			bottom: -22%;
+			left: 59%;
+			transform: scale(1);
+			filter: brightness(1);
+			opacity: 1;
 		}
 		100%{
-			opacity:1;
-			    position: absolute;
-				height: 71%;
-				width: 35%;
-				bottom: -18%;
-				left: 63%;
-				transform: scale(1);
-				filter: brightness(1.5);
+			height: 81%;
+			width: 42%;
+			bottom: -22%;
+			left: 59%;
+			transform: scale(1);
+			filter: brightness(1);
+			opacity: 1;
 		}
 	}
 	@-moz-keyframes againFontBG{
@@ -1431,7 +1483,7 @@
 		background-Size : 100% 100%; 
 	}
 
-	.DontGiveUpFont,.againFont,.winStar{
+	.DontGiveUpFont,.winStar{
 		position: absolute;
 		height: 100%;
 		width: 100%;  
@@ -3308,6 +3360,116 @@
 			margin: 49% 70%;
 		}
 	}
+	
+	@keyframes arrow2{
+		0%{
+			opacity:1;
+			margin: 52% 91%;	
+			z-index:110;
+		}
+		10%{	
+			opacity:1;
+			margin: 51% 91%;
+			z-index:110;
+		}
+		20%{	
+			opacity:1;
+			margin: 52% 91%;
+		}
+		30%{
+			opacity:1;
+			margin: 51% 91%;
+		}
+		40%{
+			opacity:1;
+			margin: 50% 89%;
+		}
+		50%{
+			opacity:1;
+			margin: 51% 91%;
+		}
+		60%{
+			opacity:1;
+			margin: 52% 91%;
+		}
+		100%{
+			opacity:1;
+			margin: 51% 91%;
+		}
+	}
+	@-moz-keyframes arrow2{
+		0%{
+			opacity:1;
+			margin: 52% 91%;	
+			z-index:110;
+		}
+		10%{	
+			opacity:1;
+			margin: 51% 91%;
+			z-index:110;
+		}
+		20%{	
+			opacity:1;
+			margin: 52% 91%;
+		}
+		30%{
+			opacity:1;
+			margin: 51% 91%;
+		}
+		40%{
+			opacity:1;
+			margin: 50% 89%;
+		}
+		50%{
+			opacity:1;
+			margin: 51% 91%;
+		}
+		60%{
+			opacity:1;
+			margin: 52% 91%;
+		}
+		100%{
+			opacity:1;
+			margin: 51% 91%;
+		}
+	}
+	@-webkit-keyframes arrow2{
+		0%{
+			opacity:1;
+			margin: 52% 91%;	
+			z-index:110;
+		}
+		10%{	
+			opacity:1;
+			margin: 51% 91%;
+			z-index:110;
+		}
+		20%{	
+			opacity:1;
+			margin: 52% 91%;
+		}
+		30%{
+			opacity:1;
+			margin: 51% 91%;
+		}
+		40%{
+			opacity:1;
+			margin: 50% 89%;
+		}
+		50%{
+			opacity:1;
+			margin: 51% 91%;
+		}
+		60%{
+			opacity:1;
+			margin: 52% 91%;
+		}
+		100%{
+			opacity:1;
+			margin: 51% 91%;
+		}
+	}
+	
 	
 	#heart{
 		position: absolute;
