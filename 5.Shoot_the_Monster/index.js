@@ -191,6 +191,10 @@
 	var winButton = document.getElementById("winButton");
 	var winStar = document.getElementById("winStar");
 		
+	var bowGlowLeft2 = document.getElementById("bowGlowLeft2");
+	var bowGlowMiddle2 = document.getElementById("bowGlowMiddle2");
+	var bowGlowRight2 = document.getElementById("bowGlowRight2");	
+		
 	function main(){
 		document.getElementById("loader").style.display = "none";	
 		gameContainer.style.display = "block";
@@ -204,7 +208,28 @@
 		countImage[2].style.margin = "0% 73%";
 		countImage[3].style.margin = "3% 64%";
 		count0[0].style.margin = "0% 55%";
+		
+	}
+	
+	function doTimer(length, resolution, oninstance, oncomplete){
+		var steps = (length / 100) * (resolution / 10),
+		speed = length / steps,
+		count = 0,
+		start = new Date().getTime();
 
+		function instance(){
+			if(count++ == steps){
+				oncomplete(steps, count);
+			}
+			else{
+				oninstance(steps, count);
+
+				var diff = (new Date().getTime() - start) - (count * speed);
+				window.setTimeout(instance, (speed - diff));
+			}
+		}
+
+		window.setTimeout(instance, speed);
 	}
 	
 	function createImage(){
@@ -278,7 +303,7 @@
 		shoot9.style.backgroundImage = shootArray[0];
 		shoot10.style.backgroundImage = shootArray[0];
 		
-		var lightArray = ["url('glow.png')"];		
+		var lightArray = ["url('glow.png')","url('glow2.png')"];		
 		light1.style.backgroundImage = lightArray[0];
 		light2.style.backgroundImage = lightArray[0];
 		light3.style.backgroundImage = lightArray[0];
@@ -291,8 +316,11 @@
 		light10.style.backgroundImage = lightArray[0];	
 		winLayerGlow.style.backgroundImage = lightArray[0];		
 		bowGlowLeft.style.backgroundImage = lightArray[0];	
-		bowGlowMiddle.style.backgroundImage = lightArray[0];	
+		bowGlowLeft2.style.backgroundImage = lightArray[0];	
+		bowGlowMiddle.style.backgroundImage = lightArray[1];	
+		bowGlowMiddle2.style.backgroundImage = lightArray[1];
 		bowGlowRight.style.backgroundImage = lightArray[0];	
+		bowGlowRight2.style.backgroundImage = lightArray[0];	
 			
 		var fireArray = ["url('fire.png')"];	
 		fire2.style.backgroundImage = fireArray[0];
@@ -432,19 +460,22 @@
 		}
 	}
 	
-	var dguTime = 0;
-	function dguCount(timestamp){
-		if (174 > dguTime){
-			dguTime ++;
-			dguDetect = requestAnimationFrame(dguCount);
-		}
-		if (dguTime === 174){
-			console.log(dguTime);
-			document.getElementById("DontGiveUpFont").style.display="block";
-			dguAnimation();
-			cancelAnimationFrame(dguDetect);
-		}
-	}
+	// var dguTime = 0;
+	// function dguCount(timestamp){
+		// if (174 > dguTime){
+			// dguTime ++;
+			// dguDetect = requestAnimationFrame(dguCount);
+		// }
+		// if (dguTime === 174){
+			// console.log(dguTime);
+
+			// cancelAnimationFrame(dguDetect);
+		// }
+	// }
+	
+
+	// dguAnimation();
+	
 	var renderdgu;
 	function dguAnimation(){
 		var myIndex = 0;	
@@ -713,8 +744,8 @@
 		winLayer.style.zIndex = "100";
 			
 		winLayer.style.animationPlayState="running";
-		// winLayerGlow.style.animationPlayState="running";
-		// winLayerGlowBox.style.animationPlayState="running";
+		winLayerGlow.style.animationPlayState="running";
+		winLayerGlowBox.style.animationPlayState="running";
 		winLayerBG.style.animationPlayState="running";
 		
 		coin1.style.animationPlayState="running";
@@ -728,8 +759,8 @@
 		coin8.style.animationPlayState="running";
 		
 		winLayer.style.mozAnimationPlayState="running";
-		// winLayerGlow.style.mozAnimationPlayState="running";
-		// winLayerGlowBox.style.mozAnimationPlayState="running";
+		winLayerGlow.style.mozAnimationPlayState="running";
+		winLayerGlowBox.style.mozAnimationPlayState="running";
 		winLayerBG.style.mozAnimationPlayState="running";
 		
 		coin1.style.mozAnimationPlayState="running";
@@ -743,8 +774,8 @@
 		coin8.style.mozAnimationPlayState="running";
 		
 		winLayer.style.webkitAnimationPlayState="running";
-		// winLayerGlow.style.webkitAnimationPlayState="running";
-		// winLayerGlowBox.style.webkitAnimationPlayState="running";
+		winLayerGlow.style.webkitAnimationPlayState="running";
+		winLayerGlowBox.style.webkitAnimationPlayState="running";
 		winLayerBG.style.webkitAnimationPlayState="running";
 		
 		coin1.style.webkitAnimationPlayState="running";
@@ -873,24 +904,33 @@
 		chest2.style.animationPlayState = "running";
 		bow.style.animationPlayState = "running";
 		bowGlowLeft.style.animationPlayState = "running";
+		bowGlowLeft2.style.animationPlayState = "running";
 		bowGlowMiddle.style.animationPlayState = "running";
+		bowGlowMiddle2.style.animationPlayState = "running";
 		bowGlowRight.style.animationPlayState = "running";
+		bowGlowRight2.style.animationPlayState = "running";
 		winButton.style.animationPlayState = "running";
 		
 		chest1.style.mozAnimationPlayState = "running";
 		chest2.style.mozAnimationPlayState = "running";
 		bow.style.mozAnimationPlayState = "running";
 		bowGlowLeft.style.mozAnimationPlayState = "running";
+		bowGlowLeft2.style.mozAnimationPlayState = "running";
 		bowGlowMiddle.style.mozAnimationPlayState = "running";
+		bowGlowMiddle2.style.mozAnimationPlayState = "running";
 		bowGlowRight.style.mozAnimationPlayState = "running";
+		bowGlowRight2.style.mozAnimationPlayState = "running";
 		winButton.style.mozAnimationPlayState = "running";
 		
 		chest1.style.webkitAnimationPlayState = "running";
 		chest2.style.webkitAnimationPlayState = "running";
 		bow.style.webkitAnimationPlayState = "running";
 		bowGlowLeft.style.webkitAnimationPlayState = "running";
+		bowGlowLeft2.style.webkitAnimationPlayState = "running";
 		bowGlowMiddle.style.webkitAnimationPlayState = "running";
+		bowGlowMiddle2.style.webkitAnimationPlayState = "running";
 		bowGlowRight.style.webkitAnimationPlayState = "running";
+		bowGlowRight2.style.webkitAnimationPlayState = "running";
 		winButton.style.webkitAnimationPlayState = "running";
 		
 		starDetect = requestAnimationFrame(starCount);
@@ -909,7 +949,20 @@
 		inkBox.style.mozAnimationPlayState="running";
 		inkBox.style.webkitAnimationPlayState="running";
 		
-		dguDetect = requestAnimationFrame(dguCount);
+		var non = "none";
+		document.getElementById("DontGiveUpFont").style.display = non;
+
+		doTimer(
+			3000,20,function(steps){
+									non = non - (1 / steps);
+									document.getElementById("DontGiveUpFont").style.display = non;				
+									},
+						function(){
+									document.getElementById("DontGiveUpFont").style.display = "block";										
+									dguAnimation();
+								}						
+			);
+	
 		
 		loseLayer.style.animationPlayState="running";
 		loseLayer.style.mozAnimationPlayState="running";
