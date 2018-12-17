@@ -198,9 +198,6 @@
 	function main(){
 		document.getElementById("loader").style.display = "none";	
 		gameContainer.style.display = "block";
-		var heartImage = document.getElementsByClassName("heart");
-		heartImage[1].style.left = "110%";
-		heartImage[2].style.left = "220%";			
 		var countImage = document.getElementsByClassName("count");
 
 		countImage[0].style.margin = "0% 91%";
@@ -208,6 +205,23 @@
 		countImage[2].style.margin = "0% 73%";
 		countImage[3].style.margin = "3% 64%";
 		count0[0].style.margin = "0% 55%";
+		
+		var nothing = 0;
+
+		doTimer(
+			10000,20,function(steps){nothing = nothing - (1 / steps);		},
+					function(){lifeDetect = requestAnimationFrame(lifeCount);}						
+			);
+			
+					doTimer(
+			8000,20,function(steps){nothing = nothing - (1 / steps);		},
+					function(){lifeDetect = requestAnimationFrame(lifeCount);}						
+			);
+			
+					doTimer(
+			6000,20,function(steps){nothing = nothing - (1 / steps);		},
+					function(){lifeDetect = requestAnimationFrame(lifeCount);}						
+			);
 		
 	}
 	
@@ -241,7 +255,8 @@
 			{
 				var heartImage = document.createElement("IMG");
 				heartImage.setAttribute("src", heartArray[0]);	
-				heartImage.setAttribute("class","heart");
+				heartImage.setAttribute("class","heart"+i);
+				heartImage.setAttribute("id","heart"+i);
 				heart.appendChild(heartImage);
 			}
 		}
@@ -459,23 +474,7 @@
 			}
 		}
 	}
-	
-	// var dguTime = 0;
-	// function dguCount(timestamp){
-		// if (174 > dguTime){
-			// dguTime ++;
-			// dguDetect = requestAnimationFrame(dguCount);
-		// }
-		// if (dguTime === 174){
-			// console.log(dguTime);
 
-			// cancelAnimationFrame(dguDetect);
-		// }
-	// }
-	
-
-	// dguAnimation();
-	
 	var renderdgu;
 	function dguAnimation(){
 		var myIndex = 0;	
@@ -963,7 +962,6 @@
 								}						
 			);
 	
-		
 		loseLayer.style.animationPlayState="running";
 		loseLayer.style.mozAnimationPlayState="running";
 		loseLayer.style.webkitAnimationPlayState="running";
@@ -996,9 +994,9 @@
 			gameContainerBg.style.MozanimationDuration = "3s";
 			gameContainerBg.style.animationDuration= "3s";
 			
-			gameContainerBg.style.WebkitanimationDelay = "2.7s";
-			gameContainerBg.style.MozanimationDelay = "2.7s";
-			gameContainerBg.style.animationDelay = "2.7s";
+			gameContainerBg.style.WebkitanimationDelay = "2.5s";
+			gameContainerBg.style.MozanimationDelay = "2.5s";
+			gameContainerBg.style.animationDelay = "2.5s";
 			
 			gameContainerBg.style.animationIterationCount = "3";
 			gameContainerBg.style.MozAnimationIterationCount = "3";
@@ -1049,32 +1047,28 @@
 	var countTime = document.getElementById('countTime').innerHTML;
 	
 	function lifeCount(timestamp){
-		var heartImage = document.getElementsByClassName("heart");
 
-		if (515 > countTime){
-			countTime ++;
+		var heart2 = document.getElementById("heart2");
+		var heart1 = document.getElementById("heart1");
+		var heart0 = document.getElementById("heart0");
+		
+		if(live === 3){		
+			live = live - 1;
+			heart2.style.animationPlayState="running";
 			lifeDetect = requestAnimationFrame(lifeCount);
 		}
-		if(150 === countTime){		
+		else if(live === 2){
 			live = live - 1;
-			heartImage[2].style.filter = "brightness(20%)";
-			heartImage[2].style.WebkitFilter = "brightness(20%)";
-			console.log(live);
+			heart1.style.animationPlayState="running";
+			lifeDetect = requestAnimationFrame(lifeCount);
 		}
-		if(324 === countTime){
+		else if(live === 1){
 			live = live - 1;
-			heartImage[1].style.filter = "brightness(20%)";
-			heartImage[1].style.WebkitFilter = "brightness(20%)";
-			console.log(live);
-		}
-		if(498 === countTime){
-			live = live - 1;
-			heartImage[0].style.filter = "brightness(20%)";
-			heartImage[0].style.WebkitFilter = "brightness(20%)";
-			console.log(live);
+			heart0.style.animationPlayState="running";
+			lifeDetect = requestAnimationFrame(lifeCount);
 		}
 				
-		if (515 === countTime && live === 0){
+		if (live === 0){
 
 			gameContainerBg.style.animationIterationCount = "1";
 			gameContainerBg.style.mozAnimationIterationCount = "1";
@@ -1095,6 +1089,7 @@
 			attackBox2.style.zIndex = "-30";
 		}
 		
+		cancelAnimationFrame(lifeDetect);
 	}	
 
 	var iconNumber = 0;
