@@ -211,7 +211,6 @@
 		
 	}
 	
-	var timeouts,timeouts2;
 	function doTimer(length, resolution, oninstance, oncomplete){
 		var steps = (length / 100) * (resolution / 10),
 		speed = length / steps,
@@ -226,19 +225,11 @@
 				oninstance(steps, count);
 
 				var diff = (new Date().getTime() - start) - (count * speed);
-				timeouts = window.setTimeout(instance, (speed - diff));
+				window.setTimeout(instance, (speed - diff));
 			}
 		}
-
-		timeouts = window.setTimeout(instance, speed);
+		window.setTimeout(instance, speed);
 	}
-	
-	function stopDoTimer(){
-		window.clearTimeout(timeouts);
-		
-		console.log(window.clearTimeout(timeouts));
-	}
-	
 	
 	function createImage(){
 		var heartArray = ['heart.png'];
@@ -930,6 +921,9 @@
 	}
 	
 	function loseInterface(){
+		
+		cancelAnimationFrame(detectAnimation);
+		
 		grayscaleElf.style.animationPlayState="running";
 		grayscaleElf.style.mozAnimationPlayState="running";
 		grayscaleElf.style.webkitAnimationPlayState="running";
@@ -1005,7 +999,7 @@
 			redLayer.style.WebkitAnimationPlayState="running";
 	}
 	
-		function getHurt2(){
+	function getHurt2(){
 			gameContainerBg.style.webkitAnimationName = "getHurt2";
 			gameContainerBg.style.mozAnimationName = "getHurt2";
 			gameContainerBg.style.animationName = "getHurt2";
@@ -1270,6 +1264,7 @@
 		element1 = document.querySelector('.heart1');
 		style1 = getComputedStyle(element1).filter;
 		console.log(style0 === "brightness(0.2)");
+		detectAnimation = requestAnimationFrame(lifeDetect);
 		if(style0 === "brightness(0.2)"){
 			stopHurt();
 			
@@ -1291,7 +1286,7 @@
 			
 			cancelAnimationFrame(detectAnimation);
 		}
-		detectAnimation = requestAnimationFrame(lifeDetect);
+		
 	}
 	
 	var iconNumber = 0;
