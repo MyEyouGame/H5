@@ -1435,7 +1435,7 @@
 		}
 	}
 	
-function life5(){
+	function life5(){
 		element2 = document.querySelector('.heart2');
 		style2 = getComputedStyle(element2).filter;
 		element0 = document.querySelector('.heart0');
@@ -1509,7 +1509,7 @@ function life5(){
 			heart0[0].style.webkitAnimationPlayState="running";	
 		}
 		else if (style0 === "brightness(1)"){
-			
+			-
 			heart0[0].style.animationDelay="2s";
 			heart0[0].style.mozAnimationDelay="2s";
 			heart0[0].style.webkitAnimationDelay="2s";
@@ -1959,6 +1959,10 @@ function life5(){
 
 		}
 		if (data === "attackBoxMissed"){
+			
+			stopHurt();
+			// life6();
+			// getHurt6();
 			
 			sparkBox.style.display = "block";
 			sparkBox.style.left = "66%";
@@ -2517,8 +2521,8 @@ function life5(){
 		}
 		if (data === "attackBox3"){
 			stopHurt();
-			life();
-			getHurt2();
+			life3();
+			getHurt3();
 			
 			attackBox3.style.display = "none";
 			attackBox3.style.zIndex = "-30";
@@ -2590,14 +2594,15 @@ function life5(){
 		}
 		if (data === "attackBox4"){
 			
+			stopHurt();
+			life4();
+			getHurt3();
+			
 			sparkBox.style.display = "block";
 			sparkBox.style.left = "84%";
 			sparkBox.style.top = "39%";
 			
 			sparkAnimation();
-			
-			countTime = 0;
-			stopHurt();
 			
 			attackBox4.style.zIndex = "-30";
 			
@@ -2664,6 +2669,10 @@ function life5(){
 		}
 		if (data === "attackBox5"){
 
+			stopHurt();
+			life5();
+			getHurt5();
+		
 			sparkBox.style.display = "block";
 			sparkBox.style.left = "23%";
 			sparkBox.style.top = "42%";
@@ -2734,6 +2743,10 @@ function life5(){
 
 		}
 		if (data === "attackBoxMissed"){
+			
+			stopHurt();
+			// life6();
+			// getHurt6();
 			
 			sparkBox.style.display = "block";
 			sparkBox.style.left = "66%";
