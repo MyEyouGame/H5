@@ -947,9 +947,10 @@
 						function(){
 									document.getElementById("DontGiveUpFont").style.display = "block";										
 									dguAnimation();
+									heart.style.zIndex="-1";
 								}						
 			);
-	
+		
 		loseLayer.style.animationPlayState="running";
 		loseLayer.style.mozAnimationPlayState="running";
 		loseLayer.style.webkitAnimationPlayState="running";
@@ -966,6 +967,7 @@
 		arrow.style.zIndex="110";
 		arrow.style.webkitAnimationName="arrow2";
 		arrow.style.webkitAnimationDelay="6s";
+		
 	}
 	
 	//hiddenBox1
@@ -1257,6 +1259,7 @@
 			}
 	}
 	
+	//hiddenBox3
 	function life3(){
 			element2 = document.querySelector('.heart2');
 			style2 = getComputedStyle(element2).filter;
@@ -1346,6 +1349,7 @@
 			}
 	}
 	
+	//hiddenBox4
 	function life4(){
 		element2 = document.querySelector('.heart2');
 		style2 = getComputedStyle(element2).filter;
@@ -1435,6 +1439,7 @@
 		}
 	}
 	
+	//hiddenBox5
 	function life5(){
 		element2 = document.querySelector('.heart2');
 		style2 = getComputedStyle(element2).filter;

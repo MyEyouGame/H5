@@ -1230,8 +1230,20 @@
 		}
 	}
 	@-moz-keyframes loseLayer{
+		0%{
+			z-index: -30;
+		}
+		100%{
+			z-index: 110;
+		}
 	}
 	@-webkit-keyframes loseLayer{
+		%{
+			z-index: -30;
+		}
+		100%{
+			z-index: 110;
+		}
 	}
 	
 	#loseLayerBG{
@@ -3560,7 +3572,7 @@
 		top: 80.5%;
 		left: 21%;
 		opacity: 0;
-		z-index:99;
+		z-index:3;
 		
 		animation-name: heart;
 		animation-duration: 1s;
@@ -3601,6 +3613,31 @@
 		}
 		100%{
 			opacity:1;
+		}
+	}
+	
+	@keyframes heartz{
+		0%{
+			opacity: 1;
+		}
+		100%{
+			opacity:0;
+		}
+	}
+	@-moz-keyframes heartz{
+		0%{
+			opacity: 1;
+		}
+		100%{
+			opacity:0;
+		}
+	}
+	@webkit-keyframes heartz{
+		0%{
+			opacity: 1;
+		}
+		100%{
+			opacity:0;
 		}
 	}
 	
