@@ -968,6 +968,7 @@
 		arrow.style.webkitAnimationDelay="6s";
 	}
 	
+	//hiddenBox1
 	function getHurt(){
 			gameContainerBg.style.WebkitAnimationName = "getHurt";
 			gameContainerBg.style.MozAnimationName = "getHurt";
@@ -978,9 +979,9 @@
 			gameContainerBg.style.margin = "0% 0%";
 			gameContainerBg.style.filter ="brightness(100%)";
 			
-			gameContainerBg.style.WebkitanimationDuration = "3s";
-			gameContainerBg.style.MozanimationDuration = "3s";
-			gameContainerBg.style.animationDuration= "3s";
+			gameContainerBg.style.WebkitanimationDuration = "2s";
+			gameContainerBg.style.MozanimationDuration = "2s";
+			gameContainerBg.style.animationDuration= "2s";
 			
 			gameContainerBg.style.WebkitanimationDelay = "2.5s";
 			gameContainerBg.style.MozanimationDelay = "2.5s";
@@ -999,6 +1000,7 @@
 			redLayer.style.WebkitAnimationPlayState="running";
 	}
 	
+	//hiddenBox2，hiddenBox4
 	function getHurt2(){
 			gameContainerBg.style.webkitAnimationName = "getHurt2";
 			gameContainerBg.style.mozAnimationName = "getHurt2";
@@ -1046,6 +1048,102 @@
 			redLayer.style.animationName = "redLayer2";
 	}
 	
+	//hiddenBox3
+	function getHurt3(){
+			gameContainerBg.style.webkitAnimationName = "getHurt";
+			gameContainerBg.style.mozAnimationName = "getHurt";
+			gameContainerBg.style.animationName = "getHurt";
+			
+			gameContainerBg.style.height ="100%";
+			gameContainerBg.style.width ="103%";
+			gameContainerBg.style.margin = "0% 0%";
+			gameContainerBg.style.filter ="brightness(100%)";
+			
+			gameContainerBg.style.webkitAnimationDuration = "2s";
+			gameContainerBg.style.mozAnimationDuration = "2s";
+			gameContainerBg.style.animationDuration= "2s";
+			
+			gameContainerBg.style.webkitAnimationDelay = "1.5s";
+			gameContainerBg.style.mozAnimationDelay = "1.5s";
+			gameContainerBg.style.animationDelay = "1.5s";
+			
+			gameContainerBg.style.animationIterationCount = "3";
+			gameContainerBg.style.mozAnimationIterationCount = "3";
+			gameContainerBg.style.webkitAnimationIterationCount = "3";
+			
+			innerContainer.style.webkitAnimationDuration = "2s";
+			innerContainer.style.mozAnimationDuration = "2s";
+			innerContainer.style.animationDuration= "2s";
+			
+			innerContainer.style.webkitAnimationDelay = "1.5s";
+			innerContainer.style.mozAnimationDelay = "1.5s";
+			innerContainer.style.animationDelay = "1.5s";
+			
+			innerContainer.style.webkitAnimationName = "innerContainer";
+			innerContainer.style.mozAnimationName = "innerContainer";
+			innerContainer.style.animationName = "innerContainer";
+			
+			redLayer.style.webkitAnimationDuration = "2s";
+			redLayer.style.mozAnimationDuration = "2s";
+			redLayer.style.animationDuration= "2s";
+			
+			redLayer.style.webkitAnimationDelay = "1.5s";
+			redLayer.style.mozAnimationDelay = "1.5s";
+			redLayer.style.animationDelay = "1.5s";
+			
+			redLayer.style.webkitAnimationName = "redLayer";
+			redLayer.style.mozAnimationName = "redLayer";
+			redLayer.style.animationName = "redLayer";
+	}
+	
+	//hiddenBox5
+	function getHurt5(){
+			gameContainerBg.style.webkitAnimationName = "getHurt";
+			gameContainerBg.style.mozAnimationName = "getHurt";
+			gameContainerBg.style.animationName = "getHurt";
+			
+			gameContainerBg.style.height ="100%";
+			gameContainerBg.style.width ="103%";
+			gameContainerBg.style.margin = "0% 0%";
+			gameContainerBg.style.filter ="brightness(100%)";
+			
+			gameContainerBg.style.webkitAnimationDuration = "2s";
+			gameContainerBg.style.mozAnimationDuration = "2s";
+			gameContainerBg.style.animationDuration= "2s";
+			
+			gameContainerBg.style.webkitAnimationDelay = "2s";
+			gameContainerBg.style.mozAnimationDelay = "2s";
+			gameContainerBg.style.animationDelay = "2s";
+			
+			gameContainerBg.style.animationIterationCount = "3";
+			gameContainerBg.style.mozAnimationIterationCount = "3";
+			gameContainerBg.style.webkitAnimationIterationCount = "3";
+			
+			innerContainer.style.webkitAnimationDuration = "2s";
+			innerContainer.style.mozAnimationDuration = "2s";
+			innerContainer.style.animationDuration= "2s";
+			
+			innerContainer.style.webkitAnimationDelay = "2s";
+			innerContainer.style.mozAnimationDelay = "2s";
+			innerContainer.style.animationDelay = "2s";
+			
+			innerContainer.style.webkitAnimationName = "innerContainer";
+			innerContainer.style.mozAnimationName = "innerContainer";
+			innerContainer.style.animationName = "innerContainer";
+			
+			redLayer.style.webkitAnimationDuration = "2s";
+			redLayer.style.mozAnimationDuration = "2s";
+			redLayer.style.animationDuration= "2s";
+			
+			redLayer.style.webkitAnimationDelay = "2s";
+			redLayer.style.mozAnimationDelay = "2s";
+			redLayer.style.animationDelay = "2s";
+			
+			redLayer.style.webkitAnimationName = "redLayer";
+			redLayer.style.mozAnimationName = "redLayer";
+			redLayer.style.animationName = "redLayer";
+	}
+	
 	function stopHurt(){
 		
 		gameContainerBg.style.webkitAnimationName = "none";
@@ -1069,6 +1167,7 @@
 
 	var element2,style2,element0,style0,element1,style1;
 	
+	//hiddenBox2
 	function life2(){
 			element2 = document.querySelector('.heart2');
 			style2 = getComputedStyle(element2).filter;
@@ -1076,10 +1175,6 @@
 			style0 = getComputedStyle(element0).filter;
 			element1 = document.querySelector('.heart1');
 			style1 = getComputedStyle(element1).filter;
-			 
-			 console.log(style2 === "brightness(1)",
-			 style1 === "brightness(1)",
-			 style0 === "brightness(1)");
 			 
 			if (style2 === "brightness(1)"){
 				
@@ -1115,9 +1210,9 @@
 				heart1[0].style.mozAnimationDelay="4.5s";
 				heart1[0].style.webkitAnimationDelay="4.5s";
 				
-				heart0[0].style.animationDelay="7.5s";
-				heart0[0].style.mozAnimationDelay="7.5s";
-				heart0[0].style.webkitAnimationDelay="7.5s";
+				heart0[0].style.animationDelay="6.5s";
+				heart0[0].style.mozAnimationDelay="6.5s";
+				heart0[0].style.webkitAnimationDelay="6.5s";
 				
 			}
 			else if (style1 === "brightness(1)"){			
@@ -1162,17 +1257,13 @@
 			}
 	}
 	
-	function life(){
+	function life3(){
 			element2 = document.querySelector('.heart2');
 			style2 = getComputedStyle(element2).filter;
 			element0 = document.querySelector('.heart0');
 			style0 = getComputedStyle(element0).filter;
 			element1 = document.querySelector('.heart1');
 			style1 = getComputedStyle(element1).filter;
-			 
-			 console.log(style2 === "brightness(1)",
-			 style1 === "brightness(1)",
-			 style0 === "brightness(1)");
 			 
 			if (style2 === "brightness(1)"){
 				
@@ -1200,28 +1291,28 @@
 				heart0[0].style.mozAnimationPlayState="running";
 				heart0[0].style.webkitAnimationPlayState="running";	
 				
-				heart2[0].style.animationDelay="2.5s";
-				heart2[0].style.mozAnimationDelay="2.5s";
-				heart2[0].style.webkitAnimationDelay="2.5s";
+				heart2[0].style.animationDelay="1.5s";
+				heart2[0].style.mozAnimationDelay="1.5s";
+				heart2[0].style.webkitAnimationDelay="1.5s";
 				
-				heart1[0].style.animationDelay="4.5s";
-				heart1[0].style.mozAnimationDelay="4.5s";
-				heart1[0].style.webkitAnimationDelay="4.5s";
+				heart1[0].style.animationDelay="3.5s";
+				heart1[0].style.mozAnimationDelay="3.5s";
+				heart1[0].style.webkitAnimationDelay="3.5s";
 				
-				heart0[0].style.animationDelay="7.5s";
-				heart0[0].style.mozAnimationDelay="7.5s";
-				heart0[0].style.webkitAnimationDelay="7.5s";
+				heart0[0].style.animationDelay="5.5s";
+				heart0[0].style.mozAnimationDelay="5.5s";
+				heart0[0].style.webkitAnimationDelay="5.5s";
 				
 			}
 			else if (style1 === "brightness(1)"){			
 			
-				heart1[0].style.animationDelay="2.5s";
-				heart1[0].style.mozAnimationDelay="2.5s";
-				heart1[0].style.webkitAnimationDelay="2.5s";
+				heart1[0].style.animationDelay="1.5s";
+				heart1[0].style.mozAnimationDelay="1.5s";
+				heart1[0].style.webkitAnimationDelay="1.5s";
 				
-				heart0[0].style.animationDelay="4.5s";
-				heart0[0].style.mozAnimationDelay="4.5s";
-				heart0[0].style.webkitAnimationDelay="4.5s";
+				heart0[0].style.animationDelay="3.5s";
+				heart0[0].style.mozAnimationDelay="3.5s";
+				heart0[0].style.webkitAnimationDelay="3.5s";
 				
 				heart1[0].style.animationName="hearts";
 				heart1[0].style.mozAnimationName="hearts";
@@ -1241,9 +1332,9 @@
 			}
 			else if (style0 === "brightness(1)"){
 				
-				heart0[0].style.animationDelay="2.5s";
-				heart0[0].style.mozAnimationDelay="2.5s";
-				heart0[0].style.webkitAnimationDelay="2.5s";
+				heart0[0].style.animationDelay="1.5s";
+				heart0[0].style.mozAnimationDelay="1.5s";
+				heart0[0].style.webkitAnimationDelay="1.5s";
 
 				heart0[0].style.animationName="hearts";
 				heart0[0].style.mozAnimationName="hearts";
@@ -1255,6 +1346,183 @@
 			}
 	}
 	
+	function life4(){
+		element2 = document.querySelector('.heart2');
+		style2 = getComputedStyle(element2).filter;
+		element0 = document.querySelector('.heart0');
+		style0 = getComputedStyle(element0).filter;
+		element1 = document.querySelector('.heart1');
+		style1 = getComputedStyle(element1).filter;
+		 
+		if (style2 === "brightness(1)"){
+			
+			heart2[0].style.animationName="hearts2";
+			heart2[0].style.mozAnimationName="hearts2";
+			heart2[0].style.webkitAnimationName="hearts2";
+			
+			heart1[0].style.animationName="hearts2";
+			heart1[0].style.mozAnimationName="hearts2";
+			heart1[0].style.webkitAnimationName="hearts2";
+			
+			heart0[0].style.animationName="hearts2";
+			heart0[0].style.mozAnimationName="hearts2";
+			heart0[0].style.webkitAnimationName="hearts2";	
+			
+			heart2[0].style.animationPlayState="running";
+			heart2[0].style.mozAnimationPlayState="running";
+			heart2[0].style.webkitAnimationPlayState="running";
+			
+			heart1[0].style.animationPlayState="running";
+			heart1[0].style.mozAnimationPlayState="running";
+			heart1[0].style.webkitAnimationPlayState="running";
+			
+			heart0[0].style.animationPlayState="running";
+			heart0[0].style.mozAnimationPlayState="running";
+			heart0[0].style.webkitAnimationPlayState="running";	
+			
+			heart2[0].style.animationDelay="1.5s";
+			heart2[0].style.mozAnimationDelay="1.5s";
+			heart2[0].style.webkitAnimationDelay="1.5s";
+			
+			heart1[0].style.animationDelay="3.5s";
+			heart1[0].style.mozAnimationDelay="3.5s";
+			heart1[0].style.webkitAnimationDelay="3.5s";
+			
+			heart0[0].style.animationDelay="5.5s";
+			heart0[0].style.mozAnimationDelay="5.5s";
+			heart0[0].style.webkitAnimationDelay="5.5s";
+			
+		}
+		else if (style1 === "brightness(1)"){			
+		
+			heart1[0].style.animationDelay="1.5s";
+			heart1[0].style.mozAnimationDelay="1.5s";
+			heart1[0].style.webkitAnimationDelay="1.5s";
+			
+			heart0[0].style.animationDelay="3.5s";
+			heart0[0].style.mozAnimationDelay="3.5s";
+			heart0[0].style.webkitAnimationDelay="3.5s";
+			
+			heart1[0].style.animationName="hearts2";
+			heart1[0].style.mozAnimationName="hearts2";
+			heart1[0].style.webkitAnimationName="hearts2";
+			
+			heart0[0].style.animationName="hearts2";
+			heart0[0].style.mozAnimationName="hearts2";
+			heart0[0].style.webkitAnimationName="hearts2";	
+			
+			heart1[0].style.animationPlayState="running";
+			heart1[0].style.mozAnimationPlayState="running";
+			heart1[0].style.webkitAnimationPlayState="running";
+			
+			heart0[0].style.animationPlayState="running";
+			heart0[0].style.mozAnimationPlayState="running";
+			heart0[0].style.webkitAnimationPlayState="running";	
+		}
+		else if (style0 === "brightness(1)"){
+			
+			heart0[0].style.animationDelay="1.5s";
+			heart0[0].style.mozAnimationDelay="1.5s";
+			heart0[0].style.webkitAnimationDelay="1.5s";
+
+			heart0[0].style.animationName="hearts2";
+			heart0[0].style.mozAnimationName="hearts2";
+			heart0[0].style.webkitAnimationName="hearts2";	
+			
+			heart0[0].style.animationPlayState="running";
+			heart0[0].style.mozAnimationPlayState="running";
+			heart0[0].style.webkitAnimationPlayState="running";	
+		}
+	}
+	
+function life5(){
+		element2 = document.querySelector('.heart2');
+		style2 = getComputedStyle(element2).filter;
+		element0 = document.querySelector('.heart0');
+		style0 = getComputedStyle(element0).filter;
+		element1 = document.querySelector('.heart1');
+		style1 = getComputedStyle(element1).filter;
+		 
+		if (style2 === "brightness(1)"){
+			
+			heart2[0].style.animationName="hearts";
+			heart2[0].style.mozAnimationName="hearts";
+			heart2[0].style.webkitAnimationName="hearts";
+			
+			heart1[0].style.animationName="hearts";
+			heart1[0].style.mozAnimationName="hearts";
+			heart1[0].style.webkitAnimationName="hearts";
+			
+			heart0[0].style.animationName="hearts";
+			heart0[0].style.mozAnimationName="hearts";
+			heart0[0].style.webkitAnimationName="hearts";	
+			
+			heart2[0].style.animationPlayState="running";
+			heart2[0].style.mozAnimationPlayState="running";
+			heart2[0].style.webkitAnimationPlayState="running";
+			
+			heart1[0].style.animationPlayState="running";
+			heart1[0].style.mozAnimationPlayState="running";
+			heart1[0].style.webkitAnimationPlayState="running";
+			
+			heart0[0].style.animationPlayState="running";
+			heart0[0].style.mozAnimationPlayState="running";
+			heart0[0].style.webkitAnimationPlayState="running";	
+			
+			heart2[0].style.animationDelay="2s";
+			heart2[0].style.mozAnimationDelay="2s";
+			heart2[0].style.webkitAnimationDelay="2s";
+			
+			heart1[0].style.animationDelay="4s";
+			heart1[0].style.mozAnimationDelay="4s";
+			heart1[0].style.webkitAnimationDelay="4s";
+			
+			heart0[0].style.animationDelay="6s";
+			heart0[0].style.mozAnimationDelay="6s";
+			heart0[0].style.webkitAnimationDelay="6s";
+			
+		}
+		else if (style1 === "brightness(1)"){			
+		
+			heart1[0].style.animationDelay="2s";
+			heart1[0].style.mozAnimationDelay="2s";
+			heart1[0].style.webkitAnimationDelay="2s";
+			
+			heart0[0].style.animationDelay="4s";
+			heart0[0].style.mozAnimationDelay="4s";
+			heart0[0].style.webkitAnimationDelay="4s";
+			
+			heart1[0].style.animationName="hearts";
+			heart1[0].style.mozAnimationName="hearts";
+			heart1[0].style.webkitAnimationName="hearts";
+			
+			heart0[0].style.animationName="hearts";
+			heart0[0].style.mozAnimationName="hearts";
+			heart0[0].style.webkitAnimationName="hearts";	
+			
+			heart1[0].style.animationPlayState="running";
+			heart1[0].style.mozAnimationPlayState="running";
+			heart1[0].style.webkitAnimationPlayState="running";
+			
+			heart0[0].style.animationPlayState="running";
+			heart0[0].style.mozAnimationPlayState="running";
+			heart0[0].style.webkitAnimationPlayState="running";	
+		}
+		else if (style0 === "brightness(1)"){
+			
+			heart0[0].style.animationDelay="2s";
+			heart0[0].style.mozAnimationDelay="2s";
+			heart0[0].style.webkitAnimationDelay="2s";
+
+			heart0[0].style.animationName="hearts";
+			heart0[0].style.mozAnimationName="hearts";
+			heart0[0].style.webkitAnimationName="hearts";	
+			
+			heart0[0].style.animationPlayState="running";
+			heart0[0].style.mozAnimationPlayState="running";
+			heart0[0].style.webkitAnimationPlayState="running";	
+		}
+	}
 	
 	function lifeDetect(){
 		element2 = document.querySelector('.heart2');
@@ -1263,7 +1531,6 @@
 		style0 = getComputedStyle(element0).filter;
 		element1 = document.querySelector('.heart1');
 		style1 = getComputedStyle(element1).filter;
-		console.log(style0 === "brightness(0.2)");
 		detectAnimation = requestAnimationFrame(lifeDetect);
 		if(style0 === "brightness(0.2)"){
 			stopHurt();
@@ -1283,10 +1550,19 @@
 			light3.style.webkitAnimationPlayState="paused";
 			
 			loseInterface();
+
+			attackBox2.style.zIndex="-30";
+			attackBox3.style.zIndex="-30";
+			attackBox4.style.zIndex="-30";
+			attackBox5.style.zIndex="-30";
+			attackBox6.style.zIndex="-30";
+			attackBox7.style.zIndex="-30";
+			// attackBox8.style.zIndex="-30";
+			// attackBox9.style.zIndex="-30";
+			// attackBox10.style.zIndex="-30";
 			
 			cancelAnimationFrame(detectAnimation);
 		}
-		
 	}
 	
 	var iconNumber = 0;
@@ -1461,8 +1737,8 @@
 		}
 		if (data === "attackBox3"){
 			stopHurt();
-			life();
-			getHurt2();
+			life3();
+			getHurt3();
 			
 			attackBox3.style.display = "none";
 			attackBox3.style.zIndex = "-30";
@@ -1534,14 +1810,15 @@
 		}
 		if (data === "attackBox4"){
 			
+			stopHurt();
+			life4();
+			getHurt3();
+			
 			sparkBox.style.display = "block";
 			sparkBox.style.left = "84%";
 			sparkBox.style.top = "39%";
 			
 			sparkAnimation();
-			
-			countTime = 0;
-			stopHurt();
 			
 			attackBox4.style.zIndex = "-30";
 			
@@ -1608,6 +1885,10 @@
 		}
 		if (data === "attackBox5"){
 
+			stopHurt();
+			life5();
+			getHurt5();
+		
 			sparkBox.style.display = "block";
 			sparkBox.style.left = "23%";
 			sparkBox.style.top = "42%";
