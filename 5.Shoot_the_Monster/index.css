@@ -12311,15 +12311,15 @@
 	}
 	23%{
 		height: 57%;
-		width: 31%;
+		width: 45%;
 		top: 24%;
-		left: 35%;		
+		left: 28%;	
 	}
 	100%{
 		height: 57%;
-		width: 31%;
+		width: 45%;
 		top: 24%;
-		left: 35%;
+		left: 28%;
 	}
 }
 @-moz-keyframes winLayerGlowBox{
@@ -12337,15 +12337,15 @@
 	}
 	23%{
 		height: 57%;
-		width: 31%;
+		width: 45%;
 		top: 24%;
-		left: 35%;		
+		left: 28%;	
 	}
 	100%{
 		height: 57%;
-		width: 31%;
+		width: 45%;
 		top: 24%;
-		left: 35%;
+		left: 28%;
 	}
 }
 @-webkit-keyframes winLayerGlowBox{
@@ -12363,15 +12363,15 @@
 	}
 	23%{
 		height: 57%;
-		width: 31%;
+		width: 45%;
 		top: 24%;
-		left: 35%;		
+		left: 28%;	
 	}
 	100%{
 		height: 57%;
-		width: 31%;
+		width: 45%;
 		top: 24%;
-		left: 35%;
+		left: 28%;
 	}
 }
 #winLayerGlow{
