@@ -1509,7 +1509,7 @@
 			heart0[0].style.webkitAnimationPlayState="running";	
 		}
 		else if (style0 === "brightness(1)"){
-			-
+			
 			heart0[0].style.animationDelay="2s";
 			heart0[0].style.mozAnimationDelay="2s";
 			heart0[0].style.webkitAnimationDelay="2s";
