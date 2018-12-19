@@ -19545,9 +19545,10 @@
 
 #winButton{
     position: absolute;
-    height: 19%;
+    position: absolute;
+    height: 18%;
     width: 30%;
-    top: 61%;
+    top: 62%;
     left: 37.5%;
     opacity: 0;
 	
