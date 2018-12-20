@@ -2660,19 +2660,15 @@
 			attackBox1.style.zIndex = "-30";
 			
 			shootBox1.style.animationPlayState="running";
-			shootBox1.style.mozAnimationPlayState="running";
 			shootBox1.style.webkitAnimationPlayState="running";
 			
 			shoot.style.animationPlayState="running";
-			shoot.style.mozAnimationPlayState="running";
 			shoot.style.webkitAnimationPlayState="running";
 			
-			apes1.style.WebkitAnimationName = "killApes1";
-			apes1.style.MozAnimationName = "killApes1";
+			apes1.style.webkitAnimationName = "killApes1";
 			apes1.style.animationName = "killApes1";
 			
-			apes1.style.WebkitanimationDelay = "0s";
-			apes1.style.MozanimationDelay = "0s";
+			apes1.style.webkitAnimationDelay = "0s";
 			apes1.style.animationDelay = "0s";
 			
 			guide.style.display = "none";
@@ -2681,57 +2677,44 @@
 			light1.style.display = "none";
 			light1.style.zIndex = "-30";
 			
-			hand.style.WebkitAnimationName = "handRemove";
-			hand.style.MozAnimationName = "handRemove";
+			hand.style.webkitAnimationName = "handRemove";
 			hand.style.animationName = "handRemove";
 			
-			hand.style.WebkitanimationDelay = "0s";
-			hand.style.MozanimationDelay = "0s";
+			hand.style.webkitAnimationDelay = "0s";
 			hand.style.animationDelay = "0s";
 			
 			reward1.style.display = "block";
 			reward1.style.animationPlayState="running";
-			reward1.style.mozAnimationPlayState="running";
 			reward1.style.webkitAnimationPlayState="running";
 			
 			count5[0].style.WebkitAnimationName = "removeIcon";
-			count5[0].style.MozAnimationName = "removeIcon";
 			count5[0].style.animationName = "removeIcon";
 			
 			count5[0].style.WebkitanimationDelay = "0s";
-			count5[0].style.MozanimationDelay = "0s";
 			count5[0].style.animationDelay = "0s";
 			
 			hiddenBox2.style.animationPlayState="running";
-			hiddenBox2.style.mozAnimationPlayState="running";
 			hiddenBox2.style.webkitAnimationPlayState="running";
 			
 			attackBox2.style.animationPlayState="running";
-			attackBox2.style.mozAnimationPlayState="running";
 			attackBox2.style.webkitAnimationPlayState="running";
 			
 			orc1.style.animationPlayState="running";
-			orc1.style.mozAnimationPlayState="running";
 			orc1.style.webkitAnimationPlayState="running";
 			
 			light2.style.animationPlayState="running";
-			light2.style.mozAnimationPlayState="running";
 			light2.style.webkitAnimationPlayState="running";
 			
 			fire2.style.animationPlayState="running";
-			fire2.style.mozAnimationPlayState="running";
 			fire2.style.webkitAnimationPlayState="running";
 			
 			heart2[0].style.animationPlayState="running";
-			heart2[0].style.mozAnimationPlayState="running";
 			heart2[0].style.webkitAnimationPlayState="running";
 			
 			heart1[0].style.animationPlayState="running";
-			heart1[0].style.mozAnimationPlayState="running";
 			heart1[0].style.webkitAnimationPlayState="running";
 			
 			heart0[0].style.animationPlayState="running";
-			heart0[0].style.mozAnimationPlayState="running";
 			heart0[0].style.webkitAnimationPlayState="running";
 			
 			getHurt();
@@ -2742,11 +2725,9 @@
 			life2();
 			getHurt2();
 			fire2.style.animationPlayState="paused";
-			fire2.style.mozAnimationPlayState="paused";
 			fire2.style.webkitAnimationPlayState="paused";
 			
 			light2.style.animationPlayState="paused";
-			light2.style.mozAnimationPlayState="paused";
 			light2.style.webkitAnimationPlayState="paused";
 			
 			fire2.style.display = "none";
@@ -2765,52 +2746,40 @@
 			sparkAnimation();
 			
 			shootBox2.style.animationPlayState="running";
-			shootBox2.style.mozAnimationPlayState="running";
 			shootBox2.style.webkitAnimationPlayState="running";
 			
 			shoot2.style.animationPlayState="running";
-			shoot2.style.mozAnimationPlayState="running";
 			shoot2.style.webkitAnimationPlayState="running";
 						
 			orc1.style.webkitAnimationName = "killOrc1";
-			orc1.style.mozAnimationName = "killOrc1";
 			orc1.style.animationName = "killOrc1";
 			
 			orc1.style.webkitanimationDelay = "0s";
-			orc1.style.mozanimationDelay = "0s";
 			orc1.style.animationDelay = "0s";
 			
 			count4[0].style.webkitAnimationName = "removeIcon";
-			count4[0].style.mozAnimationName = "removeIcon";
 			count4[0].style.animationName = "removeIcon";
 			
 			count4[0].style.webkitanimationDelay = "0s";
-			count4[0].style.mozanimationDelay = "0s";
 			count4[0].style.animationDelay = "0s";
 			
 			reward2.style.display = "block";
 			reward2.style.animationPlayState="running";
-			reward2.style.mozAnimationPlayState="running";
 			reward2.style.webkitAnimationPlayState="running";
 			
 			hiddenBox3.style.animationPlayState="running";
-			hiddenBox3.style.mozAnimationPlayState="running";
 			hiddenBox3.style.webkitAnimationPlayState="running";
 			
 			orc2.style.animationPlayState="running";
-			orc2.style.mozAnimationPlayState="running";
 			orc2.style.webkitAnimationPlayState="running";
 			
 			attackBox3.style.animationPlayState="running";
-			attackBox3.style.mozAnimationPlayState="running";
 			attackBox3.style.webkitAnimationPlayState="running";
 			
 			light3.style.animationPlayState="running";
-			light3.style.mozAnimationPlayState="running";
 			light3.style.webkitAnimationPlayState="running";
 			
 			fire3.style.animationPlayState="running";
-			fire3.style.mozAnimationPlayState="running";
 			fire3.style.webkitAnimationPlayState="running";
 
 		}
@@ -3210,10 +3179,9 @@
 				attackBox9.style.webkitAnimationPlayState="running";
 				
 				stopHurt2();
-				window.clearTimeout(timeouts);
 				life7();
 				getHurt6();
-
+				
 			}
 			
 			reward5.style.display="block";
@@ -3301,9 +3269,8 @@
 				attackBox9.style.webkitAnimationPlayState="running";
 			
 				stopHurt2();
-				window.clearTimeout(timeouts);
 				life7();
-				// getHurt6();
+				getHurt6();
 			}
 			
 			reward6.style.display="block";
@@ -3313,8 +3280,9 @@
 			reward6.style.WebkitAnimationPlayState="running";
 		}
 		if (data === "attackBox9"){
-			// stopHurt();
+			stopHurt();
 			life8();
+			getHurt7()
 			
 			sparkBox.style.display = "block";
 			sparkBox.style.left = "66%";
@@ -3447,7 +3415,6 @@
 			
 			winDetect = requestAnimationFrame(winCount);
 		}
-		
 	}
 
 (function () {
