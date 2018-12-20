@@ -541,167 +541,127 @@
 	} 
 	
 	function begin(){
-		elf.style.WebkitAnimationName = "elfRemove";
-		elf.style.MozAnimationName = "elfRemove";
+		elf.style.webkitAnimationName = "elfRemove";
 		elf.style.animationName = "elfRemove";
 		
-		elf.style.WebkitanimationDuration = "1s";
-		elf.style.MozanimationDuration = "1s";
+		elf.style.webkitAnimationDuration = "1s";
 		elf.style.animationDuration = "1s";
 		
-		elfEffect.style.WebkitAnimationName = "elfEffectRemove";
-		elfEffect.style.MozAnimationName = "elfEffectRemove";
+		elfEffect.style.webkitAnimationName = "elfEffectRemove";
 		elfEffect.style.animationName = "elfEffectRemove";	
 		
-		elfEffect.style.WebkitanimationDuration = "1s";
-		elfEffect.style.MozanimationDuration = "1s";
+		elfEffect.style.webkitAnimationDuration = "1s";
 		elfEffect.style.animationDuration = "1s";
 		
-		gameContainerBg.style.AnimationPlayState="running";
-		gameContainerBg.style.MozAnimationPlayState="running";
-		gameContainerBg.style.WebkitAnimationPlayState="running";
+		gameContainerBg.style.animationPlayState="running";
+		gameContainerBg.style.webkitAnimationPlayState="running";
 	
-		gameContainerBg.style.WebkitanimationDuration = "1s";
-		gameContainerBg.style.MozanimationDuration = "1s";
+		gameContainerBg.style.webkitAnimationDuration = "1s";
 		gameContainerBg.style.animationDuration = "1s";
 	
-		startBtn.style.WebkitAnimationName = "startBtnRemove";
-		startBtn.style.MozAnimationName = "startBtnRemove";
+		startBtn.style.webkitAnimationName = "startBtnRemove";
 		startBtn.style.animationName = "startBtnRemove";
 
-		startBtn.style.WebkitanimationDuration = "1s";
-		startBtn.style.MozanimationDuration = "1s";
+		startBtn.style.webkitAnimationDuration = "1s";
 		startBtn.style.animationDuration = "1s";
 		
-		glowLeft.style.WebkitAnimationName = "glowLeftRemove";
-		glowLeft.style.MozAnimationName = "glowLeftRemove";
+		glowLeft.style.webkitAnimationName = "glowLeftRemove";
 		glowLeft.style.animationName = "glowLeftRemove";
 		
-		glowLeft.style.WebkitanimationDuration = "1s";
-		glowLeft.style.MozanimationDuration = "1s";
+		glowLeft.style.webkitanimationDuration = "1s";
 		glowLeft.style.animationDuration = "1s";
 		
-		glowRight.style.WebkitAnimationName = "glowRightRemove";
-		glowRight.style.MozAnimationName = "glowRightRemove";
+		glowRight.style.webkitAnimationName = "glowRightRemove";
 		glowRight.style.animationName = "glowRightRemove";
 		
-		glowRight.style.WebkitanimationDuration = "1s";
-		glowRight.style.MozanimationDuration = "1s";
+		glowRight.style.webkitAnimationDuration = "1s";
 		glowRight.style.animationDuration = "1s";
 		
-		font.style.WebkitAnimationName = "fontRemove";
-		font.style.MozAnimationName = "fontRemove";
+		font.style.webkitAnimationName = "fontRemove";
 		font.style.animationName = "fontRemove";
 		
-		font.style.WebkitanimationDuration = "1s";
-		font.style.MozanimationDuration = "1s";
+		font.style.webkitAnimationDuration = "1s";
 		font.style.animationDuration = "1s";
 		
 		arrow.style.display = "none";	
 		
-		countDisplay.style.AnimationPlayState="running";
-		countDisplay.style.MozAnimationPlayState="running";
-		countDisplay.style.WebkitAnimationPlayState="running";
+		countDisplay.style.animationPlayState="running";
+		countDisplay.style.webkitAnimationPlayState="running";
 		
-		heart.style.AnimationPlayState="running";
-		heart.style.MozAnimationPlayState="running";
-		heart.style.WebkitAnimationPlayState="running";
+		heart.style.animationPlayState="running";
+		heart.style.webkitAnimationPlayState="running";
 		
-		profile.style.AnimationPlayState="running";
-		profile.style.MozAnimationPlayState="running";
-		profile.style.WebkitAnimationPlayState="running";
+		profile.style.animationPlayState="running";
+		profile.style.webkitAnimationPlayState="running";
 		
-		t1.style.AnimationPlayState="running";
-		t1.style.MozAnimationPlayState="running";
-		t1.style.WebkitAnimationPlayState="running";
+		t1.style.animationPlayState="running";
+		t1.style.webkitAnimationPlayState="running";
 		
-		t2.style.AnimationPlayState="running";
-		t2.style.MozAnimationPlayState="running";
-		t2.style.WebkitAnimationPlayState="running";
+		t2.style.animationPlayState="running";
+		t2.style.webkitAnimationPlayState="running";
 		
-		t3.style.AnimationPlayState="running";
-		t3.style.MozAnimationPlayState="running";
-		t3.style.WebkitAnimationPlayState="running";
+		t3.style.animationPlayState="running";
+		t3.style.webkitAnimationPlayState="running";
 		
-		t4.style.AnimationPlayState="running";
-		t4.style.MozAnimationPlayState="running";
-		t4.style.WebkitAnimationPlayState="running";
+		t4.style.animationPlayState="running";
+		t4.style.webkitAnimationPlayState="running";
 		
-		t5.style.AnimationPlayState="running";
-		t5.style.MozAnimationPlayState="running";
-		t5.style.WebkitAnimationPlayState="running";
+		t5.style.animationPlayState="running";
+		t5.style.webkitAnimationPlayState="running";
 			
-		t6.style.AnimationPlayState="running";
-		t6.style.MozAnimationPlayState="running";
-		t6.style.WebkitAnimationPlayState="running";
+		t6.style.animationPlayState="running";
+		t6.style.webkitAnimationPlayState="running";
 		
-		t7.style.AnimationPlayState="running";
-		t7.style.MozAnimationPlayState="running";
-		t7.style.WebkitAnimationPlayState="running";
+		t7.style.animationPlayState="running";
+		t7.style.webkitAnimationPlayState="running";
 		
-		t8.style.AnimationPlayState="running";
-		t8.style.MozAnimationPlayState="running";
-		t8.style.WebkitAnimationPlayState="running";
+		t8.style.animationPlayState="running";
+		t8.style.webkitanimationPlayState="running";
 		
-		t9.style.AnimationPlayState="running";
-		t9.style.MozAnimationPlayState="running";
-		t9.style.WebkitAnimationPlayState="running";
+		t9.style.animationPlayState="running";
+		t9.style.webkitAnimationPlayState="running";
 		
-		t10.style.AnimationPlayState="running";
-		t10.style.MozAnimationPlayState="running";
-		t10.style.WebkitAnimationPlayState="running";
+		t10.style.animationPlayState="running";
+		t10.style.webkitAnimationPlayState="running";
 		
-		count0[0].style.AnimationPlayState="running";
-		count0[0].style.MozAnimationPlayState="running";
-		count0[0].style.WebkitAnimationPlayState="running";
+		count0[0].style.animationPlayState="running";
+		count0[0].style.webkitAnimationPlayState="running";
 		
-		count1[0].style.AnimationPlayState="running";
-		count1[0].style.MozAnimationPlayState="running";
-		count1[0].style.WebkitAnimationPlayState="running";
+		count1[0].style.animationPlayState="running";
+		count1[0].style.webkitAnimationPlayState="running";
 		
-		count2[0].style.AnimationPlayState="running";
-		count2[0].style.MozAnimationPlayState="running";
-		count2[0].style.WebkitAnimationPlayState="running";
+		count2[0].style.animationPlayState="running";
+		count2[0].style.webkitAnimationPlayState="running";
 		
-		count3[0].style.AnimationPlayState="running";
-		count3[0].style.MozAnimationPlayState="running";
-		count3[0].style.WebkitAnimationPlayState="running";
+		count3[0].style.animationPlayState="running";
+		count3[0].style.webkitAnimationPlayState="running";
 		
-		count4[0].style.AnimationPlayState="running";
-		count4[0].style.MozAnimationPlayState="running";
-		count4[0].style.WebkitAnimationPlayState="running";
+		count4[0].style.animationPlayState="running";
+		count4[0].style.webkitAnimationPlayState="running";
 		
-		count5[0].style.AnimationPlayState="running";
-		count5[0].style.MozAnimationPlayState="running";
-		count5[0].style.WebkitAnimationPlayState="running";
+		count5[0].style.animationPlayState="running";
+		count5[0].style.webkitAnimationPlayState="running";
 		
-		guide.style.AnimationPlayState="running";
-		guide.style.MozAnimationPlayState="running";
-		guide.style.WebkitAnimationPlayState="running";
+		guide.style.animationPlayState="running";
+		guide.style.webkitAnimationPlayState="running";
 		
-		hiddenBox1.style.AnimationPlayState="running";
-		hiddenBox1.style.MozAnimationPlayState="running";
-		hiddenBox1.style.WebkitAnimationPlayState="running";
+		hiddenBox1.style.animationPlayState="running";
+		hiddenBox1.style.webkitAnimationPlayState="running";
 		
-		attackBox1.style.AnimationPlayState="running";
-		attackBox1.style.MozAnimationPlayState="running";
-		attackBox1.style.WebkitAnimationPlayState="running";
+		attackBox1.style.animationPlayState="running";
+		attackBox1.style.webkitAnimationPlayState="running";
 		
-		apes1.style.AnimationPlayState="running";
-		apes1.style.MozAnimationPlayState="running";
-		apes1.style.WebkitAnimationPlayState="running";
+		apes1.style.animationPlayState="running";
+		apes1.style.webkitAnimationPlayState="running";
 		
-		light1.style.AnimationPlayState="running";
-		light1.style.MozAnimationPlayState="running";
-		light1.style.WebkitAnimationPlayState="running";
+		light1.style.animationPlayState="running";
+		light1.style.webkitAnimationPlayState="running";
 		
-		hand.style.AnimationPlayState="running";
-		hand.style.MozAnimationPlayState="running";
-		hand.style.WebkitAnimationPlayState="running";
+		hand.style.animationPlayState="running";
+		hand.style.webkitAnimationPlayState="running";
 		
-		shootBox1.style.AnimationPlayState="running";
-		shootBox1.style.MozAnimationPlayState="running";
-		shootBox1.style.WebkitAnimationPlayState="running";
+		shootBox1.style.animationPlayState="running";
+		shootBox1.style.webkitAnimationPlayState="running";
 	}
 	
 	var winTime = 0;
@@ -1101,57 +1061,29 @@
 	}
 	
 	function getHurtMix(){
-			// gameContainerBg.style.webkitAnimationName = "getHurt2";
-			// gameContainerBg.style.mozAnimationName = "getHurt2";
-			// gameContainerBg.style.animationName = "getHurt2";
-			
-			// gameContainerBg.style.height ="100%";
-			// gameContainerBg.style.width ="103%";
-			// gameContainerBg.style.margin = "0% 0%";
-			// gameContainerBg.style.filter ="brightness(100%)";
-			
-			// gameContainerBg.style.webkitAnimationDuration = "2s";
-			// gameContainerBg.style.mozAnimationDuration = "2s";
-			// gameContainerBg.style.animationDuration= "2s";
-			
-			// gameContainerBg.style.webkitAnimationDelay = "2s";
-			// gameContainerBg.style.mozAnimationDelay = "2s";
-			// gameContainerBg.style.animationDelay = "2s";
-			
-			// gameContainerBg.style.animationIterationCount = "1";
-			// gameContainerBg.style.mozAnimationIterationCount = "1";
-			// gameContainerBg.style.webkitAnimationIterationCount = "1";
 			
 			innerContainer.style.webkitAnimationDuration = "2s,1.5s";
-			innerContainer.style.mozAnimationDuration = "2s,1.5s";
 			innerContainer.style.animationDuration= "2s,1.5s";
 			
 			innerContainer.style.webkitAnimationDelay = "2s,0s";
-			innerContainer.style.mozAnimationDelay = "2s,0s";
 			innerContainer.style.animationDelay = "2s,0s";
 			
 			innerContainer.style.webkitAnimationName = "innerContainerMixed,innerContainerMixed2";
-			innerContainer.style.mozAnimationName = "innerContainerMixed,innerContainerMixed2";
 			innerContainer.style.animationName = "innerContainerMixed,innerContainerMixed2";
 			
 			innerContainer.style.animationIterationCount = "2,1";
-			innerContainer.style.mozAnimationIterationCount = "2,1";
 			innerContainer.style.webkitAnimationIterationCount = "2,1";
 			
 			redLayer.style.webkitAnimationName = "redLayerMix,redLayerMix2";
-			redLayer.style.mozAnimationName = "redLayerMix,redLayerMix2";
 			redLayer.style.animationName = "redLayerMix,redLayerMix2";
 			
 			redLayer.style.webkitAnimationDuration = "2s,1.5s";
-			redLayer.style.mozAnimationDuration = "2s,1.5s";
 			redLayer.style.animationDuration= "2s,1.5s";
 			
 			redLayer.style.webkitAnimationDelay = "2s,0s";
-			redLayer.style.mozAnimationDelay = "2s,0s";
 			redLayer.style.animationDelay = "2s,0s";
 			
 			redLayer.style.animationIterationCount = "2,1";
-			redLayer.style.mozAnimationIterationCount = "2,1";
 			redLayer.style.webkitAnimationIterationCount = "2,1";
 			
 	}
