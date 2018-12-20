@@ -734,21 +734,6 @@
 		coin7.style.animationPlayState="running";
 		coin8.style.animationPlayState="running";
 		
-		winLayer.style.mozAnimationPlayState="running";
-		winLayerGlow.style.mozAnimationPlayState="running";
-		winLayerGlowBox.style.mozAnimationPlayState="running";
-		winLayerBG.style.mozAnimationPlayState="running";
-		
-		coin1.style.mozAnimationPlayState="running";
-		coin2.style.mozAnimationPlayState="running";
-		coin3.style.mozAnimationPlayState="running";
-		coin4.style.mozAnimationPlayState="running";
-		
-		coin5.style.mozAnimationPlayState="running";
-		coin6.style.mozAnimationPlayState="running";
-		coin7.style.mozAnimationPlayState="running";
-		coin8.style.mozAnimationPlayState="running";
-		
 		winLayer.style.webkitAnimationPlayState="running";
 		winLayerGlow.style.webkitAnimationPlayState="running";
 		winLayerGlowBox.style.webkitAnimationPlayState="running";
@@ -777,6 +762,20 @@
 		heart.style.animationName = "profileHidden";
 		heart.style.animationDuration = "2s";
 		heart.style.animationDelay = "0s";
+		
+		innerContainer.style.webkitAnimationName = "winInnerContainer";
+		innerContainer.style.webkitAnimationDuration = "5s";
+		innerContainer.style.webkitAnimationIterationCount = "1";
+		innerContainer.style.webkitAnimationDelay = "1s";
+		innerContainer.style.webkitAnimationPlayState="running";
+		
+		profile.style.webkitAnimationName = "profileHidden";
+		profile.style.webkitAnimationDuration = "2s";
+		profile.style.webkitAnimationDelay = "0s";
+		
+		heart.style.webkitAnimationName = "profileHidden";
+		heart.style.webkitAnimationDuration = "2s";
+		heart.style.webkitAnimationDelay = "0s";
 		
 		reward1.style.left = "52%";
 		reward1.style.top = "84%";
@@ -822,33 +821,6 @@
 		reward7.style.animationDelay = "0s";
 		reward8.style.animationDelay = "0s";
 		
-		reward1.style.mozAnimationName = "profileHidden";
-		reward2.style.mozAnimationName = "profileHidden";
-		reward3.style.mozAnimationName = "profileHidden";
-		reward4.style.mozAnimationName = "profileHidden";
-		reward5.style.mozAnimationName = "profileHidden";
-		reward6.style.mozAnimationName = "profileHidden";
-		reward7.style.mozAnimationName = "profileHidden";
-		reward8.style.mozAnimationName = "profileHidden";
-		
-		reward1.style.mozAnimationDuration = "5s";
-		reward2.style.mozAnimationDuration = "5s";
-		reward3.style.mozAnimationDuration = "5s";
-		reward4.style.mozAnimationDuration = "5s";
-		reward5.style.mozAnimationDuration = "5s";
-		reward6.style.mozAnimationDuration = "5s";
-		reward7.style.mozAnimationDuration = "5s";
-		reward8.style.mozAnimationDuration = "5s";
-		
-		reward1.style.mozAnimationDelay = "0s";
-		reward2.style.mozAnimationDelay = "0s";
-		reward3.style.mozAnimationDelay = "0s";
-		reward4.style.mozAnimationDelay = "0s";
-		reward5.style.mozAnimationDelay = "0s";
-		reward6.style.mozAnimationDelay = "0s";
-		reward7.style.mozAnimationDelay = "0s";
-		reward8.style.mozAnimationDelay = "0s";
-		
 		reward1.style.webkitAnimationName = "profileHidden";
 		reward2.style.webkitAnimationName = "profileHidden";
 		reward3.style.webkitAnimationName = "profileHidden";
@@ -886,17 +858,6 @@
 		bowGlowRight.style.animationPlayState = "running";
 		bowGlowRight2.style.animationPlayState = "running";
 		winButton.style.animationPlayState = "running";
-		
-		chest1.style.mozAnimationPlayState = "running";
-		chest2.style.mozAnimationPlayState = "running";
-		bow.style.mozAnimationPlayState = "running";
-		bowGlowLeft.style.mozAnimationPlayState = "running";
-		bowGlowLeft2.style.mozAnimationPlayState = "running";
-		bowGlowMiddle.style.mozAnimationPlayState = "running";
-		bowGlowMiddle2.style.mozAnimationPlayState = "running";
-		bowGlowRight.style.mozAnimationPlayState = "running";
-		bowGlowRight2.style.mozAnimationPlayState = "running";
-		winButton.style.mozAnimationPlayState = "running";
 		
 		chest1.style.webkitAnimationPlayState = "running";
 		chest2.style.webkitAnimationPlayState = "running";
