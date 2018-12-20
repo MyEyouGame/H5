@@ -24,10 +24,6 @@
 		0% { -webkit-transform: rotate(0deg); }
 		100% { -webkit-transform: rotate(360deg); }
 	}
-	@-moz-keyframes spin {
-		0% { -webkit-transform: rotate(0deg); }
-		100% { -webkit-transform: rotate(360deg); }
-	}
 	@keyframes spin {
 		0% { transform: rotate(0deg); }
 		100% { transform: rotate(360deg); }
@@ -320,6 +316,284 @@
 		}
 	}
 	@-webkit-keyframes innerContainer2{
+		0%{
+			top:0%;
+			left:0%;
+		}
+		1%{
+			top:1%;
+			left:1%;
+		}
+		2%{
+			top:-1%;
+			left:1%;
+		}
+		3%{
+			top:1%;
+			left:-1%;
+		}
+		4%{
+			top:1%;
+			left:1%;
+		}
+		5%{
+			top:-1%;
+			left:1%;
+		}
+		6%{
+			top:1%;
+			left:1%;
+		}
+		7%{
+			top:-1%;
+			left:1%;
+		}
+		8%{
+			top:1%;
+			left:1%;
+		}
+		9%{
+			top:0%;
+			left:0%;
+		}
+		100%{
+			top:0%;
+			left:0%;
+		}
+	}
+	
+	@keyframes innerContainerMixed{
+		0%{
+			top:0%;
+			left:0%;
+		}
+		1%{
+			top:1%;
+			left:1%;
+		}
+		2%{
+			top:-1%;
+			left:1%;
+		}
+		3%{
+			top:1%;
+			left:-1%;
+		}
+		4%{
+			top:1%;
+			left:1%;
+		}
+		5%{
+			top:-1%;
+			left:1%;
+		}
+		6%{
+			top:1%;
+			left:1%;
+		}
+		7%{
+			top:-1%;
+			left:1%;
+		}
+		8%{
+			top:1%;
+			left:1%;
+		}
+		9%{
+			top:0%;
+			left:0%;
+		}
+		100%{
+			top:0%;
+			left:0%;
+		}
+	}
+	@-moz-keyframes innerContainerMixed{
+		0%{
+			top:0%;
+			left:0%;
+		}
+		1%{
+			top:1%;
+			left:1%;
+		}
+		2%{
+			top:-1%;
+			left:1%;
+		}
+		3%{
+			top:1%;
+			left:-1%;
+		}
+		4%{
+			top:1%;
+			left:1%;
+		}
+		5%{
+			top:-1%;
+			left:1%;
+		}
+		6%{
+			top:1%;
+			left:1%;
+		}
+		7%{
+			top:-1%;
+			left:1%;
+		}
+		8%{
+			top:1%;
+			left:1%;
+		}
+		9%{
+			top:0%;
+			left:0%;
+		}
+		100%{
+			top:0%;
+			left:0%;
+		}
+	}
+	@-webkit-keyframes innerContainerMixed{
+		0%{
+			top:0%;
+			left:0%;
+		}
+		1%{
+			top:1%;
+			left:1%;
+		}
+		2%{
+			top:-1%;
+			left:1%;
+		}
+		3%{
+			top:1%;
+			left:-1%;
+		}
+		4%{
+			top:1%;
+			left:1%;
+		}
+		5%{
+			top:-1%;
+			left:1%;
+		}
+		6%{
+			top:1%;
+			left:1%;
+		}
+		7%{
+			top:-1%;
+			left:1%;
+		}
+		8%{
+			top:1%;
+			left:1%;
+		}
+		9%{
+			top:0%;
+			left:0%;
+		}
+		100%{
+			top:0%;
+			left:0%;
+		}
+	}
+	
+	@keyframes innerContainerMixed2{
+		0%{
+			top:0%;
+			left:0%;
+		}
+		1%{
+			top:1%;
+			left:1%;
+		}
+		2%{
+			top:-1%;
+			left:1%;
+		}
+		3%{
+			top:1%;
+			left:-1%;
+		}
+		4%{
+			top:1%;
+			left:1%;
+		}
+		5%{
+			top:-1%;
+			left:1%;
+		}
+		6%{
+			top:1%;
+			left:1%;
+		}
+		7%{
+			top:-1%;
+			left:1%;
+		}
+		8%{
+			top:1%;
+			left:1%;
+		}
+		9%{
+			top:0%;
+			left:0%;
+		}
+		100%{
+			top:0%;
+			left:0%;
+		}
+	}
+	@-moz-keyframes innerContainerMixed2{
+		0%{
+			top:0%;
+			left:0%;
+		}
+		1%{
+			top:1%;
+			left:1%;
+		}
+		2%{
+			top:-1%;
+			left:1%;
+		}
+		3%{
+			top:1%;
+			left:-1%;
+		}
+		4%{
+			top:1%;
+			left:1%;
+		}
+		5%{
+			top:-1%;
+			left:1%;
+		}
+		6%{
+			top:1%;
+			left:1%;
+		}
+		7%{
+			top:-1%;
+			left:1%;
+		}
+		8%{
+			top:1%;
+			left:1%;
+		}
+		9%{
+			top:0%;
+			left:0%;
+		}
+		100%{
+			top:0%;
+			left:0%;
+		}
+	}
+	@-webkit-keyframes innerContainerMixed2{
 		0%{
 			top:0%;
 			left:0%;
@@ -1000,6 +1274,61 @@
 		}
 	
 	}
+	
+	@keyframes redLayerMix2{
+		0%{
+			z-index:-30;
+		}
+		1%{
+			z-index:100;
+		}
+		5%{
+			z-index:100;
+		}
+		6%{
+			z-index:-30;
+		}
+		100%{
+			z-index:-30;
+		}
+	}
+	@-moz-keyframes redLayerMix2{
+		0%{
+			z-index:-30;
+		}
+		1%{
+			z-index:100;
+		}
+		5%{
+			z-index:100;
+		}
+		6%{
+			z-index:-30;
+		}
+		100%{
+			z-index:-30;
+		}
+	
+	}
+	@-webkit-keyframes redLayerMix2{
+		0%{
+			z-index:-30;
+		}
+		1%{
+			z-index:100;
+		}
+		5%{
+			z-index:100;
+		}
+		6%{
+			z-index:-30;
+		}
+		100%{
+			z-index:-30;
+		}
+	
+	}
+	
 	
 	#loseLayer{
 		position: absolute;

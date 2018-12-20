@@ -1101,181 +1101,114 @@
 	}
 	
 	function getHurtMix(){
-			gameContainerBg.style.webkitAnimationName = "getHurt2";
-			gameContainerBg.style.mozAnimationName = "getHurt2";
-			gameContainerBg.style.animationName = "getHurt2";
+			// gameContainerBg.style.webkitAnimationName = "getHurt2";
+			// gameContainerBg.style.mozAnimationName = "getHurt2";
+			// gameContainerBg.style.animationName = "getHurt2";
 			
-			gameContainerBg.style.height ="100%";
-			gameContainerBg.style.width ="103%";
-			gameContainerBg.style.margin = "0% 0%";
-			gameContainerBg.style.filter ="brightness(100%)";
+			// gameContainerBg.style.height ="100%";
+			// gameContainerBg.style.width ="103%";
+			// gameContainerBg.style.margin = "0% 0%";
+			// gameContainerBg.style.filter ="brightness(100%)";
 			
-			gameContainerBg.style.webkitAnimationDuration = "2s";
-			gameContainerBg.style.mozAnimationDuration = "2s";
-			gameContainerBg.style.animationDuration= "2s";
+			// gameContainerBg.style.webkitAnimationDuration = "2s";
+			// gameContainerBg.style.mozAnimationDuration = "2s";
+			// gameContainerBg.style.animationDuration= "2s";
 			
-			gameContainerBg.style.webkitAnimationDelay = "2s";
-			gameContainerBg.style.mozAnimationDelay = "2s";
-			gameContainerBg.style.animationDelay = "2s";
+			// gameContainerBg.style.webkitAnimationDelay = "2s";
+			// gameContainerBg.style.mozAnimationDelay = "2s";
+			// gameContainerBg.style.animationDelay = "2s";
 			
-			gameContainerBg.style.animationIterationCount = "1";
-			gameContainerBg.style.mozAnimationIterationCount = "1";
-			gameContainerBg.style.webkitAnimationIterationCount = "1";
+			// gameContainerBg.style.animationIterationCount = "1";
+			// gameContainerBg.style.mozAnimationIterationCount = "1";
+			// gameContainerBg.style.webkitAnimationIterationCount = "1";
 			
-			innerContainer.style.webkitAnimationDuration = "2s";
-			innerContainer.style.mozAnimationDuration = "2s";
-			innerContainer.style.animationDuration= "2s";
+			innerContainer.style.webkitAnimationDuration = "2s,1.5s";
+			innerContainer.style.mozAnimationDuration = "2s,1.5s";
+			innerContainer.style.animationDuration= "2s,1.5s";
 			
-			innerContainer.style.webkitAnimationDelay = "2s";
-			innerContainer.style.mozAnimationDelay = "2s";
-			innerContainer.style.animationDelay = "2s";
+			innerContainer.style.webkitAnimationDelay = "2s,0s";
+			innerContainer.style.mozAnimationDelay = "2s,0s";
+			innerContainer.style.animationDelay = "2s,0s";
 			
-			innerContainer.style.webkitAnimationName = "innerContainer2";
-			innerContainer.style.mozAnimationName = "innerContainer2";
-			innerContainer.style.animationName = "innerContainer2";
+			innerContainer.style.webkitAnimationName = "innerContainerMixed,innerContainerMixed2";
+			innerContainer.style.mozAnimationName = "innerContainerMixed,innerContainerMixed2";
+			innerContainer.style.animationName = "innerContainerMixed,innerContainerMixed2";
 			
-			innerContainer.style.webkitAnimationDuration = "2s";
-			innerContainer.style.mozAnimationDuration = "2s";
-			innerContainer.style.animationDuration= "2s";
+			innerContainer.style.animationIterationCount = "2,1";
+			innerContainer.style.mozAnimationIterationCount = "2,1";
+			innerContainer.style.webkitAnimationIterationCount = "2,1";
 			
-			innerContainer.style.webkitAnimationDelay = "2s";
-			innerContainer.style.mozAnimationDelay = "2s";
-			innerContainer.style.animationDelay = "2s";
+			redLayer.style.webkitAnimationName = "redLayerMix,redLayerMix2";
+			redLayer.style.mozAnimationName = "redLayerMix,redLayerMix2";
+			redLayer.style.animationName = "redLayerMix,redLayerMix2";
 			
-			innerContainer.style.animationIterationCount = "1";
-			innerContainer.style.mozAnimationIterationCount = "1";
-			innerContainer.style.webkitAnimationIterationCount = "1";
+			redLayer.style.webkitAnimationDuration = "2s,1.5s";
+			redLayer.style.mozAnimationDuration = "2s,1.5s";
+			redLayer.style.animationDuration= "2s,1.5s";
 			
-			redLayer.style.webkitAnimationName = "redLayerMix";
-			redLayer.style.mozAnimationName = "redLayerMix";
-			redLayer.style.animationName = "redLayerMix";
+			redLayer.style.webkitAnimationDelay = "2s,0s";
+			redLayer.style.mozAnimationDelay = "2s,0s";
+			redLayer.style.animationDelay = "2s,0s";
 			
-			redLayer.style.webkitAnimationDuration = "2s";
-			redLayer.style.mozAnimationDuration = "2s";
-			redLayer.style.animationDuration= "2s";
+			redLayer.style.animationIterationCount = "2,1";
+			redLayer.style.mozAnimationIterationCount = "2,1";
+			redLayer.style.webkitAnimationIterationCount = "2,1";
 			
-			redLayer.style.webkitAnimationDelay = "2s";
-			redLayer.style.mozAnimationDelay = "2s";
-			redLayer.style.animationDelay = "2s";
-			
-			redLayer.style.animationIterationCount = "1";
-			redLayer.style.mozAnimationIterationCount = "1";
-			redLayer.style.webkitAnimationIterationCount = "1";
-			
-			var non = "redLayerMix";
-
-			doTimer(
-			2500,20,function(steps){
-									non = non - (1 / steps);
-									document.getElementById("redLayer").style.animationName = non;				
-									},
-						function(){
-
-									innerContainer.style.webkitAnimationName = "innerContainer";
-									innerContainer.style.mozAnimationName = "innerContainer";
-									innerContainer.style.animationName = "innerContainer";
-
-									innerContainer.style.webkitAnimationDuration = "1.5s";
-									innerContainer.style.mozAnimationDuration = "1.5s";
-									innerContainer.style.animationDuration= "1.5s";
-
-									innerContainer.style.webkitAnimationDelay = "0s";
-									innerContainer.style.mozAnimationDelay = "0s";
-									innerContainer.style.animationDelay = "0s";
-									
-									innerContainer.style.animationIterationCount = "2";
-									innerContainer.style.mozAnimationIterationCount = "2";
-									innerContainer.style.webkitAnimationIterationCount = "2";
-									
-									redLayer.style.webkitAnimationName = "redLayer";
-									redLayer.style.mozAnimationName = "redLayer";
-									redLayer.style.animationName = "redLayer";
-
-									redLayer.style.webkitAnimationDuration = "1.5s";
-									redLayer.style.mozAnimationDuration = "1.5s";
-									redLayer.style.animationDuration= "1.5s";
-
-									redLayer.style.webkitAnimationDelay = "0s";
-									redLayer.style.mozAnimationDelay = "0s";
-									redLayer.style.animationDelay = "0s";
-
-									redLayer.style.animationIterationCount = "2";
-									redLayer.style.mozAnimationIterationCount = "2";
-									redLayer.style.webkitAnimationIterationCount = "2";
-								}						
-			);
 	}
 	
 	function getHurt6(){
-		
-			gameContainerBg.style.webkitAnimationName = "getHurt";
-			gameContainerBg.style.mozAnimationName = "getHurt";
-			gameContainerBg.style.animationName = "getHurt";
-			
-			gameContainerBg.style.height ="100%";
-			gameContainerBg.style.width ="103%";
-			gameContainerBg.style.margin = "0% 0%";
-			gameContainerBg.style.filter ="brightness(100%)";
-			
-			gameContainerBg.style.webkitAnimationDuration = "2s";
-			gameContainerBg.style.mozAnimationDuration = "2s";
-			gameContainerBg.style.animationDuration= "2s";
-			
-			gameContainerBg.style.webkitAnimationDelay = "2s";
-			gameContainerBg.style.mozAnimationDelay = "2s";
-			gameContainerBg.style.animationDelay = "2s";
-			
-			gameContainerBg.style.animationIterationCount = "3";
-			gameContainerBg.style.mozAnimationIterationCount = "3";
-			gameContainerBg.style.webkitAnimationIterationCount = "3";
-			
+
 			innerContainer.style.webkitAnimationDuration = "2s";
-			innerContainer.style.mozAnimationDuration = "2s";
 			innerContainer.style.animationDuration= "2s";
 			
 			innerContainer.style.webkitAnimationDelay = "2s";
-			innerContainer.style.mozAnimationDelay = "2s";
+			innerContainer.style.animationDelay = "2s";
+			
+			innerContainer.style.webkitAnimationName = "innerContainer2";
+			innerContainer.style.animationName = "innerContainer2";
+			
+			innerContainer.style.animationIterationCount = "3";
+			innerContainer.style.webkitAnimationIterationCount = "3";
+			
+			redLayer.style.webkitAnimationName = "redLayer2";
+			redLayer.style.animationName = "redLayer2";
+			
+			redLayer.style.animationDuration= "2s";
+			redLayer.style.webkitAnimationDuration = "2s";
+
+			redLayer.style.animationDelay = "2s";
+			redLayer.style.webkitAnimationDelay = "2s";
+			
+			redLayer.style.animationIterationCount = "3";
+			redLayer.style.WebkitAnimationIterationCount = "3";
+			
+			redLayer.style.animationPlayState="running";
+			innerContainer.style.animationPlayState="running";
+	}
+	
+		function getHurt7(){
+
+			innerContainer.style.webkitAnimationDuration = "2s";
+			innerContainer.style.animationDuration= "2s";
+			
+			innerContainer.style.webkitAnimationDelay = "2s";
 			innerContainer.style.animationDelay = "2s";
 			
 			innerContainer.style.webkitAnimationName = "innerContainer";
-			innerContainer.style.mozAnimationName = "innerContainer";
 			innerContainer.style.animationName = "innerContainer";
 			
-			innerContainer.style.webkitAnimationDuration = "2s";
-			innerContainer.style.mozAnimationDuration = "2s";
-			innerContainer.style.animationDuration= "2s";
+			redLayer.style.webkitAnimationName = "redLayer";
+			redLayer.style.animationName = "redLayer";
 			
-			innerContainer.style.webkitAnimationDelay = "2s";
-			innerContainer.style.mozAnimationDelay = "2s";
-			innerContainer.style.animationDelay = "2s";
-			
-			innerContainer.style.animationIterationCount = "3";
-			innerContainer.style.mozAnimationIterationCount = "3";
-			innerContainer.style.WebkitAnimationIterationCount = "3";
-			
-			redLayer.style.webkitAnimationName = "redLayer2";
-			redLayer.style.mozAnimationName = "redLayer2";
-			redLayer.style.animationName = "redLayer2";
-			
-			redLayer.style.webkitAnimationDuration = "2s";
-			redLayer.style.mozAnimationDuration = "2s";
 			redLayer.style.animationDuration= "2s";
-			
-			redLayer.style.webkitAnimationDelay = "2s";
-			redLayer.style.mozAnimationDelay = "2s";
+			redLayer.style.webkitAnimationDuration = "2s";
+
 			redLayer.style.animationDelay = "2s";
+			redLayer.style.webkitAnimationDelay = "2s";
 			
-			redLayer.style.animationIterationCount = "3";
-			redLayer.style.mozAnimationIterationCount = "3";
-			redLayer.style.WebkitAnimationIterationCount = "3";
-
 			redLayer.style.animationPlayState="running";
-			redLayer.style.mozAnimationPlayState="running";
-			redLayer.style.webkitAnimationPlayState="running";
-
-			innerContainer.style.animationPlayState = "running";
-			innerContainer.style.mozAnimationPlayState = "running";
-			innerContainer.style.webkitAnimationPlayState = "running";
+			innerContainer.style.animationPlayState="running";
+			
 	}
 	
 	function stopHurt(){
@@ -1343,11 +1276,6 @@
 		innerContainer.style.animationPlayState = "paused";
 		innerContainer.style.mozAnimationPlayState = "paused";
 		innerContainer.style.webkitAnimationPlayState = "paused";
-		
-		redLayer.style.animationDuration= "2s";
-		redLayer.style.animationDelay = "2s";
-		
-		redLayer.style.animationIterationCount = "3";
 		
 	}
 
@@ -1811,7 +1739,6 @@
 		style0 = getComputedStyle(element0).filter;
 		element1 = document.querySelector('.heart1');
 		style1 = getComputedStyle(element1).filter;
-		
 		if (style2 === "brightness(1)"){
 			
 			heart2[0].style.animationName="hearts";
@@ -2590,10 +2517,9 @@
 				attackBox9.style.webkitAnimationPlayState="running";
 				
 				stopHurt2();
-				window.clearTimeout(timeouts);
 				life7();
-				// getHurt6();
-
+				getHurt6();
+				
 			}
 			
 			reward5.style.display="block";
@@ -2681,9 +2607,8 @@
 				attackBox9.style.webkitAnimationPlayState="running";
 			
 				stopHurt2();
-				window.clearTimeout(timeouts);
 				life7();
-				// getHurt6();
+				getHurt6();
 			}
 			
 			reward6.style.display="block";
@@ -2693,8 +2618,9 @@
 			reward6.style.WebkitAnimationPlayState="running";
 		}
 		if (data === "attackBox9"){
-			// stopHurt();
+			stopHurt();
 			life8();
+			getHurt7()
 			
 			sparkBox.style.display = "block";
 			sparkBox.style.left = "66%";
@@ -3396,7 +3322,9 @@
 				
 				stopHurt2();
 				window.clearTimeout(timeouts);
-				life5();
+				life7();
+				getHurt6();
+
 			}
 			
 			reward5.style.display="block";
@@ -3408,7 +3336,6 @@
 		}
 		if (data === "attackBox7"){
 				
-			stopHurt();
 			attackBox7.style.zIndex = "-30";
 
 			sparkBox.style.display = "block";
@@ -3464,7 +3391,6 @@
 				c[2].style.opacity = "0";
 				c[2].style.opacity = "0";
 				
-				
 				hiddenBox9.style.animationPlayState="running";
 				hiddenBox9.style.mozAnimationPlayState="running";
 				hiddenBox9.style.webkitAnimationPlayState="running";
@@ -3487,7 +3413,8 @@
 			
 				stopHurt2();
 				window.clearTimeout(timeouts);
-				life5();
+				life7();
+				// getHurt6();
 			}
 			
 			reward6.style.display="block";
@@ -3497,8 +3424,8 @@
 			reward6.style.WebkitAnimationPlayState="running";
 		}
 		if (data === "attackBox9"){
-			
-			life3();
+			// stopHurt();
+			life8();
 			
 			sparkBox.style.display = "block";
 			sparkBox.style.left = "66%";
