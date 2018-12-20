@@ -209,7 +209,6 @@
 		countImage[3].style.margin = "3% 64%";
 		count0[0].style.margin = "0% 55%";
 
-		// loseInterface();
 	}
 	
 	var timeouts;
@@ -838,15 +837,12 @@
 		cancelAnimationFrame(detectAnimation);
 		
 		grayscaleElf.style.animationPlayState="running";
-		grayscaleElf.style.mozAnimationPlayState="running";
 		grayscaleElf.style.webkitAnimationPlayState="running";
 		
 		inkBox.style.animationPlayState="running";
-		inkBox.style.mozAnimationPlayState="running";
 		inkBox.style.webkitAnimationPlayState="running";
 		
 		inkBox.style.animationPlayState="running";
-		inkBox.style.mozAnimationPlayState="running";
 		inkBox.style.webkitAnimationPlayState="running";
 		
 		var non = "none";
@@ -865,15 +861,12 @@
 			);
 		
 		loseLayer.style.animationPlayState="running";
-		loseLayer.style.mozAnimationPlayState="running";
 		loseLayer.style.webkitAnimationPlayState="running";
 		
 		loseLayerBG.style.animationPlayState="running";
-		loseLayerBG.style.mozAnimationPlayState="running";
 		loseLayerBG.style.webkitAnimationPlayState="running";
 		
 		againFontBG.style.animationPlayState="running";
-		againFontBG.style.mozAnimationPlayState="running";
 		againFontBG.style.webkitAnimationPlayState="running";
 		
 		arrow.style.display = "block";	
@@ -885,34 +878,29 @@
 	
 	//hiddenBox1
 	function getHurt(){
-			gameContainerBg.style.WebkitAnimationName = "getHurt";
-			gameContainerBg.style.MozAnimationName = "getHurt";
+			gameContainerBg.style.webkitAnimationName = "getHurt";
 			gameContainerBg.style.animationName = "getHurt";
 			
 			gameContainerBg.style.height ="100%";
 			gameContainerBg.style.width ="103%";
 			gameContainerBg.style.margin = "0% 0%";
 			gameContainerBg.style.filter ="brightness(100%)";
+			gameContainerBg.style.webkitFilter ="brightness(100%)";
 			
-			gameContainerBg.style.WebkitanimationDuration = "2s";
-			gameContainerBg.style.MozanimationDuration = "2s";
+			gameContainerBg.style.webkitAnimationDuration = "2s";
 			gameContainerBg.style.animationDuration= "2s";
 			
-			gameContainerBg.style.WebkitanimationDelay = "2.5s";
-			gameContainerBg.style.MozanimationDelay = "2.5s";
+			gameContainerBg.style.webkitAnimationDelay = "2.5s";
 			gameContainerBg.style.animationDelay = "2.5s";
 			
 			gameContainerBg.style.animationIterationCount = "3";
-			gameContainerBg.style.MozAnimationIterationCount = "3";
-			gameContainerBg.style.WebkitAnimationIterationCount = "3";
+			gameContainerBg.style.webkitAnimationIterationCount = "3";
 			
-			innerContainer.style.AnimationPlayState="running";
-			innerContainer.style.MozAnimationPlayState="running";
-			innerContainer.style.WebkitAnimationPlayState="running";
+			innerContainer.style.animationPlayState="running";
+			innerContainer.style.webkitAnimationPlayState="running";
 			
-			redLayer.style.AnimationPlayState="running";
-			redLayer.style.MozAnimationPlayState="running";
-			redLayer.style.WebkitAnimationPlayState="running";
+			redLayer.style.animationPlayState="running";
+			redLayer.style.webkitAnimationPlayState="running";
 	}
 	
 	//hiddenBox2，hiddenBox4
@@ -1899,19 +1887,15 @@
 			attackBox1.style.zIndex = "-30";
 			
 			shootBox1.style.animationPlayState="running";
-			shootBox1.style.mozAnimationPlayState="running";
 			shootBox1.style.webkitAnimationPlayState="running";
 			
 			shoot.style.animationPlayState="running";
-			shoot.style.mozAnimationPlayState="running";
 			shoot.style.webkitAnimationPlayState="running";
 			
-			apes1.style.WebkitAnimationName = "killApes1";
-			apes1.style.MozAnimationName = "killApes1";
+			apes1.style.webkitAnimationName = "killApes1";
 			apes1.style.animationName = "killApes1";
 			
-			apes1.style.WebkitanimationDelay = "0s";
-			apes1.style.MozanimationDelay = "0s";
+			apes1.style.webkitAnimationDelay = "0s";
 			apes1.style.animationDelay = "0s";
 			
 			guide.style.display = "none";
@@ -1920,57 +1904,44 @@
 			light1.style.display = "none";
 			light1.style.zIndex = "-30";
 			
-			hand.style.WebkitAnimationName = "handRemove";
-			hand.style.MozAnimationName = "handRemove";
+			hand.style.webkitAnimationName = "handRemove";
 			hand.style.animationName = "handRemove";
 			
-			hand.style.WebkitanimationDelay = "0s";
-			hand.style.MozanimationDelay = "0s";
+			hand.style.webkitAnimationDelay = "0s";
 			hand.style.animationDelay = "0s";
 			
 			reward1.style.display = "block";
 			reward1.style.animationPlayState="running";
-			reward1.style.mozAnimationPlayState="running";
 			reward1.style.webkitAnimationPlayState="running";
 			
 			count5[0].style.WebkitAnimationName = "removeIcon";
-			count5[0].style.MozAnimationName = "removeIcon";
 			count5[0].style.animationName = "removeIcon";
 			
 			count5[0].style.WebkitanimationDelay = "0s";
-			count5[0].style.MozanimationDelay = "0s";
 			count5[0].style.animationDelay = "0s";
 			
 			hiddenBox2.style.animationPlayState="running";
-			hiddenBox2.style.mozAnimationPlayState="running";
 			hiddenBox2.style.webkitAnimationPlayState="running";
 			
 			attackBox2.style.animationPlayState="running";
-			attackBox2.style.mozAnimationPlayState="running";
 			attackBox2.style.webkitAnimationPlayState="running";
 			
 			orc1.style.animationPlayState="running";
-			orc1.style.mozAnimationPlayState="running";
 			orc1.style.webkitAnimationPlayState="running";
 			
 			light2.style.animationPlayState="running";
-			light2.style.mozAnimationPlayState="running";
 			light2.style.webkitAnimationPlayState="running";
 			
 			fire2.style.animationPlayState="running";
-			fire2.style.mozAnimationPlayState="running";
 			fire2.style.webkitAnimationPlayState="running";
 			
 			heart2[0].style.animationPlayState="running";
-			heart2[0].style.mozAnimationPlayState="running";
 			heart2[0].style.webkitAnimationPlayState="running";
 			
 			heart1[0].style.animationPlayState="running";
-			heart1[0].style.mozAnimationPlayState="running";
 			heart1[0].style.webkitAnimationPlayState="running";
 			
 			heart0[0].style.animationPlayState="running";
-			heart0[0].style.mozAnimationPlayState="running";
 			heart0[0].style.webkitAnimationPlayState="running";
 			
 			getHurt();
@@ -1981,11 +1952,9 @@
 			life2();
 			getHurt2();
 			fire2.style.animationPlayState="paused";
-			fire2.style.mozAnimationPlayState="paused";
 			fire2.style.webkitAnimationPlayState="paused";
 			
 			light2.style.animationPlayState="paused";
-			light2.style.mozAnimationPlayState="paused";
 			light2.style.webkitAnimationPlayState="paused";
 			
 			fire2.style.display = "none";
@@ -2004,52 +1973,40 @@
 			sparkAnimation();
 			
 			shootBox2.style.animationPlayState="running";
-			shootBox2.style.mozAnimationPlayState="running";
 			shootBox2.style.webkitAnimationPlayState="running";
 			
 			shoot2.style.animationPlayState="running";
-			shoot2.style.mozAnimationPlayState="running";
 			shoot2.style.webkitAnimationPlayState="running";
 						
 			orc1.style.webkitAnimationName = "killOrc1";
-			orc1.style.mozAnimationName = "killOrc1";
 			orc1.style.animationName = "killOrc1";
 			
 			orc1.style.webkitanimationDelay = "0s";
-			orc1.style.mozanimationDelay = "0s";
 			orc1.style.animationDelay = "0s";
 			
 			count4[0].style.webkitAnimationName = "removeIcon";
-			count4[0].style.mozAnimationName = "removeIcon";
 			count4[0].style.animationName = "removeIcon";
 			
 			count4[0].style.webkitanimationDelay = "0s";
-			count4[0].style.mozanimationDelay = "0s";
 			count4[0].style.animationDelay = "0s";
 			
 			reward2.style.display = "block";
 			reward2.style.animationPlayState="running";
-			reward2.style.mozAnimationPlayState="running";
 			reward2.style.webkitAnimationPlayState="running";
 			
 			hiddenBox3.style.animationPlayState="running";
-			hiddenBox3.style.mozAnimationPlayState="running";
 			hiddenBox3.style.webkitAnimationPlayState="running";
 			
 			orc2.style.animationPlayState="running";
-			orc2.style.mozAnimationPlayState="running";
 			orc2.style.webkitAnimationPlayState="running";
 			
 			attackBox3.style.animationPlayState="running";
-			attackBox3.style.mozAnimationPlayState="running";
 			attackBox3.style.webkitAnimationPlayState="running";
 			
 			light3.style.animationPlayState="running";
-			light3.style.mozAnimationPlayState="running";
 			light3.style.webkitAnimationPlayState="running";
 			
 			fire3.style.animationPlayState="running";
-			fire3.style.mozAnimationPlayState="running";
 			fire3.style.webkitAnimationPlayState="running";
 
 		}

@@ -4110,11 +4110,6 @@
 	animation-delay:0s;
 	animation-fill-mode: forwards;
 	animation-play-state: paused;
-	-moz-animation-name:hiddenBox2;
-	-moz-animation-duration:1s;	
-	-moz-animation-delay:0s;
-	-moz-animation-fill-mode: forwards;
-	-moz-animation-play-state: paused;
 	-webkit-animation-name: hiddenBox2;
 	-webkit-animation-duration: 1s;
 	-webkit-animation-delay:0s;
@@ -4124,18 +4119,6 @@
  }	
  
   @keyframes hiddenBox2{
-	0%{
-		width: 0%;
-		left: 12%;
-		opacity:0;
-	 }
-	 100%{
-		width: 31%;
-		left: 12%;
-		opacity: 1;
-	 }
- }
- @-moz-keyframes hiddenBox2{
 	0%{
 		width: 0%;
 		left: 12%;
@@ -4171,6 +4154,7 @@
     background-Repeat: no-repeat;
     opacity: 1;
 	filter: brightness(0);
+	-webkit-filter: brightness(0);
 	z-index:-1;
 	
 	animation-name: orc1;
@@ -4178,11 +4162,6 @@
 	animation-delay:1s;
 	animation-fill-mode: forwards;
 	animation-play-state: paused;
-	-moz-animation-name:orc1;
-	-moz-animation-duration:1s;	
-	-moz-animation-delay:1s;
-	-moz-animation-fill-mode: forwards;
-	-moz-animation-play-state: paused;
 	-webkit-animation-name: orc1;
 	-webkit-animation-duration: 1s;
 	-webkit-animation-delay:1s;
@@ -4200,24 +4179,14 @@
 		filter: brightness(1);
 	 }
 }
-@-moz-keyframes orc1{
-	0%{
-		left: -45%;
-		filter: brightness(0);
-	 }
-	 100%{
-		left: -1%;
-		filter: brightness(1);
-	 }
-}
 @-webkit-keyframes orc1{
 	0%{
 		left: -45%;
-		filter: brightness(0);
+		-webkit-filter: brightness(0);
 	 }
 	 100%{
 		left: -1%;
-		filter: brightness(1);
+		-webkit-filter: brightness(1);
 	 }
 }
 	
@@ -4253,49 +4222,17 @@
 		filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
 	}
 }
-@-moz-keyframes killOrc1{
-	0%{
-		left: -1%;
-		opacity:1;
-		filter: brightness(1);
-	}
-	1%{
-		top: 2%;
-		left: -1%;
-		opacity:1;
-		filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
-	}
-	11%{
-		top: 0%;
-	}
-	22%{
-		top: 2%;
-	}
-	33%{
-		top: 0%;
-	}
-	44%{
-		top: 2%;
-		left: -1%;
-		opacity:1;
-	}
-	100%{
-		left: -1%;
-		opacity:0;
-		filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
-	}
-}
 @-webkit-keyframes killOrc1{
 	0%{
 		left: -1%;
 		opacity:1;
-		filter: brightness(1);
+		-webkit-filter: brightness(1);
 	}
 	1%{
 		top: 2%;
 		left: -1%;
 		opacity:1;
-		filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
+		-webkit-filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
 	}
 	11%{
 		top: 0%;
@@ -4314,7 +4251,7 @@
 	100%{
 		left: -1%;
 		opacity:0;
-		filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
+		-webkit-filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
 	}
 }	
 	
@@ -4326,6 +4263,7 @@
 	top: 62%;
 	left: 84%;
 	transform: rotate(65deg);
+	-webkit-transform: rotate(65deg);
     background-size: 100% 100%;
     background-Repeat: no-repeat;
     z-index: 95;
@@ -4337,12 +4275,6 @@
 	animation-fill-mode: forwards;
 	animation-play-state: paused;
 	animation-iteration-count:3;
-	-moz-animation-name:light2;
-	-moz-animation-duration:2s;	
-	-moz-animation-delay:2s;
-	-moz-animation-fill-mode: forwards;
-	-moz-animation-play-state: paused;
-	-moz-animation-iteration-count:3;
 	-webkit-animation-name: light2;
 	-webkit-animation-duration: 2s;
 	-webkit-animation-delay:2s;
@@ -4353,45 +4285,6 @@
 }	
 	
 @keyframes light2{
-	0%{
-		height: 0%;
-		width: 0%;
-		top: 62%;
-		left: 84%;
-	}
-	1%{
-		height: 10%;
-		width: 10%;
-		top: 58%;
-		left: 80%;
-	}
-	5%{
-		height: 40%;
-		width: 65%;
-		top: 42%;
-		left: 52%;
-		filter: brightness(1.5);
-	}
-	10%{
-		height: 10%;
-		width: 10%;
-		top: 58%;
-		left: 80%;
-	}
-	11%{
-		height: 0%;
-		width: 0%;
-		top: 62%;
-		left: 84%;
-	}
-	100%{
-		height: 0%;
-		width: 0%;
-		top: 62%;
-		left: 84%;
-	}
-}
-@-moz-keyframes light2{
 	0%{
 		height: 0%;
 		width: 0%;
@@ -4448,7 +4341,7 @@
 		width: 65%;
 		top: 42%;
 		left: 52%;
-		filter: brightness(1.5);
+		-webkit-filter: brightness(1.5);
 	}
 	10%{
 		height: 10%;
@@ -4485,11 +4378,6 @@
 	animation-delay:1s;
 	animation-fill-mode: forwards;
 	animation-play-state: paused;
-	-moz-animation-name:attackBox2;
-	-moz-animation-duration:1s;	
-	-moz-animation-delay:2s;
-	-moz-animation-fill-mode: forwards;
-	-moz-animation-play-state: paused;
 	-webkit-animation-name: attackBox2;
 	-webkit-animation-duration: 1s;
 	-webkit-animation-delay:1s;
@@ -4504,20 +4392,6 @@
 		left: 27%;
 		opacity:0;
 	 }
-	 
-	 100%{
-		width: 8%;
-		left: 27%;
-		opacity:1;
-	 }
-}
-@-moz-keyframes attackBox2{
-		0%{
-		width: 0%;
-		left: 27%;
-		opacity:0;
-	 }
-	 
 	 100%{
 		width: 8%;
 		left: 27%;
@@ -4529,8 +4403,7 @@
 		width: 0%;
 		left: 27%;
 		opacity:0;
-	 }
-	 
+	 } 
 	 100%{
 		width: 8%;
 		left: 27%;
@@ -4589,29 +4462,6 @@
 		z-index: -30;
 	}
 }	
-@-moz-keyframes shootBox2{
-	0%{
-		height: 0%;
-		width: 0%;
-		opacity:0;
-		z-index: 96;
-	}
-	1%{
-		height: 45%;
-		width: 5%;
-		opacity:1;
-		z-index: 96;
-	}
-	99%{
-		z-index: 96;
-	}
-	100%{
-		height: 43%;
-		width: 5%;
-		opacity:1;
-		z-index: -30;
-	}
-}	
 @-webkit-keyframes shootBox2{
 	0%{
 		height: 0%;
@@ -4643,6 +4493,7 @@
     top: 90%;
     left: 4%;
     transform: rotate(-18deg);
+	-webkit-transform: rotate(-18deg);
     background-size: 100% 100%;
     background-Repeat: no-repeat;
     z-index: 96;
@@ -4653,11 +4504,6 @@
 	animation-delay:0s;
 	animation-fill-mode: forwards;
 	animation-play-state: paused;
-	-moz-animation-name:shoot2;
-	-moz-animation-duration:1s;	
-	-moz-animation-delay:0s;
-	-moz-animation-fill-mode: forwards;
-	-moz-animation-play-state: paused;
 	-webkit-animation-name: shoot2;
 	-webkit-animation-duration: 1s;
 	-webkit-animation-delay:0s;
@@ -4666,17 +4512,6 @@
 }
 	
 @keyframes shoot2{
-	0%{
-		top: 90%;
-	}
-	30%{
-		top: -55%;
-	}
-	100%{
-		top: -55%;
-	}
-}	
-@-moz-keyframes shoot2{
 	0%{
 		top: 90%;
 	}
@@ -4715,11 +4550,6 @@
 	animation-delay:0s;
 	animation-fill-mode: forwards;
 	animation-play-state: paused;
-	-moz-animation-name:reward2;
-	-moz-animation-duration:1s;	
-	-moz-animation-delay:0s;
-	-moz-animation-fill-mode: forwards;
-	-moz-animation-play-state: paused;
 	-webkit-animation-name: reward2;
 	-webkit-animation-duration: 1s;
 	-webkit-animation-delay:0s;
@@ -4773,53 +4603,7 @@
 		left: 35%;
 		top: 84%;
 	}
-}	
-@-moz-keyframes reward2{
-	0%{
-		left: 28%;
-		top: 60%;
-	}
-	5%{
-		left: 30%;
-		top: 50%;
-	}
-	10%{
-		left: 31%;
-		top: 44%;
-	}
-	15%{
-		left: 33%;
-		top: 46%;
-	}
-	20%{
-		left: 33%;
-		top: 64%;
-	}	
-	25%{
-		left: 35%;
-		top: 75%;
-	}	
-	30%{
-		left: 35%;
-		top: 86%;
-	}
-	35%{
-		left: 35%;
-		top: 79%;
-	}
-	40%{
-		left: 35%;
-		top: 82%;
-	}
-	45%{
-		left: 35%;
-		top: 84%;
-	}
-	100%{
-		left: 35%;
-		top: 84%;
-	}
-}	
+}		
 @-webkit-keyframes reward2{
 	0%{
 		left: 28%;
@@ -4874,6 +4658,7 @@
 	top: 70%;
 	left: 38%;
     transform: rotate(242deg);
+	-webkit-transform: rotate(242deg);
     background-size: 100% 100%;
     background-Repeat: no-repeat;
     z-index: 3;
@@ -4885,12 +4670,6 @@
 	animation-fill-mode: forwards;
 	animation-play-state: paused;
 	animation-iteration-count:3;
-	-moz-animation-name:fire2;
-	-moz-animation-duration:2s;	
-	-moz-animation-delay:2.5s;
-	-moz-animation-fill-mode: forwards;
-	-moz-animation-play-state: paused;
-	-moz-animation-iteration-count:3;
 	-webkit-animation-name: fire2;
 	-webkit-animation-duration: 2s;
 	-webkit-animation-delay:2.5s;
@@ -4900,43 +4679,6 @@
 }
 
 @keyframes fire2{
-	0%{
-		height: 13%;
-		width: 10%;
-		top: 70%;
-		left: 38%;
-		opacity: 0;
-	}
-	1%{
-		height: 13%;
-		width: 10%;
-		top: 70%;
-		left: 38%;
-		opacity: 1;
-	}
-	5%{
-		height: 23%;
-		width: 30%;
-		top: 98%;
-		left: 52%;
-		opacity: 1;
-	}
-	6%{		
-		height: 23%;
-		width: 30%;
-		top: 98%;
-		left: 52%;
-		opacity: 0;
-	}
-	100%{
-		height: 13%;
-		width: 10%;
-		top: 70%;
-		left: 38%;
-		opacity: 0;
-	}
-}
-@-moz-keyframes fire2{
 	0%{
 		height: 13%;
 		width: 10%;
