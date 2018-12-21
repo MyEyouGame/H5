@@ -49,7 +49,6 @@ body{
 		 height:100%; 
 		 width:100%; 
 		 overflow:hidden;
-		 border: solid 1px white;
 	}
 	
 	#main_page_container{
@@ -122,16 +121,16 @@ body{
 	
 	#grayLayer{
 		position:absolute;
+		z-index:2;
 		height:100%; 
 		width:100%; 
 		opacity: 0.4;
 		background-color: black;
-		z-index: 1;
 		overflow:hidden;
 		background-Repeat:no-repeat;
 		background-Size : 100% 100%; 
 		display: none;
-		
+
 		animation: grayLayer 1s linear 1s 1;
 		-webkit-animation: grayLayer 1s linear 1s 1;
 		animation-fill-mode: forwards;
@@ -143,21 +142,17 @@ body{
 	@keyframes grayLayer{
 		0%{
 			opacity: 0.4; 
-			z-index: 1;
 		}
 		100%{
 			opacity: 0; 
-			z-index: -1;
 		}
 	}
 	@-webkit-keyframes grayLayer{
 		0%{
 			opacity: 0.4; 
-			z-index: 1;
 		}
 		100%{
 			opacity: 0; 
-			z-index: -1;
 		}
 	}
 	
@@ -523,6 +518,14 @@ body{
 		}
 	}
 	
+	#weaknessPoint{
+		position:absolute;
+		top: 39%;
+		left: 33%;
+		height: 24%;
+		width: 32%;
+	}
+	
 	#demonIcon{
 		
 		position:absolute;
@@ -610,6 +613,7 @@ body{
 	}
 	
 	#sword{	
+	
 		position:absolute;
 		top: 81%;
 		left: 41.5%;
@@ -619,4 +623,129 @@ body{
 		background-Repeat:no-repeat;
 		background-Size : 100% 100%; 
 		
+	}
+	
+	#attackPoint{
+		position:absolute;
+		width: 1%;
+		height: 1%;
+		top: 81.5%;
+		left: 50%;
+	}
+	
+	#hand{	
+		position:absolute;
+		top: 83%;
+		left: 51.5%;
+		height: 11%;
+		width: 20%;
+		z-index: 3;
+		overflow:hidden;
+		background-Repeat:no-repeat;
+		background-Size : 100% 100%; 
+		
+		animation: hand 1s linear 0s 4, guideAttack 1s linear 3s 1;
+		-webkit-animation: hand 1s linear 0s 4, guideAttack 1s linear 3s 1;
+		animation-fill-mode: forwards;
+		-webkit-animation-fill-mode: forwards;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+	}
+	
+	@keyframes hand{
+		0%{
+			top: 83%;
+			left: 51.5%;
+		}
+		50%{
+			top: 84%;
+			left: 53.5%;
+		}
+		100%{
+			top: 83%;
+			left: 51.5%;
+		}
+	}
+	@-webkit-keyframes hand{
+		0%{
+			top: 83%;
+			left: 51.5%;
+		}
+		50%{
+			top: 84%;
+			left: 53.5%;
+		}
+		100%{
+			top: 83%;
+			left: 51.5%;
+		}
+	}
+	
+	#guideAttack{	
+	
+		position:absolute;
+		top: 78%;
+		left: 60.5%;
+		height: 3%;
+		width: 26%;
+		opacity: 0.8;
+		overflow:hidden;
+		background-Repeat:no-repeat;
+		background-Size : 100% 100%; 
+		
+		animation: guideAttack 1s linear 3s 1;
+		animation-fill-mode: forwards;
+		-webkit-animation: guideAttack 1s linear 3s 1;
+		-webkit-animation-fill-mode: forwards;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+		
+	}
+	
+	@keyframes guideAttack{
+		0%{
+			opacity:0.8;
+		}
+		100%{
+			opacity:0;
+		}
+	}
+	@-webkit-keyframes guideAttack{
+		0%{
+			opacity:0.8;
+		}
+		100%{
+			opacity:0;
+		}
+	}
+	
+	#attackBox{
+		position:absolute;
+		height: 100%;
+		width: 100%;
+		z-index: -1;
+		
+		animation: attackBox 1s linear 1.5s 1;
+		-webkit-animation: attackBox 1s linear 1.5s 1;
+		animation-fill-mode: forwards;
+		-webkit-animation-fill-mode: forwards;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+	}
+	
+	@keyframes attackBox{
+		0%{
+			z-index: -1;
+		}
+		100%{
+			z-index: 10;
+		}
+	}
+	@-webkit-keyframes attackBox{
+		0%{
+			z-index: -1;
+		}
+		100%{
+			z-index: 10;
+		}
 	}

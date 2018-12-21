@@ -47,6 +47,8 @@ window.requestAnimFrame = (function(){
 	var circle = document.getElementById("circle");
 	var weakness = document.getElementById("weakness");
 	var guideFont = document.getElementById("guideFont");
+	var hand = document.getElementById("hand");
+	var guideAttack = document.getElementById("guideAttack");
 	var swordFrame = document.getElementById("swordFrame");
 	var sword = document.getElementById("sword");
 	
@@ -88,7 +90,9 @@ window.requestAnimFrame = (function(){
 						"url('characterIcon.png')",
 						"url('details.png')",
 						"url('swordFrame.png')",
-						"url('sword.png')"
+						"url('sword.png')",
+						"url('guideAttack.png')",
+						"url('glove.png')"
 		];
 		
 		demon.style.backgroundImage = demonArray[0];
@@ -100,6 +104,30 @@ window.requestAnimFrame = (function(){
 		details.style.backgroundImage = demonArray[6];
 		swordFrame.style.backgroundImage = demonArray[7];
 		sword.style.backgroundImage = demonArray[8];
+		guideAttack.style.backgroundImage = demonArray[9];
+		hand.style.backgroundImage = demonArray[10];
+	}
+	
+	function getBox() {
+		var weaknessPoint = document.getElementById ("weaknessPoint");
+		var attackPoint = document.getElementById ("attackPoint");	
+				
+		if (weaknessPoint.getBoundingClientRect) {
+			var rect = attackPoint.getBoundingClientRect ();
+			x = rect.left;
+			y = rect.top;
+			w = rect.right - rect.left;
+			h = rect.bottom - rect.top;  
+		}
+		if (attackPoint.getBoundingClientRect) {
+			var rect2 = weaknessPoint.getBoundingClientRect ();
+			x2 = rect2.left;
+			y2 = rect2.top;
+			w2 = rect2.right - rect2.left;
+			h2 = rect2.bottom - rect2.top;
+	
+			return(x,y,x2,y2,w,h,w2,h2);
+		}
 	}
 	
 	function mouseDown(e) {
@@ -122,7 +150,12 @@ window.requestAnimFrame = (function(){
 			weakness.style.webkitAnimationPlayState = "running";
 			grayLayer.style.animationPlayState = "running";
 			grayLayer.style.webkitAnimationPlayState = "running";
-			
+			hand.style.animationPlayState = "running";
+			hand.style.webkitAnimationPlayState = "running";
+			guideAttack.style.animationPlayState = "running";
+			guideAttack.style.webkitAnimationPlayState = "running";
+			attackBox.style.animationPlayState = "running";
+			attackBox.style.webkitAnimationPlayState = "running";
 		}
 	}
 	
@@ -146,9 +179,14 @@ window.requestAnimFrame = (function(){
 			weakness.style.webkitAnimationPlayState = "running";
 			grayLayer.style.animationPlayState = "running";
 			grayLayer.style.webkitAnimationPlayState = "running";
-			
+			hand.style.animationPlayState = "running";
+			hand.style.webkitAnimationPlayState = "running";
+			guideAttack.style.animationPlayState = "running";
+			guideAttack.style.webkitAnimationPlayState = "running";
+			attackBox.style.animationPlayState = "running";
+			attackBox.style.webkitAnimationPlayState = "running";
 		}
-		}
+	}
 	
 	function sizeData(w,h){
 	
