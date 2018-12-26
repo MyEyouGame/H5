@@ -286,6 +286,7 @@ window.requestAnimFrame = (function(){
 		demon.style.animation = "opacityHidden 0.5s linear 0s 1 forwards";
 		demon.style.webkitAnimation = "opacityHidden 0.5s linear 0s 1 forwards";
 
+		
 	}
 	
 	var life = 100;
@@ -386,6 +387,7 @@ window.requestAnimFrame = (function(){
 	var swordImageCount = 0;
 	
 	function mouseDown(e) {
+		event.preventDefault();
 		var data = e.target.id;
 		console.log(data);
 		
