@@ -445,64 +445,6 @@ window.requestAnimFrame = (function(){
 		}
 	}
 	
-	function touchstart(e){
-		var data = e.target.id;
-		console.log(data);
-		
-		if (data === "main_page_container" || "character" || "mainFont"){
-			
-			main_page_container.style.display = "none";
-			first_monster_container.style.display = "block";
-			grayLayer.style.display ="block";
-			
-			demon.style.animationPlayState = "running";
-			demon.style.webkitAnimationPlayState = "running";
-			guideFont.style.animationPlayState = "running";
-			guideFont.style.webkitAnimationPlayState = "running";
-			circle.style.animationPlayState = "running";
-			circle.style.webkitAnimationPlayState = "running";
-			weakness.style.animationPlayState = "running";
-			weakness.style.webkitAnimationPlayState = "running";
-			grayLayer.style.animationPlayState = "running";
-			grayLayer.style.webkitAnimationPlayState = "running";
-			hand.style.animationPlayState = "running";
-			hand.style.webkitAnimationPlayState = "running";
-			guideAttack.style.animationPlayState = "running";
-			guideAttack.style.webkitAnimationPlayState = "running";
-			attackBox.style.animationPlayState = "running";
-			attackBox.style.webkitAnimationPlayState = "running";
-			
-		}
-		
-		if (data === "attackBox"){
-			
-			var barWidth = bar.style.width.split("%")[0];
-			
-			if (barWidth != "0"){
-				if ( count < 7 ){
-					swordDetect = requestAnimationFrame(swordAnimation);
-					sword.style.animation = "sword 1s linear 0s 1 ";
-					sword.style.webkitAnimation = "sword 1s linear 0s 1 ";
-					sword.style.animationPlayState = "running";
-					sword.style.webkitAnimationPlayState = "running";
-				}
-			}
-			
-			var swordCountArray = [
-									swordCount0,
-									swordCount1,
-									swordCount2,
-									swordCount3,
-									swordCount4,
-									swordCount5,
-									swordCount6
-								];
-			
-			swordCountArray[swordImageCount].style.display = "none" ;
-			swordImageCount++;
-		}
-	}
-	
 	function sizeData(w,h){
 	
 		var newWidth = w;
