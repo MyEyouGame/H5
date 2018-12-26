@@ -35,6 +35,116 @@ window.requestAnimFrame = (function(){
 	}
 }());
 
+(function(){
+ 
+    // pass to string.replace for camel to hyphen
+    var hyphenate = function(a, b, c){
+        return b + "-" + c.toLowerCase();
+    }
+ 
+    // get computed style property
+    var getStyle = function(target, prop){
+        if(window.getComputedStyle){ // gecko and webkit
+            prop = prop.replace(/([a-z])([A-Z])/, hyphenate);  // requires hyphenated, not camel
+            return window.getComputedStyle(target, null).getPropertyValue(prop);
+        }
+        if(target.currentStyle){
+            return target.currentStyle[prop];
+        }
+        return target.style[prop];
+    }
+ 
+    // get object with units
+    var getUnits = function(target, prop){
+ 
+        var baseline = 100;  // any number serves 
+        var item;  // generic iterator
+ 
+        var map = {  // list of all units and their identifying string
+            pixel : "px",
+            percent : "%",
+            inch: "in",
+            cm : "cm",
+            mm : "mm",
+            point : "pt",
+            pica : "pc",
+            em : "em",
+            ex : "ex"
+        };
+ 
+        var factors = {};  // holds ratios
+        var units = {};  // holds calculated values
+ 
+        var value = getStyle(target, prop);  // get the computed style value
+ 
+        var numeric = value.match(/\d+/);  // get the numeric component
+        if(numeric === null) {  // if match returns null, throw error...  use === so 0 values are accepted
+            throw "Invalid property value returned";
+        }
+        numeric = numeric[0];  // get the string
+ 
+        var unit = value.match(/\D+$/);  // get the existing unit
+        unit = (unit == null) ? map.pixel : unit[0]; // if its not set, assume px - otherwise grab string
+ 
+        var activeMap;  // a reference to the map key for the existing unit
+        for(item in map){
+            if(map[item] == unit){
+                activeMap = item;
+                break;
+            }
+        }
+        if(!activeMap) { // if existing unit isn't in the map, throw an error
+            throw "Unit not found in map";
+        }
+ 
+        var temp = document.createElement("div");  // create temporary element
+        temp.style.overflow = "hidden";  // in case baseline is set too low
+        temp.style.visibility = "hidden";  // no need to show it
+ 
+        target.parentElement.appendChild(temp); // insert it into the parent for em and ex  
+ 
+        for(item in map){  // set the style for each unit, then calculate it's relative value against the baseline
+            temp.style.width = baseline + map[item];
+            factors[item] = baseline / temp.offsetWidth;
+        }
+ 
+        for(item in map){  // use the ratios figured in the above loop to determine converted values
+            units[item] = numeric * (factors[item] * factors[activeMap]);
+        }
+ 
+        target.parentElement.removeChild(temp);  // clean up
+ 
+        return units;  // returns the object with converted unit values...
+ 
+    }
+ 
+    // expose           
+    window.getUnits = this.getUnits = getUnits;
+ 
+})();
+
+	var timeouts;
+	function doTimer(length, resolution, oninstance, oncomplete){
+		var steps = (length / 100) * (resolution / 10),
+		speed = length / steps,
+		count = 0,
+		start = new Date().getTime();
+
+		function instance(){
+			if(count++ == steps){
+				oncomplete(steps, count);
+			}
+			else{
+				oninstance(steps, count);
+
+				var diff = (new Date().getTime() - start) - (count * speed);
+				window.setTimeout(instance, (speed - diff));
+			}
+		}
+		timeouts = window.setTimeout(instance, speed);
+	}
+
+
 	function lp() {
 			createImage();
 			 mv = setTimeout(main, 500);
@@ -51,6 +161,9 @@ window.requestAnimFrame = (function(){
 	var guideAttack = document.getElementById("guideAttack");
 	var swordFrame = document.getElementById("swordFrame");
 	var sword = document.getElementById("sword");
+	var attackBox = document.getElementById("attackBox");
+	var bar = document.getElementById("bar");
+	var levelUp = document.getElementById("levelUp");
 	
 	function main(){
 	
@@ -65,6 +178,7 @@ window.requestAnimFrame = (function(){
 		
 		sizeData(newWidth,newHeight);
 		resize(newWidth,newHeight);	
+		
 	}
 		
 	function createImage(){
@@ -90,12 +204,15 @@ window.requestAnimFrame = (function(){
 						"url('characterIcon.png')",
 						"url('details.png')",
 						"url('swordFrame.png')",
-						"url('sword.png')",
+						"sword.png",
 						"url('guideAttack.png')",
-						"url('glove.png')"
+						"url('glove.png')",
+						"url('levelUp.png')",
+						"url('lose.png')"
 		];
 		
 		demon.style.backgroundImage = demonArray[0];
+		demonGetHurt.style.backgroundImage [0];
 		circle.style.backgroundImage = demonArray[1];
 		weakness.style.backgroundImage = demonArray[2];
 		guideFont.style.backgroundImage = demonArray[3];
@@ -103,9 +220,36 @@ window.requestAnimFrame = (function(){
 		characterIcon.style.backgroundImage = demonArray[5];
 		details.style.backgroundImage = demonArray[6];
 		swordFrame.style.backgroundImage = demonArray[7];
-		sword.style.backgroundImage = demonArray[8];
+		sword.style.backgroundImage = "url(" + demonArray[8] +")";
 		guideAttack.style.backgroundImage = demonArray[9];
 		hand.style.backgroundImage = demonArray[10];
+		levelUp.style.backgroundImage = demonArray[11];
+		lose.style.backgroundImage = demonArray[12];
+		
+		var right = 0 ;
+		
+		var i;
+		for(i=0; i<7; i++)
+		{	 
+			if(i<7)
+			{
+				var swordImage = document.createElement("IMG");
+				swordImage.setAttribute("src", demonArray[8]);	
+				swordImage.setAttribute("id","swordCount"+i);
+				swordCount.appendChild(swordImage);
+			}
+		}	
+		
+		swordCount0.style.right = "12%";
+		swordCount1.style.right = "24%";
+		swordCount2.style.right = "36%";
+		swordCount3.style.right = "48%";
+		swordCount4.style.right = "60%";
+		swordCount5.style.right = "72%";
+		swordCount6.style.right = "84%";
+		
+
+		
 	}
 	
 	function getBox() {
@@ -130,12 +274,123 @@ window.requestAnimFrame = (function(){
 		}
 	}
 	
+	function demonHiddenAnimation(){
+		
+		var demonElement  = document.querySelector('#demon');
+		var demonTopStyle = getComputedStyle(demonElement).getPropertyValue("top").split("px")[0];
+		var demonLeftStyle = getComputedStyle(demonElement).getPropertyValue("left").split("px")[0];
+
+		demon.style.setProperty('top', demonTopStyle + 'px');
+		demon.style.setProperty('left', demonLeftStyle + 'px');
+
+		demon.style.animation = "opacityHidden 0.5s linear 0s 1 forwards";
+		demon.style.webkitAnimation = "opacityHidden 0.5s linear 0s 1 forwards";
+
+	}
+	
+	var life = 100;
+	var count = 0;
+	function swordAnimation (timestamp) {
+		
+		var swordElement = document.querySelector('#sword');
+		var swordStyle = getComputedStyle(swordElement).getPropertyValue("top").split("px")[0];
+		
+		var swordBoxElement  = document.querySelector('#swordBox');
+		var swordBoxStyle = getComputedStyle(swordBoxElement).getPropertyValue("height").split("px")[0];
+		
+		swordPercentage = (100*swordStyle)/swordBoxStyle;
+		
+		swordDetect = requestAnimationFrame(swordAnimation);
+		
+		if(swordPercentage >= 81)
+		{
+			
+			sword.style.animation = "none 1s linear 0s 1 ";
+			sword.style.webkitAnimation = "none 1s linear 0s 1 ";
+			count++;
+			console.log(count);
+			cancelAnimationFrame(swordDetect);
+			
+		}
+		
+		getBox(); 
+		
+		var hpElement  = document.querySelector('#bar');
+		var hpStyle = getComputedStyle(hpElement).getPropertyValue("width").split("%")[0];
+		
+		if(x2<x && x<(x2+w2)){
+			life-=5;
+			bar.style.width = life + '%';
+		}
+		
+		if ( count < 7 ){
+			
+			var barWidth = bar.style.width.split("%")[0];
+			
+			if (barWidth === "0"){
+				
+				demonHiddenAnimation();
+				levelUp.style.animationPlayState = "running";
+				levelUp.style.webkitAnimationPlayState = "running";
+				
+				attackBox.style.animationPlayState = "paused";
+				attackBox.style.webkitAnimationPlayState = "paused";
+				attackBox.style.zIndex = "-30";
+				cancelAnimationFrame(swordDetect);
+			}
+		}
+		
+		if ( count === 7 ){
+			
+			
+			demon.style.animationPlayState = "paused";
+			demon.style.webkitAnimationPlayState = "paused";
+			
+			var non = "none";
+
+			doTimer(
+				1000,20,function(steps){
+						non = non - (1 / steps);
+						document.getElementById("lose").style.display = non;				
+						},
+				function(){
+						
+						if(barWidth != "0"){
+							document.getElementById("lose").style.display = "block";	
+							
+							lose.style.animationPlayState = "running";
+							lose.style.webkitAnimationPlayState = "running";
+							
+							demonHiddenAnimation();
+							attackBox.style.animationPlayState = "paused";
+							attackBox.style.webkitAnimationPlayState = "paused";
+							attackBox.style.zIndex = "-30";
+						}
+						else{
+							
+							demonHiddenAnimation();
+							levelUp.style.display = "block";
+							levelUp.style.animationPlayState = "running";
+							levelUp.style.webkitAnimationPlayState = "running";
+
+							attackBox.style.animationPlayState = "paused";
+							attackBox.style.webkitAnimationPlayState = "paused";
+							attackBox.style.zIndex = "-30";
+						}
+					}						
+			);
+		}
+			
+	}
+	
+	var swordImageCount = 0;
+	
 	function mouseDown(e) {
 		var data = e.target.id;
 		console.log(data);
 		
-		if (data === main_page_container || character || mainFont)
-		{
+		if (data === "main_page_container" || "character" || "mainFont"){
+			
 			main_page_container.style.display = "none";
 			first_monster_container.style.display = "block";
 			grayLayer.style.display ="block";
@@ -156,6 +411,35 @@ window.requestAnimFrame = (function(){
 			guideAttack.style.webkitAnimationPlayState = "running";
 			attackBox.style.animationPlayState = "running";
 			attackBox.style.webkitAnimationPlayState = "running";
+			
+		}
+		
+		if (data === "attackBox"){
+			
+			var barWidth = bar.style.width.split("%")[0];
+			
+			if (barWidth != "0"){
+				if ( count < 7 ){
+					swordDetect = requestAnimationFrame(swordAnimation);
+					sword.style.animation = "sword 1s linear 0s 1 ";
+					sword.style.webkitAnimation = "sword 1s linear 0s 1 ";
+					sword.style.animationPlayState = "running";
+					sword.style.webkitAnimationPlayState = "running";
+				}
+			}
+			
+			var swordCountArray = [
+									swordCount0,
+									swordCount1,
+									swordCount2,
+									swordCount3,
+									swordCount4,
+									swordCount5,
+									swordCount6
+								];
+			
+			swordCountArray[swordImageCount].style.display = "none" ;
+			swordImageCount++;
 		}
 	}
 	
@@ -163,8 +447,8 @@ window.requestAnimFrame = (function(){
 		var data = e.target.id;
 		console.log(data);
 		
-		if (data === main_page_container || character || mainFont)
-		{
+		if (data === "main_page_container" || "character" || "mainFont"){
+			
 			main_page_container.style.display = "none";
 			first_monster_container.style.display = "block";
 			grayLayer.style.display ="block";
@@ -185,6 +469,35 @@ window.requestAnimFrame = (function(){
 			guideAttack.style.webkitAnimationPlayState = "running";
 			attackBox.style.animationPlayState = "running";
 			attackBox.style.webkitAnimationPlayState = "running";
+			
+		}
+		
+		if (data === "attackBox"){
+			
+			var barWidth = bar.style.width.split("%")[0];
+			
+			if (barWidth != "0"){
+				if ( count < 7 ){
+					swordDetect = requestAnimationFrame(swordAnimation);
+					sword.style.animation = "sword 1s linear 0s 1 ";
+					sword.style.webkitAnimation = "sword 1s linear 0s 1 ";
+					sword.style.animationPlayState = "running";
+					sword.style.webkitAnimationPlayState = "running";
+				}
+			}
+			
+			var swordCountArray = [
+									swordCount0,
+									swordCount1,
+									swordCount2,
+									swordCount3,
+									swordCount4,
+									swordCount5,
+									swordCount6
+								];
+			
+			swordCountArray[swordImageCount].style.display = "none" ;
+			swordImageCount++;
 		}
 	}
 	

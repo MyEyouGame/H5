@@ -431,6 +431,31 @@ body{
 		}
 	}
 	
+	@keyframes demonGetHurt{
+		
+		0% {
+			filter:invert(0) brightness(0) sepia(0) hue-rotate(0) saturate(0) contrast(0);
+		}
+		50%{
+			filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
+		}
+		100%{
+			filter:invert(0) brightness(0) sepia(0) hue-rotate(0) saturate(0) contrast(0);
+		}
+	}
+	@-webkit-keyframes demonGetHurt{
+		
+		0% {
+			filter:invert(0) brightness(0) sepia(0) hue-rotate(0) saturate(0) contrast(0);
+		}
+		50%{
+			filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
+		}
+		100%{
+			filter:invert(0) brightness(0) sepia(0) hue-rotate(0) saturate(0) contrast(0);
+		}
+	}
+	
 	#circle{
 		position:absolute;
 		top: 44%;
@@ -521,9 +546,9 @@ body{
 	#weaknessPoint{
 		position:absolute;
 		top: 39%;
-		left: 33%;
+		left: 35%;
 		height: 24%;
-		width: 32%;
+		width: 30%;
 	}
 	
 	#demonIcon{
@@ -615,7 +640,7 @@ body{
 	#sword{	
 	
 		position:absolute;
-		top: 81%;
+		top: 82%;
 		left: 41.5%;
 		height: 18.3%;
 		width: 18%;
@@ -623,14 +648,80 @@ body{
 		background-Repeat:no-repeat;
 		background-Size : 100% 100%; 
 		
+		animation: sword 1s linear 0s 1 ;
+		-webkit-animation: sword 1s linear 0s 1;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+	}
+	
+	@keyframes sword{
+		0%{
+			top: 81%;
+		}
+		20%{
+			top: 20%;
+		}
+		21%{
+			top: 82%;
+		}
+		100%{
+			top: 82%;
+		}
+	}
+	@-webkit-keyframes sword{
+		0%{
+			top: 81%;
+		}
+		20%{
+			top: 20%;
+		}
+		21%{
+			top: 82%;
+		}
+		100%{
+			top: 82%;
+		}
+	}
+	
+	#swordCount{	
+	
+		position:absolute;
+		top: 90%;
+		left: 63.5%;
+		height: 10%;
+		width: 36%;
+		background-Repeat:no-repeat;
+		background-Size : 100% 100%; 
+		
+	}
+	
+	.swordCountTest{
+		
+		position:absolute;
+		right: 5%;
+		height: 65%;
+		background-Repeat:no-repeat;
+		background-Size : 100% 100%; 
+	}
+	
+	
+	#swordCount0,#swordCount1,#swordCount2,#swordCount3,#swordCount4,
+	#swordCount5,#swordCount6{
+		
+		position:absolute;
+		right: 5%;
+		height: 65%;
+		background-Repeat:no-repeat;
+		background-Size : 100% 100%; 
 	}
 	
 	#attackPoint{
 		position:absolute;
+		position: absolute;
 		width: 1%;
 		height: 1%;
-		top: 81.5%;
-		left: 50%;
+		top: 1.5%;
+		left: 49%;
 	}
 	
 	#hand{	
@@ -686,7 +777,7 @@ body{
 		position:absolute;
 		top: 78%;
 		left: 60.5%;
-		height: 3%;
+		height: 2.7%;
 		width: 26%;
 		opacity: 0.8;
 		overflow:hidden;
@@ -747,5 +838,129 @@ body{
 		}
 		100%{
 			z-index: 10;
+		}
+	}
+	
+	#levelUp{
+		position:absolute;
+		top: 31%;
+		left: 15%;
+		height: 23%;
+		width: 70% ;
+		opacity: 0; 
+		background-Repeat:no-repeat;
+		background-Size : 100% 100%; 
+		
+		animation: opacityDisplay 5s linear 1s 1;
+		-webkit-animation: opacityDisplay 5s linear 1s 1;
+		animation-fill-mode: forwards;
+		-webkit-animation-fill-mode: forwards;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+			
+	}
+
+	@keyframes opacityDisplay{
+		0%{
+			opacity:0;
+		}
+		50%{
+			opacity:1;
+		}
+		100%{
+			opacity:0;
+		}
+	}
+
+	@-webkit-keyframes opacityDisplay{
+		0%{
+			opacity:0;
+		}
+		50%{
+			opacity:1;
+		}
+		100%{
+			opacity:0;
+		}
+	}
+
+	@keyframes opacityHidden{
+		0%{
+			top: var(top);
+			left: var(left);
+			opacity:1;
+		}
+		50%{
+			top: var(top);
+			left: var(left);
+			opacity:0;
+		}
+		100%{
+			top: var(top);
+			left: var(left);
+			opacity:0;
+		}
+	}
+
+	@-webkit-keyframes opacityHidden{
+		0%{
+			top: var(top);
+			left: var(left);
+			opacity:1;
+		}
+		50%{
+			top: var(top);
+			left: var(left);
+			opacity:0;
+		}
+		100%{
+			top: var(top);
+			left: var(left);
+			opacity:0;
+		}
+	}
+		
+	#lose{
+		position:absolute;
+		top: 25%;
+		left: 17%;
+		height: 36%;
+		width: 65%;
+		display:none;
+		opacity:0;
+		background-Repeat:no-repeat;
+		background-Size : 100% 100%; 
+		
+		animation: loseOpacityDisplay 3s linear 1s 1 forwards;
+		-webkit-animation: loseOpacityDisplay 3s linear 1s 1 forwards;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+	}
+	
+	@keyframes loseOpacityDisplay{
+		0%{
+			opacity:0;
+		}
+		50%{
+			opacity:1;
+			z-index:10
+		}
+		100%{
+			opacity:1;
+			z-index:10
+		}
+	}
+
+	@-webkit-keyframes loseOpacityDisplay{
+		0%{
+			opacity:0;
+		}
+		50%{
+			opacity:1;
+			z-index:10
+		}
+		100%{
+			opacity:1;
+			z-index:10
 		}
 	}
