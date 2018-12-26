@@ -648,8 +648,8 @@ body{
 		background-Repeat:no-repeat;
 		background-Size : 100% 100%; 
 		
-		animation: sword 1s linear 0s 1 ;
-		-webkit-animation: sword 1s linear 0s 1;
+		animation: sword 0.5s linear 0s 1 ;
+		-webkit-animation: sword 0.5s linear 0s 1;
 		animation-play-state: paused;
 		-webkit-animation-play-state: paused;
 	}
@@ -920,7 +920,8 @@ body{
 		}
 	}
 		
-	#lose{
+	
+#lose{
 		position:absolute;
 		top: 25%;
 		left: 17%;

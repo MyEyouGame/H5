@@ -337,49 +337,43 @@ window.requestAnimFrame = (function(){
 				attackBox.style.animationPlayState = "paused";
 				attackBox.style.webkitAnimationPlayState = "paused";
 				attackBox.style.zIndex = "-30";
+				attackBox.style.left = "100%";
+							attackBox.style.display = "none";
 				cancelAnimationFrame(swordDetect);
 			}
 		}
 		
 		if ( count === 7 ){
 			
-			
 			demon.style.animationPlayState = "paused";
 			demon.style.webkitAnimationPlayState = "paused";
-			
-			var non = "none";
+		
+			if(barWidth != "0"){
+				document.getElementById("lose").style.display = "block";	
+				
+				lose.style.animationPlayState = "running";
+				lose.style.webkitAnimationPlayState = "running";
+				lose.style.zIndex = "10";
+				demonHiddenAnimation();
+				attackBox.style.animationPlayState = "paused";
+				attackBox.style.webkitAnimationPlayState = "paused";
+				attackBox.style.zIndex = "-30";
+				attackBox.style.left = "100%";
+				attackBox.style.display = "none";
+			}
+			else{
+				
+				demonHiddenAnimation();
+				levelUp.style.display = "block";
+				levelUp.style.animationPlayState = "running";
+				levelUp.style.webkitAnimationPlayState = "running";
 
-			doTimer(
-				1000,20,function(steps){
-						non = non - (1 / steps);
-						document.getElementById("lose").style.display = non;				
-						},
-				function(){
-						
-						if(barWidth != "0"){
-							document.getElementById("lose").style.display = "block";	
-							
-							lose.style.animationPlayState = "running";
-							lose.style.webkitAnimationPlayState = "running";
-							
-							demonHiddenAnimation();
-							attackBox.style.animationPlayState = "paused";
-							attackBox.style.webkitAnimationPlayState = "paused";
-							attackBox.style.zIndex = "-30";
-						}
-						else{
-							
-							demonHiddenAnimation();
-							levelUp.style.display = "block";
-							levelUp.style.animationPlayState = "running";
-							levelUp.style.webkitAnimationPlayState = "running";
-
-							attackBox.style.animationPlayState = "paused";
-							attackBox.style.webkitAnimationPlayState = "paused";
-							attackBox.style.zIndex = "-30";
-						}
-					}						
-			);
+				attackBox.style.animationPlayState = "paused";
+				attackBox.style.webkitAnimationPlayState = "paused";
+				attackBox.style.zIndex = "-30";
+				attackBox.style.left = "100%";
+				attackBox.style.display = "none";
+			}
 		}
 			
 	}
@@ -387,7 +381,6 @@ window.requestAnimFrame = (function(){
 	var swordImageCount = 0;
 	
 	function mouseDown(e) {
-		event.preventDefault();
 		var data = e.target.id;
 		console.log(data);
 		
@@ -422,9 +415,10 @@ window.requestAnimFrame = (function(){
 			
 			if (barWidth != "0"){
 				if ( count < 7 ){
+					console.log(count);
 					swordDetect = requestAnimationFrame(swordAnimation);
-					sword.style.animation = "sword 1s linear 0s 1 ";
-					sword.style.webkitAnimation = "sword 1s linear 0s 1 ";
+					sword.style.animation = "sword 0.5s linear 0s 1 ";
+					sword.style.webkitAnimation = "sword 0.5s linear 0s 1 ";
 					sword.style.animationPlayState = "running";
 					sword.style.webkitAnimationPlayState = "running";
 				}
@@ -442,6 +436,12 @@ window.requestAnimFrame = (function(){
 			
 			swordCountArray[swordImageCount].style.display = "none" ;
 			swordImageCount++;
+		}
+		
+		if (data === "lose"){
+			
+			window.location.reload();
+			
 		}
 	}
 	
