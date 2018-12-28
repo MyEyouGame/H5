@@ -588,7 +588,7 @@ window.requestAnimFrame = (function(){
 			swordBox.style.setProperty('top', y2 + 'px');
 			sword.style.setProperty('top', (swordStyle-y2) + 'px');
 			
-			var timer = setTimeout(changeAnimation, 500);
+			var timer = setTimeout(changeAnimation, 1100);
 				
 			function changeAnimation(){
 				dragonGetHurt.style.animation = "none 1s linear 0s 1 ";
