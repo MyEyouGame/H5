@@ -1892,8 +1892,8 @@ body{
 		transform: rotate(-150deg);
 		-webkit-transform: rotate(-150deg);
 		opacity:0;
-		animation: reward 3s linear 1s 1 forwards , reward2 1s linear 2.5s infinite;
-		-webkit-animation: reward 3s linear 1s 1 forwards, reward2 1s linear 2.5s infinite;
+		animation: reward 3s linear 1s 1 forwards , reward2 1s linear 2s infinite;
+		-webkit-animation: reward 3s linear 1s 1 forwards, reward2 1s linear 2s infinite;
 		animation-play-state: paused;
 		-webkit-animation-play-state: paused;
 	}
