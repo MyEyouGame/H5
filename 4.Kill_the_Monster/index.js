@@ -397,7 +397,7 @@ window.requestAnimFrame = (function(){
 		var hpStyle = getComputedStyle(hpElement).getPropertyValue("width").split("%")[0];
 		
 		if(x2<x && x<(x2+w2)){
-			life-=15;
+			life-=10;
 			bar.style.width = life + '%';
 			demonGetHurt.style.animation = "demonGetHurt 0.5s linear 0s 1";
 			demonGetHurt.style.webkitAnimation = "demonGetHurt 0.5s linear 0s 1";
