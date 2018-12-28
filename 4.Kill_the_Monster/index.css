@@ -53,6 +53,7 @@ body{
 	
 	#main_page_container{
 		position:absolute;
+		z-index:10;
 		height:100%; 
 		width:100%; 
 		overflow:hidden;
@@ -131,8 +132,8 @@ body{
 		background-Size : 100% 100%; 
 		display: none;
 
-		animation: grayLayer 1s linear 1s 1;
-		-webkit-animation: grayLayer 1s linear 1s 1;
+		animation: grayLayer 1s linear 1s 1 forwards;
+		-webkit-animation: grayLayer 1s linear 1s 1 forwards;
 		animation-fill-mode: forwards;
 		-webkit-animation-fill-mode: forwards;
 		animation-play-state: paused;
@@ -153,6 +154,25 @@ body{
 		}
 		100%{
 			opacity: 0; 
+		}
+	}
+	
+	@keyframes grayLayer2{
+		0%{
+			opacity: 0; 
+		}
+		100%{
+			opacity: 0.4; 
+			z-index:3;
+		}
+	}
+	@-webkit-keyframes grayLayer2{
+		0%{
+			opacity: 0; 
+		}
+		100%{
+			opacity: 0.4; 
+			z-index:3;
 		}
 	}
 	
@@ -431,29 +451,74 @@ body{
 		}
 	}
 	
+	#demonGetHurt{
+		position:absolute;
+		top: 5%;
+		height: 90%;
+		width: 100%;
+		background-Repeat:no-repeat;
+		background-Size : 100% 100%; 
+		
+		animation: demonGetHurt 0.5s linear 0s 1;
+		-webkit-animation: demonGetHurt 0.5s linear 0s 1;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+	}
 	@keyframes demonGetHurt{
 		
 		0% {
-			filter:invert(0) brightness(0) sepia(0) hue-rotate(0) saturate(0) contrast(0);
+			top: 5%;
+			filter:invert(0%) brightness(0) sepia(0) hue-rotate(1) saturate(0) contrast(0);
 		}
-		50%{
+		10%{
+			top: 0%;
 			filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
 		}
-		100%{
-			filter:invert(0) brightness(0) sepia(0) hue-rotate(0) saturate(0) contrast(0);
+		20%{
+			top: 5%;
+			filter:invert(0) brightness(0) sepia(0) hue-rotate(1) saturate(0) contrast(0);
 		}
+		30%{
+			top: 0%;
+			filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
+		}
+		40%{
+			top: 5%;
+			filter:invert(0) brightness(0) sepia(0) hue-rotate(1) saturate(0) contrast(0);
+		}
+		100%{
+			top: 5%;
+			filter:invert(0) brightness(0) sepia(0) hue-rotate(1) saturate(0) contrast(0);
+		}
+		
 	}
 	@-webkit-keyframes demonGetHurt{
 		
 		0% {
-			filter:invert(0) brightness(0) sepia(0) hue-rotate(0) saturate(0) contrast(0);
+			top: 5%;
+			-webkit-filter:invert(0%) brightness(0) sepia(0) hue-rotate(1) saturate(0) contrast(0);
 		}
-		50%{
-			filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
+		10%{
+			top: 0%;
+			-webkit-filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
+		}
+		20%{
+			top: 5%;
+			-webkit-filter:invert(0) brightness(0) sepia(0) hue-rotate(1) saturate(0) contrast(0);
+		}
+		30%{
+			top: 0%;
+			-webkit-filter:invert(30%) brightness(40%) sepia(1) hue-rotate(-30deg) saturate(400%) contrast(2);
+		}
+		40%{
+			top: 5%;
+			-webkit-filter:invert(0) brightness(0) sepia(0) hue-rotate(1) saturate(0) contrast(0);
 		}
 		100%{
-			filter:invert(0) brightness(0) sepia(0) hue-rotate(0) saturate(0) contrast(0);
+			top: 5%;
+			-webkit-filter:invert(0) brightness(0) sepia(0) hue-rotate(1) saturate(0) contrast(0);
 		}
+		
 	}
 	
 	#circle{
@@ -543,7 +608,7 @@ body{
 		}
 	}
 	
-	#weaknessPoint{
+	#weaknessPoint,#weaknessPoint2{
 		position:absolute;
 		top: 39%;
 		left: 35%;
@@ -554,11 +619,10 @@ body{
 	#demonIcon{
 		
 		position:absolute;
-		top: 3%;
-		left: 20%;
-		height: 7%;
-		width: 10%;
-		overflow:hidden;
+		top: 2%;
+		left: 18%;
+		height: 8%;
+		width: 13%;
 		background-Repeat:no-repeat;
 		background-Size : 100% 100%; 
 		z-index: 1;
@@ -653,13 +717,12 @@ body{
 		animation-play-state: paused;
 		-webkit-animation-play-state: paused;
 	}
-	
 	@keyframes sword{
 		0%{
 			top: 81%;
 		}
 		20%{
-			top: 20%;
+			top: 0%;
 		}
 		21%{
 			top: 82%;
@@ -673,7 +736,7 @@ body{
 			top: 81%;
 		}
 		20%{
-			top: 20%;
+			top: 0%;
 		}
 		21%{
 			top: 82%;
@@ -703,7 +766,6 @@ body{
 		background-Repeat:no-repeat;
 		background-Size : 100% 100%; 
 	}
-	
 	
 	#swordCount0,#swordCount1,#swordCount2,#swordCount3,#swordCount4,
 	#swordCount5,#swordCount6{
@@ -742,7 +804,6 @@ body{
 		animation-play-state: paused;
 		-webkit-animation-play-state: paused;
 	}
-	
 	@keyframes hand{
 		0%{
 			top: 83%;
@@ -792,7 +853,6 @@ body{
 		-webkit-animation-play-state: paused;
 		
 	}
-	
 	@keyframes guideAttack{
 		0%{
 			opacity:0.8;
@@ -823,10 +883,12 @@ body{
 		animation-play-state: paused;
 		-webkit-animation-play-state: paused;
 	}
-	
 	@keyframes attackBox{
 		0%{
-			z-index: -1;
+			z-index: -30;
+		}
+		99%{
+			z-index: -30;
 		}
 		100%{
 			z-index: 10;
@@ -848,11 +910,12 @@ body{
 		height: 23%;
 		width: 70% ;
 		opacity: 0; 
+		z-index:2;
 		background-Repeat:no-repeat;
 		background-Size : 100% 100%; 
 		
-		animation: opacityDisplay 5s linear 1s 1;
-		-webkit-animation: opacityDisplay 5s linear 1s 1;
+		animation: opacityDisplay 2s linear 0s 1;
+		-webkit-animation: opacityDisplay 2s linear 0s 1;
 		animation-fill-mode: forwards;
 		-webkit-animation-fill-mode: forwards;
 		animation-play-state: paused;
@@ -871,7 +934,6 @@ body{
 			opacity:0;
 		}
 	}
-
 	@-webkit-keyframes opacityDisplay{
 		0%{
 			opacity:0;
@@ -901,7 +963,6 @@ body{
 			opacity:0;
 		}
 	}
-
 	@-webkit-keyframes opacityHidden{
 		0%{
 			top: var(top);
@@ -919,9 +980,55 @@ body{
 			opacity:0;
 		}
 	}
-		
 	
-#lose{
+	@keyframes opacityHidden2{
+		0%{
+			top: var(top);
+			left: var(left);
+			height: var(height);
+			width: var(width);
+			opacity:1;
+		}
+		50%{
+			top: var(top);
+			left: var(left);
+			height: var(height);
+			width: var(width);
+			opacity:0;
+		}
+		100%{
+			top: var(top);
+			left: var(left);
+			height: var(height);
+			width: var(width);
+			opacity:0;
+		}
+	}
+	@-webkit-keyframes opacityHidden2{
+		0%{
+			top: var(top);
+			left: var(left);
+			height: var(height);
+			width: var(width);
+			opacity:1;
+		}
+		50%{
+			top: var(top);
+			left: var(left);
+			height: var(height);
+			width: var(width);
+			opacity:0;
+		}
+		100%{
+			top: var(top);
+			left: var(left);
+			height: var(height);
+			width: var(width);
+			opacity:0;
+		}
+	}
+		
+	#lose{
 		position:absolute;
 		top: 25%;
 		left: 17%;
@@ -932,12 +1039,11 @@ body{
 		background-Repeat:no-repeat;
 		background-Size : 100% 100%; 
 		
-		animation: loseOpacityDisplay 3s linear 1s 1 forwards;
-		-webkit-animation: loseOpacityDisplay 3s linear 1s 1 forwards;
+		animation: loseOpacityDisplay 3s linear 0.5s 1 forwards;
+		-webkit-animation: loseOpacityDisplay 3s linear 0.5s 1 forwards;
 		animation-play-state: paused;
 		-webkit-animation-play-state: paused;
 	}
-	
 	@keyframes loseOpacityDisplay{
 		0%{
 			opacity:0;
@@ -951,7 +1057,6 @@ body{
 			z-index:10
 		}
 	}
-
 	@-webkit-keyframes loseOpacityDisplay{
 		0%{
 			opacity:0;
@@ -963,5 +1068,851 @@ body{
 		100%{
 			opacity:1;
 			z-index:10
+		}
+	}
+	
+	#dragon{
+		position:absolute;
+		top: 18%;
+		left: 12.5%;
+		height: 50%;
+		width: 85%;
+		overflow:hidden;
+		background-Repeat:no-repeat;
+		background-Size : 100% 100%; 
+		opacity:0;
+		z-index: 1;
+		animation: dragon 3s linear 1s 1 forwards ,dragon2 6s linear 2s infinite;
+		-webkit-animation: dragon 3s linear 1s 1 forwards ,dragon2 6s linear 2s infinite;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+		
+	}
+	
+	@keyframes dragon{
+		0%{
+			top: 35%;
+			left: 34.5%;
+			height: 15%;
+			width: 30%;
+			opacity:0;
+			filter: brightness(0);
+		}
+		5%{
+			opacity:1;
+		}
+		35%{
+			top: 18%;
+			left: 12.5%;
+			height: 50%;
+			width: 85%;
+			filter: brightness(1);
+		}
+		100%{
+			top: 18%;
+			left: 12.5%;
+			height: 50%;
+			width: 85%;
+			filter: brightness(1);
+			opacity:1;
+		}
+	}
+	@keyframes dragon2{
+		0%{
+			top: 18%;
+			left: 12.5%;
+			height: 50%;
+			width: 85%;
+			filter: brightness(1);
+			opacity:1;
+		}
+		4.5%{
+			top: 35%;
+			left: 34.5%;
+			height: 15%;
+			width: 30%;
+			filter: brightness(1);
+			opacity:1;
+		}
+		9%{
+			top: 5%;
+			left: -9.5%;
+			height: 75%;
+			width: 128%;
+			filter: brightness(1);
+			opacity:1;
+		}
+		13.5%{
+			top: 39%;
+			left: 37.5%;
+			height: 10%;
+			width: 20%;
+			filter: brightness(1);
+			opacity:1;
+		}
+		18%{
+			top: 17%;
+			left: 0%;
+			height: 55%;
+			width: 100%;
+			filter: brightness(1);
+			opacity:1;
+		}
+		22.5%{
+			top: 29%;
+			left: 21.5%;
+			height: 30%;
+			width: 52%;
+			filter: brightness(1);
+			opacity:1;
+		}
+		27%{
+			top: 29%;
+			left: -14.5%;
+			height: 30%;
+			width: 52%;
+		}
+		31.5%{
+			top: 31%;
+			left: 16.5%;
+			height: 30%;
+			width: 52%;
+		}
+		36%{
+			top: 18%;
+			left: 61.5%;
+			height: 27%;
+			width: 45%;
+		}
+		40.5%{
+			top: 18%;
+			left: 12.5%;
+			height: 50%;
+			width: 85%;
+		}
+		45%{
+			top: 15%;
+			left: 6.5%;
+			height: 56%;
+			width: 94%;
+		}
+		49.5%{
+			top: 18%;
+			left: 12.5%;
+			height: 50%;
+			width: 85%;
+			filter: brightness(1);
+			opacity:1;
+		}
+		54%{
+			top: 37%;
+			left: 34.5%;
+			height: 15%;
+			width: 30%;
+		}
+		58.5%{
+			top: 19%;
+			left: 34.5%;
+			height: 15%;
+			width: 30%;
+		}
+		63%{、
+			top: 11%;
+			left: 16.5%;
+			height: 37%;
+			width: 71%;
+		}
+		67.5%{
+			top: 19%;
+			left: 34.5%;
+			height: 11%;
+			width: 20%;
+		}
+		72%{
+			top: 37%;
+			left: 34.5%;
+			height: 11%;
+			width: 20%;
+		}
+		76.5%{
+			top: 47%;
+			left: 39.5%;
+			height: 17%;
+			width: 30%;
+		}
+		81%{
+			top: 31%;
+			left: 28.5%;
+			height: 27%;
+			width: 47%;
+		}
+		85.5%{
+			top: 18%;
+			left: 12.5%;
+			height: 50%;
+			width: 85%;
+		}
+		90%{
+			top: 20%;
+			left: 50%;
+			height: 50%;
+			width: 85%;
+		}
+		94.5{
+			top: 18%;
+			left: 12.5%;
+			height: 50%;
+			width: 85%;
+		}
+		100%{
+			top: 18%;
+			left: 12.5%;
+			height: 50%;
+			width: 85%;
+			filter: brightness(1);
+			opacity:1;
+		}
+	}
+	
+	#countFont{
+		position:absolute;
+		height: 100%;
+		width: 90%;
+		top: 70%;
+		color: white;
+		text-align: center;
+	}
+	
+	#dragonGetHurt{
+		position:absolute;
+		top: 5%;
+		height: 90%;
+		width: 100%;
+		background-Repeat:no-repeat;
+		background-Size : 100% 100%; 
+		
+		animation: demonGetHurt 1s linear 0s 1;
+		-webkit-animation: demonGetHurt 1s linear 0s 1 ;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+	}
+	
+	#circle2{
+			position:absolute;
+			top: 75%;
+			left: 37%;
+			height: 20%;
+			width: 20%;
+			overflow:hidden;
+			background-Repeat:no-repeat;
+			background-Size : 100% 100%; 
+			opacity: 0; 
+			
+			animation: weakness2 3s linear 0s 1, circle2 3s linear 0.5s infinite;
+			-webkit-animation: weakness2 3s linear 0s 1 , circle2 3s linear 0.5s infinite;
+		
+			animation-play-state: paused;
+			-webkit-animation-play-state: paused;
+		}
+	@keyframes circle2{
+			0%{
+				opacity: 1; 
+				transform : rotate(0deg);
+			}
+			8%{
+				opacity: 1; 
+			}
+			100%{
+				opacity: 1; 
+				transform : rotate(359deg);
+			}
+		}
+	@-webkit-keyframes circle2{
+			0%{
+				opacity: 1; 
+				-webkit-transform : rotate(0deg);
+			}
+			8%{
+				opacity: 1; 
+			}
+			100%{
+				opacity: 1; 
+				-webkit-transform : rotate(359deg);
+			}
+		}
+		
+	#weakness2{
+			position:absolute;
+			top: 66%;
+			left: 29%;
+			height: 38%;
+			width: 35%;
+			overflow:hidden;
+			background-Repeat:no-repeat;
+			background-Size : 100% 100%; 
+			
+			transform : rotate(0deg);
+			-webkit-transform : rotate(0deg);
+			animation: weakness2 3s linear 0s 1 forwards;
+			-webkit-animation: weakness2 3s linear 0s 1 forwards;
+			animation-play-state: paused;
+			-webkit-animation-play-state: paused;
+			
+		}
+	@keyframes weakness2{
+			0%{
+				opacity: 0; 
+			}
+			20%{
+				opacity: 1; 
+			}
+			100%{
+				opacity: 1; 
+			}
+		}
+	@-webkit-keyframes weakness2{
+			0%{
+				opacity: 0; 
+			}
+			20%{
+				opacity: 1; 
+			}
+			100%{
+				opacity: 1; 
+			}
+		}
+
+	#cloud1,#cloud2,#cloud3,#cloud4{
+		position:absolute;
+		background-Repeat:no-repeat;
+		background-Size : 100% 100%; 
+		display:none;
+	}	
+
+	#cloud1{
+		top: 11%;
+		left: 36%;
+		height: 20%;
+		width: 75%;
+		display:block;
+		z-index: 2;
+		
+		transform : rotate(0deg);
+		-webkit-transform : rotate(0deg);
+		animation: cloud1 30s linear 0s infinite;
+		-webkit-animation: cloud1 30s linear 0s infinite;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+	}	
+	@keyframes cloud1{
+			0%{
+				opacity: 0; 
+				top: 11%;
+				left: 36%;
+				height: 20%;
+				width: 75%;
+			}
+			10%{
+				opacity: 1; 
+				top: 9%;
+				left: 27%;
+				height: 25%;
+				width: 90%;
+			}
+			60%{
+				top: 15%;
+				left: 57%;
+				height: 18%;
+				width: 65%;
+			}
+			80%{
+				opacity: 1; 
+				top: 9%;
+				left: 27%;
+				height: 25%;
+				width: 90%;
+			}
+			90%{
+				opacity: 1; 
+			}
+			100%{
+				opacity: 0; 
+				top: 11%;
+				left: 36%;
+				height: 20%;
+				width: 75%;
+			}
+		}	
+	@-webkit-keyframes cloud1{
+			0%{
+				opacity: 0; 
+				top: 11%;
+				left: 36%;
+				height: 20%;
+				width: 75%;
+			}
+			10%{
+				opacity: 1; 
+				top: 9%;
+				left: 27%;
+				height: 25%;
+				width: 90%;
+			}
+			60%{
+				top: 15%;
+				left: 57%;
+				height: 18%;
+				width: 65%;
+			}
+			80%{
+				opacity: 1; 
+				top: 9%;
+				left: 27%;
+				height: 25%;
+				width: 90%;
+			}
+			90%{
+				opacity: 1; 
+			}
+			100%{
+				opacity: 0; 
+				top: 11%;
+				left: 36%;
+				height: 20%;
+				width: 75%;
+			}
+		}
+
+	#cloud2{
+
+		top: 30%;
+		left: 6%;
+		height: 36%;
+		width: 80%;
+		display:block;
+		z-index: 2;
+		
+		transform : rotate(0deg);
+		-webkit-transform : rotate(0deg);
+		animation: cloud2 30s linear 0s infinite;
+		-webkit-animation: cloud2 30s linear 0s infinite;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+	}
+	@keyframes cloud2{
+			0%{
+				opacity: 0; 
+				top: 30%;
+				left: 6%;
+				height: 36%;
+				width: 80%;
+			}
+			10%{
+				opacity: 1; 
+				top: 31%;
+				left: 3%;
+				height: 40%;
+				width: 90%;
+			}
+			60%{
+				top: 32%;
+				left: 10%;
+				height: 28%;
+				width: 72%;
+			}
+			80%{
+				top: 31%;
+				left: 3%;
+				height: 40%;
+				width: 90%;
+			}
+			90%{
+				opacity: 1; 	
+			}
+			100%{
+				opacity: 0; 
+				top: 31%;
+				left: 3%;
+				height: 40%;
+				width: 90%;
+			}
+		}
+	@-webkit-keyframes cloud2{
+			0%{
+				opacity: 0; 
+				top: 30%;
+				left: 6%;
+				height: 36%;
+				width: 80%;
+			}
+			10%{
+				opacity: 1; 
+				top: 31%;
+				left: 3%;
+				height: 40%;
+				width: 90%;
+			}
+			60%{
+				top: 32%;
+				left: 10%;
+				height: 28%;
+				width: 72%;
+			}
+			80%{
+				top: 31%;
+				left: 3%;
+				height: 40%;
+				width: 90%;
+			}
+			90%{
+				opacity: 1; 	
+			}
+			100%{
+				opacity: 0; 
+				top: 31%;
+				left: 3%;
+				height: 40%;
+				width: 90%;
+			}
+		}
+
+	#cloud3{
+		top: 42%;
+		left: 55%;
+		height: 26%;
+		width: 50%;
+		display:block;
+		z-index: 0;
+		
+		transform : rotate(0deg);
+		-webkit-transform : rotate(0deg);
+		animation: cloud3 30s linear 0s infinite;
+		-webkit-animation: cloud3 30s linear 0s infinite;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+	}
+	@keyframes cloud3{
+			0%{
+				opacity: 0; 
+				top: 48%;
+				left: 60%;
+				height: 15%;
+				width: 40%;
+			}
+			10%{
+				opacity: 1; 
+				top: 42%;
+				left: 55%;
+				height: 26%;
+				width: 50%;
+			}
+			60%{
+				top: 49%;
+				left: 60%;
+				height: 19%;
+				width: 50%;
+			}
+			90%{
+				opacity: 1; 
+			}
+			100%{
+				opacity: 0; 
+				top: 42%;
+				left: 55%;
+				height: 26%;
+				width: 50%;
+			}
+		}
+	@-webkit-keyframes cloud3{
+			0%{
+				opacity: 0; 
+				top: 48%;
+				left: 60%;
+				height: 15%;
+				width: 40%;
+			}
+			10%{
+				opacity: 1; 
+				top: 42%;
+				left: 55%;
+				height: 26%;
+				width: 50%;
+			}
+			60%{
+				top: 49%;
+				left: 60%;
+				height: 19%;
+				width: 50%;
+			}
+			90%{
+				opacity: 1; 
+			}
+			100%{
+				opacity: 0; 
+				top: 42%;
+				left: 55%;
+				height: 26%;
+				width: 50%;
+			}
+		}
+
+	#cloud4{
+		top: 53%;
+		left: 0%;
+		height: 12%;
+		width: 48%;
+		display:block;
+		z-index: 0;
+		
+		transform : rotate(0deg);
+		-webkit-transform : rotate(0deg);
+		animation: cloud4 30s linear 0s infinite;
+		-webkit-animation: cloud4 30s linear 0s infinite;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+	}
+	@keyframes cloud4{
+			0%{
+				opacity: 0; 
+				top: 53%;
+				left: 0%;
+				height: 12%;
+				width: 48%;
+			}
+			10%{
+				opacity: 0.8; 
+				top: 48%;
+				left: -10%;
+				height: 26%;
+				width: 102%;
+			}
+			60%{
+				top: 49%;
+				left: 0%;
+				height: 20%;
+				width: 91%;
+			}
+			80%{
+				top: 48%;
+				left: -10%;
+				height: 26%;
+				width: 102%;
+			}
+			90%{
+				opacity: 0.8; 
+			}
+			100%{
+				opacity:0;
+				top: 48%;
+				left: -10%;
+				height: 26%;
+				width: 102%;
+			}
+		}
+	@-webkit-keyframes cloud4{
+			0%{
+				opacity: 0; 
+				top: 53%;
+				left: 0%;
+				height: 12%;
+				width: 48%;
+			}
+			10%{
+				opacity: 0.8;  
+				top: 48%;
+				left: -10%;
+				height: 26%;
+				width: 102%;
+			}
+			60%{
+				top: 49%;
+				left: 0%;
+				height: 20%;
+				width: 91%;
+			}
+			80%{
+				top: 48%;
+				left: -10%;
+				height: 26%;
+				width: 102%;
+			}
+			90%{
+				opacity: 0.8; 
+			}
+			100%{
+				opacity:0;
+				top: 48%;
+				left: -10%;
+				height: 26%;
+				width: 102%;
+			}
+		}
+		
+	#attackBox2{
+		position:absolute;
+		height: 100%;
+		width: 100%;
+		z-index: -1;
+		
+		animation: attackBox2 1s linear 1.2s 1;
+		-webkit-animation: attackBox2 1s linear 1.2s 1;
+		animation-fill-mode: forwards;
+		-webkit-animation-fill-mode: forwards;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+	}
+	
+	@keyframes attackBox2{
+		0%{
+			z-index: -1;
+		}
+		99%{
+			z-index: -1;
+		}
+		100%{
+			z-index: 10;
+		}
+	}
+	@-webkit-keyframes attackBox2{
+		0%{
+			z-index: -1;
+		}
+		99%{
+			z-index: -1;
+		}
+		100%{
+			z-index: 10;
+		}
+	}
+	
+	#winInterface{
+		position:absolute;
+		height: 100%;
+		width: 100%;
+		display:none;
+		z-index:4;
+	}
+	
+	#reward,#stars,#rewardBtn{
+		position:absolute;
+		background-Repeat:no-repeat;
+		background-Size : 100% 100%; 
+	}
+	
+	#rewardBtn{
+		height: 12%;
+		top: 70%;
+		left: 22%;
+		width: 61%;
+		opacity:0;
+		animation: rewardBtn 3s linear 1s 1 forwards;
+		-webkit-animation: rewardBtn 3s linear 1s 1 forwards;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+	}
+	@keyframes rewardBtn{
+		0%{
+			opacity:0;
+		}
+		20%{
+			opacity:1;
+		}
+		100%{
+			opacity:1;
+		}
+	}
+	@-webkit-keyframes rewardBtn{
+		0%{
+			opacity:0;
+		}
+		20%{
+			opacity:1;
+		}
+		100%{
+			opacity:1;
+		}
+	}
+	
+	#stars{
+		
+		top: 68%;
+		left: 45%;
+		height: 1%;
+		width: 10%;
+		opacity:0;
+		animation: stars 3s linear 1s 1 forwards;
+		-webkit-animation: stars 3s linear 1s 1 forwards;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+	}
+	@keyframes stars{
+		0%{
+			top: 68%;
+			left: 45%;
+			height: 1%;
+			width: 10%;
+			opacity:0;
+		}
+		1%{
+			opacity:1;
+		}
+		10%{
+			height: 3%;
+			top: 66%;
+			left: 41%;
+			width: 21%;
+		}
+		20%{
+			height: 5%;
+			top: 65%;
+			left: 33%;
+			width: 38%;
+		}
+		100%{
+			height: 5%;
+			top: 65%;
+			left: 33%;
+			width: 38%;
+			opacity:1;
+		}
+	}
+	
+	#reward{
+		height: 6%;
+		top: 33%;
+		left: 43%;
+		width: 6%;
+		transform: rotate(-150deg);
+		-webkit-transform: rotate(-150deg);
+		opacity:0;
+		animation: reward 3s linear 1s 1 forwards;
+		-webkit-animation: reward 3s linear 1s 1 forwards;
+		animation-play-state: paused;
+		-webkit-animation-play-state: paused;
+	}
+	@keyframes reward{
+		0%{
+			height: 6%;
+			top: 33%;
+			left: 43%;
+			width: 6%;
+			opacity:0;
+		}
+		1%{
+			opacity:1;
+		}
+		20%{
+			height: 55%;
+			top: 11%;
+			left: 21%;
+			width: 57%;
+			opacity: 1;
+		}
+		100%{
+			height: 55%;
+			top: 11%;
+			left: 21%;
+			width: 57%;
+			opacity: 1;
 		}
 	}

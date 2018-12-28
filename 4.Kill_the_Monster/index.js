@@ -154,6 +154,7 @@ window.requestAnimFrame = (function(){
 	var first_monster_container = document.getElementById("first_monster_container")
 	var demonIcon = document.getElementById("demonIcon");
 	var demon = document.getElementById("demon");
+	var demonGetHurt = document.getElementById("demonGetHurt");
 	var circle = document.getElementById("circle");
 	var weakness = document.getElementById("weakness");
 	var guideFont = document.getElementById("guideFont");
@@ -164,6 +165,20 @@ window.requestAnimFrame = (function(){
 	var attackBox = document.getElementById("attackBox");
 	var bar = document.getElementById("bar");
 	var levelUp = document.getElementById("levelUp");
+	
+	var dragon = document.getElementById("dragon");
+	var circle2 = document.getElementById("circle2");
+	var weakness2 = document.getElementById("weakness2");
+	var attackBox2 = document.getElementById("attackBox2");
+
+	var dragonArray = ["url('dragonIcon.png')","url('details2.png')"];
+	
+	var winInterface = document.getElementById("winInterface");
+	var reward = document.getElementById("reward");
+	var stars = document.getElementById("stars");
+	var rewardBtn = document.getElementById("rewardBtn");
+	
+	var dragonGetHurt = document.getElementById("dragonGetHurt");
 	
 	function main(){
 	
@@ -208,11 +223,19 @@ window.requestAnimFrame = (function(){
 						"url('guideAttack.png')",
 						"url('glove.png')",
 						"url('levelUp.png')",
-						"url('lose.png')"
+						"url('lose.png')",
+						"url('dragon.png')",
+						"url('cloud1.png')",
+						"url('cloud2.png')",
+						"url('cloud3.png')",
+						"url('cloud4.png')",
+						"url('reward.png')",
+						"url('stars.png')",
+						"url('rewardBtn.png')"
 		];
 		
-		demon.style.backgroundImage = demonArray[0];
-		demonGetHurt.style.backgroundImage [0];
+		// demon.style.backgroundImage = demonArray[0];
+		demonGetHurt.style.backgroundImage = demonArray[0];
 		circle.style.backgroundImage = demonArray[1];
 		weakness.style.backgroundImage = demonArray[2];
 		guideFont.style.backgroundImage = demonArray[3];
@@ -225,6 +248,18 @@ window.requestAnimFrame = (function(){
 		hand.style.backgroundImage = demonArray[10];
 		levelUp.style.backgroundImage = demonArray[11];
 		lose.style.backgroundImage = demonArray[12];
+		
+		dragonGetHurt.style.backgroundImage = demonArray[13];
+		circle2.style.backgroundImage = demonArray[1];
+		weakness2.style.backgroundImage = demonArray[2];
+		cloud1.style.backgroundImage = demonArray[14];
+		cloud2.style.backgroundImage = demonArray[15];
+		cloud3.style.backgroundImage = demonArray[16];
+		cloud4.style.backgroundImage = demonArray[17];
+		
+		reward.style.backgroundImage = demonArray[18];
+		stars.style.backgroundImage = demonArray[19];
+		rewardBtn.style.backgroundImage = demonArray[20];
 		
 		var right = 0 ;
 		
@@ -248,12 +283,32 @@ window.requestAnimFrame = (function(){
 		swordCount5.style.right = "72%";
 		swordCount6.style.right = "84%";
 		
-
-		
 	}
 	
 	function getBox() {
 		var weaknessPoint = document.getElementById ("weaknessPoint");
+		var attackPoint = document.getElementById ("attackPoint");	
+				
+		if (weaknessPoint.getBoundingClientRect) {
+			var rect = attackPoint.getBoundingClientRect ();
+			x = rect.left;
+			y = rect.top;
+			w = rect.right - rect.left;
+			h = rect.bottom - rect.top;  
+		}
+		if (attackPoint.getBoundingClientRect) {
+			var rect2 = weaknessPoint.getBoundingClientRect ();
+			x2 = rect2.left;
+			y2 = rect2.top;
+			w2 = rect2.right - rect2.left;
+			h2 = rect2.bottom - rect2.top;
+	
+			return(x,y,x2,y2,w,h,w2,h2);
+		}
+	}
+	
+	function getBox2() {
+		var weaknessPoint = document.getElementById ("weaknessPoint2");
 		var attackPoint = document.getElementById ("attackPoint");	
 				
 		if (weaknessPoint.getBoundingClientRect) {
@@ -286,7 +341,31 @@ window.requestAnimFrame = (function(){
 		demon.style.animation = "opacityHidden 0.5s linear 0s 1 forwards";
 		demon.style.webkitAnimation = "opacityHidden 0.5s linear 0s 1 forwards";
 
+		 var timer = setTimeout(changeAnimation, 1100);
+			
+		function changeAnimation(){
+			sword.style.animation = "none 1s linear 0s 1 ";
+			sword.style.webkitAnimation = "none 1s linear 0s 1 ";
+			clearTimeout(timer);
+		}
+	}
+	
+	function dragonHiddenAnimation(){
 		
+		var dragonElement  = document.querySelector('#dragon');
+		var dragonTopStyle = getComputedStyle(dragonElement).getPropertyValue("top").split("px")[0];
+		var dragonLeftStyle = getComputedStyle(dragonElement).getPropertyValue("left").split("px")[0];
+		var dragonHeightStyle = getComputedStyle(dragonElement).getPropertyValue("height").split("px")[0];
+		var dragonWidthStyle = getComputedStyle(dragonElement).getPropertyValue("width").split("px")[0];
+
+		dragon.style.setProperty('top', dragonTopStyle + 'px');
+		dragon.style.setProperty('left', dragonLeftStyle + 'px');
+		dragon.style.setProperty('height', dragonHeightStyle + 'px');
+		dragon.style.setProperty('width', dragonWidthStyle + 'px');
+		
+		dragon.style.animation = "opacityHidden2 0.5s linear 0s 1 forwards";
+		dragon.style.webkitAnimation = "opacityHidden2 0.5s linear 0s 1 forwards";
+
 	}
 	
 	var life = 100;
@@ -309,9 +388,7 @@ window.requestAnimFrame = (function(){
 			sword.style.animation = "none 1s linear 0s 1 ";
 			sword.style.webkitAnimation = "none 1s linear 0s 1 ";
 			count++;
-			console.log(count);
 			cancelAnimationFrame(swordDetect);
-			
 		}
 		
 		getBox(); 
@@ -320,8 +397,20 @@ window.requestAnimFrame = (function(){
 		var hpStyle = getComputedStyle(hpElement).getPropertyValue("width").split("%")[0];
 		
 		if(x2<x && x<(x2+w2)){
-			life-=5;
+			life-=10;
 			bar.style.width = life + '%';
+			demonGetHurt.style.animation = "demonGetHurt 0.5s linear 0s 1";
+			demonGetHurt.style.webkitAnimation = "demonGetHurt 0.5s linear 0s 1";
+			demonGetHurt.style.animationPlayState = "running";
+			demonGetHurt.style.webkitAnimationPlayState = "running";
+			
+			var timer = setTimeout(changeAnimation, 500);
+				
+			function changeAnimation(){
+				demonGetHurt.style.animation = "none 1s linear 0s 1 ";
+				demonGetHurt.style.webkitAnimation = "none 1s linear 0s 1 ";
+				clearTimeout(timer);
+			}
 		}
 		
 		if ( count < 7 ){
@@ -338,7 +427,51 @@ window.requestAnimFrame = (function(){
 				attackBox.style.webkitAnimationPlayState = "paused";
 				attackBox.style.zIndex = "-30";
 				attackBox.style.left = "100%";
-							attackBox.style.display = "none";
+				attackBox.style.display = "none";
+				
+				demonIcon.style.backgroundImage = dragonArray[0];
+				details.style.backgroundImage = dragonArray[1];
+				
+				demonIcon.style.top = "0%";
+				demonIcon.style.left = "14%";
+				demonIcon.style.height = "11%";
+				demonIcon.style.width = "17%";	
+				
+				dragon.style.animationPlayState ="running";
+				
+				circle2.style.animationPlayState = "running";
+				circle2.style.webkitAnimationPlayState = "running";
+				weakness2.style.animationPlayState = "running";
+				weakness2.style.webkitAnimationPlayState = "running";
+				
+				cloud1.style.animationPlayState = "running";
+				cloud1.style.webkitAnimationPlayState = "running";
+				cloud2.style.animationPlayState = "running";
+				cloud2.style.webkitAnimationPlayState = "running";
+				cloud3.style.animationPlayState = "running";
+				cloud3.style.webkitAnimationPlayState = "running";
+				cloud4.style.animationPlayState = "running";
+				cloud4.style.webkitAnimationPlayState = "running";
+				
+				attackBox2.style.animationPlayState = "running";
+				attackBox2.style.webkitAnimationPlayState = "running";
+				
+				bar.style.width = "100%";
+				count = 0;
+				number = 7;
+				document.getElementById("countFont").innerHTML = (number)+"/7";
+				var swordCountArray = [
+						swordCount0,
+						swordCount1,
+						swordCount2,
+						swordCount3,
+						swordCount4,
+						swordCount5,
+						swordCount6
+					];
+				for (i=0 ; i<7 ;i++){
+					swordCountArray[i].style.opacity = "1" ;
+				}
 				cancelAnimationFrame(swordDetect);
 			}
 		}
@@ -347,39 +480,186 @@ window.requestAnimFrame = (function(){
 			
 			demon.style.animationPlayState = "paused";
 			demon.style.webkitAnimationPlayState = "paused";
-		
-			if(barWidth != "0"){
-				document.getElementById("lose").style.display = "block";	
-				
-				lose.style.animationPlayState = "running";
-				lose.style.webkitAnimationPlayState = "running";
-				lose.style.zIndex = "10";
-				demonHiddenAnimation();
-				attackBox.style.animationPlayState = "paused";
-				attackBox.style.webkitAnimationPlayState = "paused";
-				attackBox.style.zIndex = "-30";
-				attackBox.style.left = "100%";
-				attackBox.style.display = "none";
-			}
-			else{
-				
-				demonHiddenAnimation();
-				levelUp.style.display = "block";
-				levelUp.style.animationPlayState = "running";
-				levelUp.style.webkitAnimationPlayState = "running";
-
-				attackBox.style.animationPlayState = "paused";
-				attackBox.style.webkitAnimationPlayState = "paused";
-				attackBox.style.zIndex = "-30";
-				attackBox.style.left = "100%";
-				attackBox.style.display = "none";
+			
+			 var timer = setTimeout(barWidthCondition, 1100);
+			
+			function barWidthCondition(){
+				if(barWidth != "0"){
+					document.getElementById("lose").style.display = "block";	
+					
+					lose.style.animationPlayState = "running";
+					lose.style.webkitAnimationPlayState = "running";
+					lose.style.zIndex = "10";
+					demonHiddenAnimation();
+					attackBox.style.animationPlayState = "paused";
+					attackBox.style.webkitAnimationPlayState = "paused";
+					attackBox.style.zIndex = "-30";
+					attackBox.style.left = "100%";
+					attackBox.style.display = "none";
+					
+					cancelAnimationFrame(swordDetect);
+				}
+				else if (barWidth === "0"){
+					
+					demonHiddenAnimation();
+					levelUp.style.animationPlayState = "running";
+					levelUp.style.webkitAnimationPlayState = "running";
+					
+					attackBox.style.animationPlayState = "paused";
+					attackBox.style.webkitAnimationPlayState = "paused";
+					attackBox.style.zIndex = "-30";
+					attackBox.style.left = "100%";
+					attackBox.style.display = "none";
+					
+					demonIcon.style.backgroundImage = dragonArray[0];
+					dragon.style.animationPlayState ="running";
+					
+					circle2.style.animationPlayState = "running";
+					circle2.style.webkitAnimationPlayState = "running";
+					weakness2.style.animationPlayState = "running";
+					weakness2.style.webkitAnimationPlayState = "running";
+					
+					cloud1.style.animationPlayState = "running";
+					cloud1.style.webkitAnimationPlayState = "running";
+					cloud2.style.animationPlayState = "running";
+					cloud2.style.webkitAnimationPlayState = "running";
+					cloud3.style.animationPlayState = "running";
+					cloud3.style.webkitAnimationPlayState = "running";
+					cloud4.style.animationPlayState = "running";
+					cloud4.style.webkitAnimationPlayState = "running";
+					
+					barWidth.style.width = "100%";
+					
+					cancelAnimationFrame(swordDetect);
+				}
+				clearTimeout(timer);
 			}
 		}
+	}
+	
+	var life2 = 100;
+	var count2 = 0;
+	function swordAnimation2 (timestamp) {
+		
+		var swordElement = document.querySelector('#sword');
+		var swordStyle = getComputedStyle(swordElement).getPropertyValue("top").split("px")[0];
+		
+		var swordBoxElement  = document.querySelector('#swordBox');
+		var swordBoxStyle = getComputedStyle(swordBoxElement).getPropertyValue("height").split("px")[0];
+		
+		swordPercentage = (100*swordStyle)/swordBoxStyle;
+		
+		swordDetect2 = requestAnimationFrame(swordAnimation2);
+		
+		if(swordPercentage >= 81)
+		{
+			sword.style.animation = "none 1s linear 0s 1 ";
+			sword.style.webkitAnimation = "none 1s linear 0s 1 ";
+			count2++;
+			cancelAnimationFrame(swordDetect2);
+		}
+		
+		getBox2(); 
+		
+		var hpElement  = document.querySelector('#bar');
+		var hpStyle = getComputedStyle(hpElement).getPropertyValue("width").split("%")[0];
+		
+		if(x2<x && x<(x2+w2)){
+			life2-=4;
+			bar.style.width = life2 + '%';
 			
+			dragonGetHurt.style.animation = "demonGetHurt 0.5s linear 0s 1";
+			dragonGetHurt.style.webkitAnimation = "demonGetHurt 0.5s linear 0s 1";
+			dragonGetHurt.style.animationPlayState = "running";
+			dragonGetHurt.style.webkitAnimationPlayState = "running";
+			
+			var timer = setTimeout(changeAnimation, 500);
+				
+			function changeAnimation(){
+				dragonGetHurt.style.animation = "none 1s linear 0s 1 ";
+				dragonGetHurt.style.webkitAnimation = "none 1s linear 0s 1 ";
+				clearTimeout(timer);
+			}
+		}
+		
+		if ( count2 < 7 ){
+			
+			var barWidth = bar.style.width.split("%")[0];
+			
+			if (barWidth === "0"){
+				
+				dragonHiddenAnimation();
+				
+				attackBox2.style.animationPlayState = "paused";
+				attackBox2.style.webkitAnimationPlayState = "paused";
+				attackBox2.style.zIndex = "-30";
+				attackBox2.style.left = "100%";
+				attackBox2.style.display = "none";
+				
+				cloud1.style.display ="none";
+				cloud2.style.display ="none";
+				cloud3.style.display ="none";
+				cloud4.style.display ="none";
+				
+				winInterface.style.display = "block"
+				
+				rewardBtn.style.animationPlayState = "running";
+				rewardBtn.style.webkitAnimationPlayState = "running";
+				stars.style.animationPlayState = "running";
+				stars.style.webkitAnimationPlayState = "running";
+				reward.style.animationPlayState = "running";
+				reward.style.webkitAnimationPlayState = "running";
+				
+				grayLayer.style.animation = "grayLayer2 1s linear 0s 1 forwards";
+				grayLayer.style.webkitAnimation = "grayLayer2 1s linear 0s 1 forwards";
+				
+				cancelAnimationFrame(swordDetect2);
+			}
+		}
+		
+		if ( count2 === 7 ){
+			
+			dragon.style.animationPlayState = "paused";
+			dragon.style.webkitAnimationPlayState = "paused";
+			
+			 var timer = setTimeout(barWidthCondition, 1100);
+			
+			function barWidthCondition(){
+				if(barWidth != "0"){
+					document.getElementById("lose").style.display = "block";	
+					dragonHiddenAnimation();
+					
+					lose.style.animationPlayState = "running";
+					lose.style.webkitAnimationPlayState = "running";
+					lose.style.zIndex = "10";
+					attackBox2.style.animationPlayState = "paused";
+					attackBox2.style.webkitAnimationPlayState = "paused";
+					attackBox2.style.zIndex = "-30";
+					attackBox2.style.left = "100%";
+					attackBox2.style.display = "none";
+					
+					cancelAnimationFrame(swordDetect2);
+				}
+				else if (barWidth === "0"){
+					
+					dragonHiddenAnimation();
+					
+					attackBox2.style.animationPlayState = "paused";
+					attackBox2.style.webkitAnimationPlayState = "paused";
+					attackBox2.style.zIndex = "-30";
+					attackBox2.style.left = "100%";
+					attackBox2.style.display = "none";
+					
+					cancelAnimationFrame(swordDetect2);
+				}
+				clearTimeout(timer);
+			}
+		}
 	}
 	
 	var swordImageCount = 0;
-	
+	var swordImageCount2 = 0;
+	var number = 7;
 	function mouseDown(e) {
 		var data = e.target.id;
 		console.log(data);
@@ -387,7 +667,9 @@ window.requestAnimFrame = (function(){
 		if (data === "main_page_container" || "character" || "mainFont"){
 			
 			main_page_container.style.display = "none";
+			main_page_container.style.zIndex = "-30";
 			first_monster_container.style.display = "block";
+			demon.style.display = "block";
 			grayLayer.style.display ="block";
 			
 			demon.style.animationPlayState = "running";
@@ -407,35 +689,58 @@ window.requestAnimFrame = (function(){
 			attackBox.style.animationPlayState = "running";
 			attackBox.style.webkitAnimationPlayState = "running";
 			
+			
 		}
 		
 		if (data === "attackBox"){
 			
 			var barWidth = bar.style.width.split("%")[0];
-			
+			console.log(count);
 			if (barWidth != "0"){
 				if ( count < 7 ){
-					console.log(count);
 					swordDetect = requestAnimationFrame(swordAnimation);
 					sword.style.animation = "sword 0.5s linear 0s 1 ";
 					sword.style.webkitAnimation = "sword 0.5s linear 0s 1 ";
 					sword.style.animationPlayState = "running";
 					sword.style.webkitAnimationPlayState = "running";
+					
+					number = number-1;
+					document.getElementById("countFont").innerHTML = (number)+"/7";
+				}
+			}
+			var swordCountArray = [swordCount0,swordCount1,swordCount2,
+								   swordCount3,swordCount4,swordCount5,
+								   swordCount6];
+			
+			swordCountArray[swordImageCount].style.opacity = "0.3" ;
+			swordImageCount++;
+		}
+		
+		if (data === "attackBox2"){
+			
+			var barWidth = bar.style.width.split("%")[0];
+			console.log(count2);
+			if (barWidth != "0"){
+				if ( count2 < 7 ){
+					
+					swordDetect2 = requestAnimationFrame(swordAnimation2);
+					sword.style.animation = "sword 0.5s linear 0s 1 ";
+					sword.style.webkitAnimation = "sword 0.5s linear 0s 1 ";
+					sword.style.animationPlayState = "running";
+					sword.style.webkitAnimationPlayState = "running";
+					
+					number = number-1;
+					document.getElementById("countFont").innerHTML = (number)+"/7";
+					
+					var swordCountArray = [swordCount0,swordCount1,swordCount2,
+										   swordCount3,swordCount4,swordCount5,
+										   swordCount6];
+					
+					swordCountArray[swordImageCount2].style.opacity = "0.3" ;
+					swordImageCount2++;
 				}
 			}
 			
-			var swordCountArray = [
-									swordCount0,
-									swordCount1,
-									swordCount2,
-									swordCount3,
-									swordCount4,
-									swordCount5,
-									swordCount6
-								];
-			
-			swordCountArray[swordImageCount].style.display = "none" ;
-			swordImageCount++;
 		}
 		
 		if (data === "lose"){
