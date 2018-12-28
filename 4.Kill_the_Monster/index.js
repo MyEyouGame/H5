@@ -478,10 +478,16 @@ window.requestAnimFrame = (function(){
 		
 		if ( count === 7 ){
 			
+			attackBox.style.animationPlayState = "paused";
+			attackBox.style.webkitAnimationPlayState = "paused";
+			attackBox.style.zIndex = "-30";
+			attackBox.style.left = "100%";
+			attackBox.style.display = "none";
+			
 			demon.style.animationPlayState = "paused";
 			demon.style.webkitAnimationPlayState = "paused";
 			
-			 var timer = setTimeout(barWidthCondition, 1100);
+			 var timer = setTimeout(barWidthCondition, 500);
 			
 			function barWidthCondition(){
 				if(barWidth != "0"){
@@ -491,11 +497,6 @@ window.requestAnimFrame = (function(){
 					lose.style.webkitAnimationPlayState = "running";
 					lose.style.zIndex = "10";
 					demonHiddenAnimation();
-					attackBox.style.animationPlayState = "paused";
-					attackBox.style.webkitAnimationPlayState = "paused";
-					attackBox.style.zIndex = "-30";
-					attackBox.style.left = "100%";
-					attackBox.style.display = "none";
 					
 					cancelAnimationFrame(swordDetect);
 				}
@@ -622,7 +623,7 @@ window.requestAnimFrame = (function(){
 			dragon.style.animationPlayState = "paused";
 			dragon.style.webkitAnimationPlayState = "paused";
 			
-			 var timer = setTimeout(barWidthCondition, 1100);
+			 var timer = setTimeout(barWidthCondition, 500);
 			
 			function barWidthCondition(){
 				if(barWidth != "0"){
