@@ -384,7 +384,6 @@ window.requestAnimFrame = (function(){
 		
 		if(swordPercentage >= 81)
 		{
-			
 			sword.style.animation = "none 1s linear 0s 1 ";
 			sword.style.webkitAnimation = "none 1s linear 0s 1 ";
 			count++;
@@ -397,6 +396,10 @@ window.requestAnimFrame = (function(){
 		var hpStyle = getComputedStyle(hpElement).getPropertyValue("width").split("%")[0];
 		
 		if(x2<x && x<(x2+w2)){
+
+			swordBox.style.setProperty('top', y2+ 'px');
+			sword.style.setProperty('top', (swordStyle-y2) + 'px');
+
 			life-=10;
 			bar.style.width = life + '%';
 			demonGetHurt.style.animation = "demonGetHurt 0.5s linear 0s 1";
@@ -404,12 +407,23 @@ window.requestAnimFrame = (function(){
 			demonGetHurt.style.animationPlayState = "running";
 			demonGetHurt.style.webkitAnimationPlayState = "running";
 			
-			var timer = setTimeout(changeAnimation, 500);
+			var timer = setTimeout(changeAnimation, 1100);
 				
 			function changeAnimation(){
 				demonGetHurt.style.animation = "none 1s linear 0s 1 ";
 				demonGetHurt.style.webkitAnimation = "none 1s linear 0s 1 ";
+				
 				clearTimeout(timer);
+			}
+			
+			
+			var timer2 = setTimeout(changeAnimation2, 500);
+				
+			function changeAnimation2(){
+				swordBox.style.setProperty('top', '0%');
+				sword.style.setProperty('top', '82%');
+				
+				clearTimeout(timer2);
 			}
 		}
 		
@@ -496,6 +510,7 @@ window.requestAnimFrame = (function(){
 					lose.style.animationPlayState = "running";
 					lose.style.webkitAnimationPlayState = "running";
 					lose.style.zIndex = "10";
+					lose.style.display = "block";
 					demonHiddenAnimation();
 					
 					cancelAnimationFrame(swordDetect);
@@ -505,12 +520,6 @@ window.requestAnimFrame = (function(){
 					demonHiddenAnimation();
 					levelUp.style.animationPlayState = "running";
 					levelUp.style.webkitAnimationPlayState = "running";
-					
-					attackBox.style.animationPlayState = "paused";
-					attackBox.style.webkitAnimationPlayState = "paused";
-					attackBox.style.zIndex = "-30";
-					attackBox.style.left = "100%";
-					attackBox.style.display = "none";
 					
 					demonIcon.style.backgroundImage = dragonArray[0];
 					dragon.style.animationPlayState ="running";
@@ -574,12 +583,24 @@ window.requestAnimFrame = (function(){
 			dragonGetHurt.style.animationPlayState = "running";
 			dragonGetHurt.style.webkitAnimationPlayState = "running";
 			
+			swordBox.style.setProperty('top', y2 + 'px');
+			sword.style.setProperty('top', (swordStyle-y2) + 'px');
+			
 			var timer = setTimeout(changeAnimation, 500);
 				
 			function changeAnimation(){
 				dragonGetHurt.style.animation = "none 1s linear 0s 1 ";
 				dragonGetHurt.style.webkitAnimation = "none 1s linear 0s 1 ";
 				clearTimeout(timer);
+			}
+			
+			var timer2 = setTimeout(changeAnimation2, 600);
+				
+			function changeAnimation2(){
+				swordBox.style.setProperty('top', '0%');
+				sword.style.setProperty('top', '82%');
+				
+				clearTimeout(timer2);
 			}
 		}
 		
@@ -623,6 +644,12 @@ window.requestAnimFrame = (function(){
 			dragon.style.animationPlayState = "paused";
 			dragon.style.webkitAnimationPlayState = "paused";
 			
+			attackBox2.style.animationPlayState = "paused";
+			attackBox2.style.webkitAnimationPlayState = "paused";
+			attackBox2.style.zIndex = "-30";
+			attackBox2.style.left = "100%";
+			attackBox2.style.display = "none";
+			
 			 var timer = setTimeout(barWidthCondition, 500);
 			
 			function barWidthCondition(){
@@ -633,24 +660,12 @@ window.requestAnimFrame = (function(){
 					lose.style.animationPlayState = "running";
 					lose.style.webkitAnimationPlayState = "running";
 					lose.style.zIndex = "10";
-					attackBox2.style.animationPlayState = "paused";
-					attackBox2.style.webkitAnimationPlayState = "paused";
-					attackBox2.style.zIndex = "-30";
-					attackBox2.style.left = "100%";
-					attackBox2.style.display = "none";
-					
+					lose.style.display = "block";
 					cancelAnimationFrame(swordDetect2);
 				}
 				else if (barWidth === "0"){
 					
-					dragonHiddenAnimation();
-					
-					attackBox2.style.animationPlayState = "paused";
-					attackBox2.style.webkitAnimationPlayState = "paused";
-					attackBox2.style.zIndex = "-30";
-					attackBox2.style.left = "100%";
-					attackBox2.style.display = "none";
-					
+					dragonHiddenAnimation();					
 					cancelAnimationFrame(swordDetect2);
 				}
 				clearTimeout(timer);
