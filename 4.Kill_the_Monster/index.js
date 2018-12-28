@@ -419,7 +419,7 @@ window.requestAnimFrame = (function(){
 			}
 			
 			
-			var timer2 = setTimeout(changeAnimation2, 500);
+			var timer2 = setTimeout(changeAnimation2, 000);
 				
 			function changeAnimation2(){
 				swordBox.style.setProperty('top', '0%');
@@ -596,7 +596,7 @@ window.requestAnimFrame = (function(){
 				clearTimeout(timer);
 			}
 			
-			var timer2 = setTimeout(changeAnimation2, 600);
+			var timer2 = setTimeout(changeAnimation2, 000);
 				
 			function changeAnimation2(){
 				swordBox.style.setProperty('top', '0%');
