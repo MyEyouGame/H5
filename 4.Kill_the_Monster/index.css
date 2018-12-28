@@ -186,8 +186,8 @@ body{
 		background-Repeat:no-repeat;
 		background-Size : 100% 100%; 
 		
-		animation: demon 3s linear 0s 1 , demon2 6s linear 1s infinite;
-		-webkit-animation: demon 3s linear 0s 1, demon2 6s linear 1s infinite;
+		animation: demon 3s linear 0s 1 , demon2 10s linear 1s infinite;
+		-webkit-animation: demon 3s linear 0s 1, demon2 10s linear 1s infinite;
 		animation-play-state: paused;
 		-webkit-animation-play-state: paused;
 	}
