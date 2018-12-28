@@ -620,6 +620,12 @@ window.requestAnimFrame = (function(){
 		
 		if ( count2 === 7 ){
 			
+			attackBox.style.animationPlayState = "paused";
+			attackBox.style.webkitAnimationPlayState = "paused";
+			attackBox.style.zIndex = "-30";
+			attackBox.style.left = "100%";
+			attackBox.style.display = "none";
+			
 			dragon.style.animationPlayState = "paused";
 			dragon.style.webkitAnimationPlayState = "paused";
 			
@@ -633,23 +639,12 @@ window.requestAnimFrame = (function(){
 					lose.style.animationPlayState = "running";
 					lose.style.webkitAnimationPlayState = "running";
 					lose.style.zIndex = "10";
-					attackBox2.style.animationPlayState = "paused";
-					attackBox2.style.webkitAnimationPlayState = "paused";
-					attackBox2.style.zIndex = "-30";
-					attackBox2.style.left = "100%";
-					attackBox2.style.display = "none";
 					
 					cancelAnimationFrame(swordDetect2);
 				}
 				else if (barWidth === "0"){
 					
 					dragonHiddenAnimation();
-					
-					attackBox2.style.animationPlayState = "paused";
-					attackBox2.style.webkitAnimationPlayState = "paused";
-					attackBox2.style.zIndex = "-30";
-					attackBox2.style.left = "100%";
-					attackBox2.style.display = "none";
 					
 					cancelAnimationFrame(swordDetect2);
 				}
