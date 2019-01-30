@@ -57,9 +57,6 @@ window.requestAnimFrame = (function(){
 		sizeData(newWidth,newHeight);
 		resize(newWidth,newHeight);	
 		 
-		 var BGM = document.getElementById("BGM");
-		BGM.autoplay = true;
-		BGM.load();
 	}
 	
 	function createImage(){
@@ -114,27 +111,44 @@ window.requestAnimFrame = (function(){
 	
 		cardFrameArray = [
 					"Frame1.png",
+					"Frame2.png",
 					"Frame3.png",
+					"Frame4.png",
 					"Frame5.png",
+					"Frame6.png",
 					"Frame7.png",
+					"Frame8.png",
 					"Frame9.png",
+					"Frame10.png",
 					"Frame11.png",
+					"Frame12.png",
 					"Frame13.png",
+					"Frame14.png",
 					"Frame15.png"
 				];
 		
 		cardRevealArray = [
 							"cardReveal1.png",
+							"cardReveal2.png",
 							"cardReveal3.png",
+							"cardReveal4.png",
 							"cardReveal5.png",
+							"cardReveal6.png",
 							"cardReveal7.png",
 							"cardReveal8.png"
 						]
 		
 		firstCardArray = [
 					"firstCard1.png",
+					"firstCard2.png",
+					"firstCard3.png",
+					"firstCard4.png",
 					"firstCard5.png",
+					"firstCard6.png",
+					"firstCard7.png",
+					"firstCard8.png",
 					"firstCard9.png",
+					"firstCard10.png",
 					"firstCard11.png"
 				]
 		
@@ -142,9 +156,20 @@ window.requestAnimFrame = (function(){
 		
 		startButtonArray = [
 					"startButton1.png",
+					"startButton3.png",
+					"startButton4.png",
 					"startButton5.png",
+					"startButton6.png",
+					"startButton7.png",
+					"startButton8.png",
 					"startButton9.png",
+					"startButton10.png",
+					"startButton11.png",
+					"startButton12.png",
 					"startButton13.png",
+					"startButton14.png",
+					"startButton15.png",
+					"startButton16.png",
 					"startButton17.png"
 				]
 		
@@ -265,10 +290,10 @@ window.requestAnimFrame = (function(){
 			frame[myIndex-1].style.display = "block";
 			renderFrame = setTimeout(loopFrame,50);			
 			 
-			if (myIndex === 8){
+			if (myIndex === 15){
 				revealAnimation(data);
 				data.style.backgroundImage = "";
-				frame[7].style.display = "none";
+				frame[14].style.display = "none";
 				clearTimeout(renderFrame);			
 			}	
 			
@@ -292,10 +317,10 @@ window.requestAnimFrame = (function(){
 			frameB[myIndex-1].style.display = "block";
 			renderFrameB = setTimeout(loopFrameB,50);			
 			
-			if (myIndex === 8){
+			if (myIndex === 15){
 				revealBAnimation(data2);
 				data2.style.backgroundImage = "";
-				frameB[7].style.display = "none";
+				frameB[14].style.display = "none";
 				clearTimeout(renderFrameB);			
 			}	
 			
@@ -318,7 +343,7 @@ window.requestAnimFrame = (function(){
 			frame2[myIndex-1].style.display = "block";
 			renderFrame2 = setTimeout(loopFrame2,50);			
 			 
-			if (myIndex === 8){
+			if (myIndex === 15){
 				myIndex = 0;			
 			}		
 		}
@@ -341,8 +366,8 @@ window.requestAnimFrame = (function(){
 			reveal[myIndex-1].style.display = "block";
 			renderReveal = setTimeout(loopReveal,50);			
 			
-			if (myIndex === 5){
-				reveal[4].style.display = "none";
+			if (myIndex === 8){
+				reveal[7].style.display = "none";
 				clearTimeout(renderReveal);		
 				firstCardAnimation();
 				
@@ -391,8 +416,8 @@ window.requestAnimFrame = (function(){
 			revealB[myIndex-1].style.display = "block";
 			renderRevealB = setTimeout(loopRevealB,50);			
 			
-			if (myIndex === 5){
-				revealB[4].style.display = "none";
+			if (myIndex === 8){
+				revealB[7].style.display = "none";
 				clearTimeout(renderRevealB);		
 				secondCardAnimation();
 				
@@ -425,9 +450,9 @@ window.requestAnimFrame = (function(){
 			first[myIndex-1].style.display = "block";
 			renderFirstCard = setTimeout(loopFirstCard,60);			
 			
-			if (myIndex === 4){
+			if (myIndex === 11){
 				firstCardLight.style.display = "block";
-				first[3].style.display = "block";
+				first[10].style.display = "block";
 				clearTimeout(renderFirstCard);			
 			}	
 			
@@ -459,6 +484,7 @@ window.requestAnimFrame = (function(){
 				secondCardGlow.style.animationPlayState = "running";
 				secondCardGlow.style.webkitAnimationPlayState = "running";
 
+		
 				var non = "none";
 				document.getElementById('startButton').style.display = non;
 
@@ -496,10 +522,10 @@ window.requestAnimFrame = (function(){
 			myIndex++;
 			if (myIndex > start.length){}
 			start[myIndex-1].style.display = "block";
-			renderStartButton = setTimeout(loopStartButton,100);			
+			renderStartButton = setTimeout(loopStartButton,60);			
 			
-			if (myIndex === 5){
-				start[4].style.display = "block";
+			if (myIndex === 16){
+				start[15].style.display = "block";
 				clearTimeout(renderStartButton);			
 			}	
 			
@@ -523,18 +549,6 @@ window.requestAnimFrame = (function(){
 						frameAnimation(data);
 						drawContainerB.style.display ="block";
  
-						var FlipCardSound = document.getElementById("FlipCardSound");
-						FlipCardSound.playbackRate = 0.5;
-						FlipCardSound.autoplay = true;
-						FlipCardSound.load();
-						
-						setTimeout(function()
-						{ 
-							var Girl = document.getElementById("Girl");
-							Girl.autoplay = true;
-							Girl.load();
-						
-						}, 1000);
 					}
 		
 		if(data === "cardA1"){
@@ -688,25 +702,6 @@ window.requestAnimFrame = (function(){
 				frameBAnimation(data2);
 				drawContainerB.style.display ="block";
 				disableBox.style.display ="block";
-				
-				var FlipCardSound = document.getElementById("FlipCardSound");
-				FlipCardSound.autoplay = true;
-				FlipCardSound.playbackRate = 0.1;
-				FlipCardSound.load();
-				
-				var FlipCardEffect = document.getElementById("FlipCardEffect");
-				FlipCardEffect.autoplay = true;
-				FlipCardEffect.playbackRate = 0.5;
-				FlipCardEffect.load();
-				
-					setTimeout(function()
-					{ 
-						
-						var Male = document.getElementById("Male");
-						Male.autoplay = true;
-						Male.load();
-					
-					}, 1000);
 			}
 			
 		if(data2 === "cardB1"){
