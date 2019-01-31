@@ -774,10 +774,7 @@ window.requestAnimFrame = (function(){
 			hand.style.webkitAnimationPlayState = "running";
 			guideAttack.style.animationPlayState = "running";
 			guideAttack.style.webkitAnimationPlayState = "running";
-			attackBox.style.animationPlayState = "running";
-			attackBox.style.webkitAnimationPlayState = "running";
-			
-			
+
 		}
 		
 		if (data === "attackBox"){
