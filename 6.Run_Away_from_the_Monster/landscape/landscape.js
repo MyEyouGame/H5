@@ -94,10 +94,12 @@ window.requestAnimFrame = (function(){
 						'url("sad.png")',
 						'url("graveStone.png")',
 						'url("treeMonster.png")',
-						'url("flowerMonster.png")',
+						'url("flowerMonster_L.png")',
 						'url("key1.png")',
 						'url("reward.png")',
-						'url("exclamationMark.png")'
+						'url("exclamationMark.png")',
+						'url("longFire.png")',
+						'url("shortFire.png")',
 					];
 	
 	gameContainer.style.backgroundImage = itemArray[0];
@@ -136,6 +138,9 @@ window.requestAnimFrame = (function(){
 	
 	reward.style.backgroundImage = itemArray[20];
 	exclamationMark.style.backgroundImage = itemArray[21];
+	
+	longFire.style.backgroundImage = itemArray[22];
+	shortFire.style.backgroundImage = itemArray[23];
 	
 	var characterArray = [
 							'c1.png',
@@ -187,8 +192,7 @@ window.requestAnimFrame = (function(){
 						'url("brick7.png")',
 						'url("brick8-9.png")',
 						'url("brick10.png")',
-						'url("block1.png")',
-						'url("block2.png")'
+						'url("block1.png")'
 					]
 	
 	brick1.style.backgroundImage = brickArray[0];
@@ -203,7 +207,6 @@ window.requestAnimFrame = (function(){
 	brick10.style.backgroundImage = brickArray[8];
 	
 	block1.style.backgroundImage = brickArray[9];
-	block2.style.backgroundImage = brickArray[10];
   }
   
 	var renderCharacter;
@@ -282,8 +285,8 @@ window.requestAnimFrame = (function(){
 				
 				pausedAllAnimation();
 				
-				character.style.animationPlayState = "running";
-				character.style.webkitAnimationPlayState = "running";
+				character.style.animation = "drop1 1s forwards";
+				character.style.webkitAnimation= "drop1 1s forwards";
 				
 				var rM = document.getElementsByClassName("redMonster");	
 				
@@ -327,7 +330,9 @@ window.requestAnimFrame = (function(){
 		detectAnimation2 = requestAnimationFrame(detectValue2);
 		
 		if (brick1Percentage >= -58){
-			console.log(brick1Percentage);	
+			// console.log(brick1Percentage);	
+			character.style.animation= "none 1s forwards";
+			character.style.webkitAnimation= "none 1s forwards";
 		}
 
 		if (brick1Percentage <= -58){
@@ -338,14 +343,13 @@ window.requestAnimFrame = (function(){
 				character.style.animation= "dropReset1 1s forwards";
 				character.style.webkitAnimation= "dropReset1 1s forwards";
 				
-				character.style.animationPlayState = "running";
-				character.style.webkitAnimationPlayState = "running";
-				
 				var rM = document.getElementsByClassName("redMonster");	
 				
 				rM[0].style.display = "none";
 				rM[1].style.display = "none";
 				rM[2].style.display = "none";
+				rM[3].style.display = "none";
+				rM[4].style.display = "none";
 				
 				firstRedMonsterImage.style.display = "block";
 				
@@ -390,17 +394,16 @@ window.requestAnimFrame = (function(){
 
 				pausedAllAnimation();
 				
-				character.style.animation= "dropReset1 1s forwards";
-				character.style.webkitAnimation= "dropReset1 1s forwards";
-				
-				character.style.animationPlayState = "running";
-				character.style.webkitAnimationPlayState = "running";
+				character.style.animation = "drop1 1s forwards";
+				character.style.webkitAnimation= "drop1 1s forwards";
 				
 				var rM = document.getElementsByClassName("redMonster");	
 				
 				rM[0].style.display = "none";
 				rM[1].style.display = "none";
 				rM[2].style.display = "none";
+				rM[3].style.display = "none";
+				rM[4].style.display = "none";
 				
 				firstRedMonsterImage.style.display = "block";
 				
@@ -460,17 +463,51 @@ window.requestAnimFrame = (function(){
 		graveStone3.style.animationPlayState = "paused";
 		graveStone3.style.webkitAnimationPlayState = "paused";
 		
+		graveStone4.style.animationPlayState = "paused";
+		graveStone4.style.webkitAnimationPlayState = "paused";
+		
+		treeMonsterBox1.style.animationPlayState = "paused";
+		treeMonsterBox1.style.webkitAnimationPlayState = "paused";
+		
 		treeMonster1.style.animationPlayState = "paused";
 		treeMonster1.style.webkitAnimationPlayState = "paused";
+
+		treeMonsterBox2.style.animationPlayState = "paused";
+		treeMonsterBox2.style.webkitAnimationPlayState = "paused";
 		
 		treeMonster2.style.animationPlayState = "paused";
 		treeMonster2.style.webkitAnimationPlayState = "paused";
 		
+		flowerMonsterBox1.style.animationPlayState = "paused";
+		flowerMonsterBox1.style.webkitAnimationPlayState = "paused";
+		
 		flowerMonster1.style.animationPlayState = "paused";
 		flowerMonster1.style.webkitAnimationPlayState = "paused";
 		
+		flowerMonsterBox2.style.animationPlayState = "paused";
+		flowerMonsterBox2.style.webkitAnimationPlayState = "paused";
+		
+		flowerMonster2.style.animationPlayState = "paused";
+		flowerMonster2.style.webkitAnimationPlayState = "paused";
+		
 		redMonster.style.animationPlayState = "paused";
 		redMonster.style.webkitAnimationPlayState = "paused";
+		
+		longFire.style.animationPlayState = "paused";
+		longFire.style.webkitAnimationPlayState = "paused";
+		
+		shortFire.style.animationPlayState = "paused";
+		shortFire.style.webkitAnimationPlayState = "paused";
+
+	    key1.style.animationPlayState = "paused";
+		key1.style.webkitAnimationPlayState = "paused";
+
+		reward.style.animationPlayState = "paused";
+		reward.style.webkitAnimationPlayState = "paused";
+
+	    exclamationMark.style.animationPlayState = "paused";
+		exclamationMark.style.webkitAnimationPlayState = "paused";
+
 	}
 	
 	function loseInterfaceAnimation(){
@@ -577,65 +614,97 @@ window.requestAnimFrame = (function(){
   
     function resetAnimation(){
 	  
-	  	character.style.animation= "none";
-		character.style.webkitAnimation = "none";
+	redMonster.style.animation= "redMonsterReset 2s linear forwards,redMonsterReset2 20s linear 2s 1";
+	redMonster.style.webkitAnimation = "redMonsterReset 2s linear forwards,redMonsterReset2 20s linear 2s 1";
+	
+	brick1.style.animation = "brickReset1 20s linear forwards";
+	brick1.style.webkitAnimation = "brickReset1 20s linear forwards";
+	
+	brick2.style.animation = "brickReset2 3s infinite , brickReset2-2 20s linear forwards";
+	brick2.style.webkitAnimation = "brickReset2 3s infinite , brickReset2-2 20s linear forwards";
 		
-		redMonster.style.animation= "none";
-		redMonster.style.webkitAnimation = "none";
-		
-		brick1.style.animation = "brickReset1 20s linear forwards";
-		brick1.style.webkitAnimation = "brickReset1 20s linear forwards";
-		
-		brick2.style.animation = "brickReset2 3s infinite , brickReset2-2 20s linear forwards";
-		brick2.style.webkitAnimation = "brickReset2 3s infinite , brickReset2-2 20s linear forwards";
-			
-		brick3.style.animation = "brickReset3 20s linear 1.5s forwards";
-		brick3.style.webkitAnimation = "brickReset3 20s linear 1.5s forwards";
+	brick3.style.animation = "brickReset3 20s linear 1.5s forwards";
+	brick3.style.webkitAnimation = "brickReset3 20s linear 1.5s forwards";
 
-		brick4.style.animation = "brickReset4 20s linear 2.5s forwards";
-		brick4.style.webkitAnimation = "brickReset4 20s linear 2.5s forwards";			
-			
-		brick5.style.animation = "brickReset5 20s linear 7s forwards";
-		brick5.style.webkitAnimation = "brickReset5 20s linear 7s forwards";	
-
-		brick6.style.animation = "brickReset6 20s linear forwards";
-		brick6.style.webkitAnimation = "brickReset6 20s linear forwards";
+	brick4.style.animation = "brickReset4 20s linear 2.5s forwards";
+	brick4.style.webkitAnimation = "brickReset4 20s linear 2.5s forwards";			
 		
-		brick7.style.animation = "brick7 20s linear forwards";
-		brick7.style.webkitAnimation = "brickReset7 20s linear forwards";
-			
-		brick8.style.animation = "brickReset8 20s linear 1.5s forwards";
-		brick8.style.webkitAnimation = "brickReset8 20s linear 1.5s forwards";
-
-		brick9.style.animation = "brickReset9 20s linear 2.5s forwards";
-		brick9.style.webkitAnimation = "brickReset9 20s linear 2.5s forwards";			
-			
-		brick10.style.animation = "brickReset10 20s linear 7s forwards";
-		brick10.style.webkitAnimation = "brickReset10 20s linear 7s forwards";	
-
+	brick5.style.animation = "brickReset5 20s linear 7s forwards";
+	brick5.style.webkitAnimation = "brickReset5 20s linear 7s forwards";	
 		
-		block1.style.animation = "blockReset1 20s linear forwards";
-		block1.style.webkitAnimation = "blockReset1 20s linear forwards";
+	longFire.style.animation = "longFireReset 20s linear 11.5s forwards,longFireAnimation 1s linear 15s forwards";
+	longFire.style.webkitAnimation = "longFireReset 20s linear 11.5s forwards,longFireAnimation 1s linear 15s forwards";	
 		
-		graveStone1.style.animation = "graveStoneReset1 20s linear 3s forwards";
-		graveStone1.style.webkitAnimation = "graveStoneReset1 20s linear 3s forwards";	  
-		  
-		graveStone3.style.animation = "graveStoneReset3 20s linear 7.5s forwards";
-		graveStone3.style.webkitAnimation = "graveStoneReset3 20s linear 7.5s forwards";  
-		  
-		flowerMonster1.style.animation = "flowerMonsterReset1 20s linear 8.5s forwards";
-		flowerMonster1.style.webkitAnimation = "flowerMonsterReset1 20s linear 8.5s forwards";    
-		  
-		   
-		graveStone2.style.animation = "graveStoneReset2 20s linear 6.8s forwards";
-		graveStone2.style.webkitAnimation = "graveStoneReset2 20s linear 6.8s forwards";	  
-		  
-		treeMonster1.style.animation = "treeMonsterReset1 20s linear 4.5s forwards";
-		treeMonster1.style.webkitAnimation = "treeMonsterReset1 20s linear 4.5s forwards";  
-		  
-		treeMonster2.style.animation = "treeMonsterReset2 20s linear 8.7s forwards";
-		treeMonster2.style.webkitAnimation = "treeMonsterReset2 20s linear 8.7s forwards";
-  }
+	brick6.style.animation = "brickReset6 20s linear 4.5s forwards";
+	brick6.style.webkitAnimation = "brickReset6 20s 4.5s linear forwards";
+	
+	brick7.style.animation = "brickReset7 20s linear 4.5s forwards";
+	brick7.style.webkitAnimation = "brickReset7 20s linear 4.5s forwards";
+		
+	brick8.style.animation = "brickReset8 20s linear 4.5s forwards, brickAnimation8 3s linear 4.5s infinite";
+	brick8.style.webkitAnimation = "brickReset8 20s linear 4.5s forwards, brickAnimation8 3s linear 4.5s infinite";
+
+	brick9.style.animation = "brickReset9 20s linear 4.5s forwards, brickAnimation9 3s linear 4.5s infinite";
+	brick9.style.webkitAnimation = "brickReset9 20s linear 4.5s forwards, brickAnimation9 3s linear 4.5s infinite";			
+		
+	brick10.style.animation = "brickReset10 20s linear 4.5s forwards";
+	brick10.style.webkitAnimation = "brickReset10 20s linear 4.5s forwards";	
+		
+	shortFire.style.animation = "shortFireReset 20s linear 4.5s forwards,shortFireAnimation 2.5s ease-in-out 21s forwards";
+	shortFire.style.webkitAnimation = "shortFireReset 20s linear 4.5s forwards,shortFireAnimation 2.5s ease-in-out 21s forwards";	
+	
+	block1.style.animation = "blockReset1 20s linear forwards";
+	block1.style.webkitAnimation = "blockReset1 20s linear forwards";
+	  
+	
+	graveStone1.style.animation = "graveStoneReset1 20s linear 3s forwards";
+	graveStone1.style.webkitAnimation = "graveStoneReset1 20s linear 3s forwards";	  
+	  
+	graveStone3.style.animation = "graveStoneReset3 20s linear 7.5s forwards";
+	graveStone3.style.webkitAnimation = "graveStoneReset3 20s linear 7.5s forwards";  
+	  
+	flowerMonsterBox1.style.animation = "flowerMonsterBoxReset1 20s linear 8.5s forwards";
+	flowerMonsterBox1.style.webkitAnimation = "flowerMonsterBoxReset1 20s linear 8.5s forwards";    
+	    
+	flowerMonster1.style.animation = "flowerMonsterReset1 8s linear 1s infinite";
+	flowerMonster1.style.webkitAnimation = "flowerMonsterReset1 8s linear 1s infinite";    
+	  
+	graveStone2.style.animation = "graveStoneReset2 20s linear 6.8s forwards";
+	graveStone2.style.webkitAnimation = "graveStoneReset2 20s linear 6.8s forwards";	  
+	  
+	treeMonsterBox1.style.animation = "treeMonsterBoxReset1 20s linear 2.5s forwards";
+	treeMonsterBox1.style.webkitAnimation = "treeMonsterBoxReset1 20s linear 2.5s forwards";    
+	
+	treeMonster1.style.animation = "treeMonsterReset1 8s linear 10s infinite";
+	treeMonster1.style.webkitAnimation = "treeMonsterReset1 8s linear 10s infinite";  
+	
+	treeMonsterBox2.style.animation = "treeMonsterBoxReset1 20s linear 8s forwards";
+	treeMonsterBox2.style.webkitAnimation = "treeMonsterBoxReset1 20s linear 8s forwards";    
+	  
+	treeMonster2.style.animation = "treeMonsterReset2 7s linear 12s infinite";
+	treeMonster2.style.webkitAnimation = "treeMonsterReset2 7s linear 12s infinite";    
+	   
+	   
+	key1.style.animation = "keyReset1 20s linear 4.5s forwards, keyUpDownReset1 1s linear infinite";
+	key1.style.webkitAnimation = "keyReset1 20s linear 4.5s forwards, keyUpDownReset1 1s linear infinite";    
+	
+	
+	graveStone4.style.animation = "graveStoneReset4 20s linear 4.5s forwards";
+	graveStone4.style.webkitAnimation = "graveStoneReset4 20s linear 4.5s forwards";	  
+	  
+	flowerMonsterBox2.style.animation = "flowerMonsterBoxReset2 20s linear 4.5s forwards";
+	flowerMonsterBox2.style.webkitAnimation = "flowerMonsterBoxReset2 20s linear 4.5s forwards";    
+	  
+	flowerMonster2.style.animation = "flowerMonsterReset2 8s linear 13s infinite";
+	flowerMonster2.style.webkitAnimation = "flowerMonsterReset2 8s linear 13s infinite";  
+	  
+	reward.style.animation = "rewardReset 20s linear 4.5s forwards,rewardAnimationReset 2s linear 20s infinite";
+	reward.style.webkitAnimation = "rewardReset 20s linear 4.5s forwards,rewardAnimationReset 2s linear 20s infinite";    
+	   
+	exclamationMark.style.animation = "exclamationMarkReset 20s linear 4.5s forwards,exclamationMarkUpDownReset 1s linear 5s infinite";
+	exclamationMark.style.webkitAnimation = "exclamationMarkReset 20s linear 4.5s forwards,exclamationMarkUpDownReset 1s linear 5s infinite";    
+
+	}
   
     function resetAnimation2(){
 	  
@@ -698,7 +767,7 @@ window.requestAnimFrame = (function(){
 		  
 		treeMonster2.style.animation = "treeMonster2 20s linear 8.7s forwards";
 		treeMonster2.style.webkitAnimation = "treeMonster2 20s linear 8.7s forwards";
-			
+		
   }
   
     function startAnimation(){
@@ -723,22 +792,27 @@ window.requestAnimFrame = (function(){
 	brick5.style.animation = "brick5 20s linear 7s forwards";
 	brick5.style.webkitAnimation = "brick5 20s linear 7s forwards";	
 		
-	brick6.style.animation = "brick6 20s linear 5s forwards";
-	brick6.style.webkitAnimation = "brick6 20s 5s linear forwards";
+	longFire.style.animation = "longFire 20s linear 11.5s forwards,longFireAnimation 1s linear 15s forwards";
+	longFire.style.webkitAnimation = "longFire 20s linear 11.5s forwards,longFireAnimation 1s linear 15s forwards";	
+		
+	brick6.style.animation = "brick6 20s linear 4.5s forwards";
+	brick6.style.webkitAnimation = "brick6 20s 4.5s linear forwards";
 	
-	brick7.style.animation = "brick7 20s linear 5s forwards";
-	brick7.style.webkitAnimation = "brick7 20s linear 5s forwards";
+	brick7.style.animation = "brick7 20s linear 4.5s forwards";
+	brick7.style.webkitAnimation = "brick7 20s linear 4.5s forwards";
 		
-	brick8.style.animation = "brick8 20s linear 5s forwards";
-	brick8.style.webkitAnimation = "brick8 20s linear 5s forwards";
+	brick8.style.animation = "brick8 20s linear 4.5s forwards, brickAnimation8 3s linear 4.5s infinite";
+	brick8.style.webkitAnimation = "brick8 20s linear 4.5s forwards, brickAnimation8 3s linear 4.5s infinite";
 
-	brick9.style.animation = "brick9 20s linear 5s forwards";
-	brick9.style.webkitAnimation = "brick9 20s linear 5s forwards";			
+	brick9.style.animation = "brick9 20s linear 4.5s forwards, brickAnimation9 3s linear 4.5s infinite";
+	brick9.style.webkitAnimation = "brick9 20s linear 4.5s forwards, brickAnimation9 3s linear 4.5s infinite";			
 		
-	brick10.style.animation = "brick10 20s linear 5s forwards";
-	brick10.style.webkitAnimation = "brick10 20s linear 5s forwards";	
+	brick10.style.animation = "brick10 20s linear 4.5s forwards";
+	brick10.style.webkitAnimation = "brick10 20s linear 4.5s forwards";	
 		
-		
+	shortFire.style.animation = "shortFire 20s linear 4.5s forwards,shortFireAnimation 2.5s ease-in-out 21s forwards";
+	shortFire.style.webkitAnimation = "shortFire 20s linear 4.5s forwards,shortFireAnimation 2.5s ease-in-out 21s forwards";	
+	
 	block1.style.animation = "block1 20s linear forwards";
 	block1.style.webkitAnimation = "block1 20s linear forwards";
 	  
@@ -749,32 +823,47 @@ window.requestAnimFrame = (function(){
 	graveStone3.style.animation = "graveStone3 20s linear 7.5s forwards";
 	graveStone3.style.webkitAnimation = "graveStone3 20s linear 7.5s forwards";  
 	  
-	flowerMonster1.style.animation = "flowerMonster1 20s linear 8.5s forwards";
-	flowerMonster1.style.webkitAnimation = "flowerMonster1 20s linear 8.5s forwards";    
+	flowerMonsterBox1.style.animation = "flowerMonsterBox1 20s linear 8.5s forwards";
+	flowerMonsterBox1.style.webkitAnimation = "flowerMonsterBox1 20s linear 8.5s forwards";    
+	    
+	flowerMonster1.style.animation = "flowerMonster1 8s linear 1s infinite";
+	flowerMonster1.style.webkitAnimation = "flowerMonster1 8s linear 1s infinite";    
 	  
-	   
 	graveStone2.style.animation = "graveStone2 20s linear 6.8s forwards";
 	graveStone2.style.webkitAnimation = "graveStone2 20s linear 6.8s forwards";	  
 	  
-	treeMonster1.style.animation = "treeMonster1 20s linear 4.5s forwards";
-	treeMonster1.style.webkitAnimation = "treeMonster1 20s linear 4.5s forwards";  
-	  
-	treeMonster2.style.animation = "treeMonster2 20s linear 8.7s forwards";
-	treeMonster2.style.webkitAnimation = "treeMonster2 20s linear 8.7s forwards";    
-	   
+	treeMonsterBox1.style.animation = "treeMonsterBox1 20s linear 2.5s forwards";
+	treeMonsterBox1.style.webkitAnimation = "treeMonsterBox1 20s linear 2.5s forwards";    
 	
-	graveStone4.style.animation = "graveStone4 20s linear 5s forwards";
-	graveStone4.style.webkitAnimation = "graveStone4 20s linear 5s forwards";	  
+	treeMonster1.style.animation = "treeMonster1 8s linear 10s infinite";
+	treeMonster1.style.webkitAnimation = "treeMonster1 8s linear 10s infinite";  
+	
+	treeMonsterBox2.style.animation = "treeMonsterBox1 20s linear 8s forwards";
+	treeMonsterBox2.style.webkitAnimation = "treeMonsterBox1 20s linear 8s forwards";    
 	  
-	flowerMonster2.style.animation = "flowerMonster2 20s linear 13s forwards";
-	flowerMonster2.style.webkitAnimation = "flowerMonster2 20s 13s linear forwards";  
+	treeMonster2.style.animation = "treeMonster2 7s linear 12s infinite";
+	treeMonster2.style.webkitAnimation = "treeMonster2 7s linear 12s infinite";    
+	   
+	   
+	key1.style.animation = "key1 20s linear 4.5s forwards, keyUpDown1 1s linear infinite";
+	key1.style.webkitAnimation = "key1 20s linear 4.5s forwards, keyUpDown1 1s linear infinite";    
+	
+	
+	graveStone4.style.animation = "graveStone4 20s linear 4.5s forwards";
+	graveStone4.style.webkitAnimation = "graveStone4 20s linear 4.5s forwards";	  
 	  
-	reward.style.animation = "reward 10s linear 5s forwards";
-	reward.style.webkitAnimation = "reward 10s linear 5s forwards";    
+	flowerMonsterBox2.style.animation = "flowerMonsterBox2 20s linear 4.5s forwards";
+	flowerMonsterBox2.style.webkitAnimation = "flowerMonsterBox2 20s linear 4.5s forwards";    
+	  
+	flowerMonster2.style.animation = "flowerMonster2 8s linear 13s infinite";
+	flowerMonster2.style.webkitAnimation = "flowerMonster2 8s linear 13s infinite";  
+	  
+	reward.style.animation = "reward 20s linear 4.5s forwards,rewardAnimation 2s linear 20s infinite";
+	reward.style.webkitAnimation = "reward 20s linear 4.5s forwards,rewardAnimation 2s linear 20s infinite";    
 	   
-	exclamationMark.style.animation = "exclamationMark 10s linear 5s forwards";
-	exclamationMark.style.webkitAnimation = "exclamationMark 10s linear 5s forwards";    
-	   
+	exclamationMark.style.animation = "exclamationMark 20s linear 4.5s forwards,exclamationMarkUpDown 1s linear 5s infinite";
+	exclamationMark.style.webkitAnimation = "exclamationMark 20s linear 4.5s forwards,exclamationMarkUpDown 1s linear 5s infinite";    
+	
 	characterAnimation();
   }
   
@@ -816,7 +905,9 @@ window.requestAnimFrame = (function(){
 			startButton.style.display = "none";
 			startButton.style.zIndex = "-1";
 			firstCharacterImage.style.display = "none";
-
+			
+			characterJump.style.zIndex = "5";
+			
 			var non = "block";
 			document.getElementById('firstRedMonsterImage').style.display = non;
 
@@ -885,16 +976,14 @@ window.requestAnimFrame = (function(){
 					jumpAnimation(toggle)
 					toggle = 0;
 				}
-				
-				character.style.animationPlayState = "running";
-				character.style.webkitAnimationPlayState = "running";
 			}
 			if (brick1Percentage <= -48){
+				
+				console.log(brick1Percentage);
+				
 				character.style.animation = " jumpBlock1 1s ease-in-out 1 forwards";
 				character.style.webkitAnimation = "jumpBlock1 1s ease-in-out 1 forwards";	
-			
-				character.style.animationPlayState = "running";
-				character.style.webkitAnimationPlayState = "running";
+
 			}
 		}
 	}
