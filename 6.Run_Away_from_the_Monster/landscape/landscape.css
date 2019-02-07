@@ -510,59 +510,6 @@
 			top: 76%;
 		}
 	}		
-		
-	@keyframes jumpBlock1{
-		0% {
-			top: 76%;
-			left: 24%;
-		}
-		10% {
-			top: 74%;
-			left: 24%;
-		}
-		20% {
-			top: 53%;
-			left: 29%;
-		}
-		30% {
-			top: 40%;
-			left: 36%;
-		}
-		40% {
-			top: 53%;
-			left: 38%;
-		}
-		100% {
-			top: 53%;
-			left: 38%;
-		}
-	}
-	@-webkit-keyframes jumpBlock1{
-		0% {
-			top: 76%;
-			left: 24%;
-		}
-		10% {
-			top: 74%;
-			left: 24%;
-		}
-		20% {
-			top: 53%;
-			left: 29%;
-		}
-		30% {
-			top: 40%;
-			left: 36%;
-		}
-		40% {
-			top: 53%;
-			left: 38%;
-		}
-		100% {
-			top: 53%;
-			left: 38%;
-		}
-	}
 	
 	@keyframes jumpBlockReset1{
 		0% {
@@ -1588,8 +1535,8 @@
 		background-repeat:no-repeat;
 		overflow:hidden;
 		
-		animation :loseInterface 1s linear forwards;
-		-webkit-animation:loseInterface 1s linear forwards;
+		animation :loseInterface 1s linear 0.5s forwards;
+		-webkit-animation:loseInterface 1s linear 0.5s  forwards;
 		animation-play-state:paused;
 		-webkit-animation-play-state:paused;
 	}

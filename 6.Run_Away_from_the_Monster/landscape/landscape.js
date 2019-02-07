@@ -55,7 +55,7 @@ window.requestAnimFrame = (function(){
 		timeouts = window.setTimeout(instance, speed);
 	}
   
-  	function lp() {
+	function lp() {
 			 mv = setTimeout(main, 500);
 			 createImage();
 	    }
@@ -262,7 +262,7 @@ window.requestAnimFrame = (function(){
 
 		var brick1BoxElement  = document.querySelector('#gameContainer');
 		var brick1BoxStyle = getComputedStyle(brick1BoxElement).getPropertyValue("width").split("px")[0];
-		
+	
 		brick1Percentage = (100*brick1LeftStyle)/brick1BoxStyle;
 		
 		var characterElement  = document.querySelector('#character');
@@ -271,22 +271,202 @@ window.requestAnimFrame = (function(){
 		var characterBoxElement  = document.querySelector('#gameContainer');
 		var characterBoxStyle = getComputedStyle(characterBoxElement).getPropertyValue("height").split("px")[0];
 		
-		characterPercentage = (100*characterTopStyle)/characterBoxStyle;
+		var block1Element  = document.querySelector('#block1');
+		var block1LeftStyle = getComputedStyle(block1Element).getPropertyValue("left").split("px")[0];
+
+		characterTopPercentage = (100*characterTopStyle)/characterBoxStyle;
+		
+		var BoxElement  = document.querySelector('#gameContainer');
+		var BoxStyle = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+
+		block1Percentage = (100*block1LeftStyle)/BoxStyle;
+		
+		var characterElement  = document.querySelector('#character');
+		var characterWidthStyle = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];
+
+		characterLeftPercentage = (100*characterWidthStyle)/BoxStyle;
+
+		var block1Element  = document.querySelector('#block1');
+		var block1TopStyle = getComputedStyle(block1Element).getPropertyValue("top").split("px")[0];
+		
+		block1TopPercentage = (100*block1TopStyle)/BoxStyle;
 		
 		detectAnimation = requestAnimationFrame(detectValue);
-		
-		if (brick1Percentage >= -58){
-			// console.log(brick1Percentage);
-			console.log(characterPercentage);			
+		if (brick1Percentage <= -58){
+			if(characterTopPercentage >= 75){
+				
+			pausedAllAnimation();
+			
+			character.style.animation = "drop1 1s forwards";
+			character.style.webkitAnimation= "drop1 1s forwards";
+			
+			var rM = document.getElementsByClassName("redMonster");	
+			
+			rM[0].style.display = "none";
+			rM[1].style.display = "none";
+			rM[2].style.display = "none";
+			rM[3].style.display = "none";
+			rM[4].style.display = "none";
+			
+			firstRedMonsterImage.style.display = "block";
+			
+			life=life-1;
+				
+			loseCrystal(life);
+			loseInterfaceAnimation();
+			
+			clearTimeout(renderRedMonster);
+			cancelAnimationFrame(detectAnimation);
 		}
+		if( block1Percentage < 80){
+			pausedAllAnimation();
+			console.log(block1Percentage);
+			var dropBlock1Keyframes = document.createElement('style');
+			dropBlock1Keyframes.type = 'text/css';
+			var keyFrames = '\
+			@keyframes drop1{\
+				0%{\
+					left:value%;\
+					top: value2%;\
+				}\
+				50%{\
+					left:value%;\
+					top: 100%;\
+				}\
+				100%{\
+					left:value%;\
+					top: 100%;\
+				}\
+			}\
+			@-webkit-keyframes drop1{\
+				0%{\
+					left:value%;\
+					top: value2%;\
+				}\
+				50%{\
+					left:value%;\
+					top: 100%;\
+				}\
+				100%{\
+					left:value%;\
+					top: 100%;\
+				}\
+			}';
+			
+			var dropBlock1value = 
+			{
+				'value':characterLeftPercentage,
+				'value2':characterTopPercentage+1
+			};
+				
+			dropBlock1Keyframes.innerHTML = keyFrames.replace(/value|value2/g, m => dropBlock1value[m]);
+			console.log(dropBlock1Keyframes.innerHTML);
+			document.getElementsByTagName('div')[10].appendChild(dropBlock1Keyframes);
+			
+			character.style.animation = "drop1 1s forwards";
+			character.style.webkitAnimation= "drop1 1s forwards";
+			
+			var dropBlock1Keyframes2 = document.createElement('style');
+			dropBlock1Keyframes2.type = 'text/css';
+			var keyFrames2 = '\
+			@keyframes dropBlock1{\
+				0%{\
+					left:blockLeft%;\
+					top: blockTop%;\
+				}\
+				50%{\
+					left:blockLeft%;\
+					top: 100%;\
+				}\
+				100%{\
+					left:blockLeft%;\
+					top: 100%;\
+				}\
+			}\
+			@-webkit-keyframes dropBlock1{\
+				0%{\
+					left:blockLeft%;\
+					top: blockTop%;\
+				}\
+				50%{\
+					left:blockLeft%;\
+					top: 100%;\
+				}\
+				100%{\
+					left:blockLeft%;\
+					top: 100%;\
+				}\
+			}';
+			var dropBlock1 = 
+			{
+				'blockLeft': block1Percentage,
+				'blockTop': block1TopPercentage+42
+			};
+			
+			dropBlock1Keyframes2.innerHTML = keyFrames2.replace(/blockLeft|blockTop/g, m => dropBlock1[m]);
+			console.log(dropBlock1Keyframes2.innerHTML);
+			document.getElementsByTagName('div')[19].appendChild(dropBlock1Keyframes2);
+			
+			block1.style.animation = "dropBlock1 1s forwards";
+			block1.style.webkitAnimation= "dropBlock1 1s forwards";
+			
+			var rM = document.getElementsByClassName("redMonster");	
+
+			rM[0].style.display = "none";
+			rM[1].style.display = "none";
+			rM[2].style.display = "none";
+			rM[3].style.display = "none";
+			rM[4].style.display = "none";
+
+			firstRedMonsterImage.style.display = "block";
+
+			life=life-1;
+
+			loseCrystal(life);
+			loseInterfaceAnimation();
+
+			clearTimeout(renderRedMonster);
+			cancelAnimationFrame(detectAnimation);
+			}
+		}
+	}
+	
+	function detectValue2(){
+		
+		var brick1Element  = document.querySelector('#brick1');
+		var brick1LeftStyle = getComputedStyle(brick1Element).getPropertyValue("left").split("px")[0];
+
+		var brick1BoxElement  = document.querySelector('#gameContainer');
+		var brick1BoxStyle = getComputedStyle(brick1BoxElement).getPropertyValue("width").split("px")[0];
+		brick1Percentage = (100*brick1LeftStyle)/brick1BoxStyle;
+		
+		var characterElement  = document.querySelector('#character');
+		var characterTopStyle = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+
+		var characterBoxElement  = document.querySelector('#gameContainer');
+		var characterBoxStyle = getComputedStyle(characterBoxElement).getPropertyValue("height").split("px")[0];
+		
+		var block1Element  = document.querySelector('#block1');
+		var block1LeftStyle = getComputedStyle(block1Element).getPropertyValue("left").split("px")[0];
+		characterTopPercentage = (100*characterTopStyle)/characterBoxStyle;
+		
+		var BoxElement  = document.querySelector('#gameContainer');
+		var BoxStyle = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+		block1Percentage = (100*block1LeftStyle)/BoxStyle;
+		
+		var characterElement  = document.querySelector('#character');
+		var characterWidthStyle = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];
+		characterLeftPercentage = (100*characterWidthStyle)/BoxStyle;	
+		
+		detectAnimation2 = requestAnimationFrame(detectValue2);
 
 		if (brick1Percentage <= -58){
-			if(characterPercentage >= 75){
-				
+			if(characterTopPercentage >= 75){			
+			
 				pausedAllAnimation();
 				
-				character.style.animation = "drop1 1s forwards";
-				character.style.webkitAnimation= "drop1 1s forwards";
+				character.style.animation= "dropReset1 1s forwards";
+				character.style.webkitAnimation= "dropReset1 1s forwards";
 				
 				var rM = document.getElementsByClassName("redMonster");	
 				
@@ -299,49 +479,109 @@ window.requestAnimFrame = (function(){
 				firstRedMonsterImage.style.display = "block";
 				
 				life=life-1;
-					
+				
+				loseInterfaceResetAnimation();
 				loseCrystal(life);
-				loseInterfaceAnimation();
 				
 				clearTimeout(renderRedMonster);
-				cancelAnimationFrame(detectAnimation);
+				cancelAnimationFrame(detectAnimation2);
 			}
-		}
-	}
-	
-	function detectValue2(){
-		
-		var brick1Element  = document.querySelector('#brick1');
-		var brick1LeftStyle = getComputedStyle(brick1Element).getPropertyValue("left").split("px")[0];
-
-		var brick1BoxElement  = document.querySelector('#gameContainer');
-		var brick1BoxStyle = getComputedStyle(brick1BoxElement).getPropertyValue("width").split("px")[0];
-		
-		brick1Percentage = (100*brick1LeftStyle)/brick1BoxStyle;
-		
-		var characterElement  = document.querySelector('#character');
-		var characterTopStyle = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
-
-		var characterBoxElement  = document.querySelector('#gameContainer');
-		var characterBoxStyle = getComputedStyle(characterBoxElement).getPropertyValue("height").split("px")[0];
-		
-		characterPercentage = (100*characterTopStyle)/characterBoxStyle;
-		
-		detectAnimation2 = requestAnimationFrame(detectValue2);
-		
-		if (brick1Percentage >= -58){
-			// console.log(brick1Percentage);	
-			character.style.animation= "none 1s forwards";
-			character.style.webkitAnimation= "none 1s forwards";
-		}
-
-		if (brick1Percentage <= -58){
-			if(characterPercentage >= 75){				
-			
+			if ( block1Percentage < 80){
 				pausedAllAnimation();
+				var dropBlock1Keyframes = document.createElement('style');
+				dropBlock1Keyframes.type = 'text/css';
+				var keyFrames = '\
+				@keyframes dropReset1{\
+					0%{\
+						left:value%;\
+						top: value2%;\
+					}\
+					50%{\
+						left:value%;\
+						top: 100%;\
+					}\
+					100%{\
+						left:value%;\
+						top: 100%;\
+					}\
+				}\
+				@-webkit-keyframes dropReset1{\
+					0%{\
+						left:value%;\
+						top: value2%;\
+					}\
+					50%{\
+						left:value%;\
+						top: 100%;\
+					}\
+					100%{\
+						left:value%;\
+						top: 100%;\
+					}\
+				}';
+					
+				var dropBlock1value = 
+				{
+					'value':characterLeftPercentage,
+					'value2':characterTopPercentage+1
+				};
+				
+				dropBlock1Keyframes.innerHTML = keyFrames.replace(/value|value2/g, m => dropBlock1value[m]);
+				document.getElementsByTagName('div')[10].appendChild(dropBlock1Keyframes);
 				
 				character.style.animation= "dropReset1 1s forwards";
 				character.style.webkitAnimation= "dropReset1 1s forwards";
+				
+				dropBlock1Keyframes.innerHTML = keyFrames.replace(/value|value2/g, m => dropBlock1value[m]);
+				console.log(dropBlock1Keyframes.innerHTML);
+				document.getElementsByTagName('div')[10].appendChild(dropBlock1Keyframes);
+
+				character.style.animation = "drop1 1s forwards";
+				character.style.webkitAnimation= "drop1 1s forwards";
+
+				var dropBlock1Keyframes2 = document.createElement('style');
+				dropBlock1Keyframes2.type = 'text/css';
+				var keyFrames2 = '\
+				@keyframes dropBlockReset1{\
+					0%{\
+						left:blockLeft%;\
+						top: blockTop%;\
+					}\
+					50%{\
+						left:blockLeft%;\
+						top: 100%;\
+					}\
+					100%{\
+						left:blockLeft%;\
+						top: 100%;\
+					}\
+				}\
+				@-webkit-keyframes dropBlockReset1{\
+					0%{\
+						left:blockLeft%;\
+						top: blockTop%;\
+					}\
+					50%{\
+						left:blockLeft%;\
+						top: 100%;\
+					}\
+					100%{\
+						left:blockLeft%;\
+						top: 100%;\
+					}\
+				}';
+				var dropBlock1 = 
+				{
+				'blockLeft': block1Percentage,
+				'blockTop': block1TopPercentage+42
+				};
+
+				dropBlock1Keyframes2.innerHTML = keyFrames2.replace(/blockLeft|blockTop/g, m => dropBlock1[m]);
+				console.log(dropBlock1Keyframes2.innerHTML);
+				document.getElementsByTagName('div')[19].appendChild(dropBlock1Keyframes2);
+
+				block1.style.animation = "dropBlockReset1 1s forwards";
+				block1.style.webkitAnimation= "dropBlockReset1 1s forwards";
 				
 				var rM = document.getElementsByClassName("redMonster");	
 				
@@ -367,12 +607,12 @@ window.requestAnimFrame = (function(){
 	
 	function detectValue3(){
 		
-		var brick1Element  = document.querySelector('#brick1');
+	var brick1Element  = document.querySelector('#brick1');
 		var brick1LeftStyle = getComputedStyle(brick1Element).getPropertyValue("left").split("px")[0];
 
 		var brick1BoxElement  = document.querySelector('#gameContainer');
 		var brick1BoxStyle = getComputedStyle(brick1BoxElement).getPropertyValue("width").split("px")[0];
-		
+	
 		brick1Percentage = (100*brick1LeftStyle)/brick1BoxStyle;
 		
 		var characterElement  = document.querySelector('#character');
@@ -381,42 +621,159 @@ window.requestAnimFrame = (function(){
 		var characterBoxElement  = document.querySelector('#gameContainer');
 		var characterBoxStyle = getComputedStyle(characterBoxElement).getPropertyValue("height").split("px")[0];
 		
-		characterPercentage = (100*characterTopStyle)/characterBoxStyle;
+		var block1Element  = document.querySelector('#block1');
+		var block1LeftStyle = getComputedStyle(block1Element).getPropertyValue("left").split("px")[0];
+
+		characterTopPercentage = (100*characterTopStyle)/characterBoxStyle;
 		
+		var BoxElement  = document.querySelector('#gameContainer');
+		var BoxStyle = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+
+		block1Percentage = (100*block1LeftStyle)/BoxStyle;
+		
+		var characterElement  = document.querySelector('#character');
+		var characterWidthStyle = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];
+
+		characterLeftPercentage = (100*characterWidthStyle)/BoxStyle;
+
 		detectAnimation3 = requestAnimationFrame(detectValue3);
-		
-		if (brick1Percentage >= -58){
-			console.log(brick1Percentage);	
-		}
-
 		if (brick1Percentage <= -58){
-			if(characterPercentage >= 75){
-
-				pausedAllAnimation();
+			if(characterTopPercentage >= 75){
+				
+			pausedAllAnimation();
+			
+			character.style.animation = "drop1 1s forwards";
+			character.style.webkitAnimation= "drop1 1s forwards";
+			
+			var rM = document.getElementsByClassName("redMonster");	
+			
+			rM[0].style.display = "none";
+			rM[1].style.display = "none";
+			rM[2].style.display = "none";
+			rM[3].style.display = "none";
+			rM[4].style.display = "none";
+			
+			firstRedMonsterImage.style.display = "block";
+			
+			life=life-1;
+				
+			loseCrystal(life);
+			loseInterfaceReset2Animation();
+			
+			clearTimeout(renderRedMonster);
+			cancelAnimationFrame(detectAnimation3);
+		}
+		if( block1Percentage < 80){
+			pausedAllAnimation();
+				console.log(block1Percentage);
+				var dropBlock1Keyframes = document.createElement('style');
+				dropBlock1Keyframes.type = 'text/css';
+				var keyFrames = '\
+				@keyframes drop1{\
+					0%{\
+						left:value%;\
+						top: value2%;\
+					}\
+					50%{\
+						left:value%;\
+						top: 100%;\
+					}\
+					100%{\
+						left:value%;\
+						top: 100%;\
+					}\
+				}\
+				@-webkit-keyframes drop1{\
+					0%{\
+						left:value%;\
+						top: value2%;\
+					}\
+					50%{\
+						left:value%;\
+						top: 100%;\
+					}\
+					100%{\
+						left:value%;\
+						top: 100%;\
+					}\
+				}';
+				
+				var dropBlock1value = 
+				{
+					'value':characterLeftPercentage,
+					'value2':characterTopPercentage+1
+				};
+				
+				dropBlock1Keyframes.innerHTML = keyFrames.replace(/value|value2/g, m => dropBlock1value[m]);
+				console.log(dropBlock1Keyframes.innerHTML);
+				document.getElementsByTagName('div')[10].appendChild(dropBlock1Keyframes);
 				
 				character.style.animation = "drop1 1s forwards";
 				character.style.webkitAnimation= "drop1 1s forwards";
 				
-				var rM = document.getElementsByClassName("redMonster");	
+				var dropBlock1Keyframes2 = document.createElement('style');
+				dropBlock1Keyframes2.type = 'text/css';
+				var keyFrames2 = '\
+				@keyframes dropBlock1{\
+					0%{\
+						left:blockLeft%;\
+						top: blockTop%;\
+					}\
+					50%{\
+						left:blockLeft%;\
+						top: 100%;\
+					}\
+					100%{\
+						left:blockLeft%;\
+						top: 100%;\
+					}\
+				}\
+				@-webkit-keyframes dropBlock1{\
+					0%{\
+						left:blockLeft%;\
+						top: blockTop%;\
+					}\
+					50%{\
+						left:blockLeft%;\
+						top: 100%;\
+					}\
+					100%{\
+						left:blockLeft%;\
+						top: 100%;\
+					}\
+				}';
+				var dropBlock1 = 
+				{
+					'blockLeft': block1Percentage,
+					'blockTop': block1TopPercentage+42
+				};
+
+				dropBlock1Keyframes2.innerHTML = keyFrames2.replace(/blockLeft|blockTop/g, m => dropBlock1[m]);
+				console.log(dropBlock1Keyframes2.innerHTML);
+				document.getElementsByTagName('div')[19].appendChild(dropBlock1Keyframes2);
+
+				block1.style.animation = "dropBlock1 1s forwards";
+				block1.style.webkitAnimation= "dropBlock1 1s forwards";
 				
+				var rM = document.getElementsByClassName("redMonster");	
+
 				rM[0].style.display = "none";
 				rM[1].style.display = "none";
 				rM[2].style.display = "none";
 				rM[3].style.display = "none";
 				rM[4].style.display = "none";
-				
+
 				firstRedMonsterImage.style.display = "block";
-				
+
 				life=life-1;
-				
-				loseInterfaceReset2Animation();
+
 				loseCrystal(life);
-				
+				loseInterfaceReset2Animation();
+
 				clearTimeout(renderRedMonster);
 				cancelAnimationFrame(detectAnimation3);
 			}
 		}
-
 	}
 	
 	function pausedAllAnimation(){
@@ -561,8 +918,8 @@ window.requestAnimFrame = (function(){
 		loseHandCursor.style.webkitAnimation = "loseHandCursorDisplay 1.5s forwards 1, loseHandCursor 1.5s infinite 0.5s;"
 		sad.style.animation = "loseInterfaceReset 1s linear forwards";
 		sad.style.webkitAnimation = "loseInterfaceReset 1s linear forwards";
-		loseInterface.style.animation = "loseInterfaceReset 1s linear forwards";
-		loseInterface.style.webkitAnimation = "loseInterfaceReset 1s linear forwards";
+		loseInterface.style.animation = "loseInterfaceReset 1s linear 0.5s forwards";
+		loseInterface.style.webkitAnimation = "loseInterfaceReset 1s linear 0.5s forwards";
 		grayscaleLayer.style.animation = "grayscaleResetLayer 1s linear forwards;"
 		grayscaleLayer.style.webkitAnimation = "grayscaleResetLayer 1s linear forwards;"
 		
@@ -591,8 +948,8 @@ window.requestAnimFrame = (function(){
 		loseHandCursor.style.webkitAnimation = "loseHandCursorDisplay 1.5s forwards 1, loseHandCursor 1.5s infinite 0.5s;"
 		sad.style.animation = "loseInterface 1s linear forwards";
 		sad.style.webkitAnimation = "loseInterface 1s linear forwards";
-		loseInterface.style.animation = "loseInterface 1s linear forwards";
-		loseInterface.style.webkitAnimation = "loseInterface 1s linear forwards";
+		loseInterface.style.animation = "loseInterface 1s linear 0.5s forwards";
+		loseInterface.style.webkitAnimation = "loseInterface 1s linear 0.5s forwards";
 		grayscaleLayer.style.animation = "grayscaleLayer 1s linear forwards;"
 		grayscaleLayer.style.webkitAnimation = "grayscaleLayer 1s linear forwards;"
 		
@@ -708,66 +1065,96 @@ window.requestAnimFrame = (function(){
   
     function resetAnimation2(){
 	  
-	  	character.style.animation= "none";
-		character.style.webkitAnimation = "none";
+	 redMonster.style.animation= "redMonster 2s linear forwards,redMonster2 20s linear 2s 1";
+	redMonster.style.webkitAnimation = "redMonster 2s linear forwards,redMonster2 20s linear 2s 1";
+	
+	brick1.style.animation = "brick1 20s linear forwards";
+	brick1.style.webkitAnimation = "brick1 20s linear forwards";
+	
+	brick2.style.animation = "brick2 3s infinite , brick2-2 20s linear forwards";
+	brick2.style.webkitAnimation = "brick2 3s infinite , brick2-2 20s linear forwards";
 		
-		redMonster.style.animation= "none";
-		redMonster.style.webkitAnimation = "none";
-		
-		brick1.style.animation = "brick1 20s linear forwards";
-		brick1.style.webkitAnimation = "brick1 20s linear forwards";
-		
-		brick2.style.animation = "brick2 3s infinite , brick2-2 20s linear forwards";
-		brick2.style.webkitAnimation = "brick2 3s infinite , brick2-2 20s linear forwards";
-			
-		brick3.style.animation = "brick3 20s linear 1.5s forwards";
-		brick3.style.webkitAnimation = "brick3 20s linear 1.5s forwards";
+	brick3.style.animation = "brick3 20s linear 1.5s forwards";
+	brick3.style.webkitAnimation = "brick3 20s linear 1.5s forwards";
 
-		brick4.style.animation = "brick4 20s linear 2.5s forwards";
-		brick4.style.webkitAnimation = "brick4 20s linear 2.5s forwards";			
-			
-		brick5.style.animation = "brick5 20s linear 7s forwards";
-		brick5.style.webkitAnimation = "brick5 20s linear 7s forwards";	
+	brick4.style.animation = "brick4 20s linear 2.5s forwards";
+	brick4.style.webkitAnimation = "brick4 20s linear 2.5s forwards";			
 		
-		brick6.style.animation = "brick6 20s linear forwards";
-		brick6.style.webkitAnimation = "brick6 20s linear forwards";
+	brick5.style.animation = "brick5 20s linear 7s forwards";
+	brick5.style.webkitAnimation = "brick5 20s linear 7s forwards";	
 		
-		brick7.style.animation = "brick7 20s linear forwards";
-		brick7.style.webkitAnimation = "brick7 20s linear forwards";
-			
-		brick8.style.animation = "brick8 20s linear 1.5s forwards";
-		brick8.style.webkitAnimation = "brick8 20s linear 1.5s forwards";
+	longFire.style.animation = "longFire 20s linear 11.5s forwards,longFireAnimation 1s linear 15s forwards";
+	longFire.style.webkitAnimation = "longFire 20s linear 11.5s forwards,longFireAnimation 1s linear 15s forwards";	
+		
+	brick6.style.animation = "brick6 20s linear 4.5s forwards";
+	brick6.style.webkitAnimation = "brick6 20s 4.5s linear forwards";
+	
+	brick7.style.animation = "brick7 20s linear 4.5s forwards";
+	brick7.style.webkitAnimation = "brick7 20s linear 4.5s forwards";
+		
+	brick8.style.animation = "brick8 20s linear 4.5s forwards, brickAnimation8 3s linear 4.5s infinite";
+	brick8.style.webkitAnimation = "brick8 20s linear 4.5s forwards, brickAnimation8 3s linear 4.5s infinite";
 
-		brick9.style.animation = "brick9 20s linear 2.5s forwards";
-		brick9.style.webkitAnimation = "brick9 20s linear 2.5s forwards";			
-			
-		brick10.style.animation = "brick10 20s linear 7s forwards";
-		brick10.style.webkitAnimation = "brick10 20s linear 7s forwards";	
+	brick9.style.animation = "brick9 20s linear 4.5s forwards, brickAnimation9 3s linear 4.5s infinite";
+	brick9.style.webkitAnimation = "brick9 20s linear 4.5s forwards, brickAnimation9 3s linear 4.5s infinite";			
+		
+	brick10.style.animation = "brick10 20s linear 4.5s forwards";
+	brick10.style.webkitAnimation = "brick10 20s linear 4.5s forwards";	
+		
+	shortFire.style.animation = "shortFire 20s linear 4.5s forwards,shortFireAnimation 2.5s ease-in-out 21s forwards";
+	shortFire.style.webkitAnimation = "shortFire 20s linear 4.5s forwards,shortFireAnimation 2.5s ease-in-out 21s forwards";	
+	
+	block1.style.animation = "block1 20s linear forwards";
+	block1.style.webkitAnimation = "block1 20s linear forwards";
+	  
+	
+	graveStone1.style.animation = "graveStone1 20s linear 3s forwards";
+	graveStone1.style.webkitAnimation = "graveStone1 20s linear 3s forwards";	  
+	  
+	graveStone3.style.animation = "graveStone3 20s linear 7.5s forwards";
+	graveStone3.style.webkitAnimation = "graveStone3 20s linear 7.5s forwards";  
+	  
+	flowerMonsterBox1.style.animation = "flowerMonsterBox1 20s linear 8.5s forwards";
+	flowerMonsterBox1.style.webkitAnimation = "flowerMonsterBox1 20s linear 8.5s forwards";    
+	    
+	flowerMonster1.style.animation = "flowerMonster1 8s linear 1s infinite";
+	flowerMonster1.style.webkitAnimation = "flowerMonster1 8s linear 1s infinite";    
+	  
+	graveStone2.style.animation = "graveStone2 20s linear 6.8s forwards";
+	graveStone2.style.webkitAnimation = "graveStone2 20s linear 6.8s forwards";	  
+	  
+	treeMonsterBox1.style.animation = "treeMonsterBox1 20s linear 2.5s forwards";
+	treeMonsterBox1.style.webkitAnimation = "treeMonsterBox1 20s linear 2.5s forwards";    
+	
+	treeMonster1.style.animation = "treeMonster1 8s linear 10s infinite";
+	treeMonster1.style.webkitAnimation = "treeMonster1 8s linear 10s infinite";  
+	
+	treeMonsterBox2.style.animation = "treeMonsterBox1 20s linear 8s forwards";
+	treeMonsterBox2.style.webkitAnimation = "treeMonsterBox1 20s linear 8s forwards";    
+	  
+	treeMonster2.style.animation = "treeMonster2 7s linear 12s infinite";
+	treeMonster2.style.webkitAnimation = "treeMonster2 7s linear 12s infinite";    
+	   
+	   
+	key1.style.animation = "key1 20s linear 4.5s forwards, keyUpDown1 1s linear infinite";
+	key1.style.webkitAnimation = "key1 20s linear 4.5s forwards, keyUpDown1 1s linear infinite";    
+	
+	
+	graveStone4.style.animation = "graveStone4 20s linear 4.5s forwards";
+	graveStone4.style.webkitAnimation = "graveStone4 20s linear 4.5s forwards";	  
+	  
+	flowerMonsterBox2.style.animation = "flowerMonsterBox2 20s linear 4.5s forwards";
+	flowerMonsterBox2.style.webkitAnimation = "flowerMonsterBox2 20s linear 4.5s forwards";    
+	  
+	flowerMonster2.style.animation = "flowerMonster2 8s linear 13s infinite";
+	flowerMonster2.style.webkitAnimation = "flowerMonster2 8s linear 13s infinite";  
+	  
+	reward.style.animation = "reward 20s linear 4.5s forwards,rewardAnimation 2s linear 20s infinite";
+	reward.style.webkitAnimation = "reward 20s linear 4.5s forwards,rewardAnimation 2s linear 20s infinite";    
+	   
+	exclamationMark.style.animation = "exclamationMark 20s linear 4.5s forwards,exclamationMarkUpDown 1s linear 5s infinite";
+	exclamationMark.style.webkitAnimation = "exclamationMark 20s linear 4.5s forwards,exclamationMarkUpDown 1s linear 5s infinite";    
 
-		
-		
-		block1.style.animation = "block1 20s linear forwards";
-		block1.style.webkitAnimation = "block1 20s linear forwards";
-		
-		graveStone1.style.animation = "graveStone1 20s linear 3s forwards";
-		graveStone1.style.webkitAnimation = "graveStone1 20s linear 3s forwards";	  
-		  
-		graveStone3.style.animation = "graveStone3 20s linear 7.5s forwards";
-		graveStone3.style.webkitAnimation = "graveStone3 20s linear 7.5s forwards";  
-		  
-		flowerMonster1.style.animation = "flowerMonster1 20s linear 8.5s forwards";
-		flowerMonster1.style.webkitAnimation = "flowerMonster1 20s linear 8.5s forwards";    
-		  
-		   
-		graveStone2.style.animation = "graveStone2 20s linear 6.8s forwards";
-		graveStone2.style.webkitAnimation = "graveStone2 20s linear 6.8s forwards";	  
-		  
-		treeMonster1.style.animation = "treeMonster1 20s linear 4.5s forwards";
-		treeMonster1.style.webkitAnimation = "treeMonster1 20s linear 4.5s forwards";  
-		  
-		treeMonster2.style.animation = "treeMonster2 20s linear 8.7s forwards";
-		treeMonster2.style.webkitAnimation = "treeMonster2 20s linear 8.7s forwards";
-		
   }
   
     function startAnimation(){
@@ -870,10 +1257,11 @@ window.requestAnimFrame = (function(){
     function loseCrystal(life){
 	
 		var life = life;
+
+			console.log(life);
+			crystalArray = [lifeCrystal1,lifeCrystal2,lifeCrystal3]
+			crystalArray[life].style.display = "none";
 		
-		crystalArray = [lifeCrystal1,lifeCrystal2,lifeCrystal3]
-		crystalArray[life].style.display = "none";
-	
    }
   
 	var toggle = 0; 
@@ -939,6 +1327,7 @@ window.requestAnimFrame = (function(){
 			console.log(life);
 			
 			if(life === 2){
+				character.style.animation= "none 1s ease-out";
 				firstRedMonsterImage.style.display = "none";
 				redMonsterAnimation();
 				clearLoseInterface();
@@ -947,6 +1336,7 @@ window.requestAnimFrame = (function(){
 			}
 			
 			if(life === 1){
+				character.style.animation= "none 1s ease-out";
 				firstRedMonsterImage.style.display = "none";
 				redMonsterAnimation();
 				clearLoseInterface();
@@ -967,23 +1357,107 @@ window.requestAnimFrame = (function(){
 		
 		if (data3 === "characterJump")
 		{
-			if (brick1Percentage > -48){
-				if (toggle === 0) {
-					jumpAnimation(toggle)
-					toggle = 1;
-				}
-				else if (toggle === 1) {
-					jumpAnimation(toggle)
-					toggle = 0;
-				}
-			}
-			if (brick1Percentage <= -48){
-				
-				console.log(brick1Percentage);
-				
-				character.style.animation = " jumpBlock1 1s ease-in-out 1 forwards";
-				character.style.webkitAnimation = "jumpBlock1 1s ease-in-out 1 forwards";	
+			var block1Element  = document.querySelector('#block1');
+			var block1LeftStyle = getComputedStyle(block1Element).getPropertyValue("left").split("px")[0];
 
+			var BoxElement  = document.querySelector('#gameContainer');
+			var BoxStyle = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+
+			block1Percentage = (100*block1LeftStyle)/BoxStyle;
+			
+			if (block1Percentage >= 43){
+			
+				console.log(block1Percentage);
+				
+				if (brick1Percentage > -46){
+					console.log(brick1Percentage);
+					if (toggle === 0) {
+						jumpAnimation(toggle)
+						toggle = 1;
+					}
+					else if (toggle === 1) {
+						jumpAnimation(toggle)
+						toggle = 0;
+					}
+				}
+				if (brick1Percentage <= -46){
+					
+					var characterElement  = document.querySelector('#character');
+					var characterWidthStyle = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];
+
+					characterPercentage = (100*characterWidthStyle)/BoxStyle;
+			
+					var jumpBlock1Keyframes = document.createElement('style');
+					jumpBlock1Keyframes.type = 'text/css';
+					var keyFrames = '\
+					@keyframes jumpBlock1{\
+						0% {\
+							top: 76%;\
+							left: 24%;\
+						}\
+						10% {\
+							top: 74%;\
+							left: 24%;\
+						}\
+						20% {\
+							top: 53%;\
+							left: 29%;\
+						}\
+						30% {\
+							top: 40%;\
+							left: 34%;\
+						}\
+						40% {\
+							top: 53%;\
+							left: 39%;\
+						}\
+						100% {\
+							top: 53%;\
+							left: 39%;\
+						}\
+					}\
+					@-webkit-keyframes jumpBlock1{\
+						0% {\
+							top: 76%;\
+							left: 24%;\
+						}\
+						10% {\
+							top: 74%;\
+							left: 24%;\
+						}\
+						20% {\
+							top: 53%;\
+							left: 29%;\
+						}\
+						30% {\
+							top: 40%;\
+							left: 34%;\
+						}\
+						40% {\
+							top: 53%;\
+							left: 39%;\
+						}\
+						100% {\
+							top: 53%;\
+							left: 39%;\
+						}\
+					}';
+					
+					var jumpBlock1Value = 
+										{
+											'24':characterPercentage,
+											'29':(characterPercentage+5),
+											'34':(characterPercentage+10),
+											'39':(characterPercentage+15)
+										};
+										
+					jumpBlock1Keyframes.innerHTML = keyFrames.replace(/24|29|34|39/g, m => jumpBlock1Value[m]);
+					document.getElementsByTagName('div')[10].appendChild(jumpBlock1Keyframes);
+					
+					character.style.animation = " jumpBlock1 1s ease-in-out 1 forwards";
+					character.style.webkitAnimation = "jumpBlock1 1s ease-in-out 1 forwards";		
+					
+				}
 			}
 		}
 	}
