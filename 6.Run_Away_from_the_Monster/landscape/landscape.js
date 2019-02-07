@@ -292,6 +292,9 @@ window.requestAnimFrame = (function(){
 		block1TopPercentage = (100*block1TopStyle)/BoxStyle;
 		
 		detectAnimation = requestAnimationFrame(detectValue);
+		
+		console.log(brick1Percentage,characterTopPercentage,block1Percentage);
+		
 		if (brick1Percentage <= -58){
 			if(characterTopPercentage >= 75){
 				
@@ -317,116 +320,115 @@ window.requestAnimFrame = (function(){
 			
 			clearTimeout(renderRedMonster);
 			cancelAnimationFrame(detectAnimation);
-		}
-		if( block1Percentage < 80){
-			pausedAllAnimation();
-			console.log(block1Percentage);
-			var dropBlock1Keyframes = document.createElement('style');
-			dropBlock1Keyframes.type = 'text/css';
-			var keyFrames = '\
-			@keyframes drop1{\
-				0%{\
-					left:value%;\
-					top: value2%;\
+			}
+			if(characterTopPercentage < 75){
+				if( block1Percentage < 80){
+				pausedAllAnimation();
+				var dropBlock1Keyframes = document.createElement('style');
+				dropBlock1Keyframes.type = 'text/css';
+				var keyFrames = '\
+				@keyframes drop1{\
+					0%{\
+						left:value%;\
+						top: value2%;\
+					}\
+					50%{\
+						left:value%;\
+						top: 100%;\
+					}\
+					100%{\
+						left:value%;\
+						top: 100%;\
+					}\
 				}\
-				50%{\
-					left:value%;\
-					top: 100%;\
-				}\
-				100%{\
-					left:value%;\
-					top: 100%;\
-				}\
-			}\
-			@-webkit-keyframes drop1{\
-				0%{\
-					left:value%;\
-					top: value2%;\
-				}\
-				50%{\
-					left:value%;\
-					top: 100%;\
-				}\
-				100%{\
-					left:value%;\
-					top: 100%;\
-				}\
-			}';
-			
-			var dropBlock1value = 
-			{
-				'value':characterLeftPercentage,
-				'value2':characterTopPercentage+1
-			};
+				@-webkit-keyframes drop1{\
+					0%{\
+						left:value%;\
+						top: value2%;\
+					}\
+					50%{\
+						left:value%;\
+						top: 100%;\
+					}\
+					100%{\
+						left:value%;\
+						top: 100%;\
+					}\
+				}';
 				
-			dropBlock1Keyframes.innerHTML = keyFrames.replace(/value|value2/g, m => dropBlock1value[m]);
-			console.log(dropBlock1Keyframes.innerHTML);
-			document.getElementsByTagName('div')[10].appendChild(dropBlock1Keyframes);
-			
-			character.style.animation = "drop1 1s forwards";
-			character.style.webkitAnimation= "drop1 1s forwards";
-			
-			var dropBlock1Keyframes2 = document.createElement('style');
-			dropBlock1Keyframes2.type = 'text/css';
-			var keyFrames2 = '\
-			@keyframes dropBlock1{\
-				0%{\
-					left:blockLeft%;\
-					top: blockTop%;\
+				var dropBlock1value = 
+				{
+					'value':characterLeftPercentage,
+					'value2':characterTopPercentage+1
+				};
+					
+				dropBlock1Keyframes.innerHTML = keyFrames.replace(/value|value2/g, m => dropBlock1value[m]);
+				document.getElementsByTagName('div')[10].appendChild(dropBlock1Keyframes);
+				
+				character.style.animation = "drop1 1s forwards";
+				character.style.webkitAnimation= "drop1 1s forwards";
+				
+				var dropBlock1Keyframes2 = document.createElement('style');
+				dropBlock1Keyframes2.type = 'text/css';
+				var keyFrames2 = '\
+				@keyframes dropBlock1{\
+					0%{\
+						left:blockLeft%;\
+						top: blockTop%;\
+					}\
+					50%{\
+						left:blockLeft%;\
+						top: 100%;\
+					}\
+					100%{\
+						left:blockLeft%;\
+						top: 100%;\
+					}\
 				}\
-				50%{\
-					left:blockLeft%;\
-					top: 100%;\
-				}\
-				100%{\
-					left:blockLeft%;\
-					top: 100%;\
-				}\
-			}\
-			@-webkit-keyframes dropBlock1{\
-				0%{\
-					left:blockLeft%;\
-					top: blockTop%;\
-				}\
-				50%{\
-					left:blockLeft%;\
-					top: 100%;\
-				}\
-				100%{\
-					left:blockLeft%;\
-					top: 100%;\
-				}\
-			}';
-			var dropBlock1 = 
-			{
-				'blockLeft': block1Percentage,
-				'blockTop': block1TopPercentage+42
-			};
-			
-			dropBlock1Keyframes2.innerHTML = keyFrames2.replace(/blockLeft|blockTop/g, m => dropBlock1[m]);
-			console.log(dropBlock1Keyframes2.innerHTML);
-			document.getElementsByTagName('div')[19].appendChild(dropBlock1Keyframes2);
-			
-			block1.style.animation = "dropBlock1 1s forwards";
-			block1.style.webkitAnimation= "dropBlock1 1s forwards";
-			
-			var rM = document.getElementsByClassName("redMonster");	
+				@-webkit-keyframes dropBlock1{\
+					0%{\
+						left:blockLeft%;\
+						top: blockTop%;\
+					}\
+					50%{\
+						left:blockLeft%;\
+						top: 100%;\
+					}\
+					100%{\
+						left:blockLeft%;\
+						top: 100%;\
+					}\
+				}';
+				var dropBlock1 = 
+				{
+					'blockLeft': block1Percentage,
+					'blockTop': block1TopPercentage+42
+				};
+				
+				dropBlock1Keyframes2.innerHTML = keyFrames2.replace(/blockLeft|blockTop/g, m => dropBlock1[m]);
+				document.getElementsByTagName('div')[19].appendChild(dropBlock1Keyframes2);
+				
+				block1.style.animation = "dropBlock1 1s forwards";
+				block1.style.webkitAnimation= "dropBlock1 1s forwards";
+				
+				var rM = document.getElementsByClassName("redMonster");	
 
-			rM[0].style.display = "none";
-			rM[1].style.display = "none";
-			rM[2].style.display = "none";
-			rM[3].style.display = "none";
-			rM[4].style.display = "none";
+				rM[0].style.display = "none";
+				rM[1].style.display = "none";
+				rM[2].style.display = "none";
+				rM[3].style.display = "none";
+				rM[4].style.display = "none";
 
-			firstRedMonsterImage.style.display = "block";
+				firstRedMonsterImage.style.display = "block";
 
-			life=life-1;
+				life=life-1;
 
-			loseCrystal(life);
-			loseInterfaceAnimation();
+				loseCrystal(life);
+				loseInterfaceAnimation();
 
-			clearTimeout(renderRedMonster);
-			cancelAnimationFrame(detectAnimation);
+				clearTimeout(renderRedMonster);
+				cancelAnimationFrame(detectAnimation);
+				}
 			}
 		}
 	}
@@ -486,120 +488,120 @@ window.requestAnimFrame = (function(){
 				clearTimeout(renderRedMonster);
 				cancelAnimationFrame(detectAnimation2);
 			}
-			if ( block1Percentage < 80){
-				pausedAllAnimation();
-				var dropBlock1Keyframes = document.createElement('style');
-				dropBlock1Keyframes.type = 'text/css';
-				var keyFrames = '\
-				@keyframes dropReset1{\
-					0%{\
-						left:value%;\
-						top: value2%;\
+			if(characterTopPercentage < 75){
+				if ( block1Percentage < 80){
+					pausedAllAnimation();
+					var dropBlock1Keyframes = document.createElement('style');
+					dropBlock1Keyframes.type = 'text/css';
+					var keyFrames = '\
+					@keyframes dropReset1{\
+						0%{\
+							left:value%;\
+							top: value2%;\
+						}\
+						50%{\
+							left:value%;\
+							top: 100%;\
+						}\
+						100%{\
+							left:value%;\
+							top: 100%;\
+						}\
 					}\
-					50%{\
-						left:value%;\
-						top: 100%;\
-					}\
-					100%{\
-						left:value%;\
-						top: 100%;\
-					}\
-				}\
-				@-webkit-keyframes dropReset1{\
-					0%{\
-						left:value%;\
-						top: value2%;\
-					}\
-					50%{\
-						left:value%;\
-						top: 100%;\
-					}\
-					100%{\
-						left:value%;\
-						top: 100%;\
-					}\
-				}';
+					@-webkit-keyframes dropReset1{\
+						0%{\
+							left:value%;\
+							top: value2%;\
+						}\
+						50%{\
+							left:value%;\
+							top: 100%;\
+						}\
+						100%{\
+							left:value%;\
+							top: 100%;\
+						}\
+					}';
+						
+					var dropBlock1value = 
+					{
+						'value':characterLeftPercentage,
+						'value2':characterTopPercentage+1
+					};
 					
-				var dropBlock1value = 
-				{
-					'value':characterLeftPercentage,
-					'value2':characterTopPercentage+1
-				};
-				
-				dropBlock1Keyframes.innerHTML = keyFrames.replace(/value|value2/g, m => dropBlock1value[m]);
-				document.getElementsByTagName('div')[10].appendChild(dropBlock1Keyframes);
-				
-				character.style.animation= "dropReset1 1s forwards";
-				character.style.webkitAnimation= "dropReset1 1s forwards";
-				
-				dropBlock1Keyframes.innerHTML = keyFrames.replace(/value|value2/g, m => dropBlock1value[m]);
-				console.log(dropBlock1Keyframes.innerHTML);
-				document.getElementsByTagName('div')[10].appendChild(dropBlock1Keyframes);
+					dropBlock1Keyframes.innerHTML = keyFrames.replace(/value|value2/g, m => dropBlock1value[m]);
+					document.getElementsByTagName('div')[10].appendChild(dropBlock1Keyframes);
+					
+					character.style.animation= "dropReset1 1s forwards";
+					character.style.webkitAnimation= "dropReset1 1s forwards";
+					
+					dropBlock1Keyframes.innerHTML = keyFrames.replace(/value|value2/g, m => dropBlock1value[m]);
+					document.getElementsByTagName('div')[10].appendChild(dropBlock1Keyframes);
 
-				character.style.animation = "drop1 1s forwards";
-				character.style.webkitAnimation= "drop1 1s forwards";
+					character.style.animation = "drop1 1s forwards";
+					character.style.webkitAnimation= "drop1 1s forwards";
 
-				var dropBlock1Keyframes2 = document.createElement('style');
-				dropBlock1Keyframes2.type = 'text/css';
-				var keyFrames2 = '\
-				@keyframes dropBlockReset1{\
-					0%{\
-						left:blockLeft%;\
-						top: blockTop%;\
+					var dropBlock1Keyframes2 = document.createElement('style');
+					dropBlock1Keyframes2.type = 'text/css';
+					var keyFrames2 = '\
+					@keyframes dropBlockReset1{\
+						0%{\
+							left:blockLeft%;\
+							top: blockTop%;\
+						}\
+						50%{\
+							left:blockLeft%;\
+							top: 100%;\
+						}\
+						100%{\
+							left:blockLeft%;\
+							top: 100%;\
+						}\
 					}\
-					50%{\
-						left:blockLeft%;\
-						top: 100%;\
-					}\
-					100%{\
-						left:blockLeft%;\
-						top: 100%;\
-					}\
-				}\
-				@-webkit-keyframes dropBlockReset1{\
-					0%{\
-						left:blockLeft%;\
-						top: blockTop%;\
-					}\
-					50%{\
-						left:blockLeft%;\
-						top: 100%;\
-					}\
-					100%{\
-						left:blockLeft%;\
-						top: 100%;\
-					}\
-				}';
-				var dropBlock1 = 
-				{
-				'blockLeft': block1Percentage,
-				'blockTop': block1TopPercentage+42
-				};
+					@-webkit-keyframes dropBlockReset1{\
+						0%{\
+							left:blockLeft%;\
+							top: blockTop%;\
+						}\
+						50%{\
+							left:blockLeft%;\
+							top: 100%;\
+						}\
+						100%{\
+							left:blockLeft%;\
+							top: 100%;\
+						}\
+					}';
+					var dropBlock1 = 
+					{
+					'blockLeft': block1Percentage,
+					'blockTop': block1TopPercentage+42
+					};
 
-				dropBlock1Keyframes2.innerHTML = keyFrames2.replace(/blockLeft|blockTop/g, m => dropBlock1[m]);
-				console.log(dropBlock1Keyframes2.innerHTML);
-				document.getElementsByTagName('div')[19].appendChild(dropBlock1Keyframes2);
+					dropBlock1Keyframes2.innerHTML = keyFrames2.replace(/blockLeft|blockTop/g, m => dropBlock1[m]);
+					document.getElementsByTagName('div')[19].appendChild(dropBlock1Keyframes2);
 
-				block1.style.animation = "dropBlockReset1 1s forwards";
-				block1.style.webkitAnimation= "dropBlockReset1 1s forwards";
-				
-				var rM = document.getElementsByClassName("redMonster");	
-				
-				rM[0].style.display = "none";
-				rM[1].style.display = "none";
-				rM[2].style.display = "none";
-				rM[3].style.display = "none";
-				rM[4].style.display = "none";
-				
-				firstRedMonsterImage.style.display = "block";
-				
-				life=life-1;
-				
-				loseInterfaceResetAnimation();
-				loseCrystal(life);
-				
-				clearTimeout(renderRedMonster);
-				cancelAnimationFrame(detectAnimation2);
+					block1.style.animation = "dropBlockReset1 1s forwards";
+					block1.style.webkitAnimation= "dropBlockReset1 1s forwards";
+					
+					var rM = document.getElementsByClassName("redMonster");	
+					
+					rM[0].style.display = "none";
+					rM[1].style.display = "none";
+					rM[2].style.display = "none";
+					rM[3].style.display = "none";
+					rM[4].style.display = "none";
+					
+					firstRedMonsterImage.style.display = "block";
+					
+					life=life-1;
+					
+					loseInterfaceResetAnimation();
+					loseCrystal(life);
+					
+					clearTimeout(renderRedMonster);
+					cancelAnimationFrame(detectAnimation2);
+				}
 			}
 		}
 
@@ -663,115 +665,115 @@ window.requestAnimFrame = (function(){
 			clearTimeout(renderRedMonster);
 			cancelAnimationFrame(detectAnimation3);
 		}
-		if( block1Percentage < 80){
-			pausedAllAnimation();
-				console.log(block1Percentage);
-				var dropBlock1Keyframes = document.createElement('style');
-				dropBlock1Keyframes.type = 'text/css';
-				var keyFrames = '\
-				@keyframes drop1{\
-					0%{\
-						left:value%;\
-						top: value2%;\
+		
+			if(characterTopPercentage < 75){
+				if( block1Percentage < 80){
+					pausedAllAnimation();
+					var dropBlock1Keyframes = document.createElement('style');
+					dropBlock1Keyframes.type = 'text/css';
+					var keyFrames = '\
+					@keyframes drop1{\
+						0%{\
+							left:value%;\
+							top: value2%;\
+						}\
+						50%{\
+							left:value%;\
+							top: 100%;\
+						}\
+						100%{\
+							left:value%;\
+							top: 100%;\
+						}\
 					}\
-					50%{\
-						left:value%;\
-						top: 100%;\
+					@-webkit-keyframes drop1{\
+						0%{\
+							left:value%;\
+							top: value2%;\
+						}\
+						50%{\
+							left:value%;\
+							top: 100%;\
+						}\
+						100%{\
+							left:value%;\
+							top: 100%;\
+						}\
+					}';
+					
+					var dropBlock1value = 
+					{
+						'value':characterLeftPercentage,
+						'value2':characterTopPercentage+1
+					};
+					
+					dropBlock1Keyframes.innerHTML = keyFrames.replace(/value|value2/g, m => dropBlock1value[m]);
+					document.getElementsByTagName('div')[10].appendChild(dropBlock1Keyframes);
+					
+					character.style.animation = "drop1 1s forwards";
+					character.style.webkitAnimation= "drop1 1s forwards";
+					
+					var dropBlock1Keyframes2 = document.createElement('style');
+					dropBlock1Keyframes2.type = 'text/css';
+					var keyFrames2 = '\
+					@keyframes dropBlock1{\
+						0%{\
+							left:blockLeft%;\
+							top: blockTop%;\
+						}\
+						50%{\
+							left:blockLeft%;\
+							top: 100%;\
+						}\
+						100%{\
+							left:blockLeft%;\
+							top: 100%;\
+						}\
 					}\
-					100%{\
-						left:value%;\
-						top: 100%;\
-					}\
-				}\
-				@-webkit-keyframes drop1{\
-					0%{\
-						left:value%;\
-						top: value2%;\
-					}\
-					50%{\
-						left:value%;\
-						top: 100%;\
-					}\
-					100%{\
-						left:value%;\
-						top: 100%;\
-					}\
-				}';
-				
-				var dropBlock1value = 
-				{
-					'value':characterLeftPercentage,
-					'value2':characterTopPercentage+1
-				};
-				
-				dropBlock1Keyframes.innerHTML = keyFrames.replace(/value|value2/g, m => dropBlock1value[m]);
-				console.log(dropBlock1Keyframes.innerHTML);
-				document.getElementsByTagName('div')[10].appendChild(dropBlock1Keyframes);
-				
-				character.style.animation = "drop1 1s forwards";
-				character.style.webkitAnimation= "drop1 1s forwards";
-				
-				var dropBlock1Keyframes2 = document.createElement('style');
-				dropBlock1Keyframes2.type = 'text/css';
-				var keyFrames2 = '\
-				@keyframes dropBlock1{\
-					0%{\
-						left:blockLeft%;\
-						top: blockTop%;\
-					}\
-					50%{\
-						left:blockLeft%;\
-						top: 100%;\
-					}\
-					100%{\
-						left:blockLeft%;\
-						top: 100%;\
-					}\
-				}\
-				@-webkit-keyframes dropBlock1{\
-					0%{\
-						left:blockLeft%;\
-						top: blockTop%;\
-					}\
-					50%{\
-						left:blockLeft%;\
-						top: 100%;\
-					}\
-					100%{\
-						left:blockLeft%;\
-						top: 100%;\
-					}\
-				}';
-				var dropBlock1 = 
-				{
-					'blockLeft': block1Percentage,
-					'blockTop': block1TopPercentage+42
-				};
+					@-webkit-keyframes dropBlock1{\
+						0%{\
+							left:blockLeft%;\
+							top: blockTop%;\
+						}\
+						50%{\
+							left:blockLeft%;\
+							top: 100%;\
+						}\
+						100%{\
+							left:blockLeft%;\
+							top: 100%;\
+						}\
+					}';
+					var dropBlock1 = 
+					{
+						'blockLeft': block1Percentage,
+						'blockTop': block1TopPercentage+42
+					};
 
-				dropBlock1Keyframes2.innerHTML = keyFrames2.replace(/blockLeft|blockTop/g, m => dropBlock1[m]);
-				console.log(dropBlock1Keyframes2.innerHTML);
-				document.getElementsByTagName('div')[19].appendChild(dropBlock1Keyframes2);
+					dropBlock1Keyframes2.innerHTML = keyFrames2.replace(/blockLeft|blockTop/g, m => dropBlock1[m]);
+					document.getElementsByTagName('div')[19].appendChild(dropBlock1Keyframes2);
 
-				block1.style.animation = "dropBlock1 1s forwards";
-				block1.style.webkitAnimation= "dropBlock1 1s forwards";
-				
-				var rM = document.getElementsByClassName("redMonster");	
+					block1.style.animation = "dropBlock1 1s forwards";
+					block1.style.webkitAnimation= "dropBlock1 1s forwards";
+					
+					var rM = document.getElementsByClassName("redMonster");	
 
-				rM[0].style.display = "none";
-				rM[1].style.display = "none";
-				rM[2].style.display = "none";
-				rM[3].style.display = "none";
-				rM[4].style.display = "none";
+					rM[0].style.display = "none";
+					rM[1].style.display = "none";
+					rM[2].style.display = "none";
+					rM[3].style.display = "none";
+					rM[4].style.display = "none";
 
-				firstRedMonsterImage.style.display = "block";
+					firstRedMonsterImage.style.display = "block";
 
-				life=life-1;
+					life=life-1;
 
-				loseCrystal(life);
-				loseInterfaceReset2Animation();
+					loseCrystal(life);
+					loseInterfaceReset2Animation();
 
-				clearTimeout(renderRedMonster);
-				cancelAnimationFrame(detectAnimation3);
+					clearTimeout(renderRedMonster);
+					cancelAnimationFrame(detectAnimation3);
+				}
 			}
 		}
 	}
@@ -1366,11 +1368,8 @@ window.requestAnimFrame = (function(){
 			block1Percentage = (100*block1LeftStyle)/BoxStyle;
 			
 			if (block1Percentage >= 43){
-			
-				console.log(block1Percentage);
 				
 				if (brick1Percentage > -46){
-					console.log(brick1Percentage);
 					if (toggle === 0) {
 						jumpAnimation(toggle)
 						toggle = 1;
