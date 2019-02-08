@@ -1396,6 +1396,8 @@ window.requestAnimFrame = (function(){
 		var data3 = e.target.id;
 		
 		console.log(data3);
+
+		console.log(toggle,blockToggle,brick3Toggle);
 		
 		if (data3 === "characterJump")
 		{
@@ -1410,6 +1412,7 @@ window.requestAnimFrame = (function(){
 			if (block1Percentage >= 43){
 				
 				if (brick1Percentage > -46){
+					
 					if (toggle === 0) {
 						jumpAnimation(toggle)
 						toggle = 1;
@@ -1419,14 +1422,12 @@ window.requestAnimFrame = (function(){
 						toggle = 0;
 					}
 				}
-				
 				if (brick1Percentage <= -46){
 					if(blockToggle === 0){
 						blockToggle = 1;
-						
 						var characterElement  = document.querySelector('#character');
 						var characterWidthStyle = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];
-
+				
 						characterLeftPercentage = (100*characterWidthStyle)/BoxStyle;
 				
 						var jumpBlock1Keyframes = document.createElement('style');
@@ -1505,13 +1506,13 @@ window.requestAnimFrame = (function(){
 					var characterTopStyle = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
 
 					characterTopPercentage = (100*characterTopStyle)/BoxStyle;
-
 				}
 			}
 
-			if (characterLeftPercentage > 45 && characterLeftPercentage < 46){
+			if (characterLeftPercentage > 45 && characterLeftPercentage < 46 && brick1Percentage <= -53 && brick1Percentage >= -58  ){
 				if(brick3Toggle === 0){
-					brick3Toggle = 1;		
+					console.log(brick1Percentage);
+					brick3Toggle = 1;	
 					var jumpBrick3Keyframes = document.createElement('style');
 					jumpBrick3Keyframes.type = 'text/css';
 					var keyFrames3 = '\
@@ -1525,7 +1526,7 @@ window.requestAnimFrame = (function(){
 							left: 24%;\
 						}\
 						20% {\
-							top: 30%;\
+							top: valueTop%;\
 							left: 29%;\
 						}\
 						30% {\
@@ -1533,11 +1534,11 @@ window.requestAnimFrame = (function(){
 							left: 34%;\
 						}\
 						40% {\
-							top: 30%;\
+							top: valueTop%;\
 							left: 39%;\
 						}\
 						100% {\
-							top: 30%;\
+							top: valueTop%;\
 							left: 39%;\
 						}\
 					}\
@@ -1551,7 +1552,7 @@ window.requestAnimFrame = (function(){
 							left: 24%;\
 						}\
 						20% {\
-							top: 30%;\
+							top: valueTop%;\
 							left: 29%;\
 						}\
 						30% {\
@@ -1559,11 +1560,11 @@ window.requestAnimFrame = (function(){
 							left: 34%;\
 						}\
 						40% {\
-							top: 30%;\
+							top: valueTop%;\
 							left: 39%;\
 						}\
 						100% {\
-							top: 30%;\
+							top: valueTop%;\
 							left: 39%;\
 						}\
 					}';
@@ -1576,14 +1577,12 @@ window.requestAnimFrame = (function(){
 											'39':(characterLeftPercentage+15),
 											'53':characterTopPercentage,
 											'51':(characterTopPercentage-2),
-											'30':(characterTopPercentage-23),
+											'valueTop':(characterTopPercentage-23),
 											'17':(characterTopPercentage-36)
 										};
 										
-					jumpBrick3Keyframes.innerHTML = keyFrames3.replace(/24|29|34|39|53|51|30|17/g, m => jumpBrick3Value[m]);
+					jumpBrick3Keyframes.innerHTML = keyFrames3.replace(/24|29|34|39|53|51|valueTop|17/g, m => jumpBrick3Value[m]);
 					document.getElementsByTagName('div')[10].appendChild(jumpBrick3Keyframes);
-					
-					console.log(jumpBrick3Keyframes.innerHTML);
 					
 					character.style.animation = " jumpBrick3 1s ease-in-out 1 forwards";
 					character.style.webkitAnimation = "jumpBrick3 1s ease-in-out 1 forwards";		
