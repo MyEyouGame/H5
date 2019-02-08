@@ -1535,8 +1535,8 @@
 		background-repeat:no-repeat;
 		overflow:hidden;
 		
-		animation :loseInterface 1s linear 0.5s forwards;
-		-webkit-animation:loseInterface 1s linear 0.5s  forwards;
+		animation :loseInterface 1s linear forwards;
+		-webkit-animation:loseInterface 1s linear forwards;
 		animation-play-state:paused;
 		-webkit-animation-play-state:paused;
 	}
