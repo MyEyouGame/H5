@@ -636,7 +636,6 @@ window.requestAnimFrame = (function(){
 		
 		if (brick1Percentage <= -58){
 			if(characterTopPercentage >= 75){
-				
 			pausedAllAnimation();
 			
 			var dropBlock1Keyframes = document.createElement('style');
@@ -1301,8 +1300,190 @@ window.requestAnimFrame = (function(){
 			crystalArray = [lifeCrystal1,lifeCrystal2,lifeCrystal3]
 			crystalArray[life].style.display = "none";
 		
+		if (life === 0){
+			pausedAllAnimation();
+			loseInterfaceAnimation();
+			loseInterfaceResetAnimation();
+			loseInterfaceReset2Animation();
+			
+			var rM = document.getElementsByClassName("redMonster");	
+			
+			rM[0].style.display = "none";
+			rM[1].style.display = "none";
+			rM[2].style.display = "none";
+			rM[3].style.display = "none";
+			rM[4].style.display = "none";
+
+			firstRedMonsterImage.style.display = "block";
+			clearTimeout(renderRedMonster);
+		}
    }
   
+	function getBox() {
+		var graveStone1Box = document.getElementById ("graveStone1Box");
+		var graveStone3Box = document.getElementById ("graveStone3Box");
+		var flowerMonsterAttack1 = document.getElementById ("flowerMonsterAttack1");
+		var character = document.getElementById ("character");	
+				
+		if (character.getBoundingClientRect) {
+			var rect = character.getBoundingClientRect ();
+			cl = rect.left;
+			ct = rect.top;
+			cr = rect.right - rect.left;
+			cb = rect.bottom - rect.top;  
+		}
+		if (graveStone1Box.getBoundingClientRect) {
+			var rect2 = graveStone1Box.getBoundingClientRect ();
+			gl = rect2.left;
+			gt = rect2.top;
+			gr = rect2.right - rect2.left;
+			gb = rect2.bottom - rect2.top;
+		}
+		if (graveStone3Box.getBoundingClientRect) {
+			var rect3 = graveStone3Box.getBoundingClientRect ();
+			x3 = rect3.left;
+			y3 = rect3.top;
+			w3 = rect3.right - rect3.left;
+			h3 = rect3.bottom - rect3.top;		
+		}
+		if (flowerMonsterAttack1.getBoundingClientRect) {
+			var rect4 = flowerMonsterAttack1.getBoundingClientRect ();
+			x4 = rect4.left;
+			y4 = rect4.top;
+			w4 = rect4.right - rect4.left;
+			h4 = rect4.bottom - rect4.top;
+			
+			return(cl,ct,gl,gt,x3,y3,x4,y4,cr,cb,gr,gb,w3,h3,w4,h4);
+		}
+	}
+	
+	var graveStone1Toggle = 0;
+	var graveStone3Toggle = 0;
+	var flowerMonster1Toggle = 0;
+	function monsterDetect(){
+		getBox();
+		monsterDetectValue = requestAnimationFrame(monsterDetect);
+		
+		if((cr<gr && cr>gl)||(cl>gl && cl<gr)){
+			// pausedAllAnimation();
+			if (graveStone1Toggle === 0){
+				graveStone1Toggle=1;
+			var BoxElement  = document.querySelector('#gameContainer');
+			var BoxStyle = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+
+			var characterElement  = document.querySelector('#character');
+			var characterWidthStyle = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];
+
+			characterLeftPercentage = (100*characterWidthStyle)/BoxStyle;
+				
+			var characterElement  = document.querySelector('#character');
+			var characterTopStyle = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+
+			characterTopPercentage = (100*characterTopStyle)/BoxStyle;
+
+				life=life-1;
+				loseCrystal(life);
+				
+				var loseLifeKeyframes = document.createElement('style');
+				loseLifeKeyframes.type = 'text/css';
+				var keyFrames4 = '\
+				@keyframes loseLife{\
+					0%{\
+						top: topValue%\
+						left: leftValue%\
+						opacity:1;\
+					}\
+					10%{\
+						opacity:0;\
+					}\
+					20%{\
+						opacity:1;\
+					}\
+					30%{\
+						opacity:0;\
+					}\
+					40%{\
+						opacity:1;\
+					}\
+					50%{\
+						opacity:0;\
+					}\
+					60%{\
+						opacity:1;\
+					}\
+					100%{\
+						top: topValue%\
+						left: leftValue%\
+						opacity:1;\
+					}\
+				}\
+				@-webkit-keyframes loseLife{\
+					0%{\
+						top: topValue%\
+						left: leftValue%\
+						opacity:1;\
+					}\
+					10%{\
+						opacity:0;\
+					}\
+					20%{\
+						opacity:1;\
+					}\
+					30%{\
+						opacity:0;\
+					}\
+					40%{\
+						opacity:1;\
+					}\
+					50%{\
+						opacity:0;\
+					}\
+					60%{\
+						opacity:1;\
+					}\
+					100%{\
+						top: topValue%\
+						left: leftValue%\
+						opacity:1;\
+					}\
+				}';
+			
+				var loseLifeValue = 
+									{
+										'a':characterLeftPercentage,
+										'b':characterTopPercentage
+									};
+									
+				loseLifeKeyframes.innerHTML = keyFrames4.replace(/topValue|leftValue/g, m => loseLifeValue[m]);
+				document.getElementsByTagName('div')[10].appendChild(loseLifeKeyframes);
+				
+				character.style.animation = " loseLife 1s ease-in-out 1 forwards";
+				character.style.webkitAnimation = "loseLife 1s ease-in-out 1 forwards";		
+
+				// cancelAnimationFrame(monsterDetectValue);
+			}
+		}
+		// if (x3<x && w3>w){
+			// if (graveStone3Toggle === 0){
+				// graveStone3Toggle=1;
+				// character.style.animation = " loseLife2 1s ease-in-out 1 forwards";
+				// character.style.webkitAnimation = "loseLife2 1s ease-in-out 1 forwards";		
+				// life=life-1;
+				// loseCrystal(life);
+			// }
+		// }
+		// if (x4<x){
+			
+			// if (flowerMonster1Toggle === 0){
+				// flowerMonster1Toggle=1;
+				// character.style.animation = " loseLife3 1s ease-in-out 1 forwards";
+				// character.style.webkitAnimation = "loseLife3 1s ease-in-out 1 forwards";		
+				// life=life-1;
+				// loseCrystal(life);
+			// }
+		// }
+	}
+	monsterDetect();
 	var toggle = 0; 
 	function jumpAnimation(toggle){
 		var t = toggle ; 
@@ -1368,6 +1549,9 @@ window.requestAnimFrame = (function(){
 			console.log(life);
 			blockToggle = 0;
 			brick3Toggle = 0;
+			graveStone1Toggle = 0;
+			// graveStone2Toggle = 0;
+			graveStone3Toggle = 0;
 			if(life === 2){
 				character.style.animation= "none 1s ease-out";
 				firstRedMonsterImage.style.display = "none";
@@ -1394,21 +1578,31 @@ window.requestAnimFrame = (function(){
 	
 	function mouseDown3(e) {
 		var data3 = e.target.id;
-		
+		console.log(character.style.left);
 		console.log(data3);
-
-		console.log(toggle,blockToggle,brick3Toggle);
-		
 		if (data3 === "characterJump")
 		{
-			var block1Element  = document.querySelector('#block1');
-			var block1LeftStyle = getComputedStyle(block1Element).getPropertyValue("left").split("px")[0];
-
 			var BoxElement  = document.querySelector('#gameContainer');
 			var BoxStyle = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
-
+			
+			var block1Element  = document.querySelector('#block1');
+			var block1LeftStyle = getComputedStyle(block1Element).getPropertyValue("left").split("px")[0];
 			block1Percentage = (100*block1LeftStyle)/BoxStyle;
 			
+			var block1Element  = document.querySelector('#block1');
+			var block1LeftStyle = getComputedStyle(block1Element).getPropertyValue("left").split("px")[0];
+			block1Percentage = (100*block1LeftStyle)/BoxStyle;
+			
+			var brick4Element  = document.querySelector('#brick4');
+			var brick4LeftStyle = getComputedStyle(block1Element).getPropertyValue("left").split("px")[0];
+			brick4Percentage = (100*brick4LeftStyle)/BoxStyle;
+					
+			var characterElement  = document.querySelector('#character');
+			var characterWidthStyle = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];
+			characterLeftPercentage = (100*characterWidthStyle)/BoxStyle;
+	
+			console.log(brick4Percentage);		
+					
 			if (block1Percentage >= 43){
 				
 				if (brick1Percentage > -46){
@@ -1425,11 +1619,7 @@ window.requestAnimFrame = (function(){
 				if (brick1Percentage <= -46){
 					if(blockToggle === 0){
 						blockToggle = 1;
-						var characterElement  = document.querySelector('#character');
-						var characterWidthStyle = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];
-				
-						characterLeftPercentage = (100*characterWidthStyle)/BoxStyle;
-				
+
 						var jumpBlock1Keyframes = document.createElement('style');
 						jumpBlock1Keyframes.type = 'text/css';
 						var keyFrames = '\
@@ -1493,7 +1683,7 @@ window.requestAnimFrame = (function(){
 												'34':(characterLeftPercentage+10),
 												'39':(characterLeftPercentage+15)
 											};
-											
+											/24|29|34|39/
 						jumpBlock1Keyframes.innerHTML = keyFrames.replace(/24|29|34|39/g, m => jumpBlock1Value[m]);
 						document.getElementsByTagName('div')[10].appendChild(jumpBlock1Keyframes);
 						
@@ -1508,10 +1698,8 @@ window.requestAnimFrame = (function(){
 					characterTopPercentage = (100*characterTopStyle)/BoxStyle;
 				}
 			}
-
-			if (characterLeftPercentage > 45 && characterLeftPercentage < 46 && brick1Percentage <= -53 && brick1Percentage >= -58  ){
+			if (characterLeftPercentage > 45 && characterLeftPercentage < 46 && (brick1Percentage < -53 && brick1Percentage > -59)  ){
 				if(brick3Toggle === 0){
-					console.log(brick1Percentage);
 					brick3Toggle = 1;	
 					var jumpBrick3Keyframes = document.createElement('style');
 					jumpBrick3Keyframes.type = 'text/css';
@@ -1567,6 +1755,22 @@ window.requestAnimFrame = (function(){
 							top: valueTop%;\
 							left: 39%;\
 						}\
+					}\
+					@keyframes characterBackward1{\
+						0% {\
+							left: 60.99%;\
+						}\
+						100% {\
+							left: 32%;\
+						}\
+					}\
+					@-webkit-keyframes characterBackward1{\
+						0% {\
+							left: 60.99%;\
+						}\
+						100% {\
+							left: 32%;\
+						}\
 					}';
 				
 					var jumpBrick3Value = 
@@ -1584,18 +1788,597 @@ window.requestAnimFrame = (function(){
 					jumpBrick3Keyframes.innerHTML = keyFrames3.replace(/24|29|34|39|53|51|valueTop|17/g, m => jumpBrick3Value[m]);
 					document.getElementsByTagName('div')[10].appendChild(jumpBrick3Keyframes);
 					
-					character.style.animation = " jumpBrick3 1s ease-in-out 1 forwards";
-					character.style.webkitAnimation = "jumpBrick3 1s ease-in-out 1 forwards";		
-
+					character.style.animation = " jumpBrick3 1s ease-in-out forwards,characterBackward1 2.5s ease-in-out 0.5s forwards";
+					character.style.webkitAnimation = "jumpBrick3 1s ease-in-out forwards,characterBackward1 2.5s ease-in-out 0.5s forwards";		
+					
 				}
 			}
-			
+			if(brick4Percentage>-7 && brick4Percentage<0 ){
+				
+				console.log(characterLeftPercentage,characterTopPercentage);
+				
+				var jumpBrick4Keyframes = document.createElement('style');
+					jumpBrick4Keyframes.type = 'text/css';
+					var brick4Keyframes = '\
+					@keyframes jump{\
+						0% {\
+							top: t1%;\
+							left: l1%;\
+						}\
+						5% {\
+							top: t2%;\
+							left: l2%;\
+						}\
+						10% {\
+							top: t3%;\
+							left: l3%;\
+						}\
+						15% {\
+							top: t4%;\
+							left: l4%;\
+						}\
+						20% {\
+							top: t5%;\
+							left: l5%;\
+						}\
+						25% {\
+							top: t6%;\
+							left: l6%;\
+						}\
+						30% {\
+							top: t6%;\
+							left: l7%;\
+						}\
+						35% {\
+							top: t5%;\
+							left: l8%;\
+						}\
+						40% {\
+							top: t4%;\
+							left: l9%;\
+						}\
+						45% {\
+							top: t3%;\
+							left: le10%;\
+						}\
+						50% {\
+							top: t2%;\
+							left: le11%;\
+						}\
+						55% {\
+							top: t1%;\
+							left: le11%;\
+						}\
+						100%{\
+							top: t1%;\
+							left: le11%;\
+						}\
+					}\
+					@-webkit-keyframes jump{\
+						0% {\
+							top: t1%;\
+							left: l1%;\
+						}\
+						5% {\
+							top: t2%;\
+							left: l2%;\
+						}\
+						10% {\
+							top: t3%;\
+							left: l3%;\
+						}\
+						15% {\
+							top: t4%;\
+							left: l4%;\
+						}\
+						20% {\
+							top: t5%;\
+							left: l5%;\
+						}\
+						25% {\
+							top: t6%;\
+							left: l6%;\
+						}\
+						30% {\
+							top: t6%;\
+							left: l7%;\
+						}\
+						35% {\
+							top: t5%;\
+							left: l8%;\
+						}\
+						40% {\
+							top: t4%;\
+							left: l9%;\
+						}\
+						45% {\
+							top: t3%;\
+							left: le10%;\
+						}\
+						50% {\
+							top: t2%;\
+							left: le11%;\
+						}\
+						100%{\
+							top: t1%;\
+							left: le11%;\
+						}\
+					}';
+				
+				var jumpBrick4Value = 
+					{
+						't1':characterTopPercentage,
+						't2':(characterTopPercentage-7),
+						't3':(characterTopPercentage-14),
+						't4':(characterTopPercentage-21),
+						't5':(characterTopPercentage-28),
+						't6':(characterTopPercentage-35),			
+						'l1':characterLeftPercentage,
+						'l2':(characterLeftPercentage+1),
+						'l3':(characterLeftPercentage+2),
+						'l4':(characterLeftPercentage+3),
+						'l5':(characterLeftPercentage+4),
+						'l6':(characterLeftPercentage+5),
+						'l7':(characterLeftPercentage+6),
+						'l8':(characterLeftPercentage+7),
+						'l9':(characterLeftPercentage+8),
+						'le10':(characterLeftPercentage+9),
+						'le11':(characterLeftPercentage+10)		
+					}
+				
+				jumpBrick4Keyframes.innerHTML = brick4Keyframes.replace(/t1|t2|t3|t4|t5|t6|l1|l2|l3|l4|l5|l6|l7|l8|l9|le10|le11/g, m => jumpBrick4Value[m]);
+				document.getElementsByTagName('div')[10].appendChild(jumpBrick4Keyframes);
+
+				console.log(jumpBrick4Keyframes.innerHTML);
+				
+				character.style.animation = " jump 1s linear forwards";
+				character.style.webkitAnimation = "jump 1s linear forwards";		
+								
+			}
+		
 		}
 	}
 	
 	function touchstart(e) {
 		var data = e.target.id;
+		
 		console.log(data);
+		
+		if (data === "startButton" || "mainCharacter"  || "handCursor" )
+		{
+			handCursor.style.webkitAnimationPlayState = "paused";
+			handCursor.style.animationPlayState = "paused";		
+			handCursor.style.display = "none";
+			handCursor.style.zIndex = "-1";
+			mainCharacter.style.display = "none";
+			mainCharacter.style.zIndex = "-1";
+			startButton.style.display = "none";
+			startButton.style.zIndex = "-1";
+			firstCharacterImage.style.display = "none";
+			
+			characterJump.style.zIndex = "5";
+			
+			var non = "block";
+			document.getElementById('firstRedMonsterImage').style.display = non;
+
+			doTimer(
+			2000,20,function(steps){
+						non = non - (1 / steps);
+						document.getElementById('firstRedMonsterImage').style.display = non;				
+						},
+			function(){
+						document.getElementById('firstRedMonsterImage').style.display = "none";										
+						redMonsterAnimation();
+					}						
+			);
+			
+			startAnimation();
+			detectAnimation = requestAnimationFrame(detectValue);
+		}
+	}
+	
+	var blockToggle = 0 ;
+	var brick3Toggle = 0 ;
+	function touchstart2(e) {
+		var data2 = e.target.id;
+		
+		console.log(data2);
+		
+		if (data2 === "loseInterface" || "loseStar"  || "loseStar2" || 
+		"loseStar3" || "again1" || "again2" || "again3" || "again4" ||
+		"loseHandCursor")
+		{
+			console.log(life);
+			blockToggle = 0;
+			brick3Toggle = 0;
+			graveStone1Toggle = 0;
+			// graveStone2Toggle = 0;
+			graveStone3Toggle = 0;
+			if(life === 2){
+				character.style.animation= "none 1s ease-out";
+				firstRedMonsterImage.style.display = "none";
+				redMonsterAnimation();
+				clearLoseInterface();
+				resetAnimation();
+				detectAnimation2 = requestAnimationFrame(detectValue2);
+			}
+			
+			if(life === 1){
+				character.style.animation= "none 1s ease-out";
+				firstRedMonsterImage.style.display = "none";
+				redMonsterAnimation();
+				clearLoseInterface();
+				resetAnimation2();
+				detectAnimation3 = requestAnimationFrame(detectValue3);
+			}
+			
+			if(life === 0){
+				location.reload();
+			}
+		}
+	}
+	
+	function touchstart3(e) {
+		var data3 = e.target.id;
+		console.log(character.style.left);
+		console.log(data3);
+		if (data3 === "characterJump")
+		{
+			var BoxElement  = document.querySelector('#gameContainer');
+			var BoxStyle = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+			
+			var block1Element  = document.querySelector('#block1');
+			var block1LeftStyle = getComputedStyle(block1Element).getPropertyValue("left").split("px")[0];
+			block1Percentage = (100*block1LeftStyle)/BoxStyle;
+			
+			var block1Element  = document.querySelector('#block1');
+			var block1LeftStyle = getComputedStyle(block1Element).getPropertyValue("left").split("px")[0];
+			block1Percentage = (100*block1LeftStyle)/BoxStyle;
+			
+			var brick4Element  = document.querySelector('#brick4');
+			var brick4LeftStyle = getComputedStyle(block1Element).getPropertyValue("left").split("px")[0];
+			brick4Percentage = (100*brick4LeftStyle)/BoxStyle;
+					
+			var characterElement  = document.querySelector('#character');
+			var characterWidthStyle = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];
+			characterLeftPercentage = (100*characterWidthStyle)/BoxStyle;
+	
+			console.log(brick4Percentage);		
+					
+			if (block1Percentage >= 43){
+				
+				if (brick1Percentage > -46){
+					
+					if (toggle === 0) {
+						jumpAnimation(toggle)
+						toggle = 1;
+					}
+					else if (toggle === 1) {
+						jumpAnimation(toggle)
+						toggle = 0;
+					}
+				}
+				if (brick1Percentage <= -46){
+					if(blockToggle === 0){
+						blockToggle = 1;
+
+						var jumpBlock1Keyframes = document.createElement('style');
+						jumpBlock1Keyframes.type = 'text/css';
+						var keyFrames = '\
+						@keyframes jumpBlock1{\
+							0% {\
+								top: 76%;\
+								left: 24%;\
+							}\
+							10% {\
+								top: 74%;\
+								left: 24%;\
+							}\
+							20% {\
+								top: 53%;\
+								left: 29%;\
+							}\
+							30% {\
+								top: 40%;\
+								left: 34%;\
+							}\
+							40% {\
+								top: 53%;\
+								left: 39%;\
+							}\
+							100% {\
+								top: 53%;\
+								left: 39%;\
+							}\
+						}\
+						@-webkit-keyframes jumpBlock1{\
+							0% {\
+								top: 76%;\
+								left: 24%;\
+							}\
+							10% {\
+								top: 74%;\
+								left: 24%;\
+							}\
+							20% {\
+								top: 53%;\
+								left: 29%;\
+							}\
+							30% {\
+								top: 40%;\
+								left: 34%;\
+							}\
+							40% {\
+								top: 53%;\
+								left: 39%;\
+							}\
+							100% {\
+								top: 53%;\
+								left: 39%;\
+							}\
+						}';
+					
+						var jumpBlock1Value = 
+											{
+												'24':characterLeftPercentage,
+												'29':(characterLeftPercentage+5),
+												'34':(characterLeftPercentage+10),
+												'39':(characterLeftPercentage+15)
+											};
+											/24|29|34|39/
+						jumpBlock1Keyframes.innerHTML = keyFrames.replace(/24|29|34|39/g, m => jumpBlock1Value[m]);
+						document.getElementsByTagName('div')[10].appendChild(jumpBlock1Keyframes);
+						
+						character.style.animation = " jumpBlock1 1s ease-in-out 1 forwards";
+						character.style.webkitAnimation = "jumpBlock1 1s ease-in-out 1 forwards";		
+						
+					}
+					
+					var characterElement  = document.querySelector('#character');
+					var characterTopStyle = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+
+					characterTopPercentage = (100*characterTopStyle)/BoxStyle;
+				}
+			}
+			if (characterLeftPercentage > 45 && characterLeftPercentage < 46 && (brick1Percentage < -53 && brick1Percentage > -59)  ){
+				if(brick3Toggle === 0){
+					brick3Toggle = 1;	
+					var jumpBrick3Keyframes = document.createElement('style');
+					jumpBrick3Keyframes.type = 'text/css';
+					var keyFrames3 = '\
+					@keyframes jumpBrick3{\
+						0% {\
+							top: 53%;\
+							left: 24%;\
+						}\
+						10% {\
+							top: 51%;\
+							left: 24%;\
+						}\
+						20% {\
+							top: valueTop%;\
+							left: 29%;\
+						}\
+						30% {\
+							top: 17%;\
+							left: 34%;\
+						}\
+						40% {\
+							top: valueTop%;\
+							left: 39%;\
+						}\
+						100% {\
+							top: valueTop%;\
+							left: 39%;\
+						}\
+					}\
+					@-webkit-keyframes jumpBrick3{\
+						0% {\
+							top: 53%;\
+							left: 24%;\
+						}\
+						10% {\
+							top: 51%;\
+							left: 24%;\
+						}\
+						20% {\
+							top: valueTop%;\
+							left: 29%;\
+						}\
+						30% {\
+							top: 17%;\
+							left: 34%;\
+						}\
+						40% {\
+							top: valueTop%;\
+							left: 39%;\
+						}\
+						100% {\
+							top: valueTop%;\
+							left: 39%;\
+						}\
+					}\
+					@keyframes characterBackward1{\
+						0% {\
+							left: 60.99%;\
+						}\
+						100% {\
+							left: 32%;\
+						}\
+					}\
+					@-webkit-keyframes characterBackward1{\
+						0% {\
+							left: 60.99%;\
+						}\
+						100% {\
+							left: 32%;\
+						}\
+					}';
+				
+					var jumpBrick3Value = 
+										{
+											'24':characterLeftPercentage,
+											'29':(characterLeftPercentage+5),
+											'34':(characterLeftPercentage+10),
+											'39':(characterLeftPercentage+15),
+											'53':characterTopPercentage,
+											'51':(characterTopPercentage-2),
+											'valueTop':(characterTopPercentage-23),
+											'17':(characterTopPercentage-36)
+										};
+										
+					jumpBrick3Keyframes.innerHTML = keyFrames3.replace(/24|29|34|39|53|51|valueTop|17/g, m => jumpBrick3Value[m]);
+					document.getElementsByTagName('div')[10].appendChild(jumpBrick3Keyframes);
+					
+					character.style.animation = " jumpBrick3 1s ease-in-out forwards,characterBackward1 2.5s ease-in-out 0.5s forwards";
+					character.style.webkitAnimation = "jumpBrick3 1s ease-in-out forwards,characterBackward1 2.5s ease-in-out 0.5s forwards";		
+					
+				}
+			}
+			if(brick4Percentage>-7 && brick4Percentage<0 ){
+				
+				console.log(characterLeftPercentage,characterTopPercentage);
+				
+				var jumpBrick4Keyframes = document.createElement('style');
+					jumpBrick4Keyframes.type = 'text/css';
+					var brick4Keyframes = '\
+					@keyframes jump{\
+						0% {\
+							top: t1%;\
+							left: l1%;\
+						}\
+						5% {\
+							top: t2%;\
+							left: l2%;\
+						}\
+						10% {\
+							top: t3%;\
+							left: l3%;\
+						}\
+						15% {\
+							top: t4%;\
+							left: l4%;\
+						}\
+						20% {\
+							top: t5%;\
+							left: l5%;\
+						}\
+						25% {\
+							top: t6%;\
+							left: l6%;\
+						}\
+						30% {\
+							top: t6%;\
+							left: l7%;\
+						}\
+						35% {\
+							top: t5%;\
+							left: l8%;\
+						}\
+						40% {\
+							top: t4%;\
+							left: l9%;\
+						}\
+						45% {\
+							top: t3%;\
+							left: le10%;\
+						}\
+						50% {\
+							top: t2%;\
+							left: le11%;\
+						}\
+						55% {\
+							top: t1%;\
+							left: le11%;\
+						}\
+						100%{\
+							top: t1%;\
+							left: le11%;\
+						}\
+					}\
+					@-webkit-keyframes jump{\
+						0% {\
+							top: t1%;\
+							left: l1%;\
+						}\
+						5% {\
+							top: t2%;\
+							left: l2%;\
+						}\
+						10% {\
+							top: t3%;\
+							left: l3%;\
+						}\
+						15% {\
+							top: t4%;\
+							left: l4%;\
+						}\
+						20% {\
+							top: t5%;\
+							left: l5%;\
+						}\
+						25% {\
+							top: t6%;\
+							left: l6%;\
+						}\
+						30% {\
+							top: t6%;\
+							left: l7%;\
+						}\
+						35% {\
+							top: t5%;\
+							left: l8%;\
+						}\
+						40% {\
+							top: t4%;\
+							left: l9%;\
+						}\
+						45% {\
+							top: t3%;\
+							left: le10%;\
+						}\
+						50% {\
+							top: t2%;\
+							left: le11%;\
+						}\
+						100%{\
+							top: t1%;\
+							left: le11%;\
+						}\
+					}';
+				
+				var jumpBrick4Value = 
+					{
+						't1':characterTopPercentage,
+						't2':(characterTopPercentage-7),
+						't3':(characterTopPercentage-14),
+						't4':(characterTopPercentage-21),
+						't5':(characterTopPercentage-28),
+						't6':(characterTopPercentage-35),			
+						'l1':characterLeftPercentage,
+						'l2':(characterLeftPercentage+1),
+						'l3':(characterLeftPercentage+2),
+						'l4':(characterLeftPercentage+3),
+						'l5':(characterLeftPercentage+4),
+						'l6':(characterLeftPercentage+5),
+						'l7':(characterLeftPercentage+6),
+						'l8':(characterLeftPercentage+7),
+						'l9':(characterLeftPercentage+8),
+						'le10':(characterLeftPercentage+9),
+						'le11':(characterLeftPercentage+10)		
+					}
+				
+				jumpBrick4Keyframes.innerHTML = brick4Keyframes.replace(/t1|t2|t3|t4|t5|t6|l1|l2|l3|l4|l5|l6|l7|l8|l9|le10|le11/g, m => jumpBrick4Value[m]);
+				document.getElementsByTagName('div')[10].appendChild(jumpBrick4Keyframes);
+
+				console.log(jumpBrick4Keyframes.innerHTML);
+				
+				character.style.animation = " jump 1s linear forwards";
+				character.style.webkitAnimation = "jump 1s linear forwards";		
+								
+			}
+		
+		}
 	}
 	
 	var g = document.getElementById("gameContainer");

@@ -14,85 +14,56 @@
 <body onload="lp()">
 <div id="loader"></div>
  <div id="gameContainer" class="gameContainer animate-bottom" alt="HTML5 Game Example" width="2560" height="1600">
- 
-	<div id="characterJump" onmousedown="mouseDown3(event)" ontouchstart="touchstart3(event)"></div>
- 
-	<div id="headFrame"></div>
-	<div id="lifeCrystal1"></div>
-	<div id="lifeCrystal2"></div>
-	<div id="lifeCrystal3"></div>
-
-	<div id="mainCharacter" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
-	<div id="startButton" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
-	<div id="handCursor" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
- 
-	<div id="character"><div id="firstCharacterImage"></div></div>
-	<div id="redMonster"><div id="firstRedMonsterImage"></div></div>
- 
-	<div id="greenGradient"></div>
-	<div id="redGradient"></div>
-	
-	<div id="screen1">
-			<div id="brick1"></div>
+	<div id="background">
+		<div id="greenGradient"></div>
+		<div id="redGradient"></div>
+	</div>
+	<div id="life" >
+		<div id="headFrame"></div>
+		<div id="lifeCrystal1"></div>
+		<div id="lifeCrystal2"></div>
+		<div id="lifeCrystal3"></div>
+		<div id="pointsBox"><div id="points">0000</div></div>
+	</div>
+	<div id="obstacleExtend">
+		<div id="brick1"></div>
+	</div>
+	<div id="obstacle">
 			<div id="brick2"></div>
-			<div id="block1"></div>
-	</div>
-	
-	<div id="screen2">
-		<div id="brick3"></div>
-		<div id="brick4"></div>
-		<div id="brick5"></div>
-		<div id="graveStone1"><div id="graveStone1Box"></div></div>
-		<div id="graveStone2"><div id="graveStone2Box"></div></div>
-		<div id="graveStone3"><div id="graveStone3Box"></div></div>
-		<div id="flowerMonsterBox1">
-			<div id="flowerMonster1">
-				<div id="flowerMonsterAttack1"></div>
-			</div>
-		</div>
-		<div id="treeMonsterBox1">
+			<div id="block"></div>
+			<div id="brick3"></div>
+			<div id="graveStone1"><div id="graveStone1Box"></div></div>
+			
+			<div id="brick4"></div>
+			<div id="brick5"></div>
+			<div id="graveStone2"><div id="graveStone2Box"></div></div>
+			<div id="flowerMonster1"></div>
 			<div id="treeMonster1"></div>
-		</div>
-		<div id="treeMonsterBox2">
 			<div id="treeMonster2"></div>
-		</div>
-		<div id="longFire"></div>
+			<div id="graveStone3"><div id="graveStone3Box"></div></div>
+			<div id="longFire"></div>
+			
+			<div id="brick6"></div>
+			<div id="flowerMonster2"></div>
+			<div id="graveStone4"></div>
+			<div id="brick7"></div>
+			<div id="key"></div>
+			<div id="brick8"></div>
+			<div id="shortFire1"></div>
+			<div id="brick9"></div>
+			<div id="shortFire2"></div>
+			<div id="brick10"></div>
+			<div id="reward"></div>
+			<div id="exclamationMark"></div>
 	</div>
-	
-	<div id="screen3">
-		<div id="brick6"></div>
-		<div id="brick7"></div>
-		<div id="brick8"></div>
-		<div id="brick9"></div>
-		<div id="brick10"></div>
-		<div id="graveStone4"></div>
-		<div id="flowerMonsterBox2">
-			<div id="flowerMonster2">
-				<div id="flowerMonsterAttack2"></div>
-			</div>
-		</div>
-		<div id="key1"></div>
-		<div id="shortFire"></div>
-		
-		<div id="reward"></div>
-		<div id="exclamationMark"></div>
+	<div id="protagonist">
+		<div id="firstRedMonsterImage"></div>
+		<div id="redMonster"></div>
+		<div id="firstCharacterImage"></div>
+		<div id="character"></div>
 	</div>
-	
-	<div id="grayscaleLayer"></div>
-	<div id="winInterface"></div>
-	<div id="loseInterface" onmousedown="mouseDown2(event)" ontouchstart="touchstart2(event)">
-		<div id="loseStar" onmousedown="mouseDown2(event)" ontouchstart="touchstart2(event)"></div>
-		<div id="loseStar2" onmousedown="mouseDown2(event)" ontouchstart="touchstart2(event)"></div>
-		<div id="loseStar3" onmousedown="mouseDown2(event)" ontouchstart="touchstart2(event)"></div>
+	<div id="jumpEvent" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)">
 	</div>
-		<div id="sad" onmousedown="mouseDown2(event)" ontouchstart="touchstart2(event)"></div>
-		
-		<div id="again1" onmousedown="mouseDown2(event)" ontouchstart="touchstart2(event)"></div>
-		<div id="again2" onmousedown="mouseDown2(event)" ontouchstart="touchstart2(event)"></div>
-		<div id="again3" onmousedown="mouseDown2(event)" ontouchstart="touchstart2(event)"></div>
-		<div id="again4" onmousedown="mouseDown2(event)" ontouchstart="touchstart2(event)"></div>
-	
-		<div id="loseHandCursor" onmousedown="mouseDown2(event)" ontouchstart="touchstart2(event)"></div>
  </div>
 	<script src="landscape.js" ></script>
 	<noscript> <p>Please,Turn "on" you Javascript or your browser lacks support.</p> </noscript> 

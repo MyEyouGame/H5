@@ -193,6 +193,7 @@
 	#character{
 		position: absolute;
 		z-index:1;
+		opacity:1;
 		top: 76%;
 		left: 24%;
 		height: 17%;
@@ -255,108 +256,7 @@
 			top: 100%;
 		}
 	}	
-		
-	@keyframes jump{
-		0% {
-			top: 76%;
-			left: 24%;
-		}
-		5% {
-			top: 68.8%;
-			left: 24%;
-		}
-		10% {
-			top: 61.6%;
-			left: 24%;
-		}
-		15% {
-			top: 54.4%;
-			left: 26%;
-		}
-		20% {
-			top: 47.2%;
-			left: 28%;
-		}
-		25% {
-			top: 40%;
-			left: 30%;
-		}
-		30% {
-			top: 40%;
-			left: 32%;
-		}
-		35% {
-			top: 47.2%;
-			left: 34%;
-		}
-		40% {
-			top: 54.4%;
-			left: 36%;
-		}
-		45% {
-			top: 61.6%;
-			left: 38%;
-		}
-		50% {
-			top: 76%;
-			left: 40%;
-		}
-		100%{
-			top: 76%;
-			left: 40%;
-		}
-	}
-	@-webkit-keyframes jump{
-		0% {
-			top: 76%;
-			left: 24%;
-		}
-		5% {
-			top: 68.8%;
-			left: 24%;
-		}
-		10% {
-			top: 61.6%;
-			left: 24%;
-		}
-		15% {
-			top: 54.4%;
-			left: 26%;
-		}
-		20% {
-			top: 47.2%;
-			left: 28%;
-		}
-		25% {
-			top: 40%;
-			left: 30%;
-		}
-		30% {
-			top: 40%;
-			left: 32%;
-		}
-		35% {
-			top: 47.2%;
-			left: 34%;
-		}
-		40% {
-			top: 54.4%;
-			left: 36%;
-		}
-		45% {
-			top: 61.6%;
-			left: 38%;
-		}
-		50% {
-			top: 76%;
-			left: 40%;
-		}
-		100%{
-			top: 76%;
-			left: 40%;
-		}
-	}
-		
+			
 	@keyframes jump1{
 		0%{
 			top: 76%;
@@ -601,7 +501,7 @@
 			left: 3%;
 		}
 		100%{
-			left: -18%;
+			left: -25%;
 		}
 	}
 	@-webkit-keyframes redMonster{
@@ -609,7 +509,7 @@
 			left: 3%;
 		}
 		100%{
-			left: -18%;
+			left: -25%;
 		}
 	}
 	
@@ -618,7 +518,7 @@
 			left: 3%;
 		}
 		100%{
-			left: -18%;
+			left: -25%;
 		}
 	}
 	@-webkit-keyframes redMonsterReset{
@@ -626,13 +526,13 @@
 			left: 3%;
 		}
 		100%{
-			left: -18%;
+			left: -25%;
 		}
 	}
 	
 	@keyframes redMonster2{
 		0%{
-			left: -18%;
+			left: -25%;
 		}
 		10%{
 			left: 3%;
@@ -641,10 +541,10 @@
 			left: 3%;
 		}
 		30%{
-			left: -18%;
+			left: -25%;
 		}
 		100%{
-			left: -18%;
+			left: -25%;
 		}
 	}
 	@-webkit-keyframes redMonster2{
@@ -658,16 +558,16 @@
 			left: 3%;
 		}
 		30%{
-			left: -18%;
+			left: -25%;
 		}
 		100%{
-			left: -18%;
+			left: -25%;
 		}
 	}
 		
 	@keyframes redMonsterReset2{
 		0%{
-			left: -18%;
+			left: -25%;
 		}
 		10%{
 			left: 3%;
@@ -676,15 +576,15 @@
 			left: 3%;
 		}
 		30%{
-			left: -18%;
+			left: -25%;
 		}
 		100%{
-			left: -18%;
+			left: -25%;
 		}
 	}
 	@-webkit-keyframes redMonsterReset2{
 		0%{
-			left: -18%;
+			left: -25%;
 		}
 		10%{
 			left: 3%;
@@ -693,10 +593,10 @@
 			left: 3%;
 		}
 		30%{
-			left: -18%;
+			left: -25%;
 		}
 		100%{
-			left: -18%;
+			left: -25%;
 		}
 	}
 		
@@ -1539,6 +1439,8 @@
 		-webkit-animation:loseInterface 1s linear forwards;
 		animation-play-state:paused;
 		-webkit-animation-play-state:paused;
+		
+		display:none;
 	}
 	
 	@keyframes loseInterface{
@@ -3262,6 +3164,7 @@
 		height: 100%;
 		left: 35%;
 		width: 31%;
+		border:solid;
 		background-Size : 100% 100%; 
 		background-repeat:no-repeat;
 		overflow:hidden;
@@ -4105,5 +4008,105 @@
 		}
 		100%{
 			top: 100%;
+		}
+	}
+	
+	#graveStone1Box,#graveStone3Box{
+		position:absolute;	
+		top: 8%;
+		left: 31%;
+		height: 83%;
+		width: 43%;
+		border:solid;
+	}
+	
+	@keyframes loseLife2{
+		0%{
+			top:30%;
+			left:31%;
+			opacity:1;
+		}
+		10%{
+			opacity:0;
+		}
+		20%{
+			opacity:1;
+		}
+		30%{
+			opacity:0;
+		}
+		40%{
+			opacity:1;
+		}
+		50%{
+			opacity:0;
+		}
+		60%{
+			opacity:1;
+		}
+		100%{
+			top:30%;
+			left:31%;
+			opacity:1;
+		}
+	}
+	@-webkit-keyframes loseLife2{
+		0%{
+			top:30%;
+			left:31%;
+			opacity:1;
+		}
+		10%{
+			opacity:0;
+		}
+		20%{
+			opacity:1;
+		}
+		30%{
+			opacity:0;
+		}
+		40%{
+			opacity:1;
+		}
+		50%{
+			opacity:0;
+		}
+		60%{
+			opacity:1;
+		}
+		100%{
+			top:30%;
+			left:31%;
+			opacity:1;
+		}
+	}
+	@-webkit-keyframes loseLife3{
+		0%{
+			top:30%;
+			left:31%;
+			opacity:1;
+		}
+		10%{
+			opacity:0;
+		}
+		20%{
+			opacity:1;
+		}
+		30%{
+			opacity:0;
+		}
+		40%{
+			opacity:1;
+		}
+		50%{
+			opacity:0;
+		}
+		60%{
+			opacity:1;
+		}
+		100%{
+			top:30%;
+			left:31%;
+			opacity:1;
 		}
 	}
