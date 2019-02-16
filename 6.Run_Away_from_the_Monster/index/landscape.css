@@ -156,6 +156,7 @@
 		left: 4%;
 		height: 31%;
 		width: 20%;
+
 		/* border: 1px solid blue; */
 		
 		animation :none 20s linear 1 forwards;
@@ -471,8 +472,30 @@
 			height: 83%;
 			width: 25%;
 			
-			/* border:solid; */
+			border: solid 0.02px;
 		}
+		
+		#flowerMonster1Box{
+			position:absolute;	
+			top: 7%;
+			left: 38%;
+			height: 70%;
+			width: 26%;
+			
+			border: solid 0.02px;
+		}
+		
+		#treeMonster2Box{
+			position:absolute;	
+			top: 14%;
+			left: 21%;
+			height: 77%;
+			width: 53%;
+			
+			border: solid 0.02px;
+		}
+		
+		
 		#brick4{
 			position:absolute;	
 			top: 88%;
