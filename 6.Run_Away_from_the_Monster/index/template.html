@@ -14,6 +14,7 @@
 <body onload="lp()">
 <div id="loader"></div>
  <div id="gameContainer" class="gameContainer animate-bottom" alt="HTML5 Game Example" width="2560" height="1600">
+
 	<div id="background">
 		<div id="greenGradient"></div>
 		<div id="redGradient"></div>
@@ -24,13 +25,33 @@
 		<div id="lifeCrystal2"></div>
 		<div id="lifeCrystal3"></div>
 		<div id="pointsBox"><div id="points">0000</div></div>
+		<div id="keyDisplay"></div>
+	</div>
+	<div id="startInterface">
+		<div id="startCharacter" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
+		<div id="startBackground" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
+		<div id="startCursor" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
+	</div>
+	<div id="loseInterface">
+		<div id="grayscaleLayer"></div>
+		<div id="loseBackground" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)">
+			<div id="loseStar" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
+			<div id="loseStar2" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
+			<div id="loseStar3" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
+		</div>
+		<div id="loseCharacter" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
+		<div id="again1" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
+		<div id="again2" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
+		<div id="again3" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
+		<div id="again4" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
+		<div id="loseHandCursor" onmousedown="mouseDown(event)" ontouchstart="touchstart(event)"></div>
 	</div>
 	<div id="obstacleExtend">
 		<div id="brick1"></div>
 	</div>
 	<div id="obstacle">
 			<div id="brick2"></div>
-			<div id="block"></div>
+			<div id="block"><div id="blockBox"></div></div>
 			<div id="brick3"></div>
 			<div id="graveStone1"><div id="graveStone1Box"></div></div>
 			

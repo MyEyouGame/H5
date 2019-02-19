@@ -61,13 +61,13 @@
 	
 	#background{	
 		position:absolute;	
-		/* height:100%; */
-		/* width:100%; */
+		height:100%;
+		width:100%;
 		
-		top: 38%;
-		left: 4%;
-		height: 31%;
-		width: 30%;
+		/* top: 38%; */
+		/* left: 4%; */
+		/* height: 31%; */
+		/* width: 30%; */
 		
 		background-Size : 100% 100%; 
 		background-repeat:no-repeat;
@@ -95,13 +95,13 @@
 	
 	#life{	
 		position:absolute;	
-		/* height:100%; */
-		/* width:100%; */
+		height:100%;
+		width:100%;
 		
-		top: 38%;
-		left: 4%;
-		height: 31%;
-		width: 30%;
+		/* top: 38%; */
+		/* left: 4%; */
+		/* height: 31%; */
+		/* width: 30%; */
 		
 		background-Size : 100% 100%; 
 		background-repeat:no-repeat;
@@ -141,7 +141,7 @@
 			height: 8%;
 			width: 11%;
 			left: 85%;
-			top: 7.5%;
+			top: 8.5%;
 		}			
 			#points{
 				position:absolute;	
@@ -151,13 +151,11 @@
 			}
 
 	#obstacleExtend{
-		position:absolute;		
-		top: 38%;
+		position:absolute;	
+		height: 100%;
+		width: 100%;
 		left: 4%;
-		height: 31%;
-		width: 20%;
-
-		/* border: 1px solid blue; */
+		z-index: -10;
 		
 		animation :none 20s linear 1 forwards;
 		-webkit-animation:none 20s linear 1 forwards;
@@ -167,7 +165,7 @@
 				left: 4%;	
 			}
 			100%{
-				left: -73%;
+				left: -221%;
 			}
 		}		
 		@-webkit-keyframes obstacle{
@@ -175,7 +173,7 @@
 				left: 4%;	
 			}
 			100%{
-				left: -73%;
+				left: -221%;
 			}
 		}	
 		@keyframes obstacleReset{
@@ -183,7 +181,7 @@
 				left: 4%;	
 			}
 			100%{
-				left: -73%;
+				left: -221%;
 			}
 		}		
 		@-webkit-keyframes obstacleReset{
@@ -191,21 +189,21 @@
 				left: 4%;	
 			}
 			100%{
-				left: -73%;
+				left: -221%;
 			}
 		}	
 	#obstacle{	
 		position:absolute;	
-		/* height:100%; */
-		/* width:100%; */
+		height:100%;
+		width:300%;
 		background-Size : 100% 100%; 
 		background-repeat:no-repeat;
 		overflow:hidden;
 		
-		top: 38%;
-		left: 12%;
-		height: 31%;
-		width: 91%;
+		/* top: 38%; */
+		left: 25%;
+		/* height: 31%; */
+		/* width: 91%; */
 		/* border: 1px solid red; */
 		
 		animation :none 20s linear 1 forwards;
@@ -215,41 +213,41 @@
 	}
 		@keyframes obstacle{
 			0%{
-				left: 12%;	
+				left: 25%;	
 			}
 			100%{
-				left: -57%;
+				left: -200%;
 			}
 		}		
 		@-webkit-keyframes obstacle{
 			0%{
-				left: 12%;	
+				left: 25%;	
 			}
 			100%{
-				left: -57%;
+				left: -200%;
 			}
 		}	
 		@keyframes obstacleReset{
 			0%{
-				left: 12%;	
+				left: 25%;	
 			}
 			100%{
-				left: -57%;
+				left: -200%;
 			}
 		}		
 		@-webkit-keyframes obstacleReset{
 			0%{
-				left: 12%;	
+				left: 25%;	
 			}
 			100%{
-				left: -57%;
+				left: -200%;
 			}
 		}			
 		#brick1{
 		
 			position:absolute;	
 			top: 88%;
-			left: -2%;
+			left: -43%;
 			height: 14%;
 			width: 110%;
 			display:block;
@@ -270,8 +268,11 @@
 			background-repeat:no-repeat;
 			overflow:hidden;
 			
-			animation :brick2 3s 0.5s infinite;
-			-webkit-animation:brick2 3s 0.5s infinite;
+			animation :none 3s 0.5s infinite;
+			-webkit-animation:none 3s 0.5s infinite;
+			
+			
+			
 		}		
 			@keyframes brick2{
 				0%{
@@ -320,7 +321,7 @@
 		#block{
 			position:absolute;	
 			top: 63%;
-			left: 16.5%;
+			left: 18.5%;
 			height: 12%;
 			width: 4.5%;
 			display:block;
@@ -328,99 +329,61 @@
 			background-repeat:no-repeat;
 			overflow:hidden;
 			
-			animation :none 3.5s linear 2.5s infinite;
-			-webkit-animation:none 3.5s linear 2.5s infinite;
-		}		
+			animation :none 3.5s linear 1.5s infinite;
+			-webkit-animation:none 3.5s linear 1.5s infinite;
+		}	
+		#blockBox{
+			position:absolute;	
+			top: 30%;
+			height: 36%;
+			left: 14%;
+			width: 70%;
+			background-Size : 100% 100%; 
+			background-repeat:no-repeat;
+			overflow:hidden;
+		}			
 			@keyframes block{
 				0%{
-					left:16.5%;
-				}
-				16.66%{
-					left:15.5%;
-				}
-				33.32%{
-					left:16.5%;
-				}
-				49.98%{
-					left:17.5%;
-				}
-				66.64%{
 					left:18.5%;
 				}
-				83.3%{
-					left:17.5%;
+				50%{
+					left:15.5%;
 				}
 				100%{
-					left:16.5%;
+					left:18.5%;
 				}
 			}	
 			@-webkit-keyframes block{
 				0%{
-					left:16.5%;
-				}
-				16.66%{
-					left:15.5%;
-				}
-				33.32%{
-					left:16.5%;
-				}
-				49.98%{
-					left:17.5%;
-				}
-				66.64%{
 					left:18.5%;
 				}
-				83.3%{
-					left:17.5%;
+				50%{
+					left:15.5%;
 				}
 				100%{
-					left:16.5%;
+					left:18.5%;
 				}
 			}
 			@keyframes blockReset{
 				0%{
-					left:16.5%;
-				}
-				16.66%{
-					left:15.5%;
-				}
-				33.32%{
-					left:16.5%;
-				}
-				49.98%{
-					left:17.5%;
-				}
-				66.64%{
 					left:18.5%;
 				}
-				83.3%{
-					left:17.5%;
+				50%{
+					left:15.5%;
 				}
 				100%{
-					left:16.5%;
+					left:18.5%;
 				}
 			}	
 			@-webkit-keyframes blockReset{
 				0%{
-					left:16.5%;
-				}
-				16.66%{
-					left:15.5%;
-				}
-				33.32%{
-					left:16.5%;
-				}
-				49.98%{
-					left:17.5%;
-				}
-				66.64%{
 					left:18.5%;
 				}
-				83.3%{
-					left:17.5%;
+				50%{
+					left:15.5%;
 				}
 				100%{
-					left:16.5%;
+					left:18.5%;
 				}
 			}		
 		#bLeft{
@@ -453,7 +416,7 @@
 			background-Size : 100% 100%; 
 			background-repeat:no-repeat;
 			overflow:hidden;
-		}		
+		}	
 		#graveStone1{
 			position:absolute;	
 			top: 37%;
@@ -494,7 +457,6 @@
 			
 			border: solid 0.02px;
 		}
-		
 		
 		#brick4{
 			position:absolute;	
@@ -683,7 +645,7 @@
 		#treeMonster2{
 			position:absolute;	
 			top: 75%;
-			left: 30%;
+			left: 45%;
 			height: 16%;
 			width: 2.5%;
 			background-Size : 100% 100%; 
@@ -750,8 +712,8 @@
 		}	
 		#longFire{
 			position:absolute;	
-			top: 50%;
-			left: 57%;
+			top: 100%;
+			left: 56%;
 			height: 58%;
 			width: 3%;
 			background-Size : 100% 100%; 
@@ -910,7 +872,7 @@
 		#brick7{
 			position:absolute;	
 			top: 32%;
-			left: 60%;
+			left: 59%;
 			height: 27%;
 			width: 15%;
 			background-Size : 100% 100%; 
@@ -929,7 +891,19 @@
 			
 			animation :none 1s linear infinite;
 			-webkit-animation:none 1s linear infinite;
-		}		
+		}	
+		#keyDisplay{
+			position:absolute;	
+			top: 7.8%;
+			left: 78.5%;
+			height: 8%;
+			width: 4.5%;
+			
+			background-Size : 100% 100%; 
+			background-repeat:no-repeat;
+			overflow:hidden;
+			display:none;
+		}			
 			@keyframes key{
 				0%{
 					top:38%;
@@ -1527,14 +1501,11 @@
 		
 	#protagonist{
 		position:absolute;		
-		top: 38%;
-		left: 4%;
-		height: 31%;
-		width: 100%;
-		/* border: 1px solid blue; */
+
+		height: 100%;
+		width: 300%;
+		border: 1px solid blue;
 		
-		/* animation :obstacleExtend 20s linear 1 forwards; */
-		/* -webkit-animation:obstacleExtend 20s linear 1 forwards; */
 	}
 		#firstCharacterImage{
 			position: absolute;
@@ -1575,7 +1546,6 @@
 			overflow:hidden;
 			background-repeat:no-repeat;
 			background-Size : 100% 100%; 
-			display:none;
 		}
 		#redMonster{
 			position: absolute;
@@ -1586,16 +1556,22 @@
 			overflow:hidden;
 			background-repeat:no-repeat;
 			background-Size : 100% 100%; 
-			
-			/* animation : redMonster 2s linear forwards, */
-			/* redMonster2 20s linear 2s 1 ; */
-			/* -webkit-animation: redMonster 2s linear forwards, */
-			/* redMonster2 20s linear 2s 1; */
-			
-			/* animation-play-state:paused; */
-			/* -webkit-animation-play-state:paused; */
-			
-			/* display:none; */
+		}
+		@keyframes redMonster{
+			0%{
+				left:0%;
+			}	
+			100%{
+				left:-10%;
+			}	
+		}
+		@-webkit-keyframes redMonster{
+			0%{
+				left:1%;
+			}	
+			100%{
+				left:-10%;
+			}	
 		}
 		.redMonster{
 			position: absolute;
@@ -1609,12 +1585,9 @@
 		
 	#jumpEvent{
 		position:absolute;		
-		top: 38%;
-		left: 4%;
-		height: 31%;
-		width: 30%;
-		
-		border: 1px solid blue;
+		height: 100%;
+		width: 100%;
+		z-index: -10;
 	}
 		@keyframes jump{
 			0%{
@@ -1660,3 +1633,1278 @@
 				top:74%;
 			}
 		}
+		
+	#startInterface{
+		position:absolute;	
+		height: 100%;
+		width: 100%;
+		background-Size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+		/* display:none; */
+	}		
+	#startCharacter{
+		position:absolute;	
+		top: 17%;
+		left: 27%;
+		z-index: 6;
+		height: 59%;
+		width: 16%;
+		display:block;
+		background-Size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+		
+		/* display:none; */
+	}
+	#startBackground{
+		position:absolute;	
+		top: 19%;
+		left: 35%;
+		z-index: 5;
+		height: 58%;
+		width: 30%;
+		display:block;
+		background-Size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+		
+		/* display:none; */
+	}
+	#startCursor{
+		position:absolute;	
+		top: 45%;
+		left: 56%;
+		z-index: 6;
+		height: 16%;
+		width: 11%;
+		display:block;
+		background-Size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+		
+		animation : startCursor 1.5s infinite;
+		-webkit-animation: startCursor 1.5s infinite;
+		
+		/* display:none; */
+	}
+		@keyframes startCursor{
+		0%{
+			top: 45%;
+		}
+		50%{
+			top: 47%;
+		}
+		100%{
+			top: 45%;
+		}
+	}
+		@-webkit-keyframes startCursor{
+		0%{
+			top: 45%;
+		}
+		50%{
+			top: 47%;
+		}
+		100%{
+			top: 45%;
+		}
+	}
+		
+	#grayscaleLayer{
+		position:absolute;	
+		height: 100%;
+		width: 100%;
+		opacity: 0;
+		z-index: 0;
+		background-color: black;
+		background-size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+		
+		animation :grayscaleLayer 1s linear forwards;
+		-webkit-animation:grayscaleLayer 1s linear forwards;
+		/* animation-play-state:paused; */
+		/* -webkit-animation-play-state:paused; */
+	}
+		@keyframes grayscaleLayer{
+			0%{
+				opacity:0;
+				z-index: 0;
+			}
+			1%{
+				z-index: 3;
+			}
+			100%{
+				opacity:0.4;
+				z-index: 3;
+			}
+		}
+		@-webkit-keyframes grayscaleLayer{
+			0%{
+				opacity:0;
+				z-index: 0;
+			}
+			1%{
+				z-index: 3;
+			}
+			100%{
+				opacity:0.4;
+				z-index: 3;
+			}
+		}	
+		@keyframes grayscaleResetLayer{
+			0%{
+				opacity:0;
+				z-index: 0;
+			}
+			1%{
+				z-index: 3;
+			}
+			100%{
+				opacity:0.4;
+				z-index: 3;
+			}
+		}
+		@-webkit-keyframes grayscaleResetLayer{
+			0%{
+				opacity:0;
+				z-index: 0;
+			}
+			1%{
+				z-index: 3;
+			}
+			100%{
+				opacity:0.4;
+				z-index: 3;
+			}
+		}
+		
+	#loseInterface{
+		position:absolute;	
+		height: 100%;
+		width: 100%;
+		background-Size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+		display:none;
+	}
+	#loseBackground{
+		position:absolute;	
+		top: 19%;
+		left: 36%;
+		height: 58%;
+		width: 28%;
+		opacity: 0;
+		z-index: 0;
+		filter: grayscale(1);
+		background-Size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+		
+		animation :loseInterface 1s linear forwards;
+		-webkit-animation:loseInterface 1s linear forwards;
+		/* animation-play-state:paused; */
+		/* -webkit-animation-play-state:paused; */
+		
+	}
+		@keyframes loseInterface{
+			0%{
+				opacity:0;
+				z-index: 0;
+			}
+			1%{
+				z-index: 6;
+			}
+			100%{
+				opacity:1;
+				z-index: 6;
+			}
+		}
+		@-webkit-keyframes loseInterface{
+			0%{
+				opacity:0;
+				z-index: 0;
+			}
+			1%{
+				z-index: 6;
+			}
+			100%{
+				opacity:1;
+				z-index: 6;
+			}
+		}
+		@keyframes loseInterfaceReset{
+			0%{
+				opacity:0;
+				z-index: 0;
+			}
+			1%{
+				z-index: 6;
+			}
+			100%{
+				opacity:1;
+				z-index: 6;
+			}
+		}
+		@-webkit-keyframes loseInterfaceReset{
+			0%{
+				opacity:0;
+				z-index: 0;
+			}
+			1%{
+				z-index: 6;
+			}
+			100%{
+				opacity:1;
+				z-index: 6;
+			}
+		}	
+		
+	#loseStar{
+		position:absolute;	
+		top: 17%;
+		left: 25%;
+		height: 16%;
+		width: 18%;
+		filter: grayscale(1);
+		background-Size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+	}
+	
+	#loseStar2{
+		position:absolute;	
+		top: 17%;
+		left: 42%;
+		height: 16%;
+		width: 18%;
+		filter: grayscale(1);
+		background-Size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+	}
+	
+	#loseStar3{
+		position:absolute;	
+		top: 17%;
+		left: 59%;
+		height: 16%;
+		width: 18%;
+		filter: grayscale(1);
+		background-Size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+	}
+	
+	#loseCharacter{
+		position:absolute;	
+		top: 18%;
+		left: 26%;
+		height: 58%;
+		width: 16%;
+		opacity: 0;
+		z-index: 0;
+		background-size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+		/* display:none; */
+		
+		animation :loseInterface 1s linear forwards;
+		-webkit-animation:loseInterface 1s linear forwards;
+		/* animation-play-state:paused; */
+		/* -webkit-animation-play-state:paused; */
+	}	
+	
+	#again1{
+		position:absolute;	
+		
+		top: 42%;
+		left: 45%;
+		height: 12%;
+		width: 6%;
+		
+		top: 42%;
+		left: 44%;
+		height: 13%;
+		width: 7%;
+		z-index: 6;
+		background-Size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+		/* display:none; */
+		
+		animation :loseInterface 1s linear forwards,again1 8s forwards 1,
+		again1-2 2s forwards 1, again1-2 2s forwards 2.5s 1;
+		-webkit-animation :loseInterface 1s linear forwards,again1 5s forwards 1,
+		again1-2 2s forwards 1, again1-2 2s forwards 2.5s 1;
+		
+		/* animation-play-state:paused; */
+		/* -webkit-animation-play-state:paused; */
+	}
+		@keyframes again1{
+			0%{
+				transform:rotate(0deg);
+			}
+			25%{
+				transform:rotate(25deg);
+			}
+			50%{
+				transform :rotate(0deg);
+			}
+			75%{
+				transform:rotate(25deg);
+			}
+			100%{
+				transform :rotate(0deg);
+			}
+		}
+		@-webkit-keyframes again1{
+			0%{
+				-webkit-transform:rotate(0deg);
+			}
+			25%{
+				-webkit-transform:rotate(25deg);
+			}
+			50%{
+				-webkit-transform:rotate(0deg);
+			}
+			75%{
+				-webkit-transform:rotate(25deg);
+			}
+			100%{
+				-webkit-transform:rotate(0deg);
+			}
+		}
+		@keyframes again1-2{
+			0%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+			25%{
+				top: 42%;
+				left: 44%;
+				height: 13%;
+				width: 7%;
+			}
+			50%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+			75%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+			100%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+		}
+		@-webkit-keyframes again1-2{
+			0%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+			25%{
+				top: 42%;
+				left: 44%;
+				height: 13%;
+				width: 7%;
+			}
+			50%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+			75%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+			100%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+		}
+		@keyframes againReset1{
+			0%{
+				transform:rotate(0deg);
+			}
+			25%{
+				transform:rotate(25deg);
+			}
+			50%{
+				transform :rotate(0deg);
+			}
+			75%{
+				transform:rotate(25deg);
+			}
+			100%{
+				transform :rotate(0deg);
+			}
+		}
+		@-webkit-keyframes againReset1{
+			0%{
+				-webkit-transform:rotate(0deg);
+			}
+			25%{
+				-webkit-transform:rotate(25deg);
+			}
+			50%{
+				-webkit-transform:rotate(0deg);
+			}
+			75%{
+				-webkit-transform:rotate(25deg);
+			}
+			100%{
+				-webkit-transform:rotate(0deg);
+			}
+		}
+		@keyframes againReset1-2{
+			0%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+			25%{
+				top: 42%;
+				left: 44%;
+				height: 13%;
+				width: 7%;
+			}
+			50%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+			75%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+			100%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+		}
+		@-webkit-keyframes againReset1-2{
+			0%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+			25%{
+				top: 42%;
+				left: 44%;
+				height: 13%;
+				width: 7%;
+			}
+			50%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+			75%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+			100%{
+				top: 42%;
+				left: 45%;
+				height: 12%;
+				width: 6%;
+			}
+		}
+		
+	#again2{
+		position:absolute;	
+		top: 42%;
+		left: 51%;
+		height: 12%;
+		width: 7%;
+		
+		top: 43%;
+		left: 51%;
+		height: 11%;
+		width: 6%;
+		
+		z-index: 6;
+		background-Size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+		/* display:none; */
+		
+		animation :loseInterface 1s linear forwards,again2 8s forwards 0.5s 1,
+		again2-2 2s forwards 0.5s 1, again2-2 2s forwards 3s 1;
+		-webkit-animation :loseInterface 1s linear forwards,again2 5s forwards 0.5s 1,
+		again2-2 2s forwards 0.5s 1, again2-2 2s forwards 3s 1;	
+		
+		/* animation-play-state:paused; */
+		/* -webkit-animation-play-state:paused; */
+	}
+		@keyframes again2{
+		0%{
+			transform:rotate(0deg);
+		}
+		25%{
+			transform:rotate(-25deg);
+		}
+		50%{
+			transform :rotate(0deg);
+		}
+		75%{
+			transform:rotate(-25deg);
+		}
+		100%{
+			transform :rotate(0deg);
+		}
+	}
+		@-webkit-keyframes again2{
+			0%{
+				-webkit-transform:rotate(0deg);
+			}
+			25%{
+				-webkit-transform:rotate(-25deg);
+			}
+			50%{
+				-webkit-transform:rotate(0deg);
+			}
+			75%{
+				-webkit-transform:rotate(-25deg);
+			}
+			100%{
+				-webkit-transform:rotate(0deg);
+			}
+		}
+		@keyframes again2-2{
+			0%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+			25%{
+				top: 42%;
+				left: 51%;
+				height: 12%;
+				width: 7%;
+			}
+			50%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+			75%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+			100%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+		}
+		@-webkit-keyframes again2-2{
+			0%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+			25%{
+				top: 42%;
+				left: 51%;
+				height: 12%;
+				width: 7%;
+			}
+			50%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+			75%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+			100%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+		}
+		@keyframes againReset2{
+			0%{
+				transform:rotate(0deg);
+			}
+			25%{
+				transform:rotate(-25deg);
+			}
+			50%{
+				transform :rotate(0deg);
+			}
+			75%{
+				transform:rotate(-25deg);
+			}
+			100%{
+				transform :rotate(0deg);
+			}
+		}
+		@-webkit-keyframes againReset2{
+			0%{
+				-webkit-transform:rotate(0deg);
+			}
+			25%{
+				-webkit-transform:rotate(-25deg);
+			}
+			50%{
+				-webkit-transform:rotate(0deg);
+			}
+			75%{
+				-webkit-transform:rotate(-25deg);
+			}
+			100%{
+				-webkit-transform:rotate(0deg);
+			}
+		}
+		@keyframes againReset2-2{
+			0%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+			25%{
+				top: 42%;
+				left: 51%;
+				height: 12%;
+				width: 7%;
+			}
+			50%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+			75%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+			100%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+		}
+		@-webkit-keyframes againReset2-2{
+			0%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+			25%{
+				top: 42%;
+				left: 51%;
+				height: 12%;
+				width: 7%;
+			}
+			50%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+			75%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+			100%{
+				top: 43%;
+				left: 51%;
+				height: 11%;
+				width: 6%;
+			}
+		}
+		
+	#again3{
+		position:absolute;	
+		top: 57%;
+		left: 45%;
+		height: 5%;
+		width: 6%;
+		z-index: 6;
+		background-Size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+		/* display:none; */
+		
+		animation :loseInterface 1s linear forwards,again3 8s forwards 1s 1,
+		again3-2 2s forwards 1s 1, again3-2 2s forwards 3.5s 1;
+		-webkit-animation :loseInterface 1s linear forwards,again3 5s forwards 1s 1,
+		again3-2 2s forwards 1s 1, again3-2 2s forwards 3.5s 1;	
+		
+		/* animation-play-state:paused; */
+		/* -webkit-animation-play-state:paused; */
+	}
+		@keyframes again3{
+			0%{
+				transform:rotate(0deg);
+			}
+			25%{
+				transform:rotate(25deg);
+			}
+			50%{
+				transform :rotate(0deg);
+			}
+			75%{
+				transform:rotate(25deg);
+			}
+			100%{
+				transform :rotate(0deg);
+			}
+		}
+		@-webkit-keyframes again3{
+			0%{
+				-webkit-transform:rotate(0deg);
+			}
+			25%{
+				-webkit-transform:rotate(25deg);
+			}
+			50%{
+				-webkit-transform:rotate(0deg);
+			}
+			75%{
+				-webkit-transform:rotate(25deg);
+			}
+			100%{
+				-webkit-transform:rotate(0deg);
+			}
+		}
+		@keyframes again3-2{
+			0%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+			25%{
+				top: 58%;
+				left: 45.5%;
+				height: 4%;
+				width: 5%;
+			}
+			50%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+			75%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+			100%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+		}
+		@-webkit-keyframes again3-2{
+			0%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+			25%{
+				top: 58%;
+				left: 45.5%;
+				height: 4%;
+				width: 5%;
+			}
+			50%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+			75%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+			100%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+		}
+		@keyframes againReset3{
+			0%{
+				transform:rotate(0deg);
+			}
+			25%{
+				transform:rotate(25deg);
+			}
+			50%{
+				transform :rotate(0deg);
+			}
+			75%{
+				transform:rotate(25deg);
+			}
+			100%{
+				transform :rotate(0deg);
+			}
+		}
+		@-webkit-keyframes againReset3{
+			0%{
+				-webkit-transform:rotate(0deg);
+			}
+			25%{
+				-webkit-transform:rotate(25deg);
+			}
+			50%{
+				-webkit-transform:rotate(0deg);
+			}
+			75%{
+				-webkit-transform:rotate(25deg);
+			}
+			100%{
+				-webkit-transform:rotate(0deg);
+			}
+		}
+		@keyframes againReset3-2{
+			0%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+			25%{
+				top: 58%;
+				left: 45.5%;
+				height: 4%;
+				width: 5%;
+			}
+			50%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+			75%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+			100%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+		}
+		@-webkit-keyframes againReset3-2{
+			0%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+			25%{
+				top: 58%;
+				left: 45.5%;
+				height: 4%;
+				width: 5%;
+			}
+			50%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+			75%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+			100%{
+				top: 57%;
+				left: 45%;
+				height: 5%;
+				width: 6%;
+			}
+		}
+		
+	#again4{
+		position:absolute;	
+		top: 54%;
+		left: 51%;
+		height: 11%;
+		width: 7%;
+		
+		z-index: 6;
+		background-Size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+		/* display:none; */
+		
+		animation :loseInterface 1s linear forwards,again4 8s forwards 1.5s 1,
+		again4-2 2s forwards 1.5s 1, again4-2 2s forwards 4s 1;
+		-webkit-animation :loseInterface 1s linear forwards,again4 5s forwards 1.5s 1,
+		again4-2 2s forwards 1.5s 1, again4-2 2s forwards 4s 1;
+		
+		/* animation-play-state:paused; */
+		/* -webkit-animation-play-state:paused; */
+	}
+		@keyframes again4{
+			0%{
+				transform:rotate(0deg);
+			}
+			25%{
+				transform:rotate(-20deg);
+			}
+			50%{
+				transform :rotate(0deg);
+			}
+			75%{
+				transform:rotate(-20deg);
+			}
+			100%{
+				transform :rotate(0deg);
+			}
+		}
+		@-webkit-keyframes again4{
+			0%{
+				-webkit-transform:rotate(0deg);
+			}
+			25%{
+				-webkit-transform:rotate(-20deg);
+			}
+			50%{
+				-webkit-transform:rotate(0deg);
+			}
+			75%{
+				-webkit-transform:rotate(-20deg);
+			}
+			100%{
+				-webkit-transform:rotate(0deg);
+			}
+		}
+		@keyframes again4-2{
+			0%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+			25%{
+				top: 54%;
+				left: 50%;
+				height: 11%;
+				width: 7.5%;
+			}
+			50%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+			75%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+			100%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+		}
+		@-webkit-keyframes again4-2{
+			0%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+			25%{
+				top: 54%;
+				left: 50%;
+				height: 11%;
+				width: 7.5%;
+			}
+			50%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+			75%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+			100%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+		}
+		@keyframes againReset4{
+			0%{
+				transform:rotate(0deg);
+			}
+			25%{
+				transform:rotate(-20deg);
+			}
+			50%{
+				transform :rotate(0deg);
+			}
+			75%{
+				transform:rotate(-20deg);
+			}
+			100%{
+				transform :rotate(0deg);
+			}
+		}
+		@-webkit-keyframes againReset4{
+			0%{
+				-webkit-transform:rotate(0deg);
+			}
+			25%{
+				-webkit-transform:rotate(-20deg);
+			}
+			50%{
+				-webkit-transform:rotate(0deg);
+			}
+			75%{
+				-webkit-transform:rotate(-20deg);
+			}
+			100%{
+				-webkit-transform:rotate(0deg);
+			}
+		}
+		@keyframes againReset4-2{
+			0%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+			25%{
+				top: 54%;
+				left: 50%;
+				height: 11%;
+				width: 7.5%;
+			}
+			50%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+			75%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+			100%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+		}
+		@-webkit-keyframes againReset4-2{
+			0%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+			25%{
+				top: 54%;
+				left: 50%;
+				height: 11%;
+				width: 7.5%;
+			}
+			50%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+			75%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+			100%{
+				top: 54%;
+				left: 51%;
+				height: 10%;
+				width: 6%;
+			}
+		}
+		
+	#loseHandCursor{
+		position:absolute;	
+		top: 59%;
+		left: 56%;
+		z-index: 7;
+		height: 16%;
+		width: 11%;
+		display:block;
+		background-Size : 100% 100%; 
+		background-repeat:no-repeat;
+		overflow:hidden;
+		
+		animation :loseInterface 1s linear forwards,loseHandCursorDisplay 1.5s forwards 1, 
+		loseHandCursor 1.5s infinite 0.5s;
+		-webkit-animation :loseInterface 1s linear forwards,loseHandCursorDisplay 1.5s forwards 1, 
+		loseHandCursor 1.5s infinite 0.5s;
+		
+		/* animation-play-state:paused; */
+		/* -webkit-animation-play-state:paused; */
+		
+		/* display:none; */
+	}
+		@keyframes loseHandCursor{
+			0%{
+				top: 59%;
+			}
+			50%{
+				top: 58%;
+			}
+			100%{
+				top: 59%;
+			}
+		}
+		@-webkit-keyframes loseHandCursor{
+			0%{
+				top: 59%;
+			}
+			50%{
+				top: 58%;
+			}
+			100%{
+				top: 59%;
+			}
+		}
+		@keyframes loseHandCursorDisplay{
+			0%{
+				z-index:0;
+			}
+			1%{
+				z-index:6;
+			}
+			100%{
+				z-index:6;
+			}
+		}
+		@-webkit-keyframes loseHandCursorDisplay{
+			0%{
+				z-index:0;
+			}
+			1%{
+				z-index:6;
+			}
+			100%{
+				z-index:6;
+			}
+		}
+		@keyframes loseHandCursorReset{
+			0%{
+				top: 59%;
+			}
+			50%{
+				top: 58%;
+			}
+			100%{
+				top: 59%;
+			}
+		}
+		@-webkit-keyframes loseHandCursorReset{
+			0%{
+				top: 59%;
+			}
+			50%{
+				top: 58%;
+			}
+			100%{
+				top: 59%;
+			}
+		}
+		@keyframes loseHandCursorResetDisplay{
+			0%{
+				z-index:0;
+			}
+			1%{
+				z-index:5;
+			}
+			100%{
+				z-index:5;
+			}
+		}
+		@-webkit-keyframes loseHandCursorResetDisplay{
+		0%{
+			z-index:0;
+		}
+		1%{
+			z-index:5;
+		}
+		100%{
+			z-index:5;
+		}
+	}
+	

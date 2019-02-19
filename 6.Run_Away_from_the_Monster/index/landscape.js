@@ -60,7 +60,7 @@ window.requestAnimFrame = (function(){
 		var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 		var width = w > h ? h : w;
 		width = width > 720 ? 720 : width
-		var fz = ~~(width*100000/500)/10000
+		var fz = ~~(width*100000/150)/10000
 		document.getElementsByTagName("html")[0].style.cssText = 'font-size: ' + fz +"px";
 		var realfz = ~~(+window.getComputedStyle(document.getElementsByTagName("html")[0]).fontSize.replace('px','')*1000)/1000
 		if (fz !== realfz) {
@@ -82,10 +82,10 @@ window.requestAnimFrame = (function(){
 		var gameContainer = document.getElementById('gameContainer');
 		gameContainer.style.display = "block";
 
-		startAnimation();
 	}
   
 	var headFrame = document.getElementById('headFrame');
+	
 	function createImage(){
 		
 		var imageArray =[
@@ -93,7 +93,17 @@ window.requestAnimFrame = (function(){
 						'url("greenGradient.png")',
 						'url("redGradient.png")',
 						'url("headFrame.png")',	
-						'url("lifeCrystal.png")'
+						'url("lifeCrystal.png")',
+						'url("startCharacter.png")',
+						'url("startFont.png")',
+						'url("startCursor.png")',
+						'url("loseBackground.png")',
+						'url("loseStar.png")',
+						'url("again1.png")',
+						'url("again2.png")',
+						'url("again3.png")',
+						'url("again4.png")',
+						'url("loseCharacter.png")'
 					];
 		var brickArray =[
 							'url("brick1.png")',
@@ -136,7 +146,23 @@ window.requestAnimFrame = (function(){
 		lifeCrystal1.style.backgroundImage = imageArray[4];
 		lifeCrystal2.style.backgroundImage = imageArray[4];
 		lifeCrystal3.style.backgroundImage = imageArray[4];
-
+		
+		startCharacter.style.backgroundImage = imageArray[5];
+		startBackground.style.backgroundImage = imageArray[6];
+		startCursor.style.backgroundImage = imageArray[7];
+		
+		loseBackground.style.backgroundImage = imageArray[8];
+		loseStar.style.backgroundImage = imageArray[9];
+		loseStar2.style.backgroundImage = imageArray[9];
+		loseStar3.style.backgroundImage = imageArray[9];
+		
+		loseCharacter.style.backgroundImage = imageArray[14];
+		again1.style.backgroundImage = imageArray[10];
+		again2.style.backgroundImage = imageArray[11];
+		again3.style.backgroundImage = imageArray[12];
+		again4.style.backgroundImage = imageArray[13];
+		loseHandCursor.style.backgroundImage = imageArray[7];
+		
 		brick1.style.backgroundImage = brickArray[0];
 		brick2.style.backgroundImage = brickArray[1];
 		block.style.backgroundImage = brickArray[9];
@@ -157,6 +183,7 @@ window.requestAnimFrame = (function(){
 		graveStone4.style.backgroundImage = brickArray[10];
 		brick7.style.backgroundImage = brickArray[6];
 		key.style.backgroundImage = brickArray[15];
+		keyDisplay.style.backgroundImage = brickArray[15];
 		brick8.style.backgroundImage = brickArray[7];
 		shortFire1.style.backgroundImage = brickArray[11];
 		brick9.style.backgroundImage = brickArray[7];
@@ -189,16 +216,13 @@ window.requestAnimFrame = (function(){
 			}
 		}		
 		
-		characterAnimation();
-		redMonsterAnimation();
   }
 
 	var life = 3;
 	var start = true;
 	var p = 0000;
 	
-	var totalPoints = setInterval(count, 50);
-	  function count() {
+	function count() {
 		if (start === true) {
 			p++
 			document.getElementById("points").innerHTML = '0000'.substr( String(p).length ) + p ;
@@ -271,12 +295,12 @@ window.requestAnimFrame = (function(){
 		var t = jumpToggle2 ; 
 
 		if (t === 1){
-			character.style.animation = " jump2 1.2s ease-in-out 1 forwards";
-			character.style.webkitAnimation = "jump2 1.2s ease-in-out 1 forwards";	
+			character.style.animation = " jump2 1s ease-in-out 1 forwards";
+			character.style.webkitAnimation = "jump2 1s ease-in-out 1 forwards";	
 		}
 		if (t === 0){
-			character.style.animation = " jumpReset2 1.2s ease-in-out 1 forwards";
-			character.style.webkitAnimation = "jumpReset2 1.2s ease-in-out 1 forwards";	
+			character.style.animation = " jumpReset2 1s ease-in-out 1 forwards";
+			character.style.webkitAnimation = "jumpReset2 1s ease-in-out 1 forwards";	
 		}
 	}
 	
@@ -295,12 +319,116 @@ window.requestAnimFrame = (function(){
 		}
 	}
 	
+	var jumpToggle4 = 0;
+	function jumpAnimation4(jumpToggle4){
+		
+		var t = jumpToggle4 ; 
+
+		if (t === 1){
+			character.style.animation = " jump4 1.2s ease-in-out 1 forwards";
+			character.style.webkitAnimation = "jump4 1.2s ease-in-out 1 forwards";	
+		}
+		if (t === 0){
+			character.style.animation = " jumpReset4 1.2s ease-in-out 1 forwards";
+			character.style.webkitAnimation = "jumpReset4 1.2s ease-in-out 1 forwards";	
+		}
+	}
+	
 	var jumptoBrick3Toggle = 0;
-	var positionDetectToggle = 0;
+	
+	function loseCrystal(life){
+	
+		var live = life;
+			console.log(live);
+			crystalArray = [lifeCrystal1,lifeCrystal2,lifeCrystal3]
+			crystalArray[live].style.display = "none";
+			
+   }
+	
+	function getBox() {
+		var graveStone1Box = document.getElementById ("graveStone1Box");
+		var character = document.getElementById ("character");	
+				
+		if (character.getBoundingClientRect) {
+			var rect = character.getBoundingClientRect ();
+			cl = rect.left;
+			ct = rect.top;
+			cr = rect.right;
+			cb = rect.bottom;  
+		}
+		if (graveStone1Box.getBoundingClientRect) {
+			var rect2 = graveStone1Box.getBoundingClientRect ();
+			gl = rect2.left;
+			gt = rect2.top;
+			gr = rect2.right;
+			gb = rect2.bottom;
+		}
+		if (graveStone2Box.getBoundingClientRect) {
+			var rect3 = graveStone2Box.getBoundingClientRect ();
+			gl2 = rect3.left;
+			gt2 = rect3.top;
+			gr2 = rect3.right;
+			gb2 = rect3.bottom;
+		}
+		if (graveStone3Box.getBoundingClientRect) {
+			var rect4 = graveStone3Box.getBoundingClientRect ();
+			gl3 = rect4.left;
+			gt3 = rect4.top;
+			gr3 = rect4.right;
+			gb3 = rect4.bottom;	
+		}
+		if (flowerMonster1Box.getBoundingClientRect) {
+			var rect5 = flowerMonster1Box.getBoundingClientRect ();
+			fl = rect5.left;
+			ft = rect5.top;
+			fr = rect5.right;
+			fb = rect5.bottom;
+		}
+		if (treeMonster2Box.getBoundingClientRect) {
+			var rect4 = treeMonster2Box.getBoundingClientRect ();
+			tl2 = rect4.left;
+			tt2 = rect4.top;
+			tr2 = rect4.right;
+			tb2 = rect4.bottom;
+		}
+		if (brick8.getBoundingClientRect) {
+			var rect5 = brick8.getBoundingClientRect ();
+			bl8 = rect5.left;
+			bt8 = rect5.top;
+			br8 = rect5.right;
+			bb8 = rect5.bottom;
+		}
+		if (brick9.getBoundingClientRect) {
+			var rect6 = brick9.getBoundingClientRect ();
+			bl9 = rect6.left;
+			bt9 = rect6.top;
+			br9 = rect6.right;
+			bb9 = rect6.bottom;
+		}
+		
+		if (blockBox.getBoundingClientRect) {
+			var rect7 = blockBox.getBoundingClientRect ();
+			bl = rect7.left;
+			bt = rect7.top;
+			br = rect7.right;
+			bb = rect7.bottom;
+		}
+		if (obstacle.getBoundingClientRect) {
+			var rect8 = obstacle.getBoundingClientRect ();
+			obl = rect8.left;
+			obt = rect8.top;
+			obr = rect8.right;
+			obb = rect8.bottom;
+			
+			return(cl,ct,cr,cb,gl,gt,gr,gb2,gl2,gt2,gr2,gb2,gb2,gl3,gt3,gr3,gb3,
+			fl,ft,fr,fb,tl2,tt2,tr2,tb2,bl8,bt8,br8,bb8,bl9,bt9,br9,bb9,bl,bt,br,bb,
+			obl,obt,obr,obb);
+		
+		}
+	} 
 	
 	// drop&jump between brick1&block
 	function positionDetectFA(){
-		
 		var gameContainerElement  = document.querySelector('#gameContainer');
 		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
 		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
@@ -324,16 +452,12 @@ window.requestAnimFrame = (function(){
 		var obstacleExtendTopValue = getComputedStyle(obstacleExtendElement).getPropertyValue("top").split("px")[0];
 		var obstacleExtendLeftValue = getComputedStyle(obstacleExtendElement).getPropertyValue("left").split("px")[0];
 		var obstacleExtendLeft = (100*obstacleExtendLeftValue)/gameContainerLeftValue;
-	
-		var blockElement  = document.querySelector('#block');
-		var blockTopValue = getComputedStyle(blockElement).getPropertyValue("top").split("px")[0];
-		var blockLeftValue = getComputedStyle(blockElement).getPropertyValue("left").split("px")[0];
-		var blockTop = (100*blockTopValue)/BoxTopValue;
-		var blockLeft = (100*blockLeftValue)/BoxLeftValue;
-	
+		
 		positionDetect = requestAnimationFrame(positionDetectFA);
 		
-		if (obstacleLeft < 1 && obstacleLeft > -8){
+		getBox();
+		
+		if (obstacleLeft < -10 && obstacleLeft > -43){
 			var dropKeyframes = document.createElement('style');
 			dropKeyframes.type = 'text/css';
 			var keyFrames = '\
@@ -362,40 +486,38 @@ window.requestAnimFrame = (function(){
 			
 			var dropValue = {
 								'first':characterTop,
-								'second':(characterTop+34),
+								'second':(characterTop+50),
 							};
 			
 			dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
 			document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
-			
-			if (obstacleLeft <2 && characterTop < 74 && characterTop > 73){
+		
+			if (obstacleLeft < -18 && obstacleLeft > -25 && characterTop < 74 && characterTop > 73){
 				character.style.animation = "drop 1s linear 1 forwards";
 				character.style.webkitAnimation= "drop 1s linear 1 forwards";
-				
+				firstRedMonsterImage.style.display ="block";
 				life=life-1;
 				loseCrystal(life);
+				pausedAnimation();
+				start=false;
+				cancelAnimationFrame(positionDetect);
 			}
-			if (obstacleLeft <1 && characterTop < 52 && characterTop > 51 ){
+			if (obstacleLeft < -15 && obstacleLeft > -25 && cr > bl && cb > bt && cb < bt+1 ){
 				character.style.animationPlayState= "paused";
 				character.style.webkitAnimationPlayState= "paused";
-				if(obstacleLeft<-7){
-					character.style.animation = "drop 1s linear 1 forwards";
-					character.style.webkitAnimation= "drop 1s linear 1 forwards";
-					
-					life=life-1;
-					loseCrystal(life);
-				}
+			}
+			if( obstacleLeft <-35 && obstacleLeft>-38 && cl > br && cb > bt){
+				character.style.animation = "drop 1s linear 1 forwards";
+				character.style.webkitAnimation= "drop 1s linear 1 forwards";
+				life=life-1;
+				loseCrystal(life);
+				pausedAnimation();
+				start=false;
+				cancelAnimationFrame(positionDetect);
 			}	
 		}
-		if(obstacleLeft < -8 || characterTop > 74){
-			pausedAnimation();
-			cancelAnimationFrame(positionDetect);
-			clearInterval(totalPoints);
-		}		
 	}
 	
-	positionDetect = requestAnimationFrame(positionDetectFA);
-
 	// drop&jump between block&brick3
 	function positionDetectFA2(){
 		positionDetectToggle = 1;
@@ -460,122 +582,41 @@ window.requestAnimFrame = (function(){
 		
 		var dropValue = {
 							'first':characterTop,
-							'second':(characterTop+46),
+							'second':(characterTop+60),
 						};
 		
 		dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
 		document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 
-		if(obstacleLeft<-7 && characterTop > 32){
+		if(obstacleLeft <-35 && obstacleLeft >-38 && characterTop > 32){
 			character.style.animation = "drop 1s linear 1 forwards";
 			character.style.webkitAnimation= "drop 1s linear 1 forwards";		
-			life= life - 1;
-			loseCrystal(life);
+			loseCrystal(life-1);
 			pausedAnimation();
 			cancelAnimationFrame(positionDetect2);
-			clearInterval(totalPoints);
+			start = false;
 		}
 		
-		if((obstacleLeft > -8 && obstacleLeft < -6 )  && characterTop > 74){
-			pausedAnimation();
-			cancelAnimationFrame(positionDetect2);
-			clearInterval(totalPoints);
-		}		
-		
-		if(obstacleLeft < -6 && characterTop > 30 && characterTop < 31 ){
+		if(obstacleLeft < -35 &&  obstacleLeft >-42 && characterTop > 30 && characterTop < 31 ){
 			character.style.animationPlayState= "paused";
 			character.style.webkitAnimationPlayState= "paused";
 			positionDetect3 = requestAnimationFrame(positionDetectFA3);
 			positionDetect4 = requestAnimationFrame(positionDetectFA4);
+			
 			positionDetect5 = requestAnimationFrame(positionDetectFA5);
-			positionDetect6 = requestAnimationFrame(positionDetectFA6);
+			
 			positionDetect7 = requestAnimationFrame(positionDetectFA7);
 			positionDetect8 = requestAnimationFrame(positionDetectFA8);
 			positionDetect9 = requestAnimationFrame(positionDetectFA9);
+			positionDetect10 = requestAnimationFrame(positionDetectFA10);
+			positionDetect11 = requestAnimationFrame(positionDetectFA11);
+			// positionDetect12 = requestAnimationFrame(positionDetectFA12);
+			// positionDetect13 = requestAnimationFrame(positionDetectFA13);
+			// positionDetect14 = requestAnimationFrame(positionDetectFA14);
+			// positionDetect15 = requestAnimationFrame(positionDetectFA15);
 			cancelAnimationFrame(positionDetect2);
-		}	
+		}
 	}
-	
-	function getBox() {
-		var graveStone1Box = document.getElementById ("graveStone1Box");
-		var character = document.getElementById ("character");	
-				
-		if (character.getBoundingClientRect) {
-			var rect = character.getBoundingClientRect ();
-			cl = rect.left;
-			ct = rect.top;
-			cr = rect.right;
-			cb = rect.bottom;  
-		}
-		if (graveStone1Box.getBoundingClientRect) {
-			var rect2 = graveStone1Box.getBoundingClientRect ();
-			gl = rect2.left;
-			gt = rect2.top;
-			gr = rect2.right;
-			gb = rect2.bottom;
-		}
-		if (graveStone2Box.getBoundingClientRect) {
-			var rect3 = graveStone2Box.getBoundingClientRect ();
-			gl2 = rect3.left;
-			gt2 = rect3.top;
-			gr2 = rect3.right;
-			gb2 = rect3.bottom;
-		}
-		if (graveStone3Box.getBoundingClientRect) {
-			var rect4 = graveStone3Box.getBoundingClientRect ();
-			gl3 = rect4.left;
-			gt3 = rect4.top;
-			gr3 = rect4.right;
-			gb3 = rect4.bottom;	
-		}
-		if (flowerMonster1Box.getBoundingClientRect) {
-			var rect5 = flowerMonster1Box.getBoundingClientRect ();
-			fl = rect5.left;
-			ft = rect5.top;
-			fr = rect5.right;
-			fb = rect5.bottom;
-		}
-		if (treeMonster2Box.getBoundingClientRect) {
-			var rect4 = treeMonster2Box.getBoundingClientRect ();
-			tl2 = rect4.left;
-			tt2 = rect4.top;
-			tr2 = rect4.right;
-			tb2 = rect4.bottom;
-			
-			return(cl,ct,cr,cb,gl,gt,gr,gb2,gl2,gt2,gr2,gb2,gb2,gl3,gt3,gr3,gb3,
-			fl,ft,fr,fb,tl2,tt2,tr2,tb2);
-		}
-	} 
-	
-	function loseCrystal(life){
-	
-		var BoxElement  = document.querySelector('#obstacle');
-		var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
-		var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
-		
-		var characterElement  = document.querySelector('#character');
-		var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
-		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
-		var characterTop = (100*characterTopValue)/BoxTopValue;
-		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
-		
-	
-		var life = life;
-
-			console.log(life);
-			crystalArray = [lifeCrystal1,lifeCrystal2,lifeCrystal3]
-			crystalArray[life].style.display = "none";
-			
-			// pausedAnimation();
-			
-			if(positionDetectToggle === 0  && characterTop  > 99){
-				cancelAnimationFrame(positionDetect);
-			}
-			else if(positionDetectToggle === 1 ){			
-				cancelAnimationFrame(positionDetect2);
-			}
-   }
-   
 	// graveStone1
 	function positionDetectFA3(){
 	   
@@ -585,8 +626,7 @@ window.requestAnimFrame = (function(){
 		
 	   if((cr > gl+10 && cr < gr && cb >gt) || (cl > gl && cl+10 < gr && cb >gt) )
 	   {
-			
-			life = life - 1;
+		   life=life-1;
 			loseCrystal(life);
 			cancelAnimationFrame(positionDetect3);
 			
@@ -601,7 +641,7 @@ window.requestAnimFrame = (function(){
 		getBox();
 		
 		if ((cr > gl2+10 && cr < gr2 && cb >gt2) || (cl > gl2 && cl+10 < gr2 && cb >gt2)){
-			life = life - 1;
+			life=life-1;
 			loseCrystal(life);
 			cancelAnimationFrame(positionDetect4);
 		}
@@ -633,7 +673,7 @@ window.requestAnimFrame = (function(){
 	   
 		getBox();
 		
-		if (obstacleLeft <= -21 && obstacleLeft >= -23 && characterTop > 30 && characterTop < 31){
+		if (obstacleLeft <= -85 && obstacleLeft >= -90 && characterTop > 30 && characterTop < 31){
 
 			var dropKeyframes = document.createElement('style');
 			dropKeyframes.type = 'text/css';
@@ -673,7 +713,22 @@ window.requestAnimFrame = (function(){
 			character.style.webkitAnimation= "drop 1s linear 1 forwards";
 			
 			cancelAnimationFrame(positionDetect4);
+			cancelAnimationFrame(positionDetect5);
 			cancelAnimationFrame(positionDetect9);
+			cancelAnimationFrame(positionDetect10);
+			
+			console.log("test");
+		}
+		
+		if (obstacleLeft <= -85 && obstacleLeft >= -90 && characterTop > 31){
+			console.log("camcel");
+			cancelAnimationFrame(positionDetect5);
+		}
+		
+		if (obstacleLeft <= -90 && characterTop < 31){
+			console.log("cancel");
+			cancelAnimationFrame(positionDetect5);
+			cancelAnimationFrame(positionDetect11);
 		}
    }
    
@@ -691,11 +746,14 @@ window.requestAnimFrame = (function(){
 	   
 	   positionDetect6 = requestAnimationFrame(positionDetectFA6);
 		
-		if(obstacleLeft < -36 && obstacleLeft > -41){
+		if(obstacleLeft < -150){
 			pausedAnimation();
 			clearTimeout(renderCharacter);
+			start=false;
 		}
    }
+   
+   positionDetect6 = requestAnimationFrame(positionDetectFA6);
    
 	// graveStone3
    	function positionDetectFA7(){
@@ -704,9 +762,9 @@ window.requestAnimFrame = (function(){
 	   
 		getBox();
 		if ((cr > gl3+10 && cr < gr3 && cb >gt3) || (cl > gl3 && cl+10 < gr3 && cb >gt3)){
-			life = life - 1;
+			life=life-1;
 			loseCrystal(life);
-			cancelAnimationFrame(positionDetect7);
+			cancelAnimationFrame(positionDetect7);console.log("true");
 		}
    }	
    
@@ -717,9 +775,9 @@ window.requestAnimFrame = (function(){
 	   
 		getBox();
 		if ((cr > tl2+10 && cr < tr2 && cb >tt2) || (cl > tl2 && cl+10 < tr2 && cb >tt2)){
-			life = life - 1;
+			life=life-1;
 			loseCrystal(life);
-			cancelAnimationFrame(positionDetect8);
+			cancelAnimationFrame(positionDetect8);console.log("true");
 		}
    }	
    
@@ -730,12 +788,402 @@ window.requestAnimFrame = (function(){
 	   
 		getBox();
 		if ((cr > fl+10 && cr < fr && cb >ft) || (cl > fl && cl+10 < fr && cb >ft)){
-			life = life - 1;
+			life=life-1;
 			loseCrystal(life);
+			console.log("true");
 			cancelAnimationFrame(positionDetect9);
 		}
    }	
    
+    // brick5 jumpTo brick7 (up)
+   	function positionDetectFA10(){
+
+		var gameContainerElement  = document.querySelector('#gameContainer');
+		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
+		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
+		
+		var BoxElement  = document.querySelector('#obstacle');
+		var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
+		var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+		
+		var characterElement  = document.querySelector('#character');
+		var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
+		var characterTop = (100*characterTopValue)/BoxTopValue;
+		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+		
+		var obstacleElement  = document.querySelector('#obstacle');
+		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
+		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
+		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
+
+	   positionDetect10 = requestAnimationFrame(positionDetectFA10);
+
+		if (obstacleLeft < -140 && characterTop > 20 && characterTop < 21  ){
+			
+					console.log(characterTop);
+					
+			character.style.animationPlayState= "paused";
+			character.style.webkitAnimationPlayState= "paused";
+			cancelAnimationFrame(positionDetect10);
+			
+		}
+
+		if (obstacleLeft < -139 && obstacleLeft > -144 && characterTop > 30 && characterTop < 31 ){
+		var dropKeyframes = document.createElement('style');
+		dropKeyframes.type = 'text/css';
+		var keyFrames = '\
+		@keyframes drop{\
+			0%{\
+				top: first%;\
+			}\
+			50%{\
+				top: second%;\
+			}\
+			100%{\
+				top: second%;\
+			}\
+		}\
+		@-webkit-keyframes drop{\
+			0%{\
+				top: first%;\
+			}\
+			50%{\
+				top: second%;\
+			}\
+			100%{\
+				top: second%;\
+			}\
+		}';
+		
+		var dropValue = {
+							'first':characterTop,
+							'second':(characterTop+100),
+						};
+		
+		dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
+		document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
+
+			character.style.animation = "drop 1s linear 1 forwards";
+			character.style.webkitAnimation= "drop 1s linear 1 forwards";
+			cancelAnimationFrame(positionDetect10);
+			pausedAnimation();
+			start = false;
+		}
+   }	
+   
+    // brick5 jumpTo brick7 (down)
+   	function positionDetectFA11(){
+		
+		var gameContainerElement  = document.querySelector('#gameContainer');
+		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
+		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
+		
+		var BoxElement  = document.querySelector('#obstacle');
+		var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
+		var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+		
+		var characterElement  = document.querySelector('#character');
+		var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
+		var characterTop = (100*characterTopValue)/BoxTopValue;
+		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+		
+		var obstacleElement  = document.querySelector('#obstacle');
+		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
+		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
+		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
+
+	   positionDetect11 = requestAnimationFrame(positionDetectFA11);
+	   
+		if (obstacleLeft < -120 && characterTop > 75 && characterTop < 76){
+			cancelAnimationFrame(positionDetect10);
+		}
+		
+		if (obstacleLeft < -140 && characterTop > 75 && characterTop < 76){
+			
+		var dropKeyframes = document.createElement('style');
+		dropKeyframes.type = 'text/css';
+		var keyFrames = '\
+		@keyframes drop{\
+			0%{\
+				top: first%;\
+			}\
+			50%{\
+				top: second%;\
+			}\
+			100%{\
+				top: second%;\
+			}\
+		}\
+		@-webkit-keyframes drop{\
+			0%{\
+				top: first%;\
+			}\
+			50%{\
+				top: second%;\
+			}\
+			100%{\
+				top: second%;\
+			}\
+		}';
+		
+		var dropValue = {
+							'first':characterTop,
+							'second':(characterTop+34),
+						};
+		
+		dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
+		document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
+
+			character.style.animation = "drop 1s linear 1 forwards";
+			character.style.webkitAnimation= "drop 1s linear 1 forwards";
+			cancelAnimationFrame(positionDetect11);
+			pausedAnimation();
+			start = false;
+		}
+   }
+   
+   // brick7 stairs
+   	function positionDetectFA12(){
+		var gameContainerElement  = document.querySelector('#gameContainer');
+		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
+		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
+
+		var BoxElement  = document.querySelector('#obstacle');
+		var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
+		var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+
+		var characterElement  = document.querySelector('#character');
+		var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
+		var characterTop = (100*characterTopValue)/BoxTopValue;
+		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+
+		var obstacleElement  = document.querySelector('#obstacle');
+		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
+		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
+		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
+
+		positionDetect12 = requestAnimationFrame(positionDetectFA12);
+
+		
+		if (obstacleLeft < -46.5 && characterTop > 21 && characterTop < 22 ){
+
+			var goDownKeyframes = document.createElement('style');
+				goDownKeyframes.type = 'text/css';
+				var keyFrames = '\
+				@keyframes goDown{\
+					0%{\
+						top: first%;\
+					}\
+					100%{\
+						top: second%;\
+					}\
+				}\
+				@-webkit-keyframes goDown{\
+					0%{\
+						top: first%;\
+					}\
+					100%{\
+						top: second%;\
+					}\
+				}';
+				
+				var goDownValue = {
+								'first':characterTop,
+								'second':(characterTop+12),
+							};
+				
+				goDownKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => goDownValue[m]);
+				document.getElementsByTagName('div')[43].appendChild(goDownKeyframes);
+
+				character.style.animation = "goDown 1s linear 1 forwards";
+				character.style.webkitAnimation= "goDown 1s linear 1 forwards";
+				
+		}
+		
+		if (obstacleLeft < -49){
+			
+			character.style.animationPlayState = "paused";
+			character.style.webkitAnimationPlayState = "paused";
+			
+			cancelAnimationFrame(positionDetect12);
+			
+		}
+		
+	}
+   
+   // key
+    function positionDetectFA13(){
+		var gameContainerElement  = document.querySelector('#gameContainer');
+		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
+		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
+
+		var BoxElement  = document.querySelector('#obstacle');
+		var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
+		var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+
+		var characterElement  = document.querySelector('#character');
+		var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
+		var characterTop = (100*characterTopValue)/BoxTopValue;
+		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+
+		var obstacleElement  = document.querySelector('#obstacle');
+		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
+		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
+		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
+
+		positionDetect13 = requestAnimationFrame(positionDetectFA13);
+	
+
+		if (obstacleLeft < -51.4 && characterTop > 30 && characterTop < 31 ){
+
+			key.style.display = "none";
+			keyDisplay.style.display = "block";
+			cancelAnimationFrame(positionDetect13);
+			
+		}
+	}
+   
+    // brick7 dropTo brick6
+    function positionDetectFA14(){
+		
+		var gameContainerElement  = document.querySelector('#gameContainer');
+		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
+		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
+
+		var BoxElement  = document.querySelector('#obstacle');
+		var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
+		var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+
+		var characterElement  = document.querySelector('#character');
+		var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
+		var characterTop = (100*characterTopValue)/BoxTopValue;
+		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+
+		var obstacleElement  = document.querySelector('#obstacle');
+		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
+		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
+		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
+
+		positionDetect14 = requestAnimationFrame(positionDetectFA14);
+
+		if ((obstacleLeft < -54 && obstacleLeft > -57) && (characterTop > 30 && characterTop < 31)){
+			
+			var dropKeyframes = document.createElement('style');
+			dropKeyframes.type = 'text/css';
+			var keyFrames = '\
+			@keyframes drop{\
+				0%{\
+					top: first%;\
+				}\
+				50%{\
+					top: second%;\
+				}\
+				100%{\
+					top: second%;\
+				}\
+			}\
+			@-webkit-keyframes drop{\
+				0%{\
+					top: first%;\
+				}\
+				50%{\
+					top: second%;\
+				}\
+				100%{\
+					top: second%;\
+				}\
+			}\
+			@keyframes dropReset{\
+				0%{\
+					top: third%;\
+				}\
+				50%{\
+					top: forth%;\
+				}\
+				100%{\
+					top: forth%;\
+				}\
+			}\
+			@-webkit-keyframes dropReset{\
+				0%{\
+					top: third%;\
+				}\
+				50%{\
+					top: forth%;\
+				}\
+				100%{\
+					top: forth%;\
+				}\
+			}';
+			
+			var dropValue = {
+								'first':characterTop,
+								'second':(characterTop+46),
+								'third':characterTop,
+								'forth':(characterTop+36),
+							};
+			
+			dropKeyframes.innerHTML = keyFrames.replace(/first|second|third|forth/g, m => dropValue[m]);
+			document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
+
+			character.style.animation = "drop 1s linear 1 forwards";
+			character.style.webkitAnimation= "drop 1s linear 1 forwards";
+			
+			console.log(obstacleLeft < -54 , obstacleLeft > -55 , characterTop > 30 , characterTop < 31);
+			console.log(obstacleLeft);
+			if (obstacleLeft < -54 && obstacleLeft > -55 && characterTop > 30 && characterTop < 31){
+				
+				character.style.animation = "dropReset 1s linear 1 forwards";
+				character.style.webkitAnimation= "dropReset 1s linear 1 forwards";
+				
+				cancelAnimationFrame(positionDetect14);
+			}
+		}
+	}
+   
+   // brick7 jumpTo brick8
+    function positionDetectFA15(){
+		
+		var gameContainerElement  = document.querySelector('#gameContainer');
+		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
+		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
+
+		var BoxElement  = document.querySelector('#obstacle');
+		var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
+		var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+
+		var characterElement  = document.querySelector('#character');
+		var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
+		var characterTop = (100*characterTopValue)/BoxTopValue;
+		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+
+		var obstacleElement  = document.querySelector('#obstacle');
+		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
+		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
+		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
+
+		var brick8Element  = document.querySelector('#brick8');
+		var brick8TopValue = getComputedStyle(brick8Element).getPropertyValue("top").split("px")[0];
+		var brick8LeftValue = getComputedStyle(brick8Element).getPropertyValue("left").split("px")[0];	
+		var brick8Left = (100*brick8LeftValue)/BoxLeftValue;
+	
+		
+		positionDetect15 = requestAnimationFrame(positionDetectFA15);
+
+		getBox();
+		if(obstacleLeft < -58 && obstacleLeft >-59 && cb > bt8){
+			console.log(obstacleLeft);
+			pausedAnimation();
+			cancelAnimationFrame(positionDetect15);
+		}
+	}
+	
 	function pausedAnimation(){
 			
 		obstacleExtend.style.animationPlayState= "paused";
@@ -744,12 +1192,18 @@ window.requestAnimFrame = (function(){
 		obstacle.style.animationPlayState= "paused";
 		obstacle.style.webkitAnimationPlayState= "paused";
 	
+		redMonster.style.animationPlayState= "paused";
+		redMonster.style.webkitAnimationPlayState= "paused";
+	
 		brick2.style.animationPlayState= "paused";
 		brick2.style.webkitAnimationPlayState= "paused";
 	
 		block.style.animationPlayState= "paused";
 		block.style.webkitAnimationPlayState= "paused";
 	
+		brick2.style.animationPlayState= "paused";
+		brick2.style.webkitAnimationPlayState= "paused";
+
 		flowerMonster1.style.animationPlayState= "paused";
 		flowerMonster1.style.webkitAnimationPlayState= "paused";
 	
@@ -787,37 +1241,39 @@ window.requestAnimFrame = (function(){
 		exclamationMark.style.webkitAnimationPlayState= "paused";
 
 		redMonster.style.display = "none";
-		firstRedMonsterImage.style.display = "block";
+		clearTimeout(renderRedMonster);
 		
-		// character.style.display = "none";
-		// firstCharacterImage.style.display = "block";
+		// jumpEvent.style.zIndex ="-10";
 	}
 	
 	function startAnimation(){
 			
-		obstacleExtend.style.animation= "obstacleExtend 20s linear 1 forwards";
-		obstacleExtend.style.webkitAnimation = "obstacleExtend 20s linear 1 forwards";
+		obstacleExtend.style.animation= "obstacleExtend 15s linear 1 forwards";
+		obstacleExtend.style.webkitAnimation = "obstacleExtend 15s linear 1 forwards";
 	
-		obstacle.style.animation= "obstacle 20s linear 1 forwards";
-		obstacle.style.webkitAnimation = "obstacle 20s linear 1 forwards";
+		obstacle.style.animation= "obstacle 15s linear 1 forwards";
+		obstacle.style.webkitAnimation = "obstacle 15s linear 1 forwards";
+	
+		redMonster.style.animation= "redMonster 1s linear 3.5s forwards";
+		redMonster.style.webkitAnimation = "redMonster 1s linear 3.5s forwards";
 	
 		brick2.style.animation= "brick2 3s 0.5s infinite";
 		brick2.style.webkitAnimation = "brick2 3s 0.5s infinite";
 	
-		block.style.animation= "block 3.5s linear 3s infinite";
-		block.style.webkitAnimation = "block 3.5s linear 3s infinite";
+		block.style.animation= "block 3.5s linear 1.5s infinite";
+		block.style.webkitAnimation = "block 3.5s linear 1.5s infinite";
 	
-		flowerMonster1.style.animation= "flowerMonster1 5s linear infinite";
-		flowerMonster1.style.webkitAnimation = "flowerMonster1 5s linear infinite";
+		flowerMonster1.style.animation= "flowerMonster1 5s linear 6s infinite";
+		flowerMonster1.style.webkitAnimation = "flowerMonster1 5s linear 6s infinite";
 	
-		treeMonster1.style.animation= "treeMonster1 10s linear 3s infinite";
-		treeMonster1.style.webkitAnimation = "treeMonster1 10s linear 3s infinite";
+		treeMonster1.style.animation= "treeMonster1 10s linear 5s infinite";
+		treeMonster1.style.webkitAnimation = "treeMonster1 10s linear 5s infinite";
 	
-		treeMonster2.style.animation= "treeMonster2 8s linear infinite";
-		treeMonster2.style.webkitAnimation = "treeMonster2 8s linear infinite";
+		treeMonster2.style.animation= "treeMonster2 8s linear 5s infinite";
+		treeMonster2.style.webkitAnimation = "treeMonster2 8s linear 5s infinite";
 	
-		longFire.style.animation= "longFire 1s linear infinite";
-		longFire.style.webkitAnimation = "longFire 1s linear infinite";
+		longFire.style.animation= "longFire 1s linear 10s 1 forwards";
+		longFire.style.webkitAnimation = "longFire 1s linear 10s 1 forwards";
 	
 		flowerMonster2.style.animation= "flowerMonster2 5s linear infinite";
 		flowerMonster2.style.webkitAnimation = "flowerMonster2 5s linear infinite";
@@ -873,7 +1329,22 @@ window.requestAnimFrame = (function(){
 	var obstacleExtendLeftValue = getComputedStyle(obstacleExtendElement).getPropertyValue("left").split("px")[0];
 	var obstacleExtendLeft = (100*BoxLeftValue)/gameContainerLeftValue;
 	
+		if( data3 === "startCharacter" || data3 === "startBackground" || data3 ===  "startCursor"){
+			startAnimation();
+			characterAnimation();
+			redMonsterAnimation();
+			var totalPoints = setInterval(count, 50);
+			start=true;
+			startInterface.style.display = "none";
+			startInterface.style.zIndex ="-10";
+			jumpEvent.style.zIndex ="0";
+			firstRedMonsterImage.style.display = "none";
+			positionDetect = requestAnimationFrame(positionDetectFA);
+		}
+	
 		if (data3 === "jumpEvent"){
+			getBox();
+			
 			if (jumpToggle === 0 && (characterTop < 74 && characterTop > 73)) {
 				jumpAnimation(jumpToggle);
 				jumpToggle = 1;
@@ -883,7 +1354,7 @@ window.requestAnimFrame = (function(){
 				jumpToggle = 0;
 			}	
 			
-			if(obstacleLeft > -5.8 && characterTop > 51 && characterTop < 52){
+			if(obstacleLeft < -15 && obstacleLeft > -35 &&  cr > bl && cb > bt && cb < bt+1){
 
 				var jumpKeyframes = document.createElement('style');
 				jumpKeyframes.type = 'text/css';
@@ -942,7 +1413,6 @@ window.requestAnimFrame = (function(){
 				document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
 
 				if (jumpToggle === 0){
-					
 					cancelAnimationFrame(positionDetect);
 					positionDetect2 = requestAnimationFrame(positionDetectFA2);
 					character.style.animation = " jumptoBrick3 1s ease-in-out 1 forwards";
@@ -952,7 +1422,6 @@ window.requestAnimFrame = (function(){
 					jumpToggle = 1;
 				}
 				else if (jumpToggle === 1){
-
 					cancelAnimationFrame(positionDetect);
 					positionDetect2 = requestAnimationFrame(positionDetectFA2);
 					character.style.animation = " jumptoBrick3Reset 1s ease-in-out 1 forwards";
@@ -963,7 +1432,7 @@ window.requestAnimFrame = (function(){
 				}
 			}
 			
-			if(obstacleLeft < -5.8 && characterTop > 30 && characterTop < 31 ){
+			if(obstacleLeft < -36 && ((characterTop > 30 && characterTop < 31) || ( characterTop > 75 && characterTop < 76)) ){
 
 				var BoxElement  = document.querySelector('#obstacle');
 				var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
@@ -1041,83 +1510,159 @@ window.requestAnimFrame = (function(){
 				}	
 			}
 			
-			if ((obstacleLeft > -40 && obstacleLeft < -23) && characterTop < 76 && characterTop >75){
-				// cancelAnimationFrame(positionDetect5);
-				var BoxElement  = document.querySelector('#obstacle');
-				var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
-				var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+				// var BoxElement  = document.querySelector('#obstacle');
+				// var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
+				// var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
 				
-				var characterElement  = document.querySelector('#character');
-				var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
-				var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
-				var characterTop = (100*characterTopValue)/BoxTopValue;
-				var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+				// var characterElement  = document.querySelector('#character');
+				// var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+				// var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
+				// var characterTop = (100*characterTopValue)/BoxTopValue;
+				// var characterLeft = (100*characterLeftValue)/BoxLeftValue;
 				
-				var jumpKeyframes = document.createElement('style');
-				jumpKeyframes.type = 'text/css';
-				var keyFrames = '\
-				@keyframes jump3{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jump3{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@keyframes jumpReset3{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jumpReset3{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}';
+				// var jumpKeyframes = document.createElement('style');
+				// jumpKeyframes.type = 'text/css';
+				// var keyFrames = '\
+				// @keyframes jump3{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }\
+				// @-webkit-keyframes jump3{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }\
+				// @keyframes jumpReset3{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }\
+				// @-webkit-keyframes jumpReset3{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }';
 				
-				var jumpValue = {
-									'first':characterTop,
-									'second':(characterTop-20)
-								};
+				// var jumpValue = {
+									// 'first':characterTop,
+									// 'second':(characterTop-20)
+								// };
 				
-				jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
-				document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
+				// jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
+				// document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
 
-				if (jumpToggle3 === 0) {
-					jumpAnimation3(jumpToggle3);
-					jumpToggle3 = 1;
-				}
-				else if (jumpToggle2 === 1) {
-					jumpAnimation3(jumpToggle3);
-					jumpToggle3 = 0;
-				}
-			}
+				// if (jumpToggle3 === 0) {
+					// jumpAnimation3(jumpToggle3);
+					// jumpToggle3 = 1;
+				// }
+				// else if (jumpToggle3 === 1) {
+					// jumpAnimation3(jumpToggle3);
+					// jumpToggle3 = 0;
+				// }
+			// }
+			
+			// if (obstacleLeft < -35 && characterTop > 21 && characterTop < 22 ){
+			
+				// var BoxElement  = document.querySelector('#obstacle');
+				// var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
+				// var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+				
+				// var characterElement  = document.querySelector('#character');
+				// var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+				// var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
+				// var characterTop = (100*characterTopValue)/BoxTopValue;
+				// var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+				
+				// var jumpKeyframes = document.createElement('style');
+				// jumpKeyframes.type = 'text/css';
+				// var keyFrames = '\
+				// @keyframes jump4{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }\
+				// @-webkit-keyframes jump4{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }\
+				// @keyframes jumpReset4{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }\
+				// @-webkit-keyframes jumpReset4{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }';
+				
+				// var jumpValue = {
+									// 'first':characterTop,
+									// 'second':(characterTop-20)
+								// };
+				
+				// jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
+				// document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
+
+				// if (jumpToggle4 === 0) {
+					// jumpAnimation4(jumpToggle4);
+					// jumpToggle4 = 1;
+				// }
+				// else if (jumpToggle4 === 1) {
+					// jumpAnimation4(jumpToggle4);
+					// jumpToggle4 = 0;
+				// }
+			// }
 		}
 	}
 	
@@ -1125,198 +1670,7 @@ window.requestAnimFrame = (function(){
 	var data3 = e.target.id;
 	console.log(data3);
 	
-	var gameContainerElement  = document.querySelector('#gameContainer');
-	var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
-	var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
-	
-	var BoxElement  = document.querySelector('#obstacle');
-	var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
-	var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
-	
-	var characterElement  = document.querySelector('#character');
-	var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
-	var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
-	var characterTop = (100*characterTopValue)/BoxTopValue;
-	var characterLeft = (100*characterLeftValue)/BoxLeftValue;
-	
-	var obstacleElement  = document.querySelector('#obstacle');
-	var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
-	var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
-	var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
-	
-	var obstacleExtendElement  = document.querySelector('#obstacleExtend');
-	var obstacleExtendTopValue = getComputedStyle(obstacleExtendElement).getPropertyValue("top").split("px")[0];
-	var obstacleExtendLeftValue = getComputedStyle(obstacleExtendElement).getPropertyValue("left").split("px")[0];
-	var obstacleExtendLeft = (100*BoxLeftValue)/gameContainerLeftValue;
-	
-		if (data3 === "jumpEvent"){
-			if (jumpToggle === 0 && (characterTop < 74 && characterTop > 73)) {
-				jumpAnimation(jumpToggle);
-				jumpToggle = 1;
-			}
-			else if (jumpToggle === 1 && (characterTop < 74 && characterTop > 73 )) {
-				jumpAnimation(jumpToggle);
-				jumpToggle = 0;
-			}	
-			
-			if(obstacleLeft > -5.8 && characterTop > 51 && characterTop < 52){
 
-				var jumpKeyframes = document.createElement('style');
-				jumpKeyframes.type = 'text/css';
-				var keyFrames = '\
-				@keyframes jumptoBrick3{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jumptoBrick3{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@keyframes jumptoBrick3Reset{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jumptoBrick3Reset{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}';
-				
-				var jumpValue = {
-									'first':characterTop,
-									'second':(characterTop-34),
-								};
-				
-				jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
-				document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
-
-				if (jumpToggle === 0){
-					
-					cancelAnimationFrame(positionDetect);
-					positionDetect2 = requestAnimationFrame(positionDetectFA2);
-					character.style.animation = " jumptoBrick3 1s ease-in-out 1 forwards";
-					character.style.webkitAnimation = "jumptoBrick3 1s ease-in-out 1 forwards";	
-					character.style.animationPlayState= "running";
-					character.style.webkitAnimationPlayState= "running";
-					jumpToggle = 1;
-				}
-				else if (jumpToggle === 1){
-
-					cancelAnimationFrame(positionDetect);
-					positionDetect2 = requestAnimationFrame(positionDetectFA2);
-					character.style.animation = " jumptoBrick3Reset 1s ease-in-out 1 forwards";
-					character.style.webkitAnimation = "jumptoBrick3Reset 1s ease-in-out 1 forwards";	
-					character.style.animationPlayState= "running";
-					character.style.webkitAnimationPlayState= "running";
-					jumpToggle = 0;
-				}
-			}
-			
-			if(obstacleLeft < -5.8 && characterTop > 30 && characterTop < 31 ){
-
-				var BoxElement  = document.querySelector('#obstacle');
-				var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
-				var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
-				
-				var characterElement  = document.querySelector('#character');
-				var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
-				var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
-				var characterTop = (100*characterTopValue)/BoxTopValue;
-				var characterLeft = (100*characterLeftValue)/BoxLeftValue;
-				
-				var jumpKeyframes = document.createElement('style');
-				jumpKeyframes.type = 'text/css';
-				var keyFrames = '\
-				@keyframes jump2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jump2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@keyframes jumpReset2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jumpReset2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}';
-				
-				var jumpValue = {
-									'first':characterTop,
-									'second':(characterTop-34)
-								};
-				
-				jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
-				document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
-
-				if (jumpToggle2 === 0) {
-					jumpAnimation2(jumpToggle2);
-					jumpToggle2 = 1;
-				}
-				else if (jumpToggle2 === 1) {
-					jumpAnimation2(jumpToggle2);
-					jumpToggle2 = 0;
-				}	
-			}
-		}
 	}
 	
 	var g = document.getElementById("gameContainer");
