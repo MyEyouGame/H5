@@ -506,7 +506,7 @@ window.requestAnimFrame = (function(){
 				start=false;
 				cancelAnimationFrame(positionDetect);
 			}
-			if (obstacleLeft < -15 && obstacleLeft > -25 && characterTop < 52 && characterTop > 51 ){
+			if (obstacleLeft < -15 && obstacleLeft > -25 && characterTop < 52.5 && characterTop > 50 ){
 				console.log(obstacleLeft,characterTop);
 				character.style.animationPlayState= "paused";
 				character.style.webkitAnimationPlayState= "paused";
@@ -1169,9 +1169,9 @@ window.requestAnimFrame = (function(){
 		positionDetect15 = requestAnimationFrame(positionDetectFA15);
 		
 		if(obstacleLeft === -200){
-			console.log("test2");
 			character.style.animation = "characterRun 3s linear 1 forwards";
 			character.style.webkitAnimation= "characterRun 3s linear 1 forwards";
+			// here 
 		}
 		
 	}
