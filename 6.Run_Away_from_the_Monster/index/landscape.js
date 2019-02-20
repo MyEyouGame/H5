@@ -458,7 +458,7 @@ window.requestAnimFrame = (function(){
 		
 		getBox();
 		
-		if (obstacleLeft < -10 && obstacleLeft > -43){
+		if (obstacleLeft < -15 && obstacleLeft > -43){
 			var dropKeyframes = document.createElement('style');
 			dropKeyframes.type = 'text/css';
 			var keyFrames = '\
@@ -492,6 +492,11 @@ window.requestAnimFrame = (function(){
 			
 			dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
 			document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
+		
+			
+		// if (obstacleLeft < -17){
+			// pausedAnimation();
+		// }
 		
 			if (obstacleLeft < -18 && obstacleLeft > -25 && characterTop < 74 && characterTop > 73){
 				
@@ -1252,8 +1257,8 @@ window.requestAnimFrame = (function(){
 		brick2.style.animation= "brick2 3s 0.5s infinite";
 		brick2.style.webkitAnimation = "brick2 3s 0.5s infinite";
 	
-		block.style.animation= "block 3.5s linear 1.5s infinite";
-		block.style.webkitAnimation = "block 3.5s linear 1.5s infinite";
+		block.style.animation= "block 3.5s linear 1.8s infinite";
+		block.style.webkitAnimation = "block 3.5s linear 1.8s infinite";
 	
 		flowerMonster1.style.animation= "flowerMonster1 5s linear 6s infinite";
 		flowerMonster1.style.webkitAnimation = "flowerMonster1 5s linear 6s infinite";
