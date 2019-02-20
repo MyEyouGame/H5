@@ -221,11 +221,13 @@ window.requestAnimFrame = (function(){
 	var life = 3;
 	var start = true;
 	var p = 0000;
+	var totalPoints;
 	
 	function count() {
 		if (start === true) {
 			p++
 			document.getElementById("points").innerHTML = '0000'.substr( String(p).length ) + p ;
+			totalPoints = requestAnimationFrame(count, 50);
 		}
 	  }
   
@@ -405,7 +407,6 @@ window.requestAnimFrame = (function(){
 			br9 = rect6.right;
 			bb9 = rect6.bottom;
 		}
-		
 		if (blockBox.getBoundingClientRect) {
 			var rect7 = blockBox.getBoundingClientRect ();
 			bl = rect7.left;
@@ -493,6 +494,9 @@ window.requestAnimFrame = (function(){
 			document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 		
 			if (obstacleLeft < -18 && obstacleLeft > -25 && characterTop < 74 && characterTop > 73){
+				
+				console.log(obstacleLeft,characterTop);
+				
 				character.style.animation = "drop 1s linear 1 forwards";
 				character.style.webkitAnimation= "drop 1s linear 1 forwards";
 				firstRedMonsterImage.style.display ="block";
@@ -502,11 +506,14 @@ window.requestAnimFrame = (function(){
 				start=false;
 				cancelAnimationFrame(positionDetect);
 			}
-			if (obstacleLeft < -15 && obstacleLeft > -25 && cr > bl && cb > bt && cb < bt+1 ){
+			if (obstacleLeft < -15 && obstacleLeft > -25 && characterTop < 52 && characterTop > 51 ){
+				console.log(obstacleLeft,characterTop);
 				character.style.animationPlayState= "paused";
 				character.style.webkitAnimationPlayState= "paused";
 			}
-			if( obstacleLeft <-35 && obstacleLeft>-38 && cl > br && cb > bt){
+			if( obstacleLeft <-35 && obstacleLeft>-38 && characterTop < 52 && characterTop > 51){
+				
+				console.log(obstacleLeft,characterTop);
 				character.style.animation = "drop 1s linear 1 forwards";
 				character.style.webkitAnimation= "drop 1s linear 1 forwards";
 				life=life-1;
@@ -582,7 +589,7 @@ window.requestAnimFrame = (function(){
 		
 		var dropValue = {
 							'first':characterTop,
-							'second':(characterTop+60),
+							'second':(characterTop+64),
 						};
 		
 		dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
@@ -610,10 +617,10 @@ window.requestAnimFrame = (function(){
 			positionDetect9 = requestAnimationFrame(positionDetectFA9);
 			positionDetect10 = requestAnimationFrame(positionDetectFA10);
 			positionDetect11 = requestAnimationFrame(positionDetectFA11);
-			// positionDetect12 = requestAnimationFrame(positionDetectFA12);
-			// positionDetect13 = requestAnimationFrame(positionDetectFA13);
-			// positionDetect14 = requestAnimationFrame(positionDetectFA14);
-			// positionDetect15 = requestAnimationFrame(positionDetectFA15);
+			positionDetect12 = requestAnimationFrame(positionDetectFA12);
+			positionDetect13 = requestAnimationFrame(positionDetectFA13);
+			positionDetect14 = requestAnimationFrame(positionDetectFA14);
+			positionDetect15 = requestAnimationFrame(positionDetectFA15);
 			cancelAnimationFrame(positionDetect2);
 		}
 	}
@@ -746,7 +753,7 @@ window.requestAnimFrame = (function(){
 	   
 	   positionDetect6 = requestAnimationFrame(positionDetectFA6);
 		
-		if(obstacleLeft < -150){
+		if(obstacleLeft < -210){
 			pausedAnimation();
 			clearTimeout(renderCharacter);
 			start=false;
@@ -821,8 +828,6 @@ window.requestAnimFrame = (function(){
 
 		if (obstacleLeft < -140 && characterTop > 20 && characterTop < 21  ){
 			
-					console.log(characterTop);
-					
 			character.style.animationPlayState= "paused";
 			character.style.webkitAnimationPlayState= "paused";
 			cancelAnimationFrame(positionDetect10);
@@ -968,7 +973,7 @@ window.requestAnimFrame = (function(){
 		positionDetect12 = requestAnimationFrame(positionDetectFA12);
 
 		
-		if (obstacleLeft < -46.5 && characterTop > 21 && characterTop < 22 ){
+		if (obstacleLeft < -167 && characterTop > 20 && characterTop < 21 ){
 
 			var goDownKeyframes = document.createElement('style');
 				goDownKeyframes.type = 'text/css';
@@ -992,7 +997,7 @@ window.requestAnimFrame = (function(){
 				
 				var goDownValue = {
 								'first':characterTop,
-								'second':(characterTop+12),
+								'second':(characterTop+13),
 							};
 				
 				goDownKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => goDownValue[m]);
@@ -1000,18 +1005,15 @@ window.requestAnimFrame = (function(){
 
 				character.style.animation = "goDown 1s linear 1 forwards";
 				character.style.webkitAnimation= "goDown 1s linear 1 forwards";
-				
 		}
 		
-		if (obstacleLeft < -49){
+		if (obstacleLeft < -178){
 			
 			character.style.animationPlayState = "paused";
 			character.style.webkitAnimationPlayState = "paused";
 			
 			cancelAnimationFrame(positionDetect12);
-			
 		}
-		
 	}
    
    // key
@@ -1037,8 +1039,7 @@ window.requestAnimFrame = (function(){
 
 		positionDetect13 = requestAnimationFrame(positionDetectFA13);
 	
-
-		if (obstacleLeft < -51.4 && characterTop > 30 && characterTop < 31 ){
+		if (obstacleLeft < -185 && obstacleLeft > -187 && characterTop > 30 && characterTop < 31 ){
 
 			key.style.display = "none";
 			keyDisplay.style.display = "block";
@@ -1071,7 +1072,7 @@ window.requestAnimFrame = (function(){
 
 		positionDetect14 = requestAnimationFrame(positionDetectFA14);
 
-		if ((obstacleLeft < -54 && obstacleLeft > -57) && (characterTop > 30 && characterTop < 31)){
+		if ((obstacleLeft < -194 && obstacleLeft > -199) && (characterTop > 30 && characterTop < 31)){
 			
 			var dropKeyframes = document.createElement('style');
 			dropKeyframes.type = 'text/css';
@@ -1133,20 +1134,17 @@ window.requestAnimFrame = (function(){
 
 			character.style.animation = "drop 1s linear 1 forwards";
 			character.style.webkitAnimation= "drop 1s linear 1 forwards";
-			
-			console.log(obstacleLeft < -54 , obstacleLeft > -55 , characterTop > 30 , characterTop < 31);
-			console.log(obstacleLeft);
-			if (obstacleLeft < -54 && obstacleLeft > -55 && characterTop > 30 && characterTop < 31){
-				
-				character.style.animation = "dropReset 1s linear 1 forwards";
-				character.style.webkitAnimation= "dropReset 1s linear 1 forwards";
-				
-				cancelAnimationFrame(positionDetect14);
-			}
+
+		}
+		if(obstacleLeft < -194 && characterTop > 73 && characterTop < 74 ){
+			console.log("true");
+			character.style.animationPlayState = "paused";
+			character.style.webkitAnimationPlayState = "paused";
+			cancelAnimationFrame(positionDetect14);
 		}
 	}
    
-   // brick7 jumpTo brick8
+   // character run
     function positionDetectFA15(){
 		
 		var gameContainerElement  = document.querySelector('#gameContainer');
@@ -1168,20 +1166,14 @@ window.requestAnimFrame = (function(){
 		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
 		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
 
-		var brick8Element  = document.querySelector('#brick8');
-		var brick8TopValue = getComputedStyle(brick8Element).getPropertyValue("top").split("px")[0];
-		var brick8LeftValue = getComputedStyle(brick8Element).getPropertyValue("left").split("px")[0];	
-		var brick8Left = (100*brick8LeftValue)/BoxLeftValue;
-	
-		
 		positionDetect15 = requestAnimationFrame(positionDetectFA15);
-
-		getBox();
-		if(obstacleLeft < -58 && obstacleLeft >-59 && cb > bt8){
-			console.log(obstacleLeft);
-			pausedAnimation();
-			cancelAnimationFrame(positionDetect15);
+		
+		if(obstacleLeft === -200){
+			console.log("test2");
+			character.style.animation = "characterRun 3s linear 1 forwards";
+			character.style.webkitAnimation= "characterRun 3s linear 1 forwards";
 		}
+		
 	}
 	
 	function pausedAnimation(){
@@ -1290,8 +1282,8 @@ window.requestAnimFrame = (function(){
 		brick9.style.animation= "brick9 3s linear infinite";
 		brick9.style.webkitAnimation = "brick9 3s linear infinite";
 	
-		shortFire2.style.animation= "shortFire 2s linear infinite";
-		shortFire2.style.webkitAnimation = "shortFire 2s linear infinite";
+		shortFire2.style.animation= "shortFire 2s linear 0.5s infinite";
+		shortFire2.style.webkitAnimation = "shortFire 2s linear 0.5s infinite";
 	
 		reward.style.animation= "reward 1s linear infinite";
 		reward.style.webkitAnimation = "reward 1s linear infinite";
@@ -1333,7 +1325,7 @@ window.requestAnimFrame = (function(){
 			startAnimation();
 			characterAnimation();
 			redMonsterAnimation();
-			var totalPoints = setInterval(count, 50);
+			totalPoints = requestAnimationFrame(count, 50);
 			start=true;
 			startInterface.style.display = "none";
 			startInterface.style.zIndex ="-10";
@@ -1344,7 +1336,7 @@ window.requestAnimFrame = (function(){
 	
 		if (data3 === "jumpEvent"){
 			getBox();
-			
+			console.log(obstacleLeft,characterTop);
 			if (jumpToggle === 0 && (characterTop < 74 && characterTop > 73)) {
 				jumpAnimation(jumpToggle);
 				jumpToggle = 1;
@@ -1354,7 +1346,7 @@ window.requestAnimFrame = (function(){
 				jumpToggle = 0;
 			}	
 			
-			if(obstacleLeft < -15 && obstacleLeft > -35 &&  cr > bl && cb > bt && cb < bt+1){
+			if(obstacleLeft < -15 && obstacleLeft > -35 &&  characterTop < 52 && characterTop > 51){
 
 				var jumpKeyframes = document.createElement('style');
 				jumpKeyframes.type = 'text/css';
@@ -1432,7 +1424,9 @@ window.requestAnimFrame = (function(){
 				}
 			}
 			
-			if(obstacleLeft < -36 && ((characterTop > 30 && characterTop < 31) || ( characterTop > 75 && characterTop < 76)) ){
+			if(obstacleLeft < -36 && ((characterTop > 30 && characterTop < 31) || 
+			( characterTop > 75 && characterTop < 76) ||
+			(obstacleLeft > -153 && obstacleLeft < -159 && characterTop > 20 && characterTop < 21) ) ){
 
 				var BoxElement  = document.querySelector('#obstacle');
 				var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
@@ -1667,10 +1661,8 @@ window.requestAnimFrame = (function(){
 	}
 	
 	function touchstart(e) {
-	var data3 = e.target.id;
-	console.log(data3);
-	
-
+		var data3 = e.target.id;
+		console.log(data3);
 	}
 	
 	var g = document.getElementById("gameContainer");
