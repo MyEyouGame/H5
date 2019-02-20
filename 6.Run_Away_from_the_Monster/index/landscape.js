@@ -498,7 +498,7 @@ window.requestAnimFrame = (function(){
 			// pausedAnimation();
 		// }
 		
-			if (obstacleLeft < -18 && obstacleLeft > -25 && characterTop < 74 && characterTop > 73){
+			if (obstacleLeft < -15 && obstacleLeft > -25 && characterTop < 74 && characterTop > 73){
 				
 				console.log(obstacleLeft,characterTop);
 				
