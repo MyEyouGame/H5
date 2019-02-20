@@ -282,12 +282,12 @@ window.requestAnimFrame = (function(){
 		var t = jumpToggle ; 
 
 		if (t === 1){
-			character.style.animation = " jump 1s ease-in-out 1";
-			character.style.webkitAnimation = "jump 1s ease-in-out 1";	
+			character.style.animation = " jump 0.8s linear 1";
+			character.style.webkitAnimation = "jump 0.8s linear 1";	
 		}
 		if (t === 0){
-			character.style.animation = " jumpReset 1s ease-in-out 1";
-			character.style.webkitAnimation = "jumpReset 1s ease-in-out 1";	
+			character.style.animation = " jumpReset 0.8s linear 1";
+			character.style.webkitAnimation = "jumpReset 0.8s linear 1";	
 		}
 	}
 	
@@ -297,12 +297,12 @@ window.requestAnimFrame = (function(){
 		var t = jumpToggle2 ; 
 
 		if (t === 1){
-			character.style.animation = " jump2 1s ease-in-out 1 forwards";
+			character.style.animation = " jump2 0.8s ease-in-out 1 forwards";
 			character.style.webkitAnimation = "jump2 1s ease-in-out 1 forwards";	
 		}
 		if (t === 0){
-			character.style.animation = " jumpReset2 1s ease-in-out 1 forwards";
-			character.style.webkitAnimation = "jumpReset2 1s ease-in-out 1 forwards";	
+			character.style.animation = " jumpReset2 0.8s ease-in-out 1 forwards";
+			character.style.webkitAnimation = "jumpReset2 0.8s ease-in-out 1 forwards";	
 		}
 	}
 	
@@ -458,7 +458,7 @@ window.requestAnimFrame = (function(){
 		
 		getBox();
 		
-		if (obstacleLeft < -15 && obstacleLeft > -43){
+		if (obstacleLeft < -17 && obstacleLeft > -43){
 			var dropKeyframes = document.createElement('style');
 			dropKeyframes.type = 'text/css';
 			var keyFrames = '\
@@ -496,9 +496,10 @@ window.requestAnimFrame = (function(){
 			
 		// if (obstacleLeft < -17){
 			// pausedAnimation();
+			// cancelAnimationFrame(positionDetect);
 		// }
 		
-			if (obstacleLeft < -15 && obstacleLeft > -25 && characterTop < 74 && characterTop > 73){
+			if (obstacleLeft < -17 && obstacleLeft > -28 && characterTop < 74 && characterTop > 73){
 				
 				console.log(obstacleLeft,characterTop);
 				
@@ -511,12 +512,12 @@ window.requestAnimFrame = (function(){
 				start=false;
 				cancelAnimationFrame(positionDetect);
 			}
-			if (obstacleLeft < -15 && obstacleLeft > -25 && characterTop < 52.5 && characterTop > 50 ){
+			if (obstacleLeft < -15 && obstacleLeft > -25 && characterTop < 52 && characterTop > 51 ){
 				console.log(obstacleLeft,characterTop);
 				character.style.animationPlayState= "paused";
 				character.style.webkitAnimationPlayState= "paused";
 			}
-			if( obstacleLeft <-35 && obstacleLeft>-38 && characterTop < 52 && characterTop > 51){
+			if( obstacleLeft <-34 && obstacleLeft>-38 && characterTop < 52 && characterTop > 51){
 				
 				console.log(obstacleLeft,characterTop);
 				character.style.animation = "drop 1s linear 1 forwards";
