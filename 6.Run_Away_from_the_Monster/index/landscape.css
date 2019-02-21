@@ -425,24 +425,28 @@
 			background-repeat:no-repeat;
 			overflow:hidden;
 		}	
-		#graveStone1Box,#graveStone2Box,#graveStone3Box{
-			position:absolute;	
-			top: 19%;
-			left: 44%;
-			height: 73%;
-			width: 18%;
-			
+		#graveStone2Box,#graveStone3Box{
+			position: absolute;
+			top: 25%;
+			left: 45%;
+			height: 65%;
+			width: 15%;
 			border: solid 0.02px;
 		}
-		
+		#graveStone1Box{
+			position: absolute;
+			top: 40%;
+			left: 30.6%;
+			height: 9%;
+			width: 1.2%;
+			border: solid 0.02px;
+		}
 		#flowerMonster1Box{
 			position:absolute;	
 			top: 7%;
 			left: 38%;
 			height: 70%;
 			width: 26%;
-			
-			border: solid 0.02px;
 		}
 		
 		#treeMonster2Box{
@@ -451,8 +455,6 @@
 			left: 21%;
 			height: 77%;
 			width: 53%;
-			
-			border: solid 0.02px;
 		}
 		
 		#brick4{
@@ -1643,6 +1645,51 @@
 			}
 			100%{
 				top:74%;
+			}
+		}
+	
+		@keyframes jump2{
+			0%{
+				top:31%;
+			}
+			50%{
+				top:-4%;
+			}
+			100%{
+				top:31%;
+			}
+		}
+		@-webkit-keyframes jump2{
+			0%{
+				top:31%;
+			}
+			50%{
+				top:-4%;
+			}
+			100%{
+				top:31%;
+			}
+		}
+		@keyframes jumpReset2{
+			0%{
+				top:31%;
+			}
+			50%{
+				top:-4%;
+			}
+			100%{
+				top:31%;
+			}
+		}
+		@-webkit-keyframes jumpReset2{
+			0%{
+				top:31%;
+			}
+			50%{
+				top:-4%;
+			}
+			100%{
+				top:31%;
 			}
 		}
 	
