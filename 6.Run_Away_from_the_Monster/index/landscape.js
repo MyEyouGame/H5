@@ -596,7 +596,7 @@ window.requestAnimFrame = (function(){
 		dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
 		document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 
-		if(obstacleLeft <-35 && obstacleLeft >-38 && characterTop > 32){
+		if(obstacleLeft <-35 && obstacleLeft >-38 && characterTop > 52 && characterTop < 51){
 			character.style.animation = "drop 1s linear 1 forwards";
 			character.style.webkitAnimation= "drop 1s linear 1 forwards";		
 			loseCrystal(life-1);
