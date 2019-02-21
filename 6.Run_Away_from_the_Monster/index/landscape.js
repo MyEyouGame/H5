@@ -519,17 +519,11 @@ window.requestAnimFrame = (function(){
 				start=false;
 				cancelAnimationFrame(positionDetect);
 			}
-			if(obstacleLeft <-25){
-				// cancelAnimationFrame(positionDetect);
-				pausedAnimation();
-				start = false;
-			}
-			// console.log(characterTop < 52 , characterTop > 50 ,obstacleLeft,characterTop);
 			if (obstacleLeft < -17 && characterBottom < 67 && characterBottom > 66){
 				character.style.animationPlayState= "paused";
 				character.style.webkitAnimationPlayState= "paused";
 			}
-			if( obstacleLeft <-34 && obstacleLeft>-38 && characterTop < 50 && characterTop > 49){
+			if(obstacleLeft <-32 && obstacleLeft>-38 && characterBottom < 67 && characterBottom > 66){
 				
 				console.log(obstacleLeft,characterTop);
 				character.style.animation = "drop 1s linear 1 forwards";
@@ -539,7 +533,6 @@ window.requestAnimFrame = (function(){
 				pausedAnimation();
 				start=false;
 				cancelAnimationFrame(positionDetect);
-				
 			}	
 		}
 	}
@@ -561,6 +554,7 @@ window.requestAnimFrame = (function(){
 		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
 		var characterTop = (100*characterTopValue)/BoxTopValue;
 		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+		var characterBottom = characterTop+17;
 		
 		var obstacleElement  = document.querySelector('#obstacle');
 		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
@@ -614,7 +608,7 @@ window.requestAnimFrame = (function(){
 		dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
 		document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 
-		if(obstacleLeft <-35 && obstacleLeft >-38 && characterTop > 32){
+		if(obstacleLeft <-35 && obstacleLeft >-42 && characterBottom < 67 && characterBottom > 66){
 			character.style.animation = "drop 1s linear 1 forwards";
 			character.style.webkitAnimation= "drop 1s linear 1 forwards";		
 			loseCrystal(life-1);
@@ -623,7 +617,7 @@ window.requestAnimFrame = (function(){
 			start = false;
 		}
 		
-		if(obstacleLeft < -35 &&  obstacleLeft >-42 && characterTop > 30 && characterTop < 31 ){
+		if(obstacleLeft <-35 &&  obstacleLeft >-42 && characterBottom < 49 && characterBottom > 47 ){
 			character.style.animationPlayState= "paused";
 			character.style.webkitAnimationPlayState= "paused";
 			positionDetect3 = requestAnimationFrame(positionDetectFA3);
@@ -1329,6 +1323,7 @@ window.requestAnimFrame = (function(){
 	var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
 	var characterTop = (100*characterTopValue)/BoxTopValue;
 	var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+	var characterBottom = characterTop+17;
 	
 	var obstacleElement  = document.querySelector('#obstacle');
 	var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
@@ -1355,7 +1350,7 @@ window.requestAnimFrame = (function(){
 	
 		if (data3 === "jumpEvent"){
 			getBox();
-			console.log(obstacleLeft,characterTop);
+			console.log(obstacleLeft,characterBottom);
 			if (jumpToggle === 0 && (characterTop < 74 && characterTop > 73)) {
 				jumpAnimation(jumpToggle);
 				jumpToggle = 1;
@@ -1365,7 +1360,7 @@ window.requestAnimFrame = (function(){
 				jumpToggle = 0;
 			}	
 			
-			if(obstacleLeft < -15 && obstacleLeft > -35 &&  characterTop < 52 && characterTop > 51){
+			if(obstacleLeft < -18 && obstacleLeft > -32 &&  characterBottom < 67 && characterBottom > 66){
 
 				var jumpKeyframes = document.createElement('style');
 				jumpKeyframes.type = 'text/css';
@@ -1443,7 +1438,7 @@ window.requestAnimFrame = (function(){
 				}
 			}
 			
-			if(obstacleLeft < -36 && ((characterTop > 30 && characterTop < 31) || 
+			if(obstacleLeft < -36 && ((characterBottom < 49 && characterBottom > 47) || 
 			( characterTop > 75 && characterTop < 76) ||
 			(obstacleLeft > -153 && obstacleLeft < -159 && characterTop > 20 && characterTop < 21) ) ){
 
