@@ -500,29 +500,29 @@ window.requestAnimFrame = (function(){
 					positionDetect2 = requestAnimationFrame(positionDetectFA2);
 					cancelAnimationFrame(positionDetect);
 				}
-				else if(characterTop < 75 && characterTop > 72){
-					console.log("f2");
-					character.style.animation = "drop 1s linear 1 forwards";
-					character.style.webkitAnimation= "drop 1s linear 1 forwards";
-					firstRedMonsterImage.style.display ="block";
-					life=life-1;
-					loseCrystal(life);
-					pausedAnimation();
-					start=false;
-					cancelAnimationFrame(positionDetect);
-				}
+				// else if(characterTop < 75 && characterTop > 72){
+					// console.log("f2");
+					// character.style.animation = "drop 1s linear 1 forwards";
+					// character.style.webkitAnimation= "drop 1s linear 1 forwards";
+					// firstRedMonsterImage.style.display ="block";
+					// life=life-1;
+					// loseCrystal(life);
+					// pausedAnimation();
+					// start=false;
+					// cancelAnimationFrame(positionDetect);
+				// }
 			}
 		
-			if( obstacleLeft <-35 && obstacleLeft>-50 && characterTop < 53 && characterTop > 50){	
-				console.log("f3");
-				character.style.animation = "drop 1s linear 1 forwards";
-				character.style.webkitAnimation= "drop 1s linear 1 forwards";
-				life=life-1;
-				loseCrystal(life);
-				pausedAnimation();
-				start=false;
-				cancelAnimationFrame(positionDetect);
-			}	
+			// if( obstacleLeft <-35 && obstacleLeft>-50 && characterTop < 53 && characterTop > 50){	
+				// console.log("f3");
+				// character.style.animation = "drop 1s linear 1 forwards";
+				// character.style.webkitAnimation= "drop 1s linear 1 forwards";
+				// life=life-1;
+				// loseCrystal(life);
+				// pausedAnimation();
+				// start=false;
+				// cancelAnimationFrame(positionDetect);
+			// }	
 	}
 	
 	// drop&jump between block&brick3
