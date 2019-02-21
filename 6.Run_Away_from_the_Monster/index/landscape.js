@@ -497,6 +497,8 @@ window.requestAnimFrame = (function(){
 					console.log("f1");
 					character.style.animationPlayState= "paused";
 					character.style.webkitAnimationPlayState= "paused";
+					positionDetect2 = requestAnimationFrame(positionDetectFA2);
+					cancelAnimationFrame(positionDetect);
 				}
 				else if(characterTop < 74 && characterTop > 73){
 					console.log("f2");
@@ -599,7 +601,7 @@ window.requestAnimFrame = (function(){
 				console.log("ff1");
 				character.style.animationPlayState= "paused";
 				character.style.webkitAnimationPlayState= "paused";
-				// positionDetect3 = requestAnimationFrame(positionDetectFA3);
+				positionDetect3 = requestAnimationFrame(positionDetectFA3);
 				// positionDetect4 = requestAnimationFrame(positionDetectFA4);
 
 				// positionDetect5 = requestAnimationFrame(positionDetectFA5);
@@ -613,6 +615,7 @@ window.requestAnimFrame = (function(){
 				// positionDetect13 = requestAnimationFrame(positionDetectFA13);
 				// positionDetect14 = requestAnimationFrame(positionDetectFA14);
 				// positionDetect15 = requestAnimationFrame(positionDetectFA15);
+				cancelAnimationFrame(positionDetect2);
 			}
 			else if(characterTop > 49 && characterTop < 52){
 				console.log("ff2");
@@ -624,7 +627,7 @@ window.requestAnimFrame = (function(){
 				start = false;
 			}
 		}
-		if(obstacleLeft <-45){
+		if(obstacleLeft <-60){
 			console.log(characterTop);
 			console.log("ff3");
 			pausedAnimation();
