@@ -1703,6 +1703,29 @@
 			}			
 		}
 		
+		@keyframes jumpToBrick1Drop{
+			0%{
+				top:51%;
+			}
+			50%{
+				top:17%;
+			}
+			100%{
+				top:100%;
+			}	
+		}
+		@-webkit-keyframes jumpToBrick1Drop{
+			0%{
+				top:51%;
+			}
+			50%{
+				top:17%;
+			}
+			100%{
+				top:100%;
+			}	
+		}
+		
 	#startInterface{
 		position:absolute;	
 		height: 100%;
