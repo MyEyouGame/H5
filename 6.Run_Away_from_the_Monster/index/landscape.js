@@ -1672,7 +1672,7 @@ window.requestAnimFrame = (function(){
 			
 			if (data3 === "jumpEvent"){
 			console.log(obstacleLeft,characterTop);
-			if(obstacleLeft > -17){
+			if(obstacleLeft < -8 && obstacleLeft > -12){
 				if (jumpToggle === 0 && (characterTop < 74 && characterTop > 73)) {
 					jumpAnimation(jumpToggle);
 					jumpToggle = 1;
