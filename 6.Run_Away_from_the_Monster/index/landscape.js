@@ -556,9 +556,6 @@ window.requestAnimFrame = (function(){
 				blockDownKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => blockDownValue[m]);
 				document.getElementsByTagName('div')[33].appendChild(blockDownKeyframes);
 				
-				
-				
-				
 				life=life-1;
 				loseCrystal(life);
 				pausedAnimation();
@@ -1534,6 +1531,10 @@ window.requestAnimFrame = (function(){
 							top: 63%;\
 							left: first%;\
 						}\
+						80%{\
+							top: 150%;\
+							left: first%;\
+						}\
 						100%{\
 							top: 150%;\
 							left: first%;\
@@ -1542,6 +1543,10 @@ window.requestAnimFrame = (function(){
 					@-webkit-keyframes blockDown{\
 						0%{\
 							top: 63%;\
+							left: first%;\
+						}\
+						80%{\
+							top: 150%;\
 							left: first%;\
 						}\
 						100%{\
