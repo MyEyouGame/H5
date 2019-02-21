@@ -1318,6 +1318,12 @@ window.requestAnimFrame = (function(){
 	var obstacleExtendLeftValue = getComputedStyle(obstacleExtendElement).getPropertyValue("left").split("px")[0];
 	var obstacleExtendLeft = (100*BoxLeftValue)/gameContainerLeftValue;
 	
+	var blockElement  = document.querySelector('#block');
+	var blockTopValue = getComputedStyle(blockElement).getPropertyValue("top").split("px")[0];
+	var blockLeftValue = getComputedStyle(blockElement).getPropertyValue("left").split("px")[0];
+	var blockTop = (100*blockTopValue)/BoxTopValue;
+	var blockLeft = (100*blockLeftValue)/BoxLeftValue;
+		
 		if( data3 === "startCharacter" || data3 === "startBackground" || data3 ===  "startCursor"){
 			startAnimation();
 			characterAnimation();
@@ -1354,6 +1360,41 @@ window.requestAnimFrame = (function(){
 				
 				character.style.animation = " jumpToBrick1 1s ease-in-out 1 forwards";
 				character.style.webkitAnimation = "jumpToBrick1 1s ease-in-out 1 forwards";	
+
+				var blockDownKeyframes = document.createElement('style');
+				blockDownKeyframes.type = 'text/css';
+				var keyFrames = '\
+					@keyframes blockDown{\
+						0%{\
+							top: 63%;\
+							left: first%;\
+						}\
+						100%{\
+							top: 150%;\
+							left: first%;\
+						}\
+					}\
+					@-webkit-keyframes blockDown{\
+						0%{\
+							top: 63%;\
+							left: first%;\
+						}\
+						100%{\
+							top: 150%;\
+							left: first%;\
+						}\
+					}';
+
+				var blockDownValue = {
+					'first':blockLeft
+				};
+
+				blockDownKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => blockDownValue[m]);
+				document.getElementsByTagName('div')[33].appendChild(blockDownKeyframes);
+				
+				block.style.animation = " blockDown 1s ease-in-out 0.5 forwards";
+				block.style.webkitAnimation = "blockDown 1s ease-in-out 0.5 forwards";	
+				
 				jumpToBrick1Toggle = 1;
 			}
 			
@@ -1366,28 +1407,34 @@ window.requestAnimFrame = (function(){
 		console.log(data3);
 		
 		var gameContainerElement  = document.querySelector('#gameContainer');
-	var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
-	var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
-	
-	var BoxElement  = document.querySelector('#obstacle');
-	var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
-	var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
-	
-	var characterElement  = document.querySelector('#character');
-	var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
-	var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
-	var characterTop = (100*characterTopValue)/BoxTopValue;
-	var characterLeft = (100*characterLeftValue)/BoxLeftValue;
-	
-	var obstacleElement  = document.querySelector('#obstacle');
-	var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
-	var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
-	var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
-	
-	var obstacleExtendElement  = document.querySelector('#obstacleExtend');
-	var obstacleExtendTopValue = getComputedStyle(obstacleExtendElement).getPropertyValue("top").split("px")[0];
-	var obstacleExtendLeftValue = getComputedStyle(obstacleExtendElement).getPropertyValue("left").split("px")[0];
-	var obstacleExtendLeft = (100*BoxLeftValue)/gameContainerLeftValue;
+		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
+		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
+		
+		var BoxElement  = document.querySelector('#obstacle');
+		var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
+		var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+		
+		var characterElement  = document.querySelector('#character');
+		var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
+		var characterTop = (100*characterTopValue)/BoxTopValue;
+		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+		
+		var obstacleElement  = document.querySelector('#obstacle');
+		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
+		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
+		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
+		
+		var obstacleExtendElement  = document.querySelector('#obstacleExtend');
+		var obstacleExtendTopValue = getComputedStyle(obstacleExtendElement).getPropertyValue("top").split("px")[0];
+		var obstacleExtendLeftValue = getComputedStyle(obstacleExtendElement).getPropertyValue("left").split("px")[0];
+		var obstacleExtendLeft = (100*BoxLeftValue)/gameContainerLeftValue;
+		
+		var blockElement  = document.querySelector('#block');
+		var blockTopValue = getComputedStyle(blockElement).getPropertyValue("top").split("px")[0];
+		var blockLeftValue = getComputedStyle(blockElement).getPropertyValue("left").split("px")[0];
+		var blockTop = (100*blockTopValue)/BoxTopValue;
+		var blockLeft = (100*blockLeftValue)/BoxLeftValue;
 	
 		if( data3 === "startCharacter" || data3 === "startBackground" || data3 ===  "startCursor"){
 			startAnimation();
@@ -1425,11 +1472,44 @@ window.requestAnimFrame = (function(){
 				
 				character.style.animation = " jumpToBrick1 1s ease-in-out 1 forwards";
 				character.style.webkitAnimation = "jumpToBrick1 1s ease-in-out 1 forwards";	
+
+				var blockDownKeyframes = document.createElement('style');
+				blockDownKeyframes.type = 'text/css';
+				var keyFrames = '\
+					@keyframes blockDown{\
+						0%{\
+							top: 63%;\
+							left: first%;\
+						}\
+						100%{\
+							top: 150%;\
+							left: first%;\
+						}\
+					}\
+					@-webkit-keyframes blockDown{\
+						0%{\
+							top: 63%;\
+							left: first%;\
+						}\
+						100%{\
+							top: 150%;\
+							left: first%;\
+						}\
+					}';
+
+				var blockDownValue = {
+					'first':blockLeft
+				};
+
+				blockDownKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => blockDownValue[m]);
+				document.getElementsByTagName('div')[33].appendChild(blockDownKeyframes);
+				
+				block.style.animation = " blockDown 1s ease-in-out 0.5 forwards";
+				block.style.webkitAnimation = "blockDown 1s ease-in-out 0.5 forwards";	
+				
 				jumpToBrick1Toggle = 1;
 			}
-			
 		}
-		
 	}
 	
 	var g = document.getElementById("gameContainer");

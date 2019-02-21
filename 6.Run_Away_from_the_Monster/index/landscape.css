@@ -328,9 +328,6 @@
 			background-Size : 100% 100%; 
 			background-repeat:no-repeat;
 			overflow:hidden;
-			
-			animation :none 3.5s linear 1.5s infinite;
-			-webkit-animation:none 3.5s linear 1.5s infinite;
 		}	
 		#blockBox{
 			position:absolute;	
@@ -1705,7 +1702,6 @@
 				top:31%;
 			}			
 		}
-		
 		
 	#startInterface{
 		position:absolute;	
