@@ -608,15 +608,6 @@ window.requestAnimFrame = (function(){
 		dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
 		document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 
-		if(obstacleLeft <-35 && obstacleLeft >-37 && characterBottom < 67 && characterBottom > 66){
-			character.style.animation = "drop 1s linear 1 forwards";
-			character.style.webkitAnimation= "drop 1s linear 1 forwards";		
-			loseCrystal(life-1);
-			pausedAnimation();
-			cancelAnimationFrame(positionDetect2);
-			start = false;
-		}
-		
 		if(obstacleLeft <-35 &&  obstacleLeft >-50 && characterBottom < 49 && characterBottom > 47 ){
 			character.style.animationPlayState= "paused";
 			character.style.webkitAnimationPlayState= "paused";
@@ -635,6 +626,7 @@ window.requestAnimFrame = (function(){
 			positionDetect14 = requestAnimationFrame(positionDetectFA14);
 			positionDetect15 = requestAnimationFrame(positionDetectFA15);
 			cancelAnimationFrame(positionDetect2);
+		
 		}
 	}
 	// graveStone1
