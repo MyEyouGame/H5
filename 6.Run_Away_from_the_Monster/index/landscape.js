@@ -525,7 +525,7 @@ window.requestAnimFrame = (function(){
 							top: 63%;\
 							left: first%;\
 						}\
-						80%{\
+						50%{\
 							top: 150%;\
 							left: first%;\
 						}\
@@ -539,7 +539,7 @@ window.requestAnimFrame = (function(){
 							top: 63%;\
 							left: first%;\
 						}\
-						80%{\
+						50%{\
 							top: 150%;\
 							left: first%;\
 						}\
@@ -1419,6 +1419,10 @@ window.requestAnimFrame = (function(){
 							top: 63%;\
 							left: first%;\
 						}\
+						50%{\
+							top: 150%;\
+							left: first%;\
+						}\
 						100%{\
 							top: 150%;\
 							left: first%;\
@@ -1427,6 +1431,10 @@ window.requestAnimFrame = (function(){
 					@-webkit-keyframes blockDown{\
 						0%{\
 							top: 63%;\
+							left: first%;\
+						}\
+						50%{\
+							top: 150%;\
 							left: first%;\
 						}\
 						100%{\
@@ -1531,7 +1539,7 @@ window.requestAnimFrame = (function(){
 							top: 63%;\
 							left: first%;\
 						}\
-						80%{\
+						50%{\
 							top: 150%;\
 							left: first%;\
 						}\
@@ -1545,7 +1553,7 @@ window.requestAnimFrame = (function(){
 							top: 63%;\
 							left: first%;\
 						}\
-						80%{\
+						50%{\
 							top: 150%;\
 							left: first%;\
 						}\
