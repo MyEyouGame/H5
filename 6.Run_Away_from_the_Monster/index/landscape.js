@@ -454,6 +454,12 @@ window.requestAnimFrame = (function(){
 		var obstacleExtendLeftValue = getComputedStyle(obstacleExtendElement).getPropertyValue("left").split("px")[0];
 		var obstacleExtendLeft = (100*obstacleExtendLeftValue)/gameContainerLeftValue;
 		
+		var blockElement  = document.querySelector('#block');
+		var blockTopValue = getComputedStyle(blockElement).getPropertyValue("top").split("px")[0];
+		var blockLeftValue = getComputedStyle(blockElement).getPropertyValue("left").split("px")[0];
+		var blockTop = (100*blockTopValue)/BoxTopValue;
+		var blockLeft = (100*blockLeftValue)/BoxLeftValue;
+		
 		positionDetect = requestAnimationFrame(positionDetectFA);
 		
 		getBox();
@@ -510,9 +516,56 @@ window.requestAnimFrame = (function(){
 				console.log("f3");
 				character.style.animation = "drop 1s linear 1 forwards";
 				character.style.webkitAnimation= "drop 1s linear 1 forwards";
+				
+				var blockDownKeyframes = document.createElement('style');
+				blockDownKeyframes.type = 'text/css';
+				var keyFrames = '\
+					@keyframes blockDown{\
+						0%{\
+							top: 63%;\
+							left: first%;\
+						}\
+						80%{\
+							top: 150%;\
+							left: first%;\
+						}\
+						100%{\
+							top: 150%;\
+							left: first%;\
+						}\
+					}\
+					@-webkit-keyframes blockDown{\
+						0%{\
+							top: 63%;\
+							left: first%;\
+						}\
+						80%{\
+							top: 150%;\
+							left: first%;\
+						}\
+						100%{\
+							top: 150%;\
+							left: first%;\
+						}\
+					}';
+
+				var blockDownValue = {
+					'first':blockLeft
+				};
+
+				blockDownKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => blockDownValue[m]);
+				document.getElementsByTagName('div')[33].appendChild(blockDownKeyframes);
+				
+				
+				
+				
 				life=life-1;
 				loseCrystal(life);
 				pausedAnimation();
+				
+				block.style.animation = " blockDown 1s ease-in-out 0.5 forwards running";
+				block.style.webkitAnimation = "blockDown 1s ease-in-out 0.5 forwards running";
+				
 				start=false;
 				cancelAnimationFrame(positionDetect);
 			}	
