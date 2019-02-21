@@ -492,7 +492,7 @@ window.requestAnimFrame = (function(){
 			dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
 			document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 		
-			if(obstacleLeft < -15 && obstacleLeft > -25){
+			if(obstacleLeft < -17 && obstacleLeft > -25){
 				if (characterTop < 52 && characterTop > 51 ){
 					console.log("f1");
 					character.style.animationPlayState= "paused";
