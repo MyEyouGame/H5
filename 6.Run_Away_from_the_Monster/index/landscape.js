@@ -1346,175 +1346,175 @@ window.requestAnimFrame = (function(){
 			positionDetect = requestAnimationFrame(positionDetectFA);
 		}
 	
-		if (data3 === "jumpEvent"){
-			getBox();
-			console.log(obstacleLeft,characterTop);
-			if (jumpToggle === 0 && (characterTop < 74 && characterTop > 73)) {
-				jumpAnimation(jumpToggle);
-				jumpToggle = 1;
-			}
-			else if (jumpToggle === 1 && (characterTop < 74 && characterTop > 73 )) {
-				jumpAnimation(jumpToggle);
-				jumpToggle = 0;
-			}	
+		// if (data3 === "jumpEvent"){
+			// getBox();
+			// console.log(obstacleLeft,characterTop);
+			// if (jumpToggle === 0 && (characterTop < 74 && characterTop > 73)) {
+				// jumpAnimation(jumpToggle);
+				// jumpToggle = 1;
+			// }
+			// else if (jumpToggle === 1 && (characterTop < 74 && characterTop > 73 )) {
+				// jumpAnimation(jumpToggle);
+				// jumpToggle = 0;
+			// }	
 			
-			if(obstacleLeft < -20 && obstacleLeft > -35 &&  characterTop < 52 && characterTop > 51){
+			// if(obstacleLeft < -20 && obstacleLeft > -35 &&  characterTop < 52 && characterTop > 51){
 
-				var jumpKeyframes = document.createElement('style');
-				jumpKeyframes.type = 'text/css';
-				var keyFrames = '\
-				@keyframes jumptoBrick3{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jumptoBrick3{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@keyframes jumptoBrick3Reset{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jumptoBrick3Reset{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}';
+				// var jumpKeyframes = document.createElement('style');
+				// jumpKeyframes.type = 'text/css';
+				// var keyFrames = '\
+				// @keyframes jumptoBrick3{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }\
+				// @-webkit-keyframes jumptoBrick3{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }\
+				// @keyframes jumptoBrick3Reset{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }\
+				// @-webkit-keyframes jumptoBrick3Reset{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }';
 				
-				var jumpValue = {
-									'first':characterTop,
-									'second':(characterTop-34),
-								};
+				// var jumpValue = {
+									// 'first':characterTop,
+									// 'second':(characterTop-34),
+								// };
 				
-				jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
-				document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
+				// jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
+				// document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
 
-				if (jumpToggle === 0){
-					cancelAnimationFrame(positionDetect);
-					positionDetect2 = requestAnimationFrame(positionDetectFA2);
-					character.style.animation = " jumptoBrick3 1s ease-in-out 1 forwards";
-					character.style.webkitAnimation = "jumptoBrick3 1s ease-in-out 1 forwards";	
-					character.style.animationPlayState= "running";
-					character.style.webkitAnimationPlayState= "running";
-					jumpToggle = 1;
-				}
-				else if (jumpToggle === 1){
-					cancelAnimationFrame(positionDetect);
-					positionDetect2 = requestAnimationFrame(positionDetectFA2);
-					character.style.animation = " jumptoBrick3Reset 1s ease-in-out 1 forwards";
-					character.style.webkitAnimation = "jumptoBrick3Reset 1s ease-in-out 1 forwards";	
-					character.style.animationPlayState= "running";
-					character.style.webkitAnimationPlayState= "running";
-					jumpToggle = 0;
-				}
-			}
+				// if (jumpToggle === 0){
+					// cancelAnimationFrame(positionDetect);
+					// positionDetect2 = requestAnimationFrame(positionDetectFA2);
+					// character.style.animation = " jumptoBrick3 1s ease-in-out 1 forwards";
+					// character.style.webkitAnimation = "jumptoBrick3 1s ease-in-out 1 forwards";	
+					// character.style.animationPlayState= "running";
+					// character.style.webkitAnimationPlayState= "running";
+					// jumpToggle = 1;
+				// }
+				// else if (jumpToggle === 1){
+					// cancelAnimationFrame(positionDetect);
+					// positionDetect2 = requestAnimationFrame(positionDetectFA2);
+					// character.style.animation = " jumptoBrick3Reset 1s ease-in-out 1 forwards";
+					// character.style.webkitAnimation = "jumptoBrick3Reset 1s ease-in-out 1 forwards";	
+					// character.style.animationPlayState= "running";
+					// character.style.webkitAnimationPlayState= "running";
+					// jumpToggle = 0;
+				// }
+			// }
 			
-			if(obstacleLeft < -36 && ((characterTop > 30 && characterTop < 31) || 
-			( characterTop > 75 && characterTop < 76) ||
-			(obstacleLeft > -153 && obstacleLeft < -159 && characterTop > 20 && characterTop < 21) ) ){
+			// if(obstacleLeft < -36 && ((characterTop > 30 && characterTop < 31) || 
+			// ( characterTop > 75 && characterTop < 76) ||
+			// (obstacleLeft > -153 && obstacleLeft < -159 && characterTop > 20 && characterTop < 21) ) ){
 
-				var BoxElement  = document.querySelector('#obstacle');
-				var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
-				var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+				// var BoxElement  = document.querySelector('#obstacle');
+				// var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
+				// var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
 				
-				var characterElement  = document.querySelector('#character');
-				var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
-				var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
-				var characterTop = (100*characterTopValue)/BoxTopValue;
-				var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+				// var characterElement  = document.querySelector('#character');
+				// var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+				// var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
+				// var characterTop = (100*characterTopValue)/BoxTopValue;
+				// var characterLeft = (100*characterLeftValue)/BoxLeftValue;
 				
-				var jumpKeyframes = document.createElement('style');
-				jumpKeyframes.type = 'text/css';
-				var keyFrames = '\
-				@keyframes jump2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jump2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@keyframes jumpReset2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jumpReset2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}';
+				// var jumpKeyframes = document.createElement('style');
+				// jumpKeyframes.type = 'text/css';
+				// var keyFrames = '\
+				// @keyframes jump2{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }\
+				// @-webkit-keyframes jump2{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }\
+				// @keyframes jumpReset2{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }\
+				// @-webkit-keyframes jumpReset2{\
+					// 0%{\
+						// top: first%;\
+					// }\
+					// 50%{\
+						// top: second%;\
+					// }\
+					// 100%{\
+						// top: first%;\
+					// }\
+				// }';
 				
-				var jumpValue = {
-									'first':characterTop,
-									'second':(characterTop-34)
-								};
+				// var jumpValue = {
+									// 'first':characterTop,
+									// 'second':(characterTop-34)
+								// };
 				
-				jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
-				document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
+				// jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
+				// document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
 
-				if (jumpToggle2 === 0) {
-					jumpAnimation2(jumpToggle2);
-					jumpToggle2 = 1;
-				}
-				else if (jumpToggle2 === 1) {
-					jumpAnimation2(jumpToggle2);
-					jumpToggle2 = 0;
-				}	
-			}
+				// if (jumpToggle2 === 0) {
+					// jumpAnimation2(jumpToggle2);
+					// jumpToggle2 = 1;
+				// }
+				// else if (jumpToggle2 === 1) {
+					// jumpAnimation2(jumpToggle2);
+					// jumpToggle2 = 0;
+				// }	
+			// }
 			
 				// var BoxElement  = document.querySelector('#obstacle');
 				// var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
@@ -1669,6 +1669,95 @@ window.requestAnimFrame = (function(){
 					// jumpToggle4 = 0;
 				// }
 			// }
+			
+			if (data3 === "jumpEvent"){
+			console.log(obstacleLeft,characterTop);
+			if(obstacleLeft > -17){
+				if (jumpToggle === 0 && (characterTop < 74 && characterTop > 73)) {
+					jumpAnimation(jumpToggle);
+					jumpToggle = 1;
+				}
+				else if (jumpToggle === 1 && (characterTop < 74 && characterTop > 73 )) {
+					jumpAnimation(jumpToggle);
+					jumpToggle = 0;
+				}	
+			}
+			
+			if(obstacleLeft < -17 && obstacleLeft > -34 &&  characterTop < 52 && characterTop > 51){
+
+				var jumpKeyframes = document.createElement('style');
+				jumpKeyframes.type = 'text/css';
+				var keyFrames = '\
+				@keyframes jumptoBrick3{\
+					0%{\
+						top: first%;\
+					}\
+					50%{\
+						top: second%;\
+					}\
+					100%{\
+						top: first%;\
+					}\
+				}\
+				@-webkit-keyframes jumptoBrick3{\
+					0%{\
+						top: first%;\
+					}\
+					50%{\
+						top: second%;\
+					}\
+					100%{\
+						top: first%;\
+					}\
+				}\
+				@keyframes jumptoBrick3Reset{\
+					0%{\
+						top: first%;\
+					}\
+					50%{\
+						top: second%;\
+					}\
+					100%{\
+						top: first%;\
+					}\
+				}\
+				@-webkit-keyframes jumptoBrick3Reset{\
+					0%{\
+						top: first%;\
+					}\
+					50%{\
+						top: second%;\
+					}\
+					100%{\
+						top: first%;\
+					}\
+				}';
+				
+				var jumpValue = {
+									'first':characterTop,
+									'second':(characterTop-34),
+								};
+				
+				jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
+				document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
+
+				if (jumpToggle === 0){
+					character.style.animation = " jumptoBrick3 1s ease-in-out 1 forwards";
+					character.style.webkitAnimation = "jumptoBrick3 1s ease-in-out 1 forwards";	
+					character.style.animationPlayState= "running";
+					character.style.webkitAnimationPlayState= "running";
+					jumpToggle = 1;
+				}
+				else if (jumpToggle === 1){
+					character.style.animation = " jumptoBrick3Reset 1s ease-in-out 1 forwards";
+					character.style.webkitAnimation = "jumptoBrick3Reset 1s ease-in-out 1 forwards";	
+					character.style.animationPlayState= "running";
+					character.style.webkitAnimationPlayState= "running";
+					jumpToggle = 0;
+				}
+			}
+			
+		
 		}
 	}
 	
