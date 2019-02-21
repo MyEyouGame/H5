@@ -502,11 +502,6 @@ window.requestAnimFrame = (function(){
 					character.style.animation = "drop 1s linear 1 forwards";
 					character.style.webkitAnimation= "drop 1s linear 1 forwards";
 					firstRedMonsterImage.style.display ="block";
-					life=life-1;
-					loseCrystal(life);
-					pausedAnimation();
-					start=false;
-					cancelAnimationFrame(positionDetect);
 				}
 			}
 		
@@ -563,7 +558,15 @@ window.requestAnimFrame = (function(){
 				
 				start=false;
 				cancelAnimationFrame(positionDetect);
-			}	
+			}
+
+			if(characterTop > 75){
+				life=life-1;
+				loseCrystal(life);
+				pausedAnimation();
+				start=false;
+				cancelAnimationFrame(positionDetect);
+			}
 	}
 	
 	// drop&jump between block&brick3
