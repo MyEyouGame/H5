@@ -492,7 +492,7 @@ window.requestAnimFrame = (function(){
 			dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
 			document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 		
-			if(obstacleLeft < -16 && obstacleLeft > -25){
+			if(obstacleLeft < -16 && obstacleLeft > -35){
 				if (characterTop < 52 && characterTop > 51 ){
 					console.log("f1");
 					character.style.animationPlayState= "paused";
@@ -617,7 +617,7 @@ window.requestAnimFrame = (function(){
 				// positionDetect15 = requestAnimationFrame(positionDetectFA15);
 				cancelAnimationFrame(positionDetect2);
 			}
-			else if(characterTop > 49 && characterTop < 52){
+			else if(characterTop > 49 && characterTop < 50){
 				console.log("ff2");
 				character.style.animation = "drop 1s linear 1 forwards";
 				character.style.webkitAnimation= "drop 1s linear 1 forwards";		
