@@ -220,13 +220,13 @@ window.requestAnimFrame = (function(){
 
 	var life = 3;
 	var start = true;
-	var p = 1000;
+	var p = 0000;
 	var totalPoints;
 	
 	function count() {
 		if (start === true) {
 			p++
-			document.getElementById("points").innerHTML = '1000'.substr( String(p).length ) + p ;
+			document.getElementById("points").innerHTML = '0000'.substr( String(p).length ) + p ;
 			totalPoints = requestAnimationFrame(count, 50);
 		}
 	  }
