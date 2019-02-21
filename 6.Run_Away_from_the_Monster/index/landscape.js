@@ -608,7 +608,7 @@ window.requestAnimFrame = (function(){
 		dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
 		document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 
-		if(obstacleLeft <-35 && obstacleLeft >-42 && characterBottom < 67 && characterBottom > 66){
+		if(obstacleLeft <-35 && obstacleLeft >-45 && characterBottom < 67 && characterBottom > 66){
 			character.style.animation = "drop 1s linear 1 forwards";
 			character.style.webkitAnimation= "drop 1s linear 1 forwards";		
 			loseCrystal(life-1);
@@ -617,7 +617,7 @@ window.requestAnimFrame = (function(){
 			start = false;
 		}
 		
-		if(obstacleLeft <-35 &&  obstacleLeft >-42 && characterBottom < 49 && characterBottom > 47 ){
+		if(obstacleLeft <-35 &&  obstacleLeft >-45 && characterBottom < 49 && characterBottom > 47 ){
 			character.style.animationPlayState= "paused";
 			character.style.webkitAnimationPlayState= "paused";
 			positionDetect3 = requestAnimationFrame(positionDetectFA3);
