@@ -593,7 +593,7 @@ window.requestAnimFrame = (function(){
 		dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
 		document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 
-		if(obstacleLeft <-35 && obstacleLeft >-45){
+		if(obstacleLeft <-36 && obstacleLeft >-45){
 			console.log("ff0");
 			if(characterTop > 30 && characterTop < 31){
 				console.log("ff1");
@@ -614,7 +614,7 @@ window.requestAnimFrame = (function(){
 				// positionDetect14 = requestAnimationFrame(positionDetectFA14);
 				// positionDetect15 = requestAnimationFrame(positionDetectFA15);
 			}
-			else if(characterTop > 52 && characterTop < 51){
+			else if(characterTop > 51 && characterTop < 52){
 				console.log("ff2");
 				character.style.animation = "drop 1s linear 1 forwards";
 				character.style.webkitAnimation= "drop 1s linear 1 forwards";		
@@ -624,7 +624,8 @@ window.requestAnimFrame = (function(){
 				start = false;
 			}
 		}
-		if(obstacleLeft<-35){
+		if(obstacleLeft<-40){
+			console.log(characterTop);
 			console.log("ff3");
 			pausedAnimation();
 			cancelAnimationFrame(positionDetect2);
