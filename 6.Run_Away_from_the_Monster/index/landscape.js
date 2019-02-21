@@ -511,7 +511,7 @@ window.requestAnimFrame = (function(){
 				}
 			}
 		
-			if( obstacleLeft <-35 && obstacleLeft>-38 && characterTop < 52 && characterTop > 51){	
+			if( obstacleLeft <-35 && obstacleLeft>-50 && characterTop < 52 && characterTop > 51){	
 				console.log("f3");
 				character.style.animation = "drop 1s linear 1 forwards";
 				character.style.webkitAnimation= "drop 1s linear 1 forwards";
