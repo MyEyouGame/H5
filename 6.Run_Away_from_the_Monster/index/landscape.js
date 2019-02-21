@@ -608,7 +608,7 @@ window.requestAnimFrame = (function(){
 		dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
 		document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 
-		if(obstacleLeft <-35 &&  obstacleLeft >-50 && characterBottom < 49 && characterBottom > 47 ){
+		if(obstacleLeft <-30 &&  obstacleLeft >-50 && characterBottom < 49 && characterBottom > 47 ){
 			character.style.animationPlayState= "paused";
 			character.style.webkitAnimationPlayState= "paused";
 			positionDetect3 = requestAnimationFrame(positionDetectFA3);
