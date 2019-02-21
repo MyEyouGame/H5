@@ -594,8 +594,9 @@ window.requestAnimFrame = (function(){
 		document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 
 		if(obstacleLeft <-35 && obstacleLeft >-45){
+			console.log("ff0");
 			if(characterTop > 30 && characterTop < 31){
-				
+				console.log("ff1");
 				character.style.animationPlayState= "paused";
 				character.style.webkitAnimationPlayState= "paused";
 				// positionDetect3 = requestAnimationFrame(positionDetectFA3);
@@ -612,9 +613,9 @@ window.requestAnimFrame = (function(){
 				// positionDetect13 = requestAnimationFrame(positionDetectFA13);
 				// positionDetect14 = requestAnimationFrame(positionDetectFA14);
 				// positionDetect15 = requestAnimationFrame(positionDetectFA15);
-				cancelAnimationFrame(positionDetect2);
 			}
 			else if(characterTop > 52 && characterTop < 51){
+				console.log("ff2");
 				character.style.animation = "drop 1s linear 1 forwards";
 				character.style.webkitAnimation= "drop 1s linear 1 forwards";		
 				loseCrystal(life-1);
@@ -622,6 +623,12 @@ window.requestAnimFrame = (function(){
 				cancelAnimationFrame(positionDetect2);
 				start = false;
 			}
+		}
+		if(obstacleLeft<-35){
+			console.log("ff3");
+			pausedAnimation();
+			cancelAnimationFrame(positionDetect2);
+			start = false;
 		}
 	}
 	// graveStone1
@@ -1294,6 +1301,7 @@ window.requestAnimFrame = (function(){
 	}
 	
 	function mouseDown(e) {
+	
 	var data3 = e.target.id;
 	console.log(data3);
 	
@@ -1661,8 +1669,138 @@ window.requestAnimFrame = (function(){
 	}
 	
 	function touchstart(e) {
+		event.preventDefault();	
 		var data3 = e.target.id;
 		console.log(data3);
+		
+		var gameContainerElement  = document.querySelector('#gameContainer');
+		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
+		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
+		
+		var BoxElement  = document.querySelector('#obstacle');
+		var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
+		var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+		
+		var characterElement  = document.querySelector('#character');
+		var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
+		var characterTop = (100*characterTopValue)/BoxTopValue;
+		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+		
+		var obstacleElement  = document.querySelector('#obstacle');
+		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
+		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
+		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
+		
+		var obstacleExtendElement  = document.querySelector('#obstacleExtend');
+		var obstacleExtendTopValue = getComputedStyle(obstacleExtendElement).getPropertyValue("top").split("px")[0];
+		var obstacleExtendLeftValue = getComputedStyle(obstacleExtendElement).getPropertyValue("left").split("px")[0];
+		var obstacleExtendLeft = (100*BoxLeftValue)/gameContainerLeftValue;
+		
+		
+		if( data3 === "startCharacter" || data3 === "startBackground" || data3 ===  "startCursor"){
+			startAnimation();
+			characterAnimation();
+			redMonsterAnimation();
+			totalPoints = requestAnimationFrame(count, 50);
+			start=true;
+			startInterface.style.display = "none";
+			startInterface.style.zIndex ="-10";
+			jumpEvent.style.zIndex ="0";
+			firstRedMonsterImage.style.display = "none";
+			positionDetect = requestAnimationFrame(positionDetectFA);
+		}
+		
+		if (data3 === "jumpEvent"){
+			
+			if(obstacleLeft > -17){
+				if (jumpToggle === 0 && (characterTop < 74 && characterTop > 73)) {
+					jumpAnimation(jumpToggle);
+					jumpToggle = 1;
+				}
+				else if (jumpToggle === 1 && (characterTop < 74 && characterTop > 73 )) {
+					jumpAnimation(jumpToggle);
+					jumpToggle = 0;
+				}	
+			}
+			
+			if(obstacleLeft < -17 && obstacleLeft > -35 &&  characterTop < 52 && characterTop > 51){
+				cancelAnimationFrame(positionDetect);
+				positionDetect2 = requestAnimationFrame(positionDetectFA2);
+				
+				var jumpKeyframes = document.createElement('style');
+				jumpKeyframes.type = 'text/css';
+				var keyFrames = '\
+				@keyframes jumptoBrick3{\
+					0%{\
+						top: first%;\
+					}\
+					50%{\
+						top: second%;\
+					}\
+					100%{\
+						top: first%;\
+					}\
+				}\
+				@-webkit-keyframes jumptoBrick3{\
+					0%{\
+						top: first%;\
+					}\
+					50%{\
+						top: second%;\
+					}\
+					100%{\
+						top: first%;\
+					}\
+				}\
+				@keyframes jumptoBrick3Reset{\
+					0%{\
+						top: first%;\
+					}\
+					50%{\
+						top: second%;\
+					}\
+					100%{\
+						top: first%;\
+					}\
+				}\
+				@-webkit-keyframes jumptoBrick3Reset{\
+					0%{\
+						top: first%;\
+					}\
+					50%{\
+						top: second%;\
+					}\
+					100%{\
+						top: first%;\
+					}\
+				}';
+				
+				var jumpValue = {
+									'first':characterTop,
+									'second':(characterTop-34),
+								};
+				
+				jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
+				document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
+
+				if (jumpToggle === 0){
+					character.style.animation = " jumptoBrick3 1s ease-in-out 1 forwards";
+					character.style.webkitAnimation = "jumptoBrick3 1s ease-in-out 1 forwards";	
+					character.style.animationPlayState= "running";
+					character.style.webkitAnimationPlayState= "running";
+					jumpToggle = 1;
+				}
+				else if (jumpToggle === 1){
+					character.style.animation = " jumptoBrick3Reset 1s ease-in-out 1 forwards";
+					character.style.webkitAnimation = "jumptoBrick3Reset 1s ease-in-out 1 forwards";	
+					character.style.animationPlayState= "running";
+					character.style.webkitAnimationPlayState= "running";
+					jumpToggle = 0;
+				}
+			}
+			
+		}
 	}
 	
 	var g = document.getElementById("gameContainer");
