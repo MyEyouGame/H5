@@ -510,6 +510,7 @@ window.requestAnimFrame = (function(){
 				console.log(obstacleLeft,characterTop);
 				character.style.animationPlayState= "paused";
 				character.style.webkitAnimationPlayState= "paused";
+				cancelAnimationFrame(positionDetect);
 			}
 			if( obstacleLeft <-35 && obstacleLeft>-38 && characterTop < 52 && characterTop > 51){
 				
@@ -607,20 +608,20 @@ window.requestAnimFrame = (function(){
 		if(obstacleLeft < -35 &&  obstacleLeft >-42 && characterTop > 30 && characterTop < 31 ){
 			character.style.animationPlayState= "paused";
 			character.style.webkitAnimationPlayState= "paused";
-			positionDetect3 = requestAnimationFrame(positionDetectFA3);
-			positionDetect4 = requestAnimationFrame(positionDetectFA4);
+			// positionDetect3 = requestAnimationFrame(positionDetectFA3);
+			// positionDetect4 = requestAnimationFrame(positionDetectFA4);
 			
-			positionDetect5 = requestAnimationFrame(positionDetectFA5);
+			// positionDetect5 = requestAnimationFrame(positionDetectFA5);
 			
-			positionDetect7 = requestAnimationFrame(positionDetectFA7);
-			positionDetect8 = requestAnimationFrame(positionDetectFA8);
-			positionDetect9 = requestAnimationFrame(positionDetectFA9);
-			positionDetect10 = requestAnimationFrame(positionDetectFA10);
-			positionDetect11 = requestAnimationFrame(positionDetectFA11);
-			positionDetect12 = requestAnimationFrame(positionDetectFA12);
-			positionDetect13 = requestAnimationFrame(positionDetectFA13);
-			positionDetect14 = requestAnimationFrame(positionDetectFA14);
-			positionDetect15 = requestAnimationFrame(positionDetectFA15);
+			// positionDetect7 = requestAnimationFrame(positionDetectFA7);
+			// positionDetect8 = requestAnimationFrame(positionDetectFA8);
+			// positionDetect9 = requestAnimationFrame(positionDetectFA9);
+			// positionDetect10 = requestAnimationFrame(positionDetectFA10);
+			// positionDetect11 = requestAnimationFrame(positionDetectFA11);
+			// positionDetect12 = requestAnimationFrame(positionDetectFA12);
+			// positionDetect13 = requestAnimationFrame(positionDetectFA13);
+			// positionDetect14 = requestAnimationFrame(positionDetectFA14);
+			// positionDetect15 = requestAnimationFrame(positionDetectFA15);
 			cancelAnimationFrame(positionDetect2);
 		}
 	}
