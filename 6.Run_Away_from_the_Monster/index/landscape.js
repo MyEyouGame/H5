@@ -282,12 +282,12 @@ window.requestAnimFrame = (function(){
 		var t = jumpToggle ; 
 
 		if (t === 1){
-			character.style.animation = " jump 0.8s linear 1";
-			character.style.webkitAnimation = "jump 0.8s linear 1";	
+			character.style.animation = " jump 0.8s ease-in-out 1 forwards";
+			character.style.webkitAnimation = "jump 0.8s ease-in-out 1 forwards";	
 		}
 		if (t === 0){
-			character.style.animation = " jumpReset 0.8s linear 1";
-			character.style.webkitAnimation = "jumpReset 0.8s linear 1";	
+			character.style.animation = " jumpReset 0.8s ease-in-out 1 forwards";
+			character.style.webkitAnimation = "jumpReset 0.8s ease-in-out 1 forwards";	
 		}
 	}
 	
@@ -443,6 +443,7 @@ window.requestAnimFrame = (function(){
 		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
 		var characterTop = (100*characterTopValue)/BoxTopValue;
 		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+		var characterBottom = characterTop+17;
 		
 		var obstacleElement  = document.querySelector('#obstacle');
 		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
@@ -454,11 +455,17 @@ window.requestAnimFrame = (function(){
 		var obstacleExtendLeftValue = getComputedStyle(obstacleExtendElement).getPropertyValue("left").split("px")[0];
 		var obstacleExtendLeft = (100*obstacleExtendLeftValue)/gameContainerLeftValue;
 		
+		var blockElement  = document.querySelector('#block');
+		var blockTopValue = getComputedStyle(blockElement).getPropertyValue("top").split("px")[0];
+		var blockLeftValue = getComputedStyle(blockElement).getPropertyValue("left").split("px")[0];
+		var blockTop = (100*blockTopValue)/BoxTopValue;
+		var blockLeft = (100*blockLeftValue)/BoxLeftValue;
+		
 		positionDetect = requestAnimationFrame(positionDetectFA);
 		
 		getBox();
 		
-		if (obstacleLeft < -17 && obstacleLeft > -43){
+		if (obstacleLeft < -10 && obstacleLeft > -43){
 			var dropKeyframes = document.createElement('style');
 			dropKeyframes.type = 'text/css';
 			var keyFrames = '\
@@ -498,10 +505,10 @@ window.requestAnimFrame = (function(){
 			// pausedAnimation();
 			// cancelAnimationFrame(positionDetect);
 		// }
-		
-			if (obstacleLeft < -17 && obstacleLeft > -28 && characterTop < 74 && characterTop > 73){
+		console.log(characterBottom,characterTop);
+			if (obstacleLeft < -18 && characterBottom > 90 && characterBottom < 91){
 				
-				console.log(obstacleLeft,characterTop);
+				console.log(characterBottom,characterTop);
 				
 				character.style.animation = "drop 1s linear 1 forwards";
 				character.style.webkitAnimation= "drop 1s linear 1 forwards";
@@ -512,12 +519,17 @@ window.requestAnimFrame = (function(){
 				start=false;
 				cancelAnimationFrame(positionDetect);
 			}
-			if (obstacleLeft < -15 && obstacleLeft > -25 && characterTop < 52 && characterTop > 51 ){
-				console.log(obstacleLeft,characterTop);
+			if(obstacleLeft <-25){
+				// cancelAnimationFrame(positionDetect);
+				pausedAnimation();
+				start = false;
+			}
+			// console.log(characterTop < 52 , characterTop > 50 ,obstacleLeft,characterTop);
+			if (obstacleLeft < -17 && characterBottom < 67 && characterBottom > 66){
 				character.style.animationPlayState= "paused";
 				character.style.webkitAnimationPlayState= "paused";
 			}
-			if( obstacleLeft <-34 && obstacleLeft>-38 && characterTop < 52 && characterTop > 51){
+			if( obstacleLeft <-34 && obstacleLeft>-38 && characterTop < 50 && characterTop > 49){
 				
 				console.log(obstacleLeft,characterTop);
 				character.style.animation = "drop 1s linear 1 forwards";
@@ -527,6 +539,7 @@ window.requestAnimFrame = (function(){
 				pausedAnimation();
 				start=false;
 				cancelAnimationFrame(positionDetect);
+				
 			}	
 		}
 	}
