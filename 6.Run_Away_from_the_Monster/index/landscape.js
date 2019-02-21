@@ -220,7 +220,7 @@ window.requestAnimFrame = (function(){
 
 	var life = 3;
 	var start = true;
-	var p = 1000;
+	var p = 2000;
 	var totalPoints;
 	
 	function count() {
@@ -1725,7 +1725,7 @@ window.requestAnimFrame = (function(){
 				}	
 			}
 			
-			if(obstacleLeft < -17 && obstacleLeft > -35 &&  characterTop < 52 && characterTop > 51){
+			if(obstacleLeft < -17 && obstacleLeft > -34 &&  characterTop < 52 && characterTop > 51){
 				cancelAnimationFrame(positionDetect);
 				positionDetect2 = requestAnimationFrame(positionDetectFA2);
 				
