@@ -220,7 +220,7 @@ window.requestAnimFrame = (function(){
 
 	var life = 3;
 	var start = true;
-	var p = 2000;
+	var p = 1000;
 	var totalPoints;
 	
 	function count() {
@@ -624,7 +624,7 @@ window.requestAnimFrame = (function(){
 				start = false;
 			}
 		}
-		if(obstacleLeft<-40){
+		if(obstacleLeft <-45){
 			console.log(characterTop);
 			console.log("ff3");
 			pausedAnimation();
@@ -1713,7 +1713,7 @@ window.requestAnimFrame = (function(){
 		}
 		
 		if (data3 === "jumpEvent"){
-			
+			console.log(obstacleLeft,characterTop);
 			if(obstacleLeft > -17){
 				if (jumpToggle === 0 && (characterTop < 74 && characterTop > 73)) {
 					jumpAnimation(jumpToggle);
