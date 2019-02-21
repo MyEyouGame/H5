@@ -617,7 +617,7 @@ window.requestAnimFrame = (function(){
 			start = false;
 		}
 		
-		if(obstacleLeft <-35 &&  obstacleLeft >-48 && characterBottom < 49 && characterBottom > 47 ){
+		if(obstacleLeft <-35 &&  obstacleLeft >-50 && characterBottom < 49 && characterBottom > 47 ){
 			character.style.animationPlayState= "paused";
 			character.style.webkitAnimationPlayState= "paused";
 			positionDetect3 = requestAnimationFrame(positionDetectFA3);
