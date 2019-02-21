@@ -220,7 +220,7 @@ window.requestAnimFrame = (function(){
 
 	var life = 3;
 	var start = true;
-	var p = 0000;
+	var p = 0001;
 	var totalPoints;
 	
 	function count() {
@@ -614,7 +614,7 @@ window.requestAnimFrame = (function(){
 				// positionDetect14 = requestAnimationFrame(positionDetectFA14);
 				// positionDetect15 = requestAnimationFrame(positionDetectFA15);
 			}
-			else if(characterTop > 51 && characterTop < 52){
+			else if(characterTop > 49 && characterTop < 52){
 				console.log("ff2");
 				character.style.animation = "drop 1s linear 1 forwards";
 				character.style.webkitAnimation= "drop 1s linear 1 forwards";		
