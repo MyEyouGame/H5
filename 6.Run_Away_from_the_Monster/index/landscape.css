@@ -1648,6 +1648,64 @@
 				top:74%;
 			}
 		}
+	
+		@keyframes jumpToBlock{
+			0%{
+				top:74%;
+			}
+			50%{
+				top:40%;
+			}
+			75%{
+				top:51%;
+			}
+			100%{
+				top:51%;
+			}		
+		}
+		@-webkit-keyframes jumpToBlock{
+			0%{
+				top:74%;
+			}
+			50%{
+				top:40%;
+			}
+			75%{
+				top:51%;
+			}
+			100%{
+				top:51%;
+			}			
+		}
+		@keyframes jumpToBrick1{
+			0%{
+				top:51%;
+			}
+			50%{
+				top:17%;
+			}
+			75%{
+				top:31%;
+			}
+			100%{
+				top:31%;
+			}		
+		}
+		@-webkit-keyframes jumpToBrick1{
+			0%{
+				top:51%;
+			}
+			50%{
+				top:17%;
+			}
+			75%{
+				top:31%;
+			}
+			100%{
+				top:31%;
+			}			
+		}
+		
 		
 	#startInterface{
 		position:absolute;	

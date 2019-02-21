@@ -492,13 +492,8 @@ window.requestAnimFrame = (function(){
 			dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
 			document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 		
-			if(obstacleLeft < -15 && obstacleLeft > -25){
-				if (characterTop < 52 && characterTop > 51 ){
-					console.log("f1");
-					character.style.animationPlayState= "paused";
-					character.style.webkitAnimationPlayState= "paused";
-				}
-				else if(characterTop < 74 && characterTop > 73){
+			if(obstacleLeft < -18 && obstacleLeft > -25){
+				if(characterTop < 74 && characterTop > 73){
 					console.log("f2");
 					character.style.animation = "drop 1s linear 1 forwards";
 					character.style.webkitAnimation= "drop 1s linear 1 forwards";
@@ -511,7 +506,7 @@ window.requestAnimFrame = (function(){
 				}
 			}
 		
-			if( obstacleLeft <-35 && obstacleLeft>-38 && characterTop < 52 && characterTop > 51){	
+			if( obstacleLeft <-35 && obstacleLeft>-38 && characterTop < 51 && characterTop > 50){	
 				console.log("f3");
 				character.style.animation = "drop 1s linear 1 forwards";
 				character.style.webkitAnimation= "drop 1s linear 1 forwards";
@@ -1293,6 +1288,8 @@ window.requestAnimFrame = (function(){
 
 	}
 	
+	var jumpToBlockToggle =0;
+	var jumpToBrick1Toggle =0;
 	function mouseDown(e) {
 	var data3 = e.target.id;
 	console.log(data3);
@@ -1335,174 +1332,31 @@ window.requestAnimFrame = (function(){
 		}
 	
 		if (data3 === "jumpEvent"){
-			getBox();
 			console.log(obstacleLeft,characterTop);
-			if (jumpToggle === 0 && (characterTop < 74 && characterTop > 73)) {
+			
+			if (obstacleLeft>-7 && characterTop<74 && characterTop>73 && jumpToggle === 0) {
 				jumpAnimation(jumpToggle);
 				jumpToggle = 1;
 			}
-			else if (jumpToggle === 1 && (characterTop < 74 && characterTop > 73 )) {
+			else if (obstacleLeft>-7 && characterTop<74 && characterTop>73 && jumpToggle === 1) {
 				jumpAnimation(jumpToggle);
 				jumpToggle = 0;
 			}	
 			
-			if(obstacleLeft < -20 && obstacleLeft > -35 &&  characterTop < 52 && characterTop > 51){
-
-				var jumpKeyframes = document.createElement('style');
-				jumpKeyframes.type = 'text/css';
-				var keyFrames = '\
-				@keyframes jumptoBrick3{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jumptoBrick3{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@keyframes jumptoBrick3Reset{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jumptoBrick3Reset{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}';
+			if (obstacleLeft<-7 && obstacleLeft>-16 && jumpToBlockToggle === 0){
 				
-				var jumpValue = {
-									'first':characterTop,
-									'second':(characterTop-34),
-								};
-				
-				jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
-				document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
-
-				if (jumpToggle === 0){
-					cancelAnimationFrame(positionDetect);
-					positionDetect2 = requestAnimationFrame(positionDetectFA2);
-					character.style.animation = " jumptoBrick3 1s ease-in-out 1 forwards";
-					character.style.webkitAnimation = "jumptoBrick3 1s ease-in-out 1 forwards";	
-					character.style.animationPlayState= "running";
-					character.style.webkitAnimationPlayState= "running";
-					jumpToggle = 1;
-				}
-				else if (jumpToggle === 1){
-					cancelAnimationFrame(positionDetect);
-					positionDetect2 = requestAnimationFrame(positionDetectFA2);
-					character.style.animation = " jumptoBrick3Reset 1s ease-in-out 1 forwards";
-					character.style.webkitAnimation = "jumptoBrick3Reset 1s ease-in-out 1 forwards";	
-					character.style.animationPlayState= "running";
-					character.style.webkitAnimationPlayState= "running";
-					jumpToggle = 0;
-				}
+				character.style.animation = " jumpToBlock 1s ease-in-out 1 forwards";
+				character.style.webkitAnimation = "jumpToBlock 1s ease-in-out 1 forwards";	
+				jumpToBlockToggle = 1;
 			}
 			
-			if(obstacleLeft < -36 && ((characterTop > 30 && characterTop < 31) || 
-			( characterTop > 75 && characterTop < 76) ||
-			(obstacleLeft > -153 && obstacleLeft < -159 && characterTop > 20 && characterTop < 21) ) ){
-
-				var BoxElement  = document.querySelector('#obstacle');
-				var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
-				var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+			if (obstacleLeft <-26 && characterTop < 51 && characterTop > 50 && jumpToBrick1Toggle === 0){
 				
-				var characterElement  = document.querySelector('#character');
-				var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
-				var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
-				var characterTop = (100*characterTopValue)/BoxTopValue;
-				var characterLeft = (100*characterLeftValue)/BoxLeftValue;
-				
-				var jumpKeyframes = document.createElement('style');
-				jumpKeyframes.type = 'text/css';
-				var keyFrames = '\
-				@keyframes jump2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jump2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@keyframes jumpReset2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jumpReset2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}';
-				
-				var jumpValue = {
-									'first':characterTop,
-									'second':(characterTop-34)
-								};
-				
-				jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
-				document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
-
-				if (jumpToggle2 === 0) {
-					jumpAnimation2(jumpToggle2);
-					jumpToggle2 = 1;
-				}
-				else if (jumpToggle2 === 1) {
-					jumpAnimation2(jumpToggle2);
-					jumpToggle2 = 0;
-				}	
+				character.style.animation = " jumpToBrick1 1s ease-in-out 1 forwards";
+				character.style.webkitAnimation = "jumpToBrick1 1s ease-in-out 1 forwards";	
+				jumpToBrick1Toggle = 1;
 			}
+			
 		}
 	}
 	
@@ -1549,174 +1403,31 @@ window.requestAnimFrame = (function(){
 		}
 	
 		if (data3 === "jumpEvent"){
-			getBox();
 			console.log(obstacleLeft,characterTop);
-			if (jumpToggle === 0 && (characterTop < 74 && characterTop > 73)) {
+			
+			if (obstacleLeft>-7 && characterTop<74 && characterTop>73 && jumpToggle === 0) {
 				jumpAnimation(jumpToggle);
 				jumpToggle = 1;
 			}
-			else if (jumpToggle === 1 && (characterTop < 74 && characterTop > 73 )) {
+			else if (obstacleLeft>-7 && characterTop<74 && characterTop>73 && jumpToggle === 1) {
 				jumpAnimation(jumpToggle);
 				jumpToggle = 0;
 			}	
 			
-			if(obstacleLeft < -20 && obstacleLeft > -35 &&  characterTop < 52 && characterTop > 51){
-
-				var jumpKeyframes = document.createElement('style');
-				jumpKeyframes.type = 'text/css';
-				var keyFrames = '\
-				@keyframes jumptoBrick3{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jumptoBrick3{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@keyframes jumptoBrick3Reset{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jumptoBrick3Reset{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}';
+			if (obstacleLeft<-7 && obstacleLeft>-16 && jumpToBlockToggle === 0){
 				
-				var jumpValue = {
-									'first':characterTop,
-									'second':(characterTop-34),
-								};
-				
-				jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
-				document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
-
-				if (jumpToggle === 0){
-					cancelAnimationFrame(positionDetect);
-					positionDetect2 = requestAnimationFrame(positionDetectFA2);
-					character.style.animation = " jumptoBrick3 1s ease-in-out 1 forwards";
-					character.style.webkitAnimation = "jumptoBrick3 1s ease-in-out 1 forwards";	
-					character.style.animationPlayState= "running";
-					character.style.webkitAnimationPlayState= "running";
-					jumpToggle = 1;
-				}
-				else if (jumpToggle === 1){
-					cancelAnimationFrame(positionDetect);
-					positionDetect2 = requestAnimationFrame(positionDetectFA2);
-					character.style.animation = " jumptoBrick3Reset 1s ease-in-out 1 forwards";
-					character.style.webkitAnimation = "jumptoBrick3Reset 1s ease-in-out 1 forwards";	
-					character.style.animationPlayState= "running";
-					character.style.webkitAnimationPlayState= "running";
-					jumpToggle = 0;
-				}
+				character.style.animation = " jumpToBlock 1s ease-in-out 1 forwards";
+				character.style.webkitAnimation = "jumpToBlock 1s ease-in-out 1 forwards";	
+				jumpToBlockToggle = 1;
 			}
 			
-			if(obstacleLeft < -36 && ((characterTop > 30 && characterTop < 31) || 
-			( characterTop > 75 && characterTop < 76) ||
-			(obstacleLeft > -153 && obstacleLeft < -159 && characterTop > 20 && characterTop < 21) ) ){
-
-				var BoxElement  = document.querySelector('#obstacle');
-				var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
-				var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+			if (obstacleLeft <-26 && characterTop < 51 && characterTop > 50 && jumpToBrick1Toggle === 0){
 				
-				var characterElement  = document.querySelector('#character');
-				var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
-				var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
-				var characterTop = (100*characterTopValue)/BoxTopValue;
-				var characterLeft = (100*characterLeftValue)/BoxLeftValue;
-				
-				var jumpKeyframes = document.createElement('style');
-				jumpKeyframes.type = 'text/css';
-				var keyFrames = '\
-				@keyframes jump2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jump2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@keyframes jumpReset2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}\
-				@-webkit-keyframes jumpReset2{\
-					0%{\
-						top: first%;\
-					}\
-					50%{\
-						top: second%;\
-					}\
-					100%{\
-						top: first%;\
-					}\
-				}';
-				
-				var jumpValue = {
-									'first':characterTop,
-									'second':(characterTop-34)
-								};
-				
-				jumpKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => jumpValue[m]);
-				document.getElementsByTagName('div')[43].appendChild(jumpKeyframes);
-
-				if (jumpToggle2 === 0) {
-					jumpAnimation2(jumpToggle2);
-					jumpToggle2 = 1;
-				}
-				else if (jumpToggle2 === 1) {
-					jumpAnimation2(jumpToggle2);
-					jumpToggle2 = 0;
-				}	
+				character.style.animation = " jumpToBrick1 1s ease-in-out 1 forwards";
+				character.style.webkitAnimation = "jumpToBrick1 1s ease-in-out 1 forwards";	
+				jumpToBrick1Toggle = 1;
 			}
+			
 		}
 		
 	}
