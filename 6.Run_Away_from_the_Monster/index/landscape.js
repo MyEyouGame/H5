@@ -336,6 +336,21 @@ window.requestAnimFrame = (function(){
 		}
 	}
 	
+	var jumpToggle5 = 0;
+	function jumpAnimation5(jumpToggle5){
+		
+		var t = jumpToggle5 ; 
+
+		if (t === 1){
+			character.style.animation = " jump5 1.2s ease-in-out 1 forwards";
+			character.style.webkitAnimation = "jump5 1.2s ease-in-out 1 forwards";	
+		}
+		if (t === 0){
+			character.style.animation = " jumpReset5 1.2s ease-in-out 1 forwards";
+			character.style.webkitAnimation = "jumpReset5 1.2s ease-in-out 1 forwards";	
+		}
+	}
+	
 	var jumptoBrick3Toggle = 0;
 	var crystalToggle = 0;
 	function loseCrystal(life,crystalToggle){
@@ -352,87 +367,6 @@ window.requestAnimFrame = (function(){
 			crystalArray[live].style.webkitAnimation= "lifeCrystal 1s linear 1 forwards";
 		}
    }
-	
-	function getBox() {
-		var graveStone1Box = document.getElementById ("graveStone1Box");
-		var character = document.getElementById ("character");	
-				
-		if (character.getBoundingClientRect) {
-			var rect = character.getBoundingClientRect ();
-			cl = rect.left;
-			ct = rect.top;
-			cr = rect.right;
-			cb = rect.bottom;  
-		}
-		if (graveStone1Box.getBoundingClientRect) {
-			var rect2 = graveStone1Box.getBoundingClientRect ();
-			gl = rect2.left;
-			gt = rect2.top;
-			gr = rect2.right;
-			gb = rect2.bottom;
-		}
-		if (graveStone2Box.getBoundingClientRect) {
-			var rect3 = graveStone2Box.getBoundingClientRect ();
-			gl2 = rect3.left;
-			gt2 = rect3.top;
-			gr2 = rect3.right;
-			gb2 = rect3.bottom;
-		}
-		if (graveStone3Box.getBoundingClientRect) {
-			var rect4 = graveStone3Box.getBoundingClientRect ();
-			gl3 = rect4.left;
-			gt3 = rect4.top;
-			gr3 = rect4.right;
-			gb3 = rect4.bottom;	
-		}
-		if (flowerMonster1Box.getBoundingClientRect) {
-			var rect5 = flowerMonster1Box.getBoundingClientRect ();
-			fl = rect5.left;
-			ft = rect5.top;
-			fr = rect5.right;
-			fb = rect5.bottom;
-		}
-		if (treeMonster2Box.getBoundingClientRect) {
-			var rect4 = treeMonster2Box.getBoundingClientRect ();
-			tl2 = rect4.left;
-			tt2 = rect4.top;
-			tr2 = rect4.right;
-			tb2 = rect4.bottom;
-		}
-		if (brick8.getBoundingClientRect) {
-			var rect5 = brick8.getBoundingClientRect ();
-			bl8 = rect5.left;
-			bt8 = rect5.top;
-			br8 = rect5.right;
-			bb8 = rect5.bottom;
-		}
-		if (brick9.getBoundingClientRect) {
-			var rect6 = brick9.getBoundingClientRect ();
-			bl9 = rect6.left;
-			bt9 = rect6.top;
-			br9 = rect6.right;
-			bb9 = rect6.bottom;
-		}
-		if (blockBox.getBoundingClientRect) {
-			var rect7 = blockBox.getBoundingClientRect ();
-			bl = rect7.left;
-			bt = rect7.top;
-			br = rect7.right;
-			bb = rect7.bottom;
-		}
-		if (obstacle.getBoundingClientRect) {
-			var rect8 = obstacle.getBoundingClientRect ();
-			obl = rect8.left;
-			obt = rect8.top;
-			obr = rect8.right;
-			obb = rect8.bottom;
-			
-			return(cl,ct,cr,cb,gl,gt,gr,gb2,gl2,gt2,gr2,gb2,gb2,gl3,gt3,gr3,gb3,
-			fl,ft,fr,fb,tl2,tt2,tr2,tb2,bl8,bt8,br8,bb8,bl9,bt9,br9,bb9,bl,bt,br,bb,
-			obl,obt,obr,obb);
-		
-		}
-	} 
 	
 	// drop&jump between brick1&block
 	function positionDetectFA(){
@@ -504,7 +438,6 @@ window.requestAnimFrame = (function(){
 		
 			if(obstacleLeft < -18 && obstacleLeft > -25){
 				if(characterTop < 74 && characterTop > 73){
-					console.log("f2");
 					character.style.animation = "drop 1s linear 1 forwards";
 					character.style.webkitAnimation= "drop 1s linear 1 forwards";
 					firstRedMonsterImage.style.display ="block";
@@ -573,9 +506,9 @@ window.requestAnimFrame = (function(){
 				loseCrystal(life,crystalToggle);
 				pausedAnimation();
 				start=false;
-				cancelAnimationFrame(positionDetect);
-				
+				cancelAnimationFrame(positionDetect);		
 			}
+			
 	}
 	// flowerMonster1
 	function positionDetectFA2(){
@@ -600,7 +533,6 @@ window.requestAnimFrame = (function(){
 			
 		}
    }
-   
 	// graveStone1
 	function positionDetectFA3(){
 	   
@@ -678,15 +610,14 @@ window.requestAnimFrame = (function(){
 			character.style.animation = "dropAtTheMiddle 1s linear 1 forwards";
 			character.style.webkitAnimation= "dropAtTheMiddle 1s linear 1 forwards";
 			
+			positionDetect6 = requestAnimationFrame(positionDetectFA6);	
+			positionDetect7 = requestAnimationFrame(positionDetectFA7);
+			positionDetect9 = requestAnimationFrame(positionDetectFA9);
+		
 			cancelAnimationFrame(positionDetect2);
 			cancelAnimationFrame(positionDetect3);
 			cancelAnimationFrame(positionDetect4);
 			cancelAnimationFrame(positionDetect5);
-
-			positionDetect6 = requestAnimationFrame(positionDetectFA6);	
-			positionDetect7 = requestAnimationFrame(positionDetectFA7);
-			// positionDetect8 = requestAnimationFrame(positionDetectFA8);	
-			positionDetect9 = requestAnimationFrame(positionDetectFA9);
 		
 		}
    }
@@ -738,8 +669,7 @@ window.requestAnimFrame = (function(){
 			
 		}
    }	
-   
-   
+    
     // brick5 jumpTo brick7 (up)
    	function positionDetectFA8(){
 
@@ -763,8 +693,8 @@ window.requestAnimFrame = (function(){
 		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
 
 	   positionDetect8 = requestAnimationFrame(positionDetectFA8);
-
-		if (obstacleLeft < -139 && obstacleLeft > -144 && characterTop > 30 && characterTop < 31 ){
+		
+		if (obstacleLeft < -137 && characterTop > 30 && characterTop < 31){
 		var dropKeyframes = document.createElement('style');
 		dropKeyframes.type = 'text/css';
 		var keyFrames = '\
@@ -799,12 +729,11 @@ window.requestAnimFrame = (function(){
 		dropKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => dropValue[m]);
 		document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 
-			character.style.animation = "drop 1s linear 1 forwards";
-			character.style.webkitAnimation= "drop 1s linear 1 forwards";
-			cancelAnimationFrame(positionDetect8);
-			pausedAnimation();
-			start = false;
-		}
+		character.style.animation = "drop 2s linear 1 forwards";
+		character.style.webkitAnimation= "drop 2s linear 1 forwards";
+		
+		cancelAnimationFrame(positionDetect8);
+		}console.log("8");
    }	
    
     // brick5 jumpTo brick7 (down)
@@ -877,15 +806,12 @@ window.requestAnimFrame = (function(){
 				pausedAnimation();
 				start=false;
 				cancelAnimationFrame(positionDetect9);
-				
 			}
-
 		}
    }
-   
-   
+      
    // brick7 stairs
-   	function positionDetectFA12(){
+   	function positionDetectFA10(){
 		var gameContainerElement  = document.querySelector('#gameContainer');
 		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
 		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
@@ -905,10 +831,9 @@ window.requestAnimFrame = (function(){
 		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
 		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
 
-		positionDetect12 = requestAnimationFrame(positionDetectFA12);
+		positionDetect10 = requestAnimationFrame(positionDetectFA10);
 
-		
-		if (obstacleLeft < -167 && characterTop > 20 && characterTop < 21 ){
+		if (obstacleLeft < -167 && obstacleLeft > -177 && characterTop < 20 && characterTop > 19){
 
 			var goDownKeyframes = document.createElement('style');
 				goDownKeyframes.type = 'text/css';
@@ -932,7 +857,7 @@ window.requestAnimFrame = (function(){
 				
 				var goDownValue = {
 								'first':characterTop,
-								'second':(characterTop+13),
+								'second':(characterTop+14),
 							};
 				
 				goDownKeyframes.innerHTML = keyFrames.replace(/first|second/g, m => goDownValue[m]);
@@ -940,19 +865,113 @@ window.requestAnimFrame = (function(){
 
 				character.style.animation = "goDown 1s linear 1 forwards";
 				character.style.webkitAnimation= "goDown 1s linear 1 forwards";
-		}
-		
-		if (obstacleLeft < -178){
-			
-			character.style.animationPlayState = "paused";
-			character.style.webkitAnimationPlayState = "paused";
-			
-			cancelAnimationFrame(positionDetect12);
+				cancelAnimationFrame(positionDetect10);
 		}
 	}
    
    // key
+    function positionDetectFA11(){
+		var gameContainerElement  = document.querySelector('#gameContainer');
+		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
+		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
+
+		var BoxElement  = document.querySelector('#obstacle');
+		var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
+		var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+
+		var characterElement  = document.querySelector('#character');
+		var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
+		var characterTop = (100*characterTopValue)/BoxTopValue;
+		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+
+		var obstacleElement  = document.querySelector('#obstacle');
+		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
+		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
+		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
+
+		positionDetect11 = requestAnimationFrame(positionDetectFA11);
+	
+		if (obstacleLeft < -185 && obstacleLeft > -187 && characterTop < 34 && characterTop > 33 ){
+
+			key.style.display = "none";
+			keyDisplay.style.display = "block";
+			cancelAnimationFrame(positionDetect11);
+			
+		}
+	}
+   
+    // brick7 dropTo brick6
+    function positionDetectFA12(){
+		
+		var gameContainerElement  = document.querySelector('#gameContainer');
+		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
+		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
+
+		var BoxElement  = document.querySelector('#obstacle');
+		var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
+		var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+
+		var characterElement  = document.querySelector('#character');
+		var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
+		var characterTop = (100*characterTopValue)/BoxTopValue;
+		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+
+		var obstacleElement  = document.querySelector('#obstacle');
+		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
+		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
+		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
+
+		positionDetect12 = requestAnimationFrame(positionDetectFA12);
+
+		if ((obstacleLeft < -194 && obstacleLeft > -201) && (characterTop > 33 && characterTop < 34)){
+			
+			var dropKeyframes = document.createElement('style');
+			dropKeyframes.type = 'text/css';
+			var keyFrames = '\
+			@keyframes dropAtTheBrick7{\
+				0%{\
+					top: first%;\
+				}\
+				50%{\
+					top: second%;\
+				}\
+				100%{\
+					top: second%;\
+				}\
+			}\
+			@-webkit-keyframes dropAtTheBrick7{\
+				0%{\
+					top: first%;\
+				}\
+				50%{\
+					top: second%;\
+				}\
+				100%{\
+					top: second%;\
+				}\
+			}';
+			
+			var dropValue = {
+								'first':characterTop,
+								'second':(characterTop+43)
+							};
+			
+			dropKeyframes.innerHTML = keyFrames.replace(/first|second|third|forth/g, m => dropValue[m]);
+			document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
+
+			character.style.animation = "dropAtTheBrick7 1s linear 1 forwards";
+			character.style.webkitAnimation= "dropAtTheBrick7 1s linear 1 forwards";
+			
+			positionDetect13 = requestAnimationFrame(positionDetectFA13);
+			cancelAnimationFrame(positionDetect12);
+		}
+	}
+   
+   // character run
     function positionDetectFA13(){
+		
 		var gameContainerElement  = document.querySelector('#gameContainer');
 		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
 		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
@@ -973,146 +992,64 @@ window.requestAnimFrame = (function(){
 		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
 
 		positionDetect13 = requestAnimationFrame(positionDetectFA13);
-	
-		if (obstacleLeft < -185 && obstacleLeft > -187 && characterTop > 30 && characterTop < 31 ){
-
-			key.style.display = "none";
-			keyDisplay.style.display = "block";
-			cancelAnimationFrame(positionDetect13);
-			
-		}
-	}
-   
-    // brick7 dropTo brick6
-    function positionDetectFA14(){
 		
-		var gameContainerElement  = document.querySelector('#gameContainer');
-		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
-		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
-
-		var BoxElement  = document.querySelector('#obstacle');
-		var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
-		var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
-
-		var characterElement  = document.querySelector('#character');
-		var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
-		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
-		var characterTop = (100*characterTopValue)/BoxTopValue;
-		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
-
-		var obstacleElement  = document.querySelector('#obstacle');
-		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
-		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
-		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
-
-		positionDetect14 = requestAnimationFrame(positionDetectFA14);
-
-		if ((obstacleLeft < -194 && obstacleLeft > -199) && (characterTop > 30 && characterTop < 31)){
-			
+		if(obstacleLeft === -200 && characterLeft <= 9){
+			character.style.animation = "characterRun 3s linear 1 forwards";
+			character.style.webkitAnimation= "characterRun 3s linear 1 forwards";
+		}
+		
+		if(characterLeft > 10)
+		{
 			var dropKeyframes = document.createElement('style');
 			dropKeyframes.type = 'text/css';
 			var keyFrames = '\
-			@keyframes drop{\
+			@keyframes endDrop{\
 				0%{\
+					left: third%;\
 					top: first%;\
 				}\
 				50%{\
+					left: third%;\
 					top: second%;\
 				}\
 				100%{\
+					left: third%;\
 					top: second%;\
 				}\
 			}\
-			@-webkit-keyframes drop{\
+			@-webkit-keyframes endDrop{\
 				0%{\
+					left: third%;\
 					top: first%;\
 				}\
 				50%{\
+					left: third%;\
 					top: second%;\
 				}\
 				100%{\
+					left: third%;\
 					top: second%;\
-				}\
-			}\
-			@keyframes dropReset{\
-				0%{\
-					top: third%;\
-				}\
-				50%{\
-					top: forth%;\
-				}\
-				100%{\
-					top: forth%;\
-				}\
-			}\
-			@-webkit-keyframes dropReset{\
-				0%{\
-					top: third%;\
-				}\
-				50%{\
-					top: forth%;\
-				}\
-				100%{\
-					top: forth%;\
 				}\
 			}';
 			
 			var dropValue = {
 								'first':characterTop,
-								'second':(characterTop+46),
-								'third':characterTop,
-								'forth':(characterTop+36),
+								'second':(characterTop+50),
+								'third':characterLeft
 							};
 			
-			dropKeyframes.innerHTML = keyFrames.replace(/first|second|third|forth/g, m => dropValue[m]);
+			dropKeyframes.innerHTML = keyFrames.replace(/first|second|third/g, m => dropValue[m]);
 			document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
-
-			character.style.animation = "drop 1s linear 1 forwards";
-			character.style.webkitAnimation= "drop 1s linear 1 forwards";
-
+	
+			character.style.animation = "endDrop 1s linear 1 forwards";
+			character.style.webkitAnimation= "endDrop 1 linear 1 forwards";
+			
+			cancelAnimationFrame(positionDetect13);
 		}
-		if(obstacleLeft < -194 && characterTop > 73 && characterTop < 74 ){
-			console.log("true");
-			character.style.animationPlayState = "paused";
-			character.style.webkitAnimationPlayState = "paused";
-			cancelAnimationFrame(positionDetect14);
-		}
-	}
-   
-   // character run
-    function positionDetectFA15(){
-		
-		var gameContainerElement  = document.querySelector('#gameContainer');
-		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
-		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
-
-		var BoxElement  = document.querySelector('#obstacle');
-		var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
-		var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
-
-		var characterElement  = document.querySelector('#character');
-		var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
-		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
-		var characterTop = (100*characterTopValue)/BoxTopValue;
-		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
-
-		var obstacleElement  = document.querySelector('#obstacle');
-		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
-		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
-		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
-
-		positionDetect15 = requestAnimationFrame(positionDetectFA15);
-		
-		if(obstacleLeft === -200){
-			character.style.animation = "characterRun 3s linear 1 forwards";
-			character.style.webkitAnimation= "characterRun 3s linear 1 forwards";
-			// here 
-		}
-		
 	}
 	
 	// stopAnimation
-   	function positionDetectFA16(){
+   	function positionDetectFA14(){
 	   
 	   	var gameContainerElement  = document.querySelector('#gameContainer');
 		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
@@ -1123,16 +1060,36 @@ window.requestAnimFrame = (function(){
 		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
 		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
 	   
-	   positionDetect16 = requestAnimationFrame(positionDetectFA16);
+	   positionDetect14 = requestAnimationFrame(positionDetectFA14);
 		
-		if(obstacleLeft < -210){
+		if(obstacleLeft <= -200){
 			pausedAnimation();
 			clearTimeout(renderCharacter);
 			start=false;
+			
+			
+			// cancelAnimationFrame(positionDetect);
+			// cancelAnimationFrame(positionDetect2);
+			// cancelAnimationFrame(positionDetect3);
+			// cancelAnimationFrame(positionDetect4);
+			// cancelAnimationFrame(positionDetect5);
+			
+			// cancelAnimationFrame(positionDetect8);
+			
+			// cancelAnimationFrame(positionDetect10);
+			// cancelAnimationFrame(positionDetect11);
+
+			cancelAnimationFrame(positionDetect14);
+			
+			// cancelAnimationFrame(positionDetect6);
+			// cancelAnimationFrame(positionDetect7);
+			// cancelAnimationFrame(positionDetect9);
+			// cancelAnimationFrame(positionDetect12);
+			// cancelAnimationFrame(positionDetect13);
 		}
    }
    
-   positionDetect16 = requestAnimationFrame(positionDetectFA16);
+   positionDetect14 = requestAnimationFrame(positionDetectFA14);
 	
 	function pausedAnimation(){
 			
@@ -1251,15 +1208,16 @@ window.requestAnimFrame = (function(){
 
 	}
 	
-	var jumpToBlockToggle =0;
-	var jumpToBrick1Toggle =0;
-	var jumpUpToggle =0;
-	var jumpToBrick1Toggle =0;
+	var jumpToBlockToggle = 0;
+	var jumpToBrick1Toggle = 0;
+	var jumpUpToggle = 0;
+	var jumpToBrick1Toggle = 0;
 	var graveStoneLifeToggle = 0;
 	var graveStone2LifeToggle = 0;
-	var flowerMonster1LifeToggle =0;
-	var dropAtTheMiddle =0;
+	var flowerMonster1LifeToggle = 0;
+	var dropAtTheMiddle = 0;
 	var graveStone3LifeToggle = 0;
+	var jumpToBrick7Toggle = 0;
 	
 	function mouseDown(e) {
 	var data3 = e.target.id;
@@ -1378,7 +1336,7 @@ window.requestAnimFrame = (function(){
 	
 			}
 			
-			if (obstacleLeft <-26 && characterTop < 51 && characterTop > 50 && jumpToBrick1Toggle === 0){
+			if (obstacleLeft <-26 && obstacleLeft >-60 && characterTop < 51 && characterTop > 50 && jumpToBrick1Toggle === 0){
 				
 				character.style.animation = " jumpToBrick1 1s ease-in-out 1 forwards";
 				character.style.webkitAnimation = "jumpToBrick1 1s ease-in-out 1 forwards";	
@@ -1431,9 +1389,13 @@ window.requestAnimFrame = (function(){
 				positionDetect3 = requestAnimationFrame(positionDetectFA3);
 				positionDetect4 = requestAnimationFrame(positionDetectFA4);
 				positionDetect5 = requestAnimationFrame(positionDetectFA5);
-			}
+				positionDetect8 = requestAnimationFrame(positionDetectFA8);
+				positionDetect10 = requestAnimationFrame(positionDetectFA10);
+				positionDetect11 = requestAnimationFrame(positionDetectFA11);
+				positionDetect12 = requestAnimationFrame(positionDetectFA12);
+		}
 		
-			if (obstacleLeft <-40 && characterTop < 31 && characterTop > 30){
+			if (obstacleLeft <-40 && obstacleLeft >-165 && characterTop < 31 && characterTop > 30){
 				
 				if (jumpToggle2 === 0) {
 					jumpAnimation2(jumpToggle2);
@@ -1489,12 +1451,12 @@ window.requestAnimFrame = (function(){
 				character.style.webkitAnimation= "jumpDropAtTheMiddle 1.8s linear 1 forwards";
 				dropAtTheMiddle = 1;
 			}
-			if(obstacleLeft < - 70.5 && obstacleLeft > -84){
+			if (obstacleLeft <-70.5 && obstacleLeft > -84){
 				cancelAnimationFrame(positionDetect5);
 			}
 
 			//jump3
-			if (obstacleLeft <-85 && characterTop < 74 && characterTop > 73){
+			if (obstacleLeft <-85 && obstacleLeft >-200 && characterTop < 74 && characterTop > 73){
 				
 				if (jumpToggle3 === 0) {
 					jumpAnimation3(jumpToggle3);
@@ -1514,24 +1476,86 @@ window.requestAnimFrame = (function(){
 				loseCrystal(life,crystalToggle);				
 				graveStone3LifeToggle = 1;
 			}
-			
-			if(obstacleLeft < - 85 && obstacleLeft > -95 && characterTop < 74 && characterTop > 73 ){
+			if (obstacleLeft < - 85 && obstacleLeft > -95 && characterTop < 74 && characterTop > 73 ){
 				cancelAnimationFrame(positionDetect6);
 			}
 			
 			//treeMonster2
-			// if (obstacleLeft < - 116 && obstacleLeft > -120 && characterTop < 74 && characterTop > 73 && graveStone3LifeToggle === 0){
-				// life=life-1;
-				// crystalToggle = 0;
-				// loseCrystal(life,crystalToggle);				
-				// graveStone3LifeToggle = 1;
-			// }
-			
 			if(obstacleLeft < - 118 && obstacleLeft > -120 && characterTop < 74 && characterTop > 73 ){
 				cancelAnimationFrame(positionDetect7);
 			}
 			
+			//jumpToBrick7
+			if(obstacleLeft <-133 && obstacleLeft > -137 && characterTop < 31 && characterTop > 30 && jumpToBrick7Toggle === 0){
+				
+				character.style.animation = " jumpToBrick7 1s ease-in-out 1 forwards";
+				character.style.webkitAnimation = "jumpToBrick7 1s ease-in-out 1 forwards";			
+				jumpToBrick7Toggle = 1;
+				cancelAnimationFrame(positionDetect8);
+			}
 			
+			//jump4
+			if (obstacleLeft <-146 && obstacleLeft >-157 && characterTop < 20 && characterTop > 19){
+				if (jumpToggle4 === 0) {
+					jumpAnimation4(jumpToggle4);
+					jumpToggle4 = 1;
+				}
+				else if (jumpToggle4 === 1) {
+					jumpAnimation4(jumpToggle4);
+					jumpToggle4 = 0;
+				}	
+			}
+			
+			//jumpToBrick8
+			if (obstacleLeft <-187 && obstacleLeft >= -194 && characterTop < 34 && characterTop > 33){
+
+			var dropKeyframes = document.createElement('style');
+			dropKeyframes.type = 'text/css';
+			var keyFrames = '\
+			@keyframes jumptoBrick8{\
+				0%{\
+					top: first%;\
+					left:third%;\
+				}\
+				50%{\
+					top: second%;\
+				}\
+				100%{\
+					top: fifth%;\
+					left:forth%;\
+				}\
+			}\
+			@-webkit-keyframes jumptoBrick8{\
+				0%{\
+					top: first%;\
+					left:third%;\
+				}\
+				50%{\
+					top: second%;\
+				}\
+				100%{\
+					top: fifth%;\
+					left:forth%;\
+				}\
+			}';
+			
+			var dropValue = {
+								'first':characterTop,
+								'second':(characterTop-35),
+								'third':characterLeft,
+								'forth':(characterLeft+4),
+								'fifth':(characterTop-35+51),
+							};
+			
+			dropKeyframes.innerHTML = keyFrames.replace(/first|second|third|forth|fifth/g, m => dropValue[m]);
+			document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
+		
+			character.style.animation = " jumptoBrick8 1s ease-in-out 1 forwards";
+			character.style.webkitAnimation = "jumptoBrick8 1s ease-in-out 1 forwards";			
+			
+			cancelAnimationFrame(positionDetect12);
+			
+			}
 		}
 	}
 	
@@ -1583,7 +1607,7 @@ window.requestAnimFrame = (function(){
 			positionDetect = requestAnimationFrame(positionDetectFA);
 		}
 	
-	if (data3 === "jumpEvent"){
+			if (data3 === "jumpEvent"){
 			console.log(obstacleLeft,characterTop);
 			
 			if (obstacleLeft>-7 && characterTop<74 && characterTop>73 && jumpToggle === 0) {
@@ -1653,7 +1677,7 @@ window.requestAnimFrame = (function(){
 	
 			}
 			
-			if (obstacleLeft <-26 && characterTop < 51 && characterTop > 50 && jumpToBrick1Toggle === 0){
+			if (obstacleLeft <-26 && obstacleLeft >-60 && characterTop < 51 && characterTop > 50 && jumpToBrick1Toggle === 0){
 				
 				character.style.animation = " jumpToBrick1 1s ease-in-out 1 forwards";
 				character.style.webkitAnimation = "jumpToBrick1 1s ease-in-out 1 forwards";	
@@ -1706,9 +1730,13 @@ window.requestAnimFrame = (function(){
 				positionDetect3 = requestAnimationFrame(positionDetectFA3);
 				positionDetect4 = requestAnimationFrame(positionDetectFA4);
 				positionDetect5 = requestAnimationFrame(positionDetectFA5);
-			}
+				positionDetect8 = requestAnimationFrame(positionDetectFA8);
+				positionDetect10 = requestAnimationFrame(positionDetectFA10);
+				positionDetect11 = requestAnimationFrame(positionDetectFA11);
+				positionDetect12 = requestAnimationFrame(positionDetectFA12);
+		}
 		
-			if (obstacleLeft <-40 && characterTop < 31 && characterTop > 30){
+			if (obstacleLeft <-40 && obstacleLeft >-165 && characterTop < 31 && characterTop > 30){
 				
 				if (jumpToggle2 === 0) {
 					jumpAnimation2(jumpToggle2);
@@ -1764,12 +1792,12 @@ window.requestAnimFrame = (function(){
 				character.style.webkitAnimation= "jumpDropAtTheMiddle 1.8s linear 1 forwards";
 				dropAtTheMiddle = 1;
 			}
-			if(obstacleLeft < - 70.5 && obstacleLeft > -84){
+			if (obstacleLeft <-70.5 && obstacleLeft > -84){
 				cancelAnimationFrame(positionDetect5);
 			}
 
 			//jump3
-			if (obstacleLeft <-85 && characterTop < 74 && characterTop > 73){
+			if (obstacleLeft <-85 && obstacleLeft >-200 && characterTop < 74 && characterTop > 73){
 				
 				if (jumpToggle3 === 0) {
 					jumpAnimation3(jumpToggle3);
@@ -1789,24 +1817,86 @@ window.requestAnimFrame = (function(){
 				loseCrystal(life,crystalToggle);				
 				graveStone3LifeToggle = 1;
 			}
-			
-			if(obstacleLeft < - 85 && obstacleLeft > -95 && characterTop < 74 && characterTop > 73 ){
+			if (obstacleLeft < - 85 && obstacleLeft > -95 && characterTop < 74 && characterTop > 73 ){
 				cancelAnimationFrame(positionDetect6);
 			}
 			
 			//treeMonster2
-			// if (obstacleLeft < - 116 && obstacleLeft > -120 && characterTop < 74 && characterTop > 73 && graveStone3LifeToggle === 0){
-				// life=life-1;
-				// crystalToggle = 0;
-				// loseCrystal(life,crystalToggle);				
-				// graveStone3LifeToggle = 1;
-			// }
-			
 			if(obstacleLeft < - 118 && obstacleLeft > -120 && characterTop < 74 && characterTop > 73 ){
 				cancelAnimationFrame(positionDetect7);
 			}
 			
+			//jumpToBrick7
+			if(obstacleLeft <-133 && obstacleLeft > -137 && characterTop < 31 && characterTop > 30 && jumpToBrick7Toggle === 0){
+				
+				character.style.animation = " jumpToBrick7 1s ease-in-out 1 forwards";
+				character.style.webkitAnimation = "jumpToBrick7 1s ease-in-out 1 forwards";			
+				jumpToBrick7Toggle = 1;
+				cancelAnimationFrame(positionDetect8);
+			}
 			
+			//jump4
+			if (obstacleLeft <-146 && obstacleLeft >-157 && characterTop < 20 && characterTop > 19){
+				if (jumpToggle4 === 0) {
+					jumpAnimation4(jumpToggle4);
+					jumpToggle4 = 1;
+				}
+				else if (jumpToggle4 === 1) {
+					jumpAnimation4(jumpToggle4);
+					jumpToggle4 = 0;
+				}	
+			}
+			
+			//jumpToBrick8
+			if (obstacleLeft <-187 && obstacleLeft >= -194 && characterTop < 34 && characterTop > 33){
+
+			var dropKeyframes = document.createElement('style');
+			dropKeyframes.type = 'text/css';
+			var keyFrames = '\
+			@keyframes jumptoBrick8{\
+				0%{\
+					top: first%;\
+					left:third%;\
+				}\
+				50%{\
+					top: second%;\
+				}\
+				100%{\
+					top: fifth%;\
+					left:forth%;\
+				}\
+			}\
+			@-webkit-keyframes jumptoBrick8{\
+				0%{\
+					top: first%;\
+					left:third%;\
+				}\
+				50%{\
+					top: second%;\
+				}\
+				100%{\
+					top: fifth%;\
+					left:forth%;\
+				}\
+			}';
+			
+			var dropValue = {
+								'first':characterTop,
+								'second':(characterTop-35),
+								'third':characterLeft,
+								'forth':(characterLeft+4),
+								'fifth':(characterTop-35+51),
+							};
+			
+			dropKeyframes.innerHTML = keyFrames.replace(/first|second|third|forth|fifth/g, m => dropValue[m]);
+			document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
+		
+			character.style.animation = " jumptoBrick8 1s ease-in-out 1 forwards";
+			character.style.webkitAnimation = "jumptoBrick8 1s ease-in-out 1 forwards";			
+			
+			cancelAnimationFrame(positionDetect12);
+			
+			}
 		}
 	}
 	

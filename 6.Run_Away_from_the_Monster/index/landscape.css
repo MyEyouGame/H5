@@ -1687,6 +1687,96 @@
 			}
 		}
 	
+		@keyframes jump4{
+			0%{
+				top:20%;
+			}
+			50%{
+				top:-15%;
+			}
+			100%{
+				top:20%;
+			}
+		}
+		@-webkit-keyframes jump4{
+			0%{
+				top:20%;
+			}
+			50%{
+				top:-15%;
+			}
+			100%{
+				top:20%;
+			}
+		}
+		@keyframes jumpReset4{
+			0%{
+				top:20%;
+			}
+			50%{
+				top:-15%;
+			}
+			100%{
+				top:20%;
+			}
+		}
+		@-webkit-keyframes jumpReset4{
+			0%{
+				top:20%;
+			}
+			50%{
+				top:-15%;
+			}
+			100%{
+				top:20%;
+			}
+		}
+	
+		@keyframes jump5{
+			0%{
+				top:33%;
+			}
+			50%{
+				top:-2%;
+			}
+			100%{
+				top:33%;
+			}
+		}
+		@-webkit-keyframes jump5{
+			0%{
+				top:33%;
+			}
+			50%{
+				top:-2%;
+			}
+			100%{
+				top:33%;
+			}
+		}
+		@keyframes jumpReset5{
+			0%{
+				top:33%;
+			}
+			50%{
+				top:-2%;
+			}
+			100%{
+				top:33%;
+			}
+		}
+		@-webkit-keyframes jumpReset5{
+			0%{
+				top:33%;
+			}
+			50%{
+				top:-2%;
+			}
+			100%{
+				top:33%;
+			}
+		}
+	
 		@keyframes jumpToBlock{
 			0%{
 				top:74%;
@@ -1817,7 +1907,64 @@
 				top:74%;
 			}				
 		}
+			
+		@keyframes jumpToBrick7{
+			0%{
+				top:31%;
+			}
+			50%{
+				top:-4%;
+			}
+			80%{
+				top:20%;
+			}
+			100%{
+				top:20%;
+			}		
+		} 
+		@-webkit-keyframes jumpToBrick7{
+			0%{
+				top:31%;
+			}
+			50%{
+				top:-4%;
+			}
+			80%{
+				top:20%;
+			}
+			100%{
+				top:20%;
+			}						
+		}
 		
+		/* @keyframes jumptoBrick8{ */
+			/* 0%{ */
+				/* top:34%; */
+			/* } */
+			/* 25%{ */
+				/* top:-1%; */
+			/* } */
+			/* 70%{ */
+				/* top:74%; */
+			/* } */
+			/* 100%{ */
+				/* top:74%; */
+			/* }	 */
+		/* } */
+		/* @-webkit-keyframes jumptoBrick8{ */
+			/* 0%{ */
+				/* top:31%; */
+			/* } */
+			/* 25%{ */
+				/* top:-4%; */
+			/* } */
+			/* 70%{ */
+				/* top:74%; */
+			/* } */
+			/* 100%{ */
+				/* top:74%; */
+			/* }	 */
+		/* } */
 	#startInterface{
 		position:absolute;	
 		height: 100%;
