@@ -445,7 +445,6 @@ window.requestAnimFrame = (function(){
 			}
 		
 			if( obstacleLeft <-35 && obstacleLeft>-38 && characterTop < 51 && characterTop > 50){	
-				console.log("f3");
 				character.style.animation = "drop 1s linear 1 forwards";
 				character.style.webkitAnimation= "drop 1s linear 1 forwards";
 				
@@ -733,7 +732,7 @@ window.requestAnimFrame = (function(){
 		character.style.webkitAnimation= "drop 2s linear 1 forwards";
 		
 		cancelAnimationFrame(positionDetect8);
-		}console.log("8");
+		}
    }	
    
     // brick5 jumpTo brick7 (down)
@@ -865,6 +864,7 @@ window.requestAnimFrame = (function(){
 
 				character.style.animation = "goDown 1s linear 1 forwards";
 				character.style.webkitAnimation= "goDown 1s linear 1 forwards";
+				
 				cancelAnimationFrame(positionDetect10);
 		}
 	}
