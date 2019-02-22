@@ -832,7 +832,7 @@ window.requestAnimFrame = (function(){
 
 		positionDetect10 = requestAnimationFrame(positionDetectFA10);
 
-		if (obstacleLeft < -167 && obstacleLeft > -177 && characterTop < 20 && characterTop > 19){
+		if (obstacleLeft < -167 && obstacleLeft > -177 && characterTop <= 20 && characterTop >= 19){
 
 			var goDownKeyframes = document.createElement('style');
 				goDownKeyframes.type = 'text/css';
@@ -1221,7 +1221,7 @@ window.requestAnimFrame = (function(){
 	
 	function mouseDown(e) {
 	var data3 = e.target.id;
-	console.log(data3);
+	// console.log(data3);
 	
 	var gameContainerElement  = document.querySelector('#gameContainer');
 	var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
@@ -1562,7 +1562,7 @@ window.requestAnimFrame = (function(){
 	function touchstart(e) {
 		e.preventDefault(); 
 		var data3 = e.target.id;
-		console.log(data3);
+		// console.log(data3);
 		
 		var gameContainerElement  = document.querySelector('#gameContainer');
 		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
