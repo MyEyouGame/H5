@@ -1882,9 +1882,9 @@ window.requestAnimFrame = (function(){
 			
 			var dropValue = {
 								'first':characterTop,
-								'second':(characterTop-35),
+								'second':(characterTop-30),
 								'third':characterLeft,
-								'forth':(characterLeft+4),
+								'forth':(characterLeft+3),
 								'fifth':(characterTop-35+51),
 							};
 			
