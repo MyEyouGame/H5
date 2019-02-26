@@ -361,12 +361,17 @@ window.requestAnimFrame = (function(){
 		if 	(crystalToggle === 0) {
 			crystalArray[live].style.animation = "lifeCrystal 1s linear 1 1s forwards";
 			crystalArray[live].style.webkitAnimation= "lifeCrystal 1s linear 1 1s forwards";
-			p=p-100;
 		}
 		else if (crystalToggle === 1){
 			crystalArray[live].style.animation = "lifeCrystal 1s linear 1 forwards";
 			crystalArray[live].style.webkitAnimation= "lifeCrystal 1s linear 1 forwards";
-			p=p-100;
+		}
+		
+		if (p > 300){
+			p = p - 300;
+		}
+		else if (p < 300){
+			p = 0;
 		}
    }
 	
@@ -1066,9 +1071,8 @@ window.requestAnimFrame = (function(){
 		
 		if(obstacleLeft <= -200){
 			pausedAnimation2();
-			clearTimeout(renderCharacter);
-			start=false;
-			
+			// clearTimeout(renderCharacter);
+			// start=false;
 			
 			// cancelAnimationFrame(positionDetect);
 			// cancelAnimationFrame(positionDetect2);
@@ -1345,6 +1349,13 @@ window.requestAnimFrame = (function(){
 			character.style.animation= "getReward 1s linear 1 forwards";
 			character.style.webkitAnimation= "getReward 1s linear forwards";	
 			
+		}
+		
+		if (characterLeft >= 29){
+			cancelAnimationFrame(positionDetect17);
+			start = false;
+			clearTimeout(renderCharacter);
+			pausedAnimation();
 		}
 		
 	}
@@ -1865,7 +1876,7 @@ window.requestAnimFrame = (function(){
 			
 			
 			//jumptoBrick9
-			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft <= 14 && characterTop < 49 ){
+			if (obstacleLeft <= -200 && characterLeft > 11 && characterLeft <= 14 && characterTop < 49 ){
 				
 				cancelAnimationFrame(positionDetect15);
 				detectComplete= requestAnimationFrame(detectAnimationComplete);
@@ -1922,7 +1933,7 @@ window.requestAnimFrame = (function(){
 				}
 			}
 			
-			if (obstacleLeft >= -200 && characterLeft > 16 && characterLeft <=21){
+			if (obstacleLeft <= -200 && characterLeft > 16 && characterLeft <=21){
 			
 				cancelAnimationFrame(positionDetect16);
 			
