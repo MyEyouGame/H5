@@ -1009,7 +1009,51 @@
 			100%{
 				top:63%;
 			}
-		}		
+		}	
+
+		@keyframes jumptoBrick8DropDown{
+			0%{
+				top: 48%;
+				left:12%;
+			}
+			20%{
+				top: 37%;
+				left:15%;
+			}
+			50%{
+				left:15%;
+			}
+			75%{
+				top: 61%;
+				left:15%;
+			}
+			100%{
+				top: 48%;
+				left:15%;
+			}
+		}
+		@-webkit-keyframes jumptoBrick8DropDown{
+			0%{
+				top: 48%;
+				left:12%;
+			}
+			20%{
+				top: 37%;
+			}
+			50%{
+				left:15%;
+				left:15%;
+			}
+			75%{
+				top: 61%;
+				left:15%;
+			}
+			100%{
+				top: 48%;
+				left:15%;
+			}
+		}
+		
 		#shortFire1{
 			position:absolute;	
 			top: 100%;
@@ -1208,7 +1252,8 @@
 			100%{
 				top:63%;
 			}
-		}			
+		}		
+
 		#shortFire2{
 			position:absolute;	
 			top: 100%;
@@ -3211,3 +3256,26 @@
 		}
 	}
 	
+	
+	@keyframes getReward{
+		0%{
+			top:21%;
+			left:24%;
+		}
+		100%{
+			top:21%;
+			left:29%;
+		}		
+	} 
+	
+		
+	@-webkit-keyframes getReward{
+		0%{
+			top:21%;
+			left:24%;
+		}
+		100%{
+			top:21%;
+			left:29%;
+		}		
+	} 
