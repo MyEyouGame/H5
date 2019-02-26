@@ -361,10 +361,12 @@ window.requestAnimFrame = (function(){
 		if 	(crystalToggle === 0) {
 			crystalArray[live].style.animation = "lifeCrystal 1s linear 1 1s forwards";
 			crystalArray[live].style.webkitAnimation= "lifeCrystal 1s linear 1 1s forwards";
+			p=p-100;
 		}
 		else if (crystalToggle === 1){
 			crystalArray[live].style.animation = "lifeCrystal 1s linear 1 forwards";
 			crystalArray[live].style.webkitAnimation= "lifeCrystal 1s linear 1 forwards";
+			p=p-100;
 		}
    }
 	
