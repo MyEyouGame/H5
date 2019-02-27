@@ -353,7 +353,7 @@ window.requestAnimFrame = (function(){
 			myIndex++;
 			if (myIndex > wB.length){}
 			wB[myIndex-1].style.display = "block";
-			renderWinButton = setTimeout(loopWinButton,80);			
+			renderWinButton = setTimeout(loopWinButton,60);			
 			 
 			if (myIndex === 10){
 				wB[myIndex-1].style.display = "none";
