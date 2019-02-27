@@ -3300,19 +3300,6 @@
 		}		
 	} 
 	
-	/* #goldBox{ */
-		/* position:absolute;	 */
-		/* top: 53%; */
-		/* left: 30%; */
-		/* z-index: 7; */
-		/* height: 14%; */
-		/* width: 16%; */
-		/* display:block; */
-		/* background-Size : 100% 100%;  */
-		/* background-repeat:no-repeat; */
-		/* overflow:hidden; */
-	/* } */
-	
 	#golds{
 		
 		position:absolute;	
@@ -3557,3 +3544,76 @@
 				top: 82%;
 			}
 		}
+		
+	@keyframes getHurt{
+		0%{
+			opacity:1;
+		}
+		25%{
+			opacity:0;
+		}
+		50%{
+			opacity:1;
+		}
+		75%{
+			opacity:0;
+		}
+		100%{
+			opacity:1;
+		}
+	}
+		
+	@-webkit-keyframes getHurt{
+		0%{
+			opacity:1;
+		}
+		25%{
+			opacity:0;
+		}
+		50%{
+			opacity:1;
+		}
+		75%{
+			opacity:0;
+		}
+		100%{
+			opacity:1;
+		}
+	}	
+	
+	@keyframes getHurt2{
+		0%{
+			opacity:1;
+		}
+		25%{
+			opacity:0;
+		}
+		50%{
+			opacity:1;
+		}
+		75%{
+			opacity:0;
+		}
+		100%{
+			opacity:1;
+		}
+	}
+		
+	@-webkit-keyframes getHurt2{
+		0%{
+			opacity:1;
+		}
+		25%{
+			opacity:0;
+		}
+		50%{
+			opacity:1;
+		}
+		75%{
+			opacity:0;
+		}
+		100%{
+			opacity:1;
+		}
+	}	
+	

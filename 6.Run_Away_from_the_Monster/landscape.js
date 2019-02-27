@@ -389,6 +389,7 @@ window.requestAnimFrame = (function(){
 	
 	var jumptoBrick3Toggle = 0;
 	var crystalToggle = 0;
+	var getHurtToggle = 0;
 	function loseCrystal(life,crystalToggle){
 	
 		var gameContainerElement  = document.querySelector('#gameContainer');
@@ -414,14 +415,33 @@ window.requestAnimFrame = (function(){
 		crystalArray = [lifeCrystal1,lifeCrystal2,lifeCrystal3]
 			
 		if (live !== -1){	
+		
 			if 	(crystalToggle === 0) {
+
 				crystalArray[live].style.animation = "lifeCrystal 1s linear 1 1s forwards";
 				crystalArray[live].style.webkitAnimation= "lifeCrystal 1s linear 1 1s forwards";
 			}
 			else if (crystalToggle === 1){
+				
 				crystalArray[live].style.animation = "lifeCrystal 1s linear 1 forwards";
 				crystalArray[live].style.webkitAnimation= "lifeCrystal 1s linear 1 forwards";
 			}
+			
+			if (getHurtToggle === 0){
+				
+				characterBox.style.animation = "getHurt 0.5s linear 1 forwards";
+				characterBox.style.webkitAnimation = "getHurt 0.5s linear 1 forwards";
+				
+				getHurtToggle = 1 ;
+			}
+			else if(getHurtToggle === 1){
+				
+				characterBox.style.animation = "getHurt2 0.5s linear 1 forwards";
+				characterBox.style.webkitAnimation = "getHurt2 0.5s linear 1 forwards";
+				
+				getHurtToggle = 0 ;
+			}
+			
 			
 			if (p > 150){
 				p = p - 150;
@@ -1849,7 +1869,7 @@ window.requestAnimFrame = (function(){
 			}
 			
 			//gravestone2
-			if (obstacleLeft < - 96 && obstacleLeft > -101 && characterTop < 31 && characterTop > 30 && graveStone2LifeToggle === 0){
+			if (obstacleLeft < - 96 && obstacleLeft > -99 && characterTop < 31 && characterTop > 30 && graveStone2LifeToggle === 0){
 				life=life-1;
 				crystalToggle = 0;
 				loseCrystal(life,crystalToggle);				
@@ -2319,7 +2339,7 @@ window.requestAnimFrame = (function(){
 			}
 			
 			//gravestone2
-			if (obstacleLeft < - 96 && obstacleLeft > -101 && characterTop < 31 && characterTop > 30 && graveStone2LifeToggle === 0){
+			if (obstacleLeft < - 96 && obstacleLeft > -99 && characterTop < 31 && characterTop > 30 && graveStone2LifeToggle === 0){
 				life=life-1;
 				crystalToggle = 0;
 				loseCrystal(life,crystalToggle);				
