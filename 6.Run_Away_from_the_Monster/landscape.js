@@ -420,27 +420,50 @@ window.requestAnimFrame = (function(){
 
 				crystalArray[live].style.animation = "lifeCrystal 1s linear 1 1s forwards";
 				crystalArray[live].style.webkitAnimation= "lifeCrystal 1s linear 1 1s forwards";
+			
+				if (getHurtToggle === 0){
+				
+					characterBox.style.animation = "getHurt 0.5s linear 1 1s forwards";
+					characterBox.style.webkitAnimation = "getHurt 0.5s linear 1 1s forwards";
+					
+					getHurtToggle = 1 ;
+					
+				}
+				else if(getHurtToggle === 1){
+					
+					characterBox.style.animation = "getHurt2 0.5s linear 1 1s forwards";
+					characterBox.style.webkitAnimation = "getHurt2 0.5s linear 1 1s forwards";
+					
+					getHurtToggle = 0 ;
+					
+				}
+			
 			}
 			else if (crystalToggle === 1){
 				
 				crystalArray[live].style.animation = "lifeCrystal 1s linear 1 forwards";
 				crystalArray[live].style.webkitAnimation= "lifeCrystal 1s linear 1 forwards";
+			
+				if (getHurtToggle === 0){
+				
+					characterBox.style.animation = "getHurt 0.5s linear 1 forwards";
+					characterBox.style.webkitAnimation = "getHurt 0.5s linear 1 forwards";
+					
+					getHurtToggle = 1 ;
+					
+				}
+				else if(getHurtToggle === 1){
+					
+					characterBox.style.animation = "getHurt2 0.5s linear 1 forwards";
+					characterBox.style.webkitAnimation = "getHurt2 0.5s linear 1 forwards";
+					
+					getHurtToggle = 0 ;
+					
+				}
+				
 			}
 			
-			if (getHurtToggle === 0){
-				
-				characterBox.style.animation = "getHurt 0.5s linear 1 forwards";
-				characterBox.style.webkitAnimation = "getHurt 0.5s linear 1 forwards";
-				
-				getHurtToggle = 1 ;
-			}
-			else if(getHurtToggle === 1){
-				
-				characterBox.style.animation = "getHurt2 0.5s linear 1 forwards";
-				characterBox.style.webkitAnimation = "getHurt2 0.5s linear 1 forwards";
-				
-				getHurtToggle = 0 ;
-			}
+
 			
 			
 			if (p > 150){
