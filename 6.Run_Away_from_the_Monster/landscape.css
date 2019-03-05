@@ -174,26 +174,22 @@
 			height: 8%;
 			width: 11%;
 			left: 85%;
-			top: 5.5%;
-		}		
-		
+			top: 8.5%;
+		}			
 			#points{
 				position:absolute;	
 				color:white;
 				letter-spacing:1px;
 				font-family: Impact;
-			}
-			
+			}		
 			#winPoint{
 				position:absolute;	
 				color:white;
 				font-family: Impact;
 				letter-spacing:1px;
 				left: 50%;
-				top: 68%;
+				top: 67%;
 			}
-
-			
 
 	#obstacleExtend{
 		position:absolute;	
@@ -906,7 +902,7 @@
 		}	
 		#keyDisplay{
 			position:absolute;	
-			top: 7.8%;
+			top: 8.8%;
 			left: 78.5%;
 			height: 8%;
 			width: 4.5%;

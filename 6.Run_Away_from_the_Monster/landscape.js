@@ -60,7 +60,7 @@ window.requestAnimFrame = (function(){
 		var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 		var width = w > h ? h : w;
 		width = width > 720 ? 720 : width
-		var fz = ~~(width*100000/100)/10000
+		var fz = ~~(width*100000/150)/10000
 		document.getElementById('points').style.cssText = 'font-size: ' + fz +"px";
 		var realfz = ~~(+window.getComputedStyle(document.getElementById('points')).fontSize.replace('px','')*1000)/1000
 		if (fz !== realfz) {
@@ -512,6 +512,28 @@ window.requestAnimFrame = (function(){
 				}
 				
 			}
+			else if (crystalToggle === 2){
+				
+				crystalArray[live].style.animation = "lifeCrystal 1s linear 1 0.5s forwards";
+				crystalArray[live].style.webkitAnimation= "lifeCrystal 1s linear 1 0.5s forwards";
+			
+				if (getHurtToggle === 0){
+				
+					characterBox.style.animation = "getHurt 0.5s linear 1 0.5s forwards";
+					characterBox.style.webkitAnimation = "getHurt 0.5s linear 1 0.5s forwards";
+					
+					getHurtToggle = 1 ;
+					
+				}
+				else if(getHurtToggle === 1){
+					
+					characterBox.style.animation = "getHurt2 0.5s linear 1 0.5s forwards";
+					characterBox.style.webkitAnimation = "getHurt2 0.5s linear 1 0.5s forwards";
+					
+					getHurtToggle = 0 ;
+					
+				}	
+			}
 			
 
 			
@@ -690,7 +712,7 @@ window.requestAnimFrame = (function(){
 		 
 	   positionDetect2 = requestAnimationFrame(positionDetectFA2);
 
-		if(obstacleLeft < -119){
+		if(obstacleLeft < -117){
 			
 			life=life-1;
 			crystalToggle = 1;
@@ -2259,6 +2281,13 @@ window.requestAnimFrame = (function(){
 		
 		if (data3 === "jumpEvent"){
 			console.log(obstacleLeft,characterTop,characterLeft);
+			
+			if (obstacleLeft>-8 && obstacleLeft<2){
+				
+				life=life-1;
+				crystalToggle = 2;
+				loseCrystal(life,crystalToggle);		
+			}
 			
 			if (obstacleLeft>-7 && characterTop<74 && characterTop>73 && jumpToggle === 0) {
 				jumpAnimation(jumpToggle);
