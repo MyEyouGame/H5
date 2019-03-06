@@ -1424,7 +1424,7 @@ window.requestAnimFrame = (function(){
 			
 			positionDetect16 = requestAnimationFrame(positionDetectFA16);
 		
-			var upDown9 = brick9Top-18;
+			var upDown9 = brick9Top-15;
 			
 			if (value9Toggle === 0){
 				upDown9Value = upDown9+3;
@@ -1445,7 +1445,7 @@ window.requestAnimFrame = (function(){
 				document.getElementById('character').style.setProperty('top', upDown9 + '%');
 			}
 		
-			if(characterLeft > 20.5){
+			if(characterLeft > 21){
 				
 				var dropKeyframes = document.createElement('style');
 				dropKeyframes.type = 'text/css';
@@ -2109,7 +2109,7 @@ window.requestAnimFrame = (function(){
 			
 			
 			//jumptoBrick9
-			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft <= 14 && characterTop < 49 ){
+			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft < 13.9 && characterTop < 49 ){
 				
 				cancelAnimationFrame(positionDetect15);
 				detectComplete= requestAnimationFrame(detectAnimationComplete);
@@ -2151,7 +2151,7 @@ window.requestAnimFrame = (function(){
 									'second':(characterTop-30),
 									'third':characterLeft,
 									'forth':(characterLeft+6),
-									'fifth':(brick9Top-18),
+									'fifth':(brick9Top-15),
 								};
 				
 				dropKeyframes.innerHTML = keyFrames.replace(/first|second|third|forth|fifth/g, m => dropValue[m]);
@@ -2596,11 +2596,11 @@ window.requestAnimFrame = (function(){
 			
 			
 			//jumptoBrick9
-			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft <= 14 && characterTop < 49 ){
+			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft < 13.3 && characterTop < 49 ){
 				
 				cancelAnimationFrame(positionDetect15);
 				detectComplete= requestAnimationFrame(detectAnimationComplete);
-				brick9TopNum = brick9Top-18;
+				brick9TopNum = brick9Top-15;
 				brick9LeftNum = characterLeft+6;
 				
 				var dropKeyframes = document.createElement('style');
@@ -2638,7 +2638,7 @@ window.requestAnimFrame = (function(){
 									'second':(characterTop-30),
 									'third':characterLeft,
 									'forth':(characterLeft+6),
-									'fifth':(brick9Top-18),
+									'fifth':(brick9Top-15),
 								};
 				
 				dropKeyframes.innerHTML = keyFrames.replace(/first|second|third|forth|fifth/g, m => dropValue[m]);
@@ -2655,6 +2655,7 @@ window.requestAnimFrame = (function(){
 				}
 			}
 			
+			//jumpToBrick10
 			if (obstacleLeft >= -200 && characterLeft > 16 && characterLeft <=21){
 			
 				cancelAnimationFrame(positionDetect16);
