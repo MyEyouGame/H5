@@ -1445,7 +1445,7 @@ window.requestAnimFrame = (function(){
 				document.getElementById('character').style.setProperty('top', upDown9 + '%');
 			}
 		
-			if(characterLeft > 21){
+			if(characterLeft > 20.5){
 				
 				var dropKeyframes = document.createElement('style');
 				dropKeyframes.type = 'text/css';
