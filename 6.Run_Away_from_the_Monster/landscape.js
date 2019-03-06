@@ -851,7 +851,7 @@ window.requestAnimFrame = (function(){
 			   
 	   positionDetect7 = requestAnimationFrame(positionDetectFA7);
 
-		if(obstacleLeft < -120){
+		if(obstacleLeft < -122){
 			
 			life=life-1;
 			crystalToggle = 1;
@@ -952,7 +952,7 @@ window.requestAnimFrame = (function(){
 	   positionDetect9 = requestAnimationFrame(positionDetectFA9);
 	   
 		if (obstacleLeft < -140 && characterTop > 73 && characterTop < 74){
-			
+	
 		var dropKeyframes = document.createElement('style');
 		dropKeyframes.type = 'text/css';
 		var keyFrames = '\
