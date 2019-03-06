@@ -2109,7 +2109,7 @@ window.requestAnimFrame = (function(){
 			
 			
 			//jumptoBrick9
-			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft < 13.9 && characterTop < 49 ){
+			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft < 13 && characterTop < 49 ){
 				
 				cancelAnimationFrame(positionDetect15);
 				detectComplete= requestAnimationFrame(detectAnimationComplete);
@@ -2596,7 +2596,7 @@ window.requestAnimFrame = (function(){
 			
 			
 			//jumptoBrick9
-			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft < 13.3 && characterTop < 49 ){
+			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft < 13 && characterTop < 49 ){
 				
 				cancelAnimationFrame(positionDetect15);
 				detectComplete= requestAnimationFrame(detectAnimationComplete);
