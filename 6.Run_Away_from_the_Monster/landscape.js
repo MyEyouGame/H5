@@ -1425,22 +1425,22 @@ window.requestAnimFrame = (function(){
 			positionDetect16 = requestAnimationFrame(positionDetectFA16);
 		
 			var upDown9 = brick9Top-15;
-			
+
 			if (value9Toggle === 0){
-				upDown9Value = upDown9+5;
-				console.log(characterTop,upDown9Value);
+				upDown9Value = brick9TopNum;
+				console.log(characterTop,brick9TopNum);
 				value9Toggle = 1;
 			}
 			
 			if (value9Toggle === 1 && value9Toggle2 === 0){
-				if(upDown9Value > characterTop){
-					character.style.animation = "";
-					character.style.webkitAnimation = "";
+				if(characterTop < upDown9Value && characterTop > upDown9Value-1){	
 					value9Toggle2=1;
 				}
 			}
 			
 			if(characterLeft > 17 && value9Toggle2 === 1){	
+				character.style.animation = "";
+				character.style.webkitAnimation = "";
 				brick9LeftNum = brick9LeftNum + 0.1;
 				document.getElementById('character').style.setProperty('left', brick9LeftNum + '%');
 				document.getElementById('character').style.setProperty('top', upDown9 + '%');
@@ -1739,6 +1739,8 @@ window.requestAnimFrame = (function(){
 	var graveStone3LifeToggle = 0;
 	var jumpToBrick7Toggle = 0;
 	var animationComplete = false;
+	var brick9Toggle = 0;
+	var brick10Toggle = 0;
 	
 	function mouseDown(e) {
 		var data3 = e.target.id;
@@ -2056,7 +2058,7 @@ window.requestAnimFrame = (function(){
 			}
 			
 			//jumpToBrick8
-			if (obstacleLeft <-185 && obstacleLeft >= -192 && characterTop < 34 && characterTop > 33){
+			if (obstacleLeft <-184 && obstacleLeft >= -192 && characterTop < 34 && characterTop > 33){
 				brick8TopNum = brick8Top-characterTop-10-35+51;
 				brick8LeftNum = characterLeft+3;
 				
@@ -2110,10 +2112,10 @@ window.requestAnimFrame = (function(){
 			
 			
 			//jumptoBrick9
-			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft <= 14 && characterTop < 49 ){
-				
+			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft < 13 && brick9Toggle === 0){
+				brick9Toggle = 1;
 				cancelAnimationFrame(positionDetect15);
-				detectComplete= requestAnimationFrame(detectAnimationComplete);
+				positionDetect16 = requestAnimationFrame(positionDetectFA16);
 				brick9TopNum = brick9Top-15;
 				brick9LeftNum = characterLeft+6;
 	
@@ -2160,19 +2162,65 @@ window.requestAnimFrame = (function(){
 			
 				character.style.animation = " jumptoBrick9 1s ease-in-out 1 forwards";
 				character.style.webkitAnimation = "jumptoBrick9 1s ease-in-out 1 forwards";			
-
-				character.addEventListener("animationend", myEndFunction);
-				character.addEventListener("webkitAnimationEnd", myEndFunction);
-				
-				function myEndFunction() {
-					animationComplete = true;
-				}
 			}
 			
-			if (obstacleLeft >= -200 && characterLeft > 16 && characterLeft <=21){
+			if (obstacleLeft >= -200 && characterLeft >= 13 && characterLeft <= 14 && brick9Toggle === 0){
+				brick9Toggle = 1;
+				cancelAnimationFrame(positionDetect15);
+				positionDetect16 = requestAnimationFrame(positionDetectFA16);
+				brick9TopNum = brick9Top-18;
+				brick9LeftNum = characterLeft+6;
+	
+				var dropKeyframes = document.createElement('style');
+				dropKeyframes.type = 'text/css';
+				var keyFrames = '\
+				@keyframes jumptoBrick9{\
+					0%{\
+						top: first%;\
+						left:third%;\
+					}\
+					50%{\
+						top: second%;\
+					}\
+					100%{\
+						top: fifth%;\
+						left:forth%;\
+					}\
+				}\
+				@-webkit-keyframes jumptoBrick9{\
+					0%{\
+						top: first%;\
+						left:third%;\
+					}\
+					50%{\
+						top: second%;\
+					}\
+					100%{\
+						top: fifth%;\
+						left:forth%;\
+					}\
+				}';
+				
+				var dropValue = {
+									'first':characterTop,
+									'second':(characterTop-30),
+									'third':characterLeft,
+									'forth':(characterLeft+6),
+									'fifth':(brick9Top-18),
+								};
+				
+				dropKeyframes.innerHTML = keyFrames.replace(/first|second|third|forth|fifth/g, m => dropValue[m]);
+				document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 			
+				character.style.animation = " jumptoBrick9 1s ease-in-out 1 forwards";
+				character.style.webkitAnimation = "jumptoBrick9 1s ease-in-out 1 forwards";			
+
+			}
+			
+			if (obstacleLeft >= -200 && characterLeft > 16 && characterLeft <=21 && brick10Toggle === 0){
+				brick10Toggle = 1;
 				cancelAnimationFrame(positionDetect16);
-			
+				
 				var dropKeyframes = document.createElement('style');
 				dropKeyframes.type = 'text/css';
 				var keyFrames = '\
@@ -2228,9 +2276,9 @@ window.requestAnimFrame = (function(){
 	}
 	
 	function touchstart(e) {
-		e.preventDefault(); 
 		var data3 = e.target.id;
 		console.log(data3);
+		e.preventDefault();
 		
 		var gameContainerElement  = document.querySelector('#gameContainer');
 		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
@@ -2544,9 +2592,10 @@ window.requestAnimFrame = (function(){
 			}
 			
 			//jumpToBrick8
-			if (obstacleLeft <-185 && obstacleLeft >= -192 && characterTop < 34 && characterTop > 33){
+			if (obstacleLeft <-184 && obstacleLeft >= -192 && characterTop < 34 && characterTop > 33){
 				brick8TopNum = brick8Top-characterTop-10-35+51;
 				brick8LeftNum = characterLeft+3;
+				
 				var dropKeyframes = document.createElement('style');
 				dropKeyframes.type = 'text/css';
 				var keyFrames = '\
@@ -2597,13 +2646,13 @@ window.requestAnimFrame = (function(){
 			
 			
 			//jumptoBrick9
-			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft <= 14 && characterTop < 49 ){
-				
+			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft < 13 && brick9Toggle === 0){
+				brick9Toggle = 1;
 				cancelAnimationFrame(positionDetect15);
-				detectComplete= requestAnimationFrame(detectAnimationComplete);
+				positionDetect16 = requestAnimationFrame(positionDetectFA16);
 				brick9TopNum = brick9Top-15;
 				brick9LeftNum = characterLeft+6;
-				
+	
 				var dropKeyframes = document.createElement('style');
 				dropKeyframes.type = 'text/css';
 				var keyFrames = '\
@@ -2647,20 +2696,65 @@ window.requestAnimFrame = (function(){
 			
 				character.style.animation = " jumptoBrick9 1s ease-in-out 1 forwards";
 				character.style.webkitAnimation = "jumptoBrick9 1s ease-in-out 1 forwards";			
-
-				character.addEventListener("animationend", myEndFunction);
-				character.addEventListener("webkitAnimationEnd", myEndFunction);
-				
-				function myEndFunction() {
-					animationComplete = true;
-				}
 			}
 			
-			//jumpToBrick10
-			if (obstacleLeft >= -200 && characterLeft > 16 && characterLeft <=21){
+			if (obstacleLeft >= -200 && characterLeft >= 13 && characterLeft <= 14 && brick9Toggle === 0){
+				brick9Toggle = 1;
+				cancelAnimationFrame(positionDetect15);
+				positionDetect16 = requestAnimationFrame(positionDetectFA16);
+				brick9TopNum = brick9Top-18;
+				brick9LeftNum = characterLeft+6;
+	
+				var dropKeyframes = document.createElement('style');
+				dropKeyframes.type = 'text/css';
+				var keyFrames = '\
+				@keyframes jumptoBrick9{\
+					0%{\
+						top: first%;\
+						left:third%;\
+					}\
+					50%{\
+						top: second%;\
+					}\
+					100%{\
+						top: fifth%;\
+						left:forth%;\
+					}\
+				}\
+				@-webkit-keyframes jumptoBrick9{\
+					0%{\
+						top: first%;\
+						left:third%;\
+					}\
+					50%{\
+						top: second%;\
+					}\
+					100%{\
+						top: fifth%;\
+						left:forth%;\
+					}\
+				}';
+				
+				var dropValue = {
+									'first':characterTop,
+									'second':(characterTop-30),
+									'third':characterLeft,
+									'forth':(characterLeft+6),
+									'fifth':(brick9Top-18),
+								};
+				
+				dropKeyframes.innerHTML = keyFrames.replace(/first|second|third|forth|fifth/g, m => dropValue[m]);
+				document.getElementsByTagName('div')[43].appendChild(dropKeyframes);
 			
+				character.style.animation = " jumptoBrick9 1s ease-in-out 1 forwards";
+				character.style.webkitAnimation = "jumptoBrick9 1s ease-in-out 1 forwards";			
+
+			}
+			
+			if (obstacleLeft >= -200 && characterLeft > 16 && characterLeft <=21 && brick10Toggle === 0){
+				brick10Toggle = 1;
 				cancelAnimationFrame(positionDetect16);
-			
+				
 				var dropKeyframes = document.createElement('style');
 				dropKeyframes.type = 'text/css';
 				var keyFrames = '\
@@ -2714,7 +2808,7 @@ window.requestAnimFrame = (function(){
 		}
 		
 	}
-	
+
 	function detectAnimationComplete(){
 		
 		detectComplete= requestAnimationFrame(detectAnimationComplete);
