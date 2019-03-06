@@ -1427,19 +1427,20 @@ window.requestAnimFrame = (function(){
 			var upDown9 = brick9Top-15;
 			
 			if (value9Toggle === 0){
-				upDown9Value = upDown9+3;
+				upDown9Value = upDown9+5;
+				console.log(characterTop,upDown9Value);
 				value9Toggle = 1;
 			}
 			
 			if (value9Toggle === 1 && value9Toggle2 === 0){
-				if(animationComplete === true){
+				if(upDown9Value > characterTop){
+					character.style.animation = "";
+					character.style.webkitAnimation = "";
 					value9Toggle2=1;
 				}
 			}
 			
 			if(characterLeft > 17 && value9Toggle2 === 1){	
-				character.style.animation = "";
-				character.style.webkitAnimation = "";
 				brick9LeftNum = brick9LeftNum + 0.1;
 				document.getElementById('character').style.setProperty('left', brick9LeftNum + '%');
 				document.getElementById('character').style.setProperty('top', upDown9 + '%');
@@ -2109,7 +2110,7 @@ window.requestAnimFrame = (function(){
 			
 			
 			//jumptoBrick9
-			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft < 13 && characterTop < 49 ){
+			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft <= 14 && characterTop < 49 ){
 				
 				cancelAnimationFrame(positionDetect15);
 				detectComplete= requestAnimationFrame(detectAnimationComplete);
@@ -2596,7 +2597,7 @@ window.requestAnimFrame = (function(){
 			
 			
 			//jumptoBrick9
-			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft < 13 && characterTop < 49 ){
+			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft <= 14 && characterTop < 49 ){
 				
 				cancelAnimationFrame(positionDetect15);
 				detectComplete= requestAnimationFrame(detectAnimationComplete);
