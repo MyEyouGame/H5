@@ -1769,52 +1769,51 @@ window.requestAnimFrame = (function(){
 	var jumpToBrick7Toggle = 0;
 	var animationComplete = false;
 	
-	
 	function mouseDown(e) {
-	var data3 = e.target.id;
-	// console.log(data3);
-	
-	var gameContainerElement  = document.querySelector('#gameContainer');
-	var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
-	var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
-	
-	var BoxElement  = document.querySelector('#obstacle');
-	var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
-	var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
-	
-	var characterElement  = document.querySelector('#character');
-	var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
-	var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
-	var characterTop = (100*characterTopValue)/BoxTopValue;
-	var characterLeft = (100*characterLeftValue)/BoxLeftValue;
-	
-	var obstacleElement  = document.querySelector('#obstacle');
-	var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
-	var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
-	var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
-	
-	var obstacleExtendElement  = document.querySelector('#obstacleExtend');
-	var obstacleExtendTopValue = getComputedStyle(obstacleExtendElement).getPropertyValue("top").split("px")[0];
-	var obstacleExtendLeftValue = getComputedStyle(obstacleExtendElement).getPropertyValue("left").split("px")[0];
-	var obstacleExtendLeft = (100*BoxLeftValue)/gameContainerLeftValue;
-	
-	var blockElement  = document.querySelector('#block');
-	var blockTopValue = getComputedStyle(blockElement).getPropertyValue("top").split("px")[0];
-	var blockLeftValue = getComputedStyle(blockElement).getPropertyValue("left").split("px")[0];
-	var blockTop = (100*blockTopValue)/BoxTopValue;
-	var blockLeft = (100*blockLeftValue)/BoxLeftValue;
-	
-	var brick8Element  = document.querySelector('#brick8');
-	var brick8TopValue = getComputedStyle(brick8Element).getPropertyValue("top").split("px")[0];
-	var brick8LeftValue = getComputedStyle(brick8Element).getPropertyValue("left").split("px")[0];	
-	var brick8Top = (100*brick8TopValue)/BoxTopValue;
-	var brick8Left = (100*brick8LeftValue)/BoxLeftValue;
-	
-	var brick9Element  = document.querySelector('#brick9');
-	var brick9TopValue = getComputedStyle(brick9Element).getPropertyValue("top").split("px")[0];
-	var brick9LeftValue = getComputedStyle(brick9Element).getPropertyValue("left").split("px")[0];	
-	var brick9Top = (100*brick9TopValue)/BoxTopValue;
-	var brick9Left = (100*brick9LeftValue)/BoxLeftValue;
+		var data3 = e.target.id;
+		console.log(data3);
+		
+		var gameContainerElement  = document.querySelector('#gameContainer');
+		var gameContainerTopValue = getComputedStyle(gameContainerElement).getPropertyValue("height").split("px")[0];
+		var gameContainerLeftValue = getComputedStyle(gameContainerElement).getPropertyValue("width").split("px")[0];
+		
+		var BoxElement  = document.querySelector('#obstacle');
+		var BoxTopValue = getComputedStyle(BoxElement).getPropertyValue("height").split("px")[0];
+		var BoxLeftValue = getComputedStyle(BoxElement).getPropertyValue("width").split("px")[0];
+		
+		var characterElement  = document.querySelector('#character');
+		var characterTopValue = getComputedStyle(characterElement).getPropertyValue("top").split("px")[0];
+		var characterLeftValue = getComputedStyle(characterElement).getPropertyValue("left").split("px")[0];	
+		var characterTop = (100*characterTopValue)/BoxTopValue;
+		var characterLeft = (100*characterLeftValue)/BoxLeftValue;
+		
+		var obstacleElement  = document.querySelector('#obstacle');
+		var obstacleTopValue = getComputedStyle(obstacleElement).getPropertyValue("top").split("px")[0];
+		var obstacleLeftValue = getComputedStyle(obstacleElement).getPropertyValue("left").split("px")[0];	
+		var obstacleLeft = (100*obstacleLeftValue)/gameContainerLeftValue;
+		
+		var obstacleExtendElement  = document.querySelector('#obstacleExtend');
+		var obstacleExtendTopValue = getComputedStyle(obstacleExtendElement).getPropertyValue("top").split("px")[0];
+		var obstacleExtendLeftValue = getComputedStyle(obstacleExtendElement).getPropertyValue("left").split("px")[0];
+		var obstacleExtendLeft = (100*BoxLeftValue)/gameContainerLeftValue;
+		
+		var blockElement  = document.querySelector('#block');
+		var blockTopValue = getComputedStyle(blockElement).getPropertyValue("top").split("px")[0];
+		var blockLeftValue = getComputedStyle(blockElement).getPropertyValue("left").split("px")[0];
+		var blockTop = (100*blockTopValue)/BoxTopValue;
+		var blockLeft = (100*blockLeftValue)/BoxLeftValue;
+		
+		var brick8Element  = document.querySelector('#brick8');
+		var brick8TopValue = getComputedStyle(brick8Element).getPropertyValue("top").split("px")[0];
+		var brick8LeftValue = getComputedStyle(brick8Element).getPropertyValue("left").split("px")[0];	
+		var brick8Top = (100*brick8TopValue)/BoxTopValue;
+		var brick8Left = (100*brick8LeftValue)/BoxLeftValue;
+		
+		var brick9Element  = document.querySelector('#brick9');
+		var brick9TopValue = getComputedStyle(brick9Element).getPropertyValue("top").split("px")[0];
+		var brick9LeftValue = getComputedStyle(brick9Element).getPropertyValue("left").split("px")[0];	
+		var brick9Top = (100*brick9TopValue)/BoxTopValue;
+		var brick9Left = (100*brick9LeftValue)/BoxLeftValue;
 		
 		if( data3 === "startCharacter" || data3 === "startBackground" || data3 ===  "startCursor"){
 			startAnimation();
@@ -1837,7 +1836,7 @@ window.requestAnimFrame = (function(){
 			location.reload();
 			
 		}
-	
+		
 		if (data3 === "jumpEvent"){
 			console.log(obstacleLeft,characterTop,characterLeft);
 			
@@ -1845,8 +1844,7 @@ window.requestAnimFrame = (function(){
 				
 				life=life-1;
 				crystalToggle = 2;
-				loseCrystal(life,crystalToggle);
-				
+				loseCrystal(life,crystalToggle);		
 			}
 			
 			if (obstacleLeft>-7 && characterTop<74 && characterTop>73 && jumpToggle === 0) {
@@ -2136,7 +2134,8 @@ window.requestAnimFrame = (function(){
 					
 				positionDetect15 = requestAnimationFrame(positionDetectFA15);
 				cancelAnimationFrame(positionDetect12);
-			}			
+			}				
+			
 			
 			//jumptoBrick9
 			if (obstacleLeft >= -200 && characterLeft > 11 && characterLeft <= 14 && characterTop < 49 ){
@@ -2251,6 +2250,7 @@ window.requestAnimFrame = (function(){
 				
 			}
 		}
+		
 	}
 	
 	function touchstart(e) {
