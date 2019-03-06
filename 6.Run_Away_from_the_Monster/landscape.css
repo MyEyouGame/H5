@@ -66,21 +66,19 @@
 	  to{ bottom:0; opacity:1 }
 	}
 	
-	#background{	
+	#background,#gradientBox{	
 		position:absolute;	
 		height:100%;
 		width:100%;
-		
-		/* top: 38%; */
-		/* left: 4%; */
-		/* height: 31%; */
-		/* width: 30%; */
 		
 		background-Size : 100% 100%; 
 		background-repeat:no-repeat;
 		overflow:hidden;
 		
 		z-index: -10;
+	}
+	#gradientBox{
+		z-index: 0;
 	}
 		#greenGradient{	
 			position:absolute;	
