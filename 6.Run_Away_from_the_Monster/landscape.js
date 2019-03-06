@@ -1424,7 +1424,7 @@ window.requestAnimFrame = (function(){
 			
 			positionDetect16 = requestAnimationFrame(positionDetectFA16);
 		
-			var upDown9 = brick9Top-15;
+			var upDown9 = brick9Top-18;
 			
 			if (value9Toggle === 0){
 				upDown9Value = upDown9+3;
@@ -2151,7 +2151,7 @@ window.requestAnimFrame = (function(){
 									'second':(characterTop-30),
 									'third':characterLeft,
 									'forth':(characterLeft+6),
-									'fifth':(brick9Top-15),
+									'fifth':(brick9Top-18),
 								};
 				
 				dropKeyframes.innerHTML = keyFrames.replace(/first|second|third|forth|fifth/g, m => dropValue[m]);
