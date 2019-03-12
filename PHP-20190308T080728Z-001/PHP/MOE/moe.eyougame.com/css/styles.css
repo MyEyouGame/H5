@@ -1,0 +1,387 @@
+html{	
+	background: url("../images/bg.jpg") center top no-repeat ;
+	background-size: cover;
+}
+body{
+	margin:0;
+	/* background: url("images/sakura.gif") center top repeat,;
+	background-size:10%; */
+}
+.menu{
+	margin: 0% 22% 0% 20%;
+	border-collapse:collapse;
+}
+.container{
+	margin: 15% 21% 0% 21%;
+	background: url("../images/sakura.gif") center top repeat;
+	background-size:20%;
+}
+.container2{
+	margin: 11% 22% auto 21%;
+	background: url("../images/sakura.gif") center top repeat;
+	background-size:20%;
+}
+.container3{
+	margin:4% 23% 1% 22%
+}
+.container3_2{
+	margin:0% 23% auto 22%
+}
+.container5{
+	margin:35% 22% auto 22%
+}
+.container6{
+	margin: 0% 12% 25.5% 12%;
+}
+.container4{
+	margin:31% 22% auto 22%
+}
+
+.container9{
+	margin:1% 23% 0% 22%;
+}
+.tbl1 {	
+	width:100%;	
+	border-collapse:collapse;
+}
+.tbl2{
+	width:100%;	
+	background-color:rgb(155, 240, 238);
+	border-collapse: collapse;
+}
+
+.tr1 {	 
+	text-align:right;	
+	width:100%;
+} 
+.tr2{
+	background-color:rgba(47, 164, 255, 1);
+	text-align:center;
+}
+
+.td1{
+
+	width:43%;
+	position:relative;
+	
+}
+.td2{
+	width:19%;	
+	vertical-align:bottom;
+	padding:0.5%;
+}
+.td3{
+	width:14.28%;
+}
+.td4{
+	width:14.29%;
+}
+.td5{
+	width:16%;
+	color:white;
+	float:left;
+	padding:2%;
+}
+.td6{
+	width: 36%;
+	color:white;
+	float:left;
+	padding:2%;
+}
+.td7{
+	width:16.6%;
+}
+.td8{
+	width:16.7%;
+}
+.td9{
+	vertical-align:top;
+	padding-left:2%;
+	width:50%;
+}
+.fb,.insta{	
+	background-color: Transparent;
+	width:100%;
+	float:right;
+}
+
+.fb:hover,.insta:hover,.vd1_play:hover,.apps_logo:hover,.qrcode:hover,
+.dl1:hover,.dl2:hover,.dl3:hover,.dl4:hover,.playbtn:hover,
+.home:hover,.information:hover,.data:hover,.screenshot:hover,
+.recharge:hover,.customerservice:hover,.eyougame:hover,
+.databtn{	
+	cursor:pointer;	
+}
+
+#btn1:hover,#btn2:hover,#btn3:hover,#btn4:hover{
+	cursor:pointer;
+	background-color:rgba(83,114,255,1);
+}
+
+a{
+	text-decoration:none;
+	outline: 0;
+}
+
+.playbtn{	
+	width: 20%;
+	margin-top: 20%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.apps_logo,.vd1,.qrcode,.dl1,.dl2,.dl3,.dl4{
+	width:100%;
+	float:left;
+}
+
+.img_playbtn{	
+	position: absolute;
+	width: 100%;
+}
+
+
+.bg-menu{
+	width:100%;
+}
+.div1 {
+    width: 50%;
+	float:left;
+	margin-bottom:3%;
+}
+.div2{
+	padding-right:2%; 
+	width:53%;
+	float:left;
+}
+.div3{
+	padding-left:2%; 
+	width:43%;
+	float:left;
+}
+.div4{
+	margin-left:-3%;
+}
+.icon{
+	width:15%;
+}
+
+.word{
+	width: 70%;
+	padding-left:2%;
+	margin-bottom:1%;
+	margin-left:1%;
+}
+
+.words{
+	padding:1%;
+}
+
+.info_pic{
+	width:100%;
+	width:100%;
+	padding:2%;
+}
+
+.left{
+	width:100%;
+	margin-left:32%;
+	position:relative;
+	z-index:1;
+}
+.d_bg{
+	width:100%;
+	float:left;
+	padding-top: 6.5%;
+}
+.d_pic{
+	width: 100%;
+    display: block;	
+}
+.data_pic{
+	position: absolute;
+	width: 96%;
+	padding-top: 7.8%;
+	padding-left: 2%;
+}
+.right{
+	width:100%;
+	margin-left:-27%;
+	position:relative;
+	z-index:1;
+}
+#screenshot_pic{
+	position: absolute;
+    padding-top: 5%;
+    padding-left: 15%;
+	padding-right: 27%;
+}
+
+.databtn,
+.screenshot1,.screenshot2,.screenshot3,.screenshot4,.app_icon{
+	width:100%;
+}
+.home,.information,.data,.screenshot,.recharge,.customerservice,.eyougame{
+	margin-top:5%;
+	margin-bottom:10%;
+	width:100%;
+	
+}
+.center-cropped {
+  object-fit: none; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: 50px;
+  width: 50px;
+}
+
+#menu1{
+	background-image: url('../images/menu/blue-left.png');
+    background-repeat: no-repeat;
+    background-size: 100%; 
+}
+#menu1:hover{
+	background-image: url('../images/menu/blue-left2.png');
+}
+#menu2{
+	background-image: url('../images/menu/blue.png');
+    background-repeat: no-repeat;
+    background-size: 100%; 
+}
+#menu2:hover{
+	background-image: url('../images/menu/blue2.png');
+}
+#menu3{
+	background-image: url('../images/menu/blue.png');
+    background-repeat: no-repeat;
+    background-size: 100%; 
+}
+#menu3:hover{
+	background-image: url('../images/menu/blue2.png');
+}
+#menu4{
+	background-image: url('../images/menu/blue.png');
+    background-repeat: no-repeat;
+    background-size: 100%; 
+}
+#menu4:hover{
+	background-image: url('../images/menu/blue2.png');
+}
+#menu5{
+	background-image: url('../images/menu/blue.png');
+    background-repeat: no-repeat;
+    background-size: 100%; 
+}
+#menu5:hover{
+	background-image: url('../images/menu/blue2.png');
+}
+#menu6{
+	background-image: url('../images/menu/blue.png');
+    background-repeat: no-repeat;
+    background-size: 100%; 
+}
+#menu6:hover{
+	background-image: url('../images/menu/blue2.png');
+}
+#menu7{
+	background-image: url('../images/menu/blue-right.png');
+    background-repeat: no-repeat;
+    background-size: 100%; 
+}
+#menu7:hover{
+	background-image: url('../images/menu/blue-right2.png');
+}
+
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+#header {
+	background:transparent;
+	padding:0px;
+}
+#content {
+	padding-bottom:15%; /* Height of the footer element */
+}
+#footer {
+	background-color:rgb(24,136,222);
+	width:100%;
+	height:4.5%;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+/* jssor slider bullet navigator skin 05 css */
+        /*
+        .jssorb05 div           (normal)
+        .jssorb05 div:hover     (normal mouseover)
+        .jssorb05 .av           (active)
+        .jssorb05 .av:hover     (active mouseover)
+        .jssorb05 .dn           (mousedown)
+        */
+        .jssorb05 {
+            position: absolute;
+        }
+        .jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
+            position: absolute;
+            /* size of bullet elment */
+            width: 16px;
+            height: 16px;
+            background: url('../images/slideshow/b05.png') no-repeat;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .jssorb05 div { 
+			background-position: -7px -7px; 
+		}
+        .jssorb05 div:hover, .jssorb05 .av:hover { 
+			background-position: -37px -7px; 
+		}
+        .jssorb05 .av { 
+			background-position: -67px -7px; 
+		}
+        .jssorb05 .dn, .jssorb05 .dn:hover { 
+			background-position: -97px -7px; 
+		}
+
+		.circle{
+			width: 30%;
+			margin-top: 15%;
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
+		}
+		.play-bg{ 
+		
+			width: 30%;
+			margin-top: 15%;
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
+			
+			-webkit-animation:3s linear 0s normal none infinite rotate; 
+			-moz-animation:3s linear 0s normal none infinite rotate; 
+			-o-animation:3s linear 0s normal none infinite rotate; 
+			animation: 3s linear 0s normal none infinite rotate; 
+			}
+			@-webkit-keyframes rotate{
+			from{-webkit-transform:rotate(0deg)}
+			to{-webkit-transform:rotate(360deg)}
+			}
+			@-moz-keyframes rotate{
+			from{-moz-transform:rotate(0deg)}
+			to{-moz-transform:rotate(360deg)}
+			}
+			@-ms-keyframes rotate{
+			from{-ms-transform:rotate(0deg)}
+			to{-ms-transform:rotate(360deg)}
+			}
+			@-o-keyframes rotate{
+			from{-o-transform:rotate(0deg)}
+			to{-o-transform:rotate(360deg)}
+			}
+			@keyframes rotate{
+			from{transform:rotate(0deg)}
+			to{transform:rotate(360deg)}
+		}
